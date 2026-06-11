@@ -1,7 +1,7 @@
 // WebLLM Qwen2.5-0.5B-Instruct On-Device AI Service
 
 let engine: any = null;
-const MODEL_ID = 'Qwen2.5-0.5B-Instruct-q4f16_1-MLC';
+const MODEL_ID = 'Qwen2.5-0.5B-Instruct-q4f32_1-MLC';
 
 export const qwenAIService = {
   // WebGPU 지원 여부 체크
