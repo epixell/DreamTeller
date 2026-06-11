@@ -18,6 +18,7 @@ export default function App() {
   const [currentView, setCurrentView] = useState<'main' | 'admin'>('main');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isGuideOpen, setIsGuideOpen] = useState(false);
+  const [chromeSubMode, setChromeSubMode] = useState<'setup' | 'download'>('setup');
   
   // Interpretation States
   const [isProcessing, setIsProcessing] = useState(false);
@@ -101,19 +102,23 @@ export default function App() {
     setSettings(updated);
     storageService.saveSettings(updated);
 
+    setChromeSubMode('setup');
     setIsSettingsOpen(false); // Settings 창 닫기
     setIsGuideOpen(true);     // 가이드 창 열기
   };
 
-  const handleTriggerChromeDownload = async () => {
+  const handleTriggerChromeDownload = () => {
     // 크롬 AI 설정 활성화
     const updated = { ...settings, preferredEngine: 'chrome-nano' as const };
     setSettings(updated);
     storageService.saveSettings(updated);
 
+    setChromeSubMode('download');
     setIsSettingsOpen(false); // Settings 창 닫기
     setIsGuideOpen(true);     // 가이드 창 열기
+  };
 
+  const handleStartChromeDownload = async () => {
     setIsDownloading(true);
     setDownloadProgress(0);
     setDownloadText('크롬 AI 모델 다운로드 활성화 시작 중...');
@@ -366,6 +371,8 @@ export default function App() {
         isDownloading={isDownloading}
         onStartQwenDownload={() => handleStartQwenDownload()}
         onSelectEngine={handleSelectEngine}
+        chromeSubMode={chromeSubMode}
+        onStartChromeDownload={handleStartChromeDownload}
       />
 
     </div>

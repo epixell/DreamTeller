@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Copy, Globe, HelpCircle, Download, Check, RefreshCw } from 'lucide-react';
 
 interface GuideModalProps {
@@ -15,6 +15,8 @@ interface GuideModalProps {
   isDownloading: boolean;
   onStartQwenDownload: () => void;
   onSelectEngine: (engine: 'chrome-nano' | 'qwen-local' | 'mock-demo') => void;
+  chromeSubMode?: 'setup' | 'download';
+  onStartChromeDownload?: () => void;
 }
 
 export const GuideModal: React.FC<GuideModalProps> = ({
@@ -26,11 +28,20 @@ export const GuideModal: React.FC<GuideModalProps> = ({
   downloadText,
   isDownloading,
   onStartQwenDownload,
-  onSelectEngine
+  onSelectEngine,
+  chromeSubMode = 'setup',
+  onStartChromeDownload
 }) => {
   const [copiedFlag1, setCopiedFlag1] = useState(false);
   const [copiedFlag2, setCopiedFlag2] = useState(false);
   const [copiedComponents, setCopiedComponents] = useState(false);
+  const [localSubMode, setLocalSubMode] = useState<'setup' | 'download'>('setup');
+
+  useEffect(() => {
+    if (isOpen && chromeSubMode) {
+      setLocalSubMode(chromeSubMode);
+    }
+  }, [isOpen, chromeSubMode]);
 
   if (!isOpen) return null;
 
@@ -153,71 +164,112 @@ export const GuideModal: React.FC<GuideModalProps> = ({
                   </div>
 
                   <div style={styles.guideContainer} className="fade-in">
-                    <h4 style={styles.guideHeader}>크롬 내장 AI(Gemini Nano) 설정 및 다운로드 3단계</h4>
+                    <h4 style={styles.guideHeader}>
+                      {localSubMode === 'setup' 
+                        ? '1단계: 크롬 플래그 설정 및 재시작' 
+                        : '2단계: 크롬 AI 모델 파일 다운로드'}
+                    </h4>
                     
-                    <div style={styles.step}>
-                      <div style={styles.stepBadge}>1</div>
-                      <div style={styles.stepContent}>
-                        <span style={styles.stepLabel}>크롬 플래그 설정 및 재시작 (최초 1회)</span>
-                        <p style={styles.stepDesc}>아래 각 주소를 복사해 주소창에 넣은 뒤, 각 항목을 활성화하고 크롬을 재시작합니다.</p>
-                        
-                        {/* Flag 1 */}
-                        <div style={{ ...styles.copyBox, marginBottom: '6px' }}>
-                          <code style={styles.codeText}>{flag1}</code>
-                          <button onClick={() => handleCopy(flag1, 1)} style={styles.copyBtn} title="주소 복사">
-                            {copiedFlag1 ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
-                          </button>
+                    {localSubMode === 'setup' ? (
+                      /* ================= 1단계: 플래그 설정 가이드 ================= */
+                      <div style={styles.step} className="fade-in">
+                        <div style={styles.stepBadge}>1</div>
+                        <div style={styles.stepContent}>
+                          <span style={styles.stepLabel}>크롬 플래그 활성화</span>
+                          <p style={styles.stepDesc}>아래 각 주소를 복사해 주소창에 넣은 뒤, 각 항목을 활성화하고 크롬을 재시작합니다.</p>
+                          
+                          {/* Flag 1 */}
+                          <div style={{ ...styles.copyBox, marginBottom: '6px' }}>
+                            <code style={styles.codeText}>{flag1}</code>
+                            <button onClick={() => handleCopy(flag1, 1)} style={styles.copyBtn} title="주소 복사">
+                              {copiedFlag1 ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
+                            </button>
+                          </div>
+                          <p style={{ fontSize: '0.76rem', color: 'var(--text-muted)', margin: '2px 0 16px 4px', lineHeight: '1.4' }}>
+                            👉 이동 후 <b>Enables optimization guide on device</b> 항목의 값을 <b>Enabled BypassPerfRequirement</b>로 변경합니다.
+                          </p>
+
+                          {/* Flag 2 */}
+                          <div style={{ ...styles.copyBox, marginBottom: '6px' }}>
+                            <code style={styles.codeText}>{flag2}</code>
+                            <button onClick={() => handleCopy(flag2, 2)} style={styles.copyBtn} title="주소 복사">
+                              {copiedFlag2 ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
+                            </button>
+                          </div>
+                          <p style={{ fontSize: '0.76rem', color: 'var(--text-muted)', margin: '2px 0 16px 4px', lineHeight: '1.4' }}>
+                            👉 이동 후 <b>Prompt API for Gemini Nano</b> 항목의 값을 <b>Enabled</b>로 변경합니다.
+                          </p>
+
+                          <p style={{ ...styles.stepDesc, marginTop: '10px', color: 'var(--color-secondary)', fontWeight: '600' }}>
+                            ※ 두 설정을 변경한 뒤, 크롬 우측 하단의 [Relaunch](다시 시작) 버튼을 눌러 브라우저를 재시작해 주세요.
+                          </p>
                         </div>
-                        <p style={{ fontSize: '0.76rem', color: 'var(--text-muted)', margin: '2px 0 16px 4px', lineHeight: '1.4' }}>
-                          👉 이동 후 <b>Enables optimization guide on device</b> 항목의 값을 <b>Enabled BypassPerfRequirement</b>로 변경합니다.
-                        </p>
+                      </div>
+                    ) : (
+                      /* ================= 2단계: 모델 파일 다운로드 가이드 ================= */
+                      <div style={styles.step} className="fade-in">
+                        <div style={styles.stepBadge}>2</div>
+                        <div style={styles.stepContent}>
+                          <span style={styles.stepLabel}>실제 AI 모델 파일 다운로드</span>
+                          <p style={styles.stepDesc}>아래 주소를 주소창에 복사해 이동하여 실제 AI 모델 파일을 다운로드합니다.</p>
+                          
+                          <div style={{ ...styles.copyBox, marginBottom: '6px' }}>
+                            <code style={styles.codeText}>{compUrl}</code>
+                            <button onClick={() => handleCopy(compUrl, 3)} style={styles.copyBtn} title="주소 복사">
+                              {copiedComponents ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
+                            </button>
+                          </div>
+                          <p style={{ fontSize: '0.76rem', color: 'var(--text-muted)', margin: '2px 0 0 4px', lineHeight: '1.4' }}>
+                            👉 이동 후 <b>Optimization Guide On Device Model</b> 항목을 찾아 우측의 <b>[업데이트 확인]</b> 버튼을 누릅니다. (다운로드가 완료되어 버전 번호가 정상 표기될 때까지 대기합니다.)
+                          </p>
 
-                        {/* Flag 2 */}
-                        <div style={{ ...styles.copyBox, marginBottom: '6px' }}>
-                          <code style={styles.codeText}>{flag2}</code>
-                          <button onClick={() => handleCopy(flag2, 2)} style={styles.copyBtn} title="주소 복사">
-                            {copiedFlag2 ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
-                          </button>
+                          {onStartChromeDownload && (
+                            <div style={{ marginTop: '14px', borderTop: '1px solid rgba(255, 255, 255, 0.05)', paddingTop: '12px' }}>
+                              <button 
+                                onClick={onStartChromeDownload}
+                                className="glow-btn"
+                                style={{
+                                  padding: '8px 16px',
+                                  fontSize: '0.8rem',
+                                  fontWeight: '600',
+                                  borderRadius: '20px',
+                                  cursor: 'pointer',
+                                  border: 'none',
+                                  display: 'inline-flex',
+                                  alignItems: 'center',
+                                  gap: '6px'
+                                }}
+                              >
+                                ⚡ 브라우저 자동 다운로드/활성화 시도
+                              </button>
+                              <p style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '6px', lineHeight: '1.4', margin: '6px 0 0 0' }}>
+                                * 수동 다운로드가 번거롭다면 위 버튼을 클릭해 보세요. 일부 크롬 버전에서는 백그라운드에서 즉시 다운로드가 시작됩니다.
+                              </p>
+                            </div>
+                          )}
                         </div>
-                        <p style={{ fontSize: '0.76rem', color: 'var(--text-muted)', margin: '2px 0 16px 4px', lineHeight: '1.4' }}>
-                          👉 이동 후 <b>Prompt API for Gemini Nano</b> 항목의 값을 <b>Enabled</b>로 변경합니다.
-                        </p>
-
-                        <p style={{ ...styles.stepDesc, marginTop: '10px', color: 'var(--color-secondary)', fontWeight: '600' }}>
-                          ※ 두 설정을 변경한 뒤, 크롬 우측 하단의 [Relaunch](다시 시작) 버튼을 눌러 브라우저를 재시작해 주세요.
-                        </p>
                       </div>
-                    </div>
-
-                    <div style={styles.step}>
-                      <div style={styles.stepBadge}>2</div>
-                      <div style={styles.stepContent}>
-                        <span style={styles.stepLabel}>실제 AI 모델 파일 다운로드</span>
-                        <p style={styles.stepDesc}>아래 주소를 주소창에 복사해 이동하여 실제 AI 모델 파일을 다운로드합니다.</p>
-                        
-                        <div style={{ ...styles.copyBox, marginBottom: '6px' }}>
-                          <code style={styles.codeText}>{compUrl}</code>
-                          <button onClick={() => handleCopy(compUrl, 3)} style={styles.copyBtn} title="주소 복사">
-                            {copiedComponents ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
-                          </button>
-                        </div>
-                        <p style={{ fontSize: '0.76rem', color: 'var(--text-muted)', margin: '2px 0 0 4px', lineHeight: '1.4' }}>
-                          👉 이동 후 <b>Optimization Guide On Device Model</b> 항목을 찾아 우측의 <b>[업데이트 확인]</b> 버튼을 누릅니다. (다운로드가 완료되어 버전 번호가 정상 표기될 때까지 대기합니다.)
-                        </p>
-                      </div>
-                    </div>
-
-                    <div style={styles.step}>
-                      <div style={styles.stepBadge}>3</div>
-                      <div style={styles.stepContent}>
-                        <span style={styles.stepLabel}>완료 및 새로고침 적용</span>
-                        <p style={styles.stepDesc}>다운로드가 끝나면 아래 [새로고침 적용] 버튼을 눌러 상태를 갱신합니다.</p>
-                      </div>
-                    </div>
+                    )}
 
                     <div style={styles.guideFooter}>
-                      <button onClick={() => onSelectEngine('mock-demo')} style={styles.backBtn}>🔮 사전 해몽으로 체인지</button>
-                      <button onClick={() => window.location.reload()} style={styles.reloadBtn}>
+                      {localSubMode === 'setup' ? (
+                        <button 
+                          onClick={() => setLocalSubMode('download')} 
+                          style={styles.reloadBtn}
+                        >
+                          다음: 모델 다운받기 ➡️
+                        </button>
+                      ) : (
+                        <button 
+                          onClick={() => setLocalSubMode('setup')} 
+                          style={styles.secondaryBtn}
+                          className="settings-action-btn"
+                        >
+                          ⬅️ 이전: 플래그 설정 보기
+                        </button>
+                      )}
+                      
+                      <button onClick={() => window.location.reload()} style={{ ...styles.reloadBtn, backgroundColor: 'transparent', border: '1px solid var(--border-color)', color: '#fff' }}>
                         <RefreshCw size={14} style={{ marginRight: '6px' }} /> 새로고침 적용
                       </button>
                     </div>
