@@ -2,14 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { Settings, X, Key, Cpu, Cloud, FileText, Sparkles } from 'lucide-react';
 import { storageService } from '../services/storageService';
 import type { AppSettings } from '../services/storageService';
+import { qwenAIService } from '../services/qwenAIService';
 
 interface SettingsModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSettingsChange?: (settings: AppSettings) => void;
+  browserInfo: {
+    isChrome: boolean;
+    chromeAIAvailable: boolean;
+    reason?: 'no' | 'after-download' | 'not-chrome';
+  };
+  onTriggerQwenDownload: () => void;
+  onTriggerChromeGuide: () => void;
 }
 
-export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, onSettingsChange }) => {
+export const SettingsModal: React.FC<SettingsModalProps> = ({ 
+  isOpen, 
+  onClose, 
+  onSettingsChange,
+  browserInfo,
+  onTriggerQwenDownload,
+  onTriggerChromeGuide
+}) => {
   const [settings, setSettings] = useState<AppSettings>({
     preferredEngine: 'chrome-nano',
     geminiApiKey: '',
@@ -54,64 +69,132 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, o
             </p>
 
             <div style={styles.engineGrid}>
+              
               {/* Chrome Nano */}
               <div 
                 onClick={() => setSettings(prev => ({ ...prev, preferredEngine: 'chrome-nano' }))}
+                className={`settings-card ${settings.preferredEngine === 'chrome-nano' ? 'settings-card-active' : ''}`}
                 style={{
                   ...styles.engineCard,
                   ...(settings.preferredEngine === 'chrome-nano' ? styles.engineCardActive : {})
                 }}
               >
-                <div style={styles.cardHeader}>
-                  <Sparkles size={18} color="var(--color-secondary)" />
-                  <span style={styles.cardTitle}>Chrome Gemini Nano</span>
+                <div style={styles.cardMainContent}>
+                  <div style={styles.cardHeader}>
+                    <Sparkles size={18} color="var(--color-secondary)" />
+                    <span style={styles.cardTitle}>Chrome Gemini Nano</span>
+                    {browserInfo.chromeAIAvailable ? (
+                      <span style={styles.badgeSuccess}>✓ 활성화됨</span>
+                    ) : (
+                      <span style={styles.badgeWarning}>✗ 설정 필요</span>
+                    )}
+                  </div>
+                  <p style={styles.cardDesc}>크롬 브라우저 내장 온디바이스 AI. (가장 빠름, 무료)</p>
                 </div>
-                <p style={styles.cardDesc}>크롬 브라우저 내장 온디바이스 AI. (가장 빠름, 무료, 설정 필요)</p>
+                {!browserInfo.chromeAIAvailable && (
+                  <div style={styles.cardActionContainer}>
+                    <button 
+                      onClick={(e) => { e.stopPropagation(); onTriggerChromeGuide(); }} 
+                      className="settings-action-btn"
+                      style={styles.cardActionBtn}
+                      title="크롬 내장 AI 설정 가이드 보기"
+                    >
+                      ⚙️ 설정하기
+                    </button>
+                  </div>
+                )}
               </div>
 
               {/* Qwen Local */}
               <div 
                 onClick={() => setSettings(prev => ({ ...prev, preferredEngine: 'qwen-local' }))}
+                className={`settings-card ${settings.preferredEngine === 'qwen-local' ? 'settings-card-active' : ''}`}
                 style={{
                   ...styles.engineCard,
                   ...(settings.preferredEngine === 'qwen-local' ? styles.engineCardActive : {})
                 }}
               >
-                <div style={styles.cardHeader}>
-                  <Cpu size={18} color="var(--color-primary)" />
-                  <span style={styles.cardTitle}>로컬 AI (Qwen2.5)</span>
+                <div style={styles.cardMainContent}>
+                  <div style={styles.cardHeader}>
+                    <Cpu size={18} color="var(--color-primary)" />
+                    <span style={styles.cardTitle}>로컬 AI (Qwen2.5)</span>
+                    {qwenAIService.isLoaded() ? (
+                      <span style={styles.badgeSuccess}>✓ 준비 완료</span>
+                    ) : (
+                      <span style={styles.badgeWarning}>📥 다운로드 필요</span>
+                    )}
+                  </div>
+                  <p style={styles.cardDesc}>브라우저 내부 구동 AI 모델. (최초 1회 약 300MB 다운로드 필요)</p>
                 </div>
-                <p style={styles.cardDesc}>브라우저 로컬 구동 대규모 모델. (약 300MB 다운로드 필요, WebGPU 권장)</p>
+                {!qwenAIService.isLoaded() && (
+                  <div style={styles.cardActionContainer}>
+                    <button 
+                      onClick={(e) => { e.stopPropagation(); onTriggerQwenDownload(); }} 
+                      className="settings-action-btn"
+                      style={styles.cardActionBtn}
+                      title="Qwen AI 로컬 다운로드 시작"
+                    >
+                      📦 다운받기
+                    </button>
+                  </div>
+                )}
               </div>
 
               {/* Gemini Cloud API */}
               <div 
                 onClick={() => setSettings(prev => ({ ...prev, preferredEngine: 'gemini-api' }))}
+                className={`settings-card ${settings.preferredEngine === 'gemini-api' ? 'settings-card-active' : ''}`}
                 style={{
                   ...styles.engineCard,
                   ...(settings.preferredEngine === 'gemini-api' ? styles.engineCardActive : {})
                 }}
               >
-                <div style={styles.cardHeader}>
-                  <Cloud size={18} color="#4dabf7" />
-                  <span style={styles.cardTitle}>Gemini Cloud API</span>
+                <div style={styles.cardMainContent}>
+                  <div style={styles.cardHeader}>
+                    <Cloud size={18} color="#4dabf7" />
+                    <span style={styles.cardTitle}>Gemini Cloud API</span>
+                    {settings.geminiApiKey.trim().length > 5 ? (
+                      <span style={styles.badgeSuccess}>✓ 키 설정됨</span>
+                    ) : (
+                      <span style={styles.badgeWarning}>🔑 키 필요</span>
+                    )}
+                  </div>
+                  <p style={styles.cardDesc}>구글 클라우드 기반 해석. (가장 고품질 해석, API 키 입력 필요)</p>
                 </div>
-                <p style={styles.cardDesc}>구글 클라우드 기반 초거대 AI 해석. (가장 고품질 해석, API 키 입력 필요)</p>
+                {!settings.geminiApiKey.trim() && (
+                  <div style={styles.cardActionContainer}>
+                    <button 
+                      onClick={(e) => { 
+                        e.stopPropagation(); 
+                        setSettings(prev => ({ ...prev, preferredEngine: 'gemini-api' })); 
+                      }} 
+                      className="settings-action-btn"
+                      style={styles.cardActionBtn}
+                      title="Gemini API 키 입력 필드 활성화"
+                    >
+                      🔑 설정하기
+                    </button>
+                  </div>
+                )}
               </div>
 
               {/* Mock Dictionary Demo */}
               <div 
                 onClick={() => setSettings(prev => ({ ...prev, preferredEngine: 'mock-demo' }))}
+                className={`settings-card ${settings.preferredEngine === 'mock-demo' ? 'settings-card-active' : ''}`}
                 style={{
                   ...styles.engineCard,
                   ...(settings.preferredEngine === 'mock-demo' ? styles.engineCardActive : {})
                 }}
               >
-                <div style={styles.cardHeader}>
-                  <FileText size={18} color="#a5d8ff" />
-                  <span style={styles.cardTitle}>성좌의 지혜 (사전 해몽)</span>
+                <div style={styles.cardMainContent}>
+                  <div style={styles.cardHeader}>
+                    <FileText size={18} color="#a5d8ff" />
+                    <span style={styles.cardTitle}>성좌의 지혜 (사전 해몽)</span>
+                    <span style={styles.badgeSuccess}>✓ 즉시 가능</span>
+                  </div>
+                  <p style={styles.cardDesc}>네트워크와 기기 사양 제한이 없는 순수 로컬 상징 사전 기반 분석.</p>
                 </div>
-                <p style={styles.cardDesc}>네트워크와 기기 사양 제한이 없는 순수 로컬 상징 사전 기반 분석.</p>
               </div>
             </div>
           </div>
@@ -131,7 +214,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose, o
                 style={styles.input}
               />
               <p style={styles.apiKeyTip}>
-                * API 키는 브라우저 내부 LocalStorage에만 안전하게 암호화 보관됩니다.
+                * API 키는 브라우저 내부 LocalStorage에만 안전하게 보관됩니다.
               </p>
             </div>
           )}
@@ -230,9 +313,9 @@ const styles: Record<string, React.CSSProperties> = {
     margin: '0 0 12px 0',
   },
   engineGrid: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-    gap: '12px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '14px',
   },
   engineCard: {
     backgroundColor: 'rgba(255, 255, 255, 0.02)',
@@ -240,20 +323,29 @@ const styles: Record<string, React.CSSProperties> = {
     borderRadius: '12px',
     padding: '16px',
     cursor: 'pointer',
-    transition: 'all var(--transition-normal)',
     display: 'flex',
-    flexDirection: 'column',
-    gap: '6px',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: '16px',
+    flexWrap: 'wrap',
   },
   engineCardActive: {
     backgroundColor: 'hsla(180, 80%, 65%, 0.08)',
     borderColor: 'var(--color-secondary)',
     boxShadow: '0 0 14px hsla(180, 80%, 65%, 0.15)',
   },
+  cardMainContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '6px',
+    flex: '1 1 280px',
+  },
   cardHeader: {
     display: 'flex',
     alignItems: 'center',
     gap: '8px',
+    flexWrap: 'wrap',
   },
   cardTitle: {
     fontSize: '0.9rem',
@@ -265,6 +357,42 @@ const styles: Record<string, React.CSSProperties> = {
     color: 'var(--text-muted)',
     lineHeight: '1.4',
     margin: 0,
+  },
+  badgeSuccess: {
+    backgroundColor: 'rgba(46, 204, 113, 0.15)',
+    border: '1px solid rgba(46, 204, 113, 0.3)',
+    color: '#2ecc71',
+    fontSize: '0.72rem',
+    fontWeight: '600',
+    padding: '3px 8px',
+    borderRadius: '10px',
+  },
+  badgeWarning: {
+    backgroundColor: 'rgba(241, 196, 15, 0.15)',
+    border: '1px solid rgba(241, 196, 15, 0.3)',
+    color: '#f1c40f',
+    fontSize: '0.72rem',
+    fontWeight: '600',
+    padding: '3px 8px',
+    borderRadius: '10px',
+  },
+  cardActionContainer: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    flexShrink: 0,
+  },
+  cardActionBtn: {
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    border: '1px solid var(--border-color)',
+    borderRadius: '20px',
+    padding: '6px 14px',
+    color: '#fff',
+    fontSize: '0.78rem',
+    fontWeight: '600',
+    cursor: 'pointer',
+    transition: 'all var(--transition-fast)',
+    outline: 'none',
+    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
   },
   apiKeySection: {
     backgroundColor: 'rgba(0, 0, 0, 0.2)',

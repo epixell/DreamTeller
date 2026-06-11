@@ -85,6 +85,27 @@ export default function App() {
     storageService.saveSettings(updated);
   };
 
+  const handleTriggerQwenDownload = () => {
+    // 로컬 AI 설정 활성화
+    const updated = { ...settings, preferredEngine: 'qwen-local' as const };
+    setSettings(updated);
+    storageService.saveSettings(updated);
+    
+    setIsSettingsOpen(false); // Settings 창 닫기
+    setIsGuideOpen(true);     // 가이드 창 열기
+    handleStartQwenDownload(); // 다운로드 개시
+  };
+
+  const handleTriggerChromeGuide = () => {
+    // 크롬 AI 설정 활성화
+    const updated = { ...settings, preferredEngine: 'chrome-nano' as const };
+    setSettings(updated);
+    storageService.saveSettings(updated);
+
+    setIsSettingsOpen(false); // Settings 창 닫기
+    setIsGuideOpen(true);     // 가이드 창 열기
+  };
+
   // Qwen AI 모델 다운로드 수행 로직
   const handleStartQwenDownload = async (pendingContent?: string, pendingMode?: 'traditional' | 'psychological' | 'hybrid') => {
     setIsDownloading(true);
@@ -285,6 +306,9 @@ export default function App() {
         isOpen={isSettingsOpen} 
         onClose={() => setIsSettingsOpen(false)} 
         onSettingsChange={handleSettingsChange}
+        browserInfo={browserInfo}
+        onTriggerQwenDownload={handleTriggerQwenDownload}
+        onTriggerChromeGuide={handleTriggerChromeGuide}
       />
 
       <GuideModal 
