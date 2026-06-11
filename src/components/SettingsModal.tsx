@@ -111,8 +111,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     <button 
                       onClick={(e) => { 
                         e.stopPropagation(); 
-                        if (browserInfo.reason !== 'after-download') {
-                          alert("크롬 AI 설정(플래그 활성화)이 완료되지 않았습니다.\n먼저 '설정하기' 버튼을 눌러 안내 가이드에 따라 플래그 설정을 마쳐주세요!");
+                        if (!browserInfo.isChrome) {
+                          alert("크롬 브라우저가 아닙니다. 크롬 브라우저로 접속해 주세요!");
                         } else {
                           onTriggerChromeDownload(); 
                         }

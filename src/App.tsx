@@ -144,7 +144,7 @@ export default function App() {
       console.warn("Chrome AI Download session trigger end:", e);
       setIsDownloading(false);
       // 크롬 브라우저 다운로드 특성 안내
-      alert("크롬 AI 백그라운드 다운로드가 유도되었습니다.\n\n즉시 완료되지 않는 경우 chrome://components에서 최적화 가이드 모델의 [업데이트 확인]을 클릭하면 신속하게 강제 다운로드됩니다.");
+      alert("크롬 플래그는 켜져 있으나, 실제 AI 모델 파일(Gemini Nano)이 크롬 브라우저에 아직 다운로드되지 않아 기능이 비활성화되어 있습니다.\n\n새 탭에서 chrome://components 에 접속하신 뒤 'Optimization Guide On Device Model' (최적화 가이드 온디바이스 모델) 항목의 [업데이트 확인] 버튼을 눌러 다운로드를 진행해 주세요!");
     }
   };
 
