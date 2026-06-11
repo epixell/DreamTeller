@@ -164,79 +164,27 @@ export const GuideModal: React.FC<GuideModalProps> = ({
                         {/* Flag 1 */}
                         <div style={{ ...styles.copyBox, marginBottom: '6px' }}>
                           <code style={styles.codeText}>{flag1}</code>
-                          <button onClick={() => handleCopy(flag1, 1)} style={styles.copyBtn} title="복사">
+                          <button onClick={() => handleCopy(flag1, 1)} style={styles.copyBtn} title="주소 복사">
                             {copiedFlag1 ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
                           </button>
                         </div>
-                        
-                        <div style={{
-                          backgroundColor: 'rgba(255, 255, 255, 0.03)',
-                          border: '1px dashed rgba(255, 255, 255, 0.12)',
-                          borderRadius: '8px',
-                          padding: '10px',
-                          marginTop: '6px',
-                          marginBottom: '14px',
-                          fontSize: '0.78rem'
-                        }}>
-                          <div style={{ fontWeight: '600', color: 'var(--color-secondary)', marginBottom: '4px', fontSize: '0.75rem' }}>
-                            🔎 설정할 항목 이름:
-                          </div>
-                          <div style={{ 
-                            fontFamily: 'monospace', 
-                            fontSize: '0.8rem', 
-                            color: '#fff', 
-                            backgroundColor: 'rgba(0,0,0,0.25)', 
-                            padding: '6px 10px', 
-                            borderRadius: '4px', 
-                            border: '1px solid rgba(255,255,255,0.06)',
-                            fontWeight: '600'
-                          }}>
-                            Enables optimization guide on device
-                          </div>
-                          <div style={{ marginTop: '6px', fontSize: '0.7rem', color: 'var(--text-muted)' }}>
-                            * 우측 드롭다운 값을 <span style={{ color: '#51cf66', fontWeight: 'bold' }}>Enabled BypassPerfRequirement</span> 으로 설정
-                          </div>
-                        </div>
+                        <p style={{ fontSize: '0.76rem', color: 'var(--text-muted)', margin: '2px 0 16px 4px', lineHeight: '1.4' }}>
+                          👉 이동 후 <b>Enables optimization guide on device</b> 항목의 값을 <b>Enabled BypassPerfRequirement</b>로 변경합니다.
+                        </p>
 
                         {/* Flag 2 */}
                         <div style={{ ...styles.copyBox, marginBottom: '6px' }}>
                           <code style={styles.codeText}>{flag2}</code>
-                          <button onClick={() => handleCopy(flag2, 2)} style={styles.copyBtn} title="복사">
+                          <button onClick={() => handleCopy(flag2, 2)} style={styles.copyBtn} title="주소 복사">
                             {copiedFlag2 ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
                           </button>
                         </div>
+                        <p style={{ fontSize: '0.76rem', color: 'var(--text-muted)', margin: '2px 0 16px 4px', lineHeight: '1.4' }}>
+                          👉 이동 후 <b>Prompt API for Gemini Nano</b> 항목의 값을 <b>Enabled</b>로 변경합니다.
+                        </p>
 
-                        <div style={{
-                          backgroundColor: 'rgba(255, 255, 255, 0.03)',
-                          border: '1px dashed rgba(255, 255, 255, 0.12)',
-                          borderRadius: '8px',
-                          padding: '10px',
-                          marginTop: '6px',
-                          marginBottom: '14px',
-                          fontSize: '0.78rem'
-                        }}>
-                          <div style={{ fontWeight: '600', color: 'var(--color-secondary)', marginBottom: '4px', fontSize: '0.75rem' }}>
-                            🔎 설정할 항목 이름:
-                          </div>
-                          <div style={{ 
-                            fontFamily: 'monospace', 
-                            fontSize: '0.8rem', 
-                            color: '#fff', 
-                            backgroundColor: 'rgba(0,0,0,0.25)', 
-                            padding: '6px 10px', 
-                            borderRadius: '4px', 
-                            border: '1px solid rgba(255,255,255,0.06)',
-                            fontWeight: '600'
-                          }}>
-                            Prompt API for Gemini Nano
-                          </div>
-                          <div style={{ marginTop: '6px', fontSize: '0.7rem', color: 'var(--text-muted)' }}>
-                            * 우측 드롭다운 값을 <span style={{ color: '#51cf66', fontWeight: 'bold' }}>Enabled</span> 으로 설정
-                          </div>
-                        </div>
-
-                        <p style={{ ...styles.stepDesc, marginTop: '8px', color: 'var(--color-secondary)', fontWeight: '600' }}>
-                          ※ 두 플래그 모두 변경한 후, 크롬 우측 하단에 나타나는 [Relaunch] (다시 시작) 버튼을 눌러 브라우저를 재시작해 주세요.
+                        <p style={{ ...styles.stepDesc, marginTop: '10px', color: 'var(--color-secondary)', fontWeight: '600' }}>
+                          ※ 두 설정을 변경한 뒤, 크롬 우측 하단의 [Relaunch](다시 시작) 버튼을 눌러 브라우저를 재시작해 주세요.
                         </p>
                       </div>
                     </div>
@@ -247,40 +195,15 @@ export const GuideModal: React.FC<GuideModalProps> = ({
                         <span style={styles.stepLabel}>실제 AI 모델 파일 다운로드</span>
                         <p style={styles.stepDesc}>아래 주소를 주소창에 복사해 이동하여 실제 AI 모델 파일을 다운로드합니다.</p>
                         
-                        <div style={styles.copyBox}>
+                        <div style={{ ...styles.copyBox, marginBottom: '6px' }}>
                           <code style={styles.codeText}>{compUrl}</code>
-                          <button onClick={() => handleCopy(compUrl, 3)} style={styles.copyBtn} title="복사">
+                          <button onClick={() => handleCopy(compUrl, 3)} style={styles.copyBtn} title="주소 복사">
                             {copiedComponents ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
                           </button>
                         </div>
-                        <div style={{
-                          backgroundColor: 'rgba(255, 255, 255, 0.03)',
-                          border: '1px dashed rgba(255, 255, 255, 0.15)',
-                          borderRadius: '8px',
-                          padding: '12px',
-                          marginTop: '10px',
-                          fontSize: '0.8rem'
-                        }}>
-                          <div style={{ fontWeight: '600', color: 'var(--color-secondary)', marginBottom: '6px', fontSize: '0.78rem' }}>
-                            🔎 아래 항목을 찾아 [업데이트 확인] 버튼을 누르세요:
-                          </div>
-                          <div style={{ 
-                            fontFamily: 'monospace', 
-                            fontSize: '0.82rem', 
-                            color: '#fff', 
-                            backgroundColor: 'rgba(0,0,0,0.3)', 
-                            padding: '8px 12px', 
-                            borderRadius: '4px', 
-                            border: '1px solid rgba(255,255,255,0.08)',
-                            fontWeight: 'bold',
-                            letterSpacing: '0.02em'
-                          }}>
-                            Optimization Guide On Device Model
-                          </div>
-                          <div style={{ marginTop: '8px', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
-                            * 우측의 <span style={{ color: '#fff', fontWeight: '600', border: '1px solid rgba(255, 255, 255, 0.2)', padding: '3px 8px', borderRadius: '4px', backgroundColor: 'rgba(255,255,255,0.08)', fontSize: '0.7rem' }}>업데이트 확인</span> 버튼을 클릭하시면 다운로드가 시작됩니다.
-                          </div>
-                        </div>
+                        <p style={{ fontSize: '0.76rem', color: 'var(--text-muted)', margin: '2px 0 0 4px', lineHeight: '1.4' }}>
+                          👉 이동 후 <b>Optimization Guide On Device Model</b> 항목을 찾아 우측의 <b>[업데이트 확인]</b> 버튼을 누릅니다. (다운로드가 완료되어 버전 번호가 정상 표기될 때까지 대기합니다.)
+                        </p>
                       </div>
                     </div>
 
