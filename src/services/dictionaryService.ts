@@ -55,6 +55,18 @@ const DEFAULT_SYMBOLS: DreamSymbol[] = [
     name: '쫓기다',
     traditional: '불안, 초조, 좌절 등을 겪고 있음을 나타내며, 하는 일에 큰 장애가 발생하거나 대인관계 스트레스가 누적되었음을 뜻합니다.',
     psychological: '도망치고 싶은 현실의 갈등이나 외면하고 싶은 자기 자신의 어두운 면(그림자, Shadow)을 직면하라는 무의식의 신호입니다.'
+  },
+  {
+    key: 'dragon',
+    name: '용',
+    traditional: '용은 권력, 최고의 명예, 출세, 대단한 길몽을 상징하며 입신양명하여 이름을 널리 알릴 징조입니다.',
+    psychological: '내재된 거대한 에너지와 잠재력, 혹은 극복해야 할 거대하고 강력한 과제나 페르소나를 투영합니다.'
+  },
+  {
+    key: 'sky',
+    name: '하늘',
+    traditional: '하늘은 국가, 지도자, 부모, 혹은 드높은 명예를 상징하며, 맑은 하늘은 모든 일이 순조롭게 풀림을 암시합니다.',
+    psychological: '자유를 향한 영적 동경, 혹은 현실의 한계를 벗어나 초월하고자 하는 이상주의적 욕망을 나타냅니다.'
   }
 ];
 
@@ -67,7 +79,20 @@ export const dictionaryService = {
       return DEFAULT_SYMBOLS;
     }
     try {
-      return JSON.parse(stored);
+      const parsed = JSON.parse(stored);
+      // DEFAULT_SYMBOLS에만 있고 parsed에는 없는 상징들을 병합하는 마이그레이션
+      let updated = [...parsed];
+      let hasChange = false;
+      for (const def of DEFAULT_SYMBOLS) {
+        if (!updated.some(s => s.name === def.name || s.key === def.key)) {
+          updated.push(def);
+          hasChange = true;
+        }
+      }
+      if (hasChange) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+      }
+      return updated;
     } catch (e) {
       console.error('Failed to parse dictionary storage', e);
       return DEFAULT_SYMBOLS;

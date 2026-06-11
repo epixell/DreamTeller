@@ -443,7 +443,8 @@ const styles: Record<string, React.CSSProperties> = {
   tabBtn: {
     flex: 1,
     padding: '16px',
-    background: 'none',
+    background: 'transparent',
+    backgroundColor: 'transparent',
     border: 'none',
     color: 'var(--text-muted)',
     fontSize: '0.9rem',
@@ -451,11 +452,12 @@ const styles: Record<string, React.CSSProperties> = {
     cursor: 'pointer',
     transition: 'all var(--transition-fast)',
     textAlign: 'center',
+    outline: 'none',
   },
   tabBtnActive: {
     color: 'var(--color-secondary)',
     borderBottom: '2px solid var(--color-secondary)',
-    backgroundColor: 'rgba(255, 255, 255, 0.01)',
+    backgroundColor: 'rgba(255, 255, 255, 0.03)',
   },
   tabContent: {
     padding: '24px',

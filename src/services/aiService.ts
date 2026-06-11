@@ -25,67 +25,146 @@ export interface InterpretationResult {
 function parseAIResponse(rawText: string, matchedSymbols: DreamSymbol[], selectedMode: string): InterpretationResult {
   const cleanText = rawText.trim();
   
-  // 1. JSON 형식 추출 시도
+  // 1. JSON 형식 추출 및 파싱 시도
   try {
     const jsonMatch = cleanText.match(/\{[\s\S]*\}/);
     if (jsonMatch) {
       const parsed = JSON.parse(jsonMatch[0]);
-      if (parsed.deepAnalysis && parsed.advice && parsed.emotionScores && parsed.tarotCard) {
+      const deepAnalysis = parsed.deepAnalysis || parsed.analysis || parsed.result || '';
+      const advice = parsed.advice || parsed.suggestion || '';
+      if (deepAnalysis && advice) {
         return {
-          symbols: parsed.symbols || matchedSymbols.map(s => ({
-            name: s.name,
-            meaning: selectedMode === 'traditional' ? s.traditional : s.psychological
-          })),
-          deepAnalysis: parsed.deepAnalysis,
-          advice: parsed.advice,
+          symbols: (parsed.symbols && Array.isArray(parsed.symbols) && parsed.symbols.length > 0)
+            ? parsed.symbols.map((s: any) => ({ name: s.name || s.keyword || '', meaning: s.meaning || s.desc || '' }))
+            : (matchedSymbols.length > 0 ? matchedSymbols.map(s => ({
+                name: s.name,
+                meaning: selectedMode === 'traditional' ? s.traditional : s.psychological
+              })) : []),
+          deepAnalysis: deepAnalysis,
+          advice: advice,
           emotionScores: {
-            fear: Number(parsed.emotionScores.fear ?? 20),
-            joy: Number(parsed.emotionScores.joy ?? 20),
-            anxiety: Number(parsed.emotionScores.anxiety ?? 20),
-            peace: Number(parsed.emotionScores.peace ?? 20)
+            fear: Number(parsed.emotionScores?.fear ?? Math.floor(Math.random() * 30) + 10),
+            joy: Number(parsed.emotionScores?.joy ?? Math.floor(Math.random() * 40) + 20),
+            anxiety: Number(parsed.emotionScores?.anxiety ?? Math.floor(Math.random() * 30) + 10),
+            peace: Number(parsed.emotionScores?.peace ?? Math.floor(Math.random() * 40) + 30)
           },
           tarotCard: {
-            title: parsed.tarotCard.title || '운명의 은하수',
-            description: parsed.tarotCard.description || '신비로운 꿈의 조각들이 정렬되었습니다.',
-            cardType: parsed.tarotCard.cardType || 'star'
+            title: parsed.tarotCard?.title || '운명의 은하수',
+            description: parsed.tarotCard?.description || '신비로운 꿈의 조각들이 정렬되었습니다.',
+            cardType: ['star', 'moon', 'sun', 'tower', 'fool', 'lovers'].includes(parsed.tarotCard?.cardType)
+              ? parsed.tarotCard.cardType
+              : 'star'
           }
         };
       }
     }
   } catch (e) {
-    console.warn('JSON parsing failed, falling back to regex parser', e);
+    console.warn('JSON parsing failed, falling back to robust parser', e);
   }
 
-  // 2. 파싱 실패 시 정규식 기반 대체 파서 작동
-  console.log('Using regex fallback parser for AI response');
-  const getField = (regex: RegExp, fallback: string): string => {
-    const match = cleanText.match(regex);
-    return match ? match[1].trim() : fallback;
+  // 2. JSON 파싱이 실패했거나 불완전한 경우, 정규식 및 섹션별 텍스트 파서 작동
+  console.log('Using robust text parser for AI response');
+
+  const extractField = (keys: string[], text: string): string => {
+    for (const key of keys) {
+      // JSON style: "key": "value"
+      const jsonStrPattern = new RegExp(`["']?${key}["']?\\s*:\\s*"([\\s\\S]*?)"(?=\\s*,|\\s*\\})`, 'i');
+      let match = text.match(jsonStrPattern);
+      if (match && match[1].trim().length > 10) {
+        return match[1].replace(/\\n/g, '\n').replace(/\\"/g, '"').trim();
+      }
+
+      // Plain text style: Key: value
+      const plainTextPattern = new RegExp(`(?:${key}|심층\\s*분석|심층\\s*해석|해석|분석|조언|현실\\s*조언|팁)\\s*:\\s*([\\s\\S]*?)(?=\\n\\s*(?:[a-zA-Z]+|심층|조언|타로|\\*|#|-|$))`, 'i');
+      match = text.match(plainTextPattern);
+      if (match && match[1].trim().length > 10) {
+        return match[1].replace(/[{}\[\]"]/g, '').trim();
+      }
+    }
+    return '';
   };
 
-  const deepAnalysis = getField(/"deepAnalysis"\s*:\s*"([^"]+)"/, '우주의 신비로운 기운이 꿈의 장막을 통과하여 당신의 심연을 비추고 있습니다.');
-  const advice = getField(/"advice"\s*:\s*"([^"]+)"/, '현실 세계의 소란함에서 벗어나 깊은 평온을 묵상하는 시간을 가지시기 바랍니다.');
-  const cardTitle = getField(/"title"\s*:\s*"([^"]+)"/, '별 (The Star)');
-  const cardDesc = getField(/"description"\s*:\s*"([^"]+)"/, '어둠을 헤치는 별빛처럼, 마음속에 조용히 싹트는 희망이 있습니다.');
-  const cardType = getField(/"cardType"\s*:\s*"([^"]+)"/, 'star');
+  let deepAnalysis = extractField(['deepAnalysis', 'analysis'], cleanText);
+  let advice = extractField(['advice', 'suggestion'], cleanText);
+  
+  const cardTitle = extractField(['title'], cleanText) || '별 (The Star)';
+  const cardDesc = extractField(['description', 'desc'], cleanText) || '어둠을 헤치는 별빛처럼, 마음속에 조용히 싹트는 희망이 있습니다.';
+  let cardType = extractField(['cardType'], cleanText).toLowerCase().trim() || 'star';
+  if (!['star', 'moon', 'sun', 'tower', 'fool', 'lovers'].includes(cardType)) {
+    cardType = 'star';
+  }
+
+  const symbols: { name: string; meaning: string }[] = [];
+  
+  // JSON array style: { "name": "xxx", "meaning": "yyy" }
+  const symbolRegex = /\{\s*["'](?:name|keyword)["']\s*:\s*["']([^"']+)["']\s*,\s*["'](?:meaning|desc)["']\s*:\s*["']([^"']+)["']\s*\}/gi;
+  let symbolMatch;
+  while ((symbolMatch = symbolRegex.exec(cleanText)) !== null) {
+    symbols.push({ name: symbolMatch[1].trim(), meaning: symbolMatch[2].trim() });
+  }
+
+  // Plain text style: - 키워드 : 설명
+  if (symbols.length === 0) {
+    const bulletRegex = /(?:^|\n)[-*\s]*([가-힣\w\s]{2,10})\s*:\s*([^#\n]+)/g;
+    let bulletMatch;
+    while ((bulletMatch = bulletRegex.exec(cleanText)) !== null) {
+      const name = bulletMatch[1].trim();
+      const meaning = bulletMatch[2].trim();
+      const lowerName = name.toLowerCase();
+      if (!['deepanalysis', 'advice', 'symbols', 'tarotcard', 'title', 'description', 'cardtype', 'emotionscores', 'fear', 'joy', 'anxiety', 'peace', '분석', '조언', '해석'].includes(lowerName)) {
+        symbols.push({ name, meaning });
+      }
+    }
+  }
+
+  // 만약 분석 내용이 아예 추출되지 않았다면, 생성된 텍스트 전체를 분석 내용으로 강제 전환
+  if (!deepAnalysis) {
+    const sanitized = cleanText
+      .replace(/[{}\[\]"]/g, '')
+      .replace(/^\s*(?:symbols|deepAnalysis|advice|tarotCard)\s*:\s*/gi, '')
+      .trim();
+    if (sanitized.length > 20) {
+      deepAnalysis = sanitized;
+    } else {
+      deepAnalysis = '우주의 신비로운 기운이 꿈의 장막을 통과하여 당신의 심연을 비추고 있습니다.';
+    }
+  }
+
+  // 만약 조언이 없으면 분석 내용 중 마지막 문장들을 활용하거나 기본값 적용
+  if (!advice) {
+    const sentences = deepAnalysis.split(/[.!?]\s+/);
+    if (sentences.length > 2) {
+      advice = sentences.slice(-2).join('. ') + (/[.!?]$/.test(sentences.slice(-1)[0]) ? '' : '.');
+      deepAnalysis = sentences.slice(0, -2).join('. ') + (/[.!?]$/.test(sentences.slice(-3)[0]) ? '' : '.');
+    } else {
+      advice = '현실 세계의 소란함에서 벗어나 깊은 평온을 묵상하는 시간을 가지시기 바랍니다.';
+    }
+  }
+
+  const finalSymbols = symbols.length > 0 ? symbols : matchedSymbols.map(s => ({
+    name: s.name,
+    meaning: selectedMode === 'traditional' ? s.traditional : s.psychological
+  }));
+
+  const fearMatch = cleanText.match(/["']?fear["']?\s*:\s*(\d+)/i);
+  const joyMatch = cleanText.match(/["']?joy["']?\s*:\s*(\d+)/i);
+  const anxietyMatch = cleanText.match(/["']?anxiety["']?\s*:\s*(\d+)/i);
+  const peaceMatch = cleanText.match(/["']?peace["']?\s*:\s*(\d+)/i);
+
+  const fear = fearMatch ? Number(fearMatch[1]) : 25;
+  const joy = joyMatch ? Number(joyMatch[1]) : 40;
+  const anxiety = anxietyMatch ? Number(anxietyMatch[1]) : 30;
+  const peace = peaceMatch ? Number(peaceMatch[1]) : 50;
 
   return {
-    symbols: matchedSymbols.map(s => ({
-      name: s.name,
-      meaning: selectedMode === 'traditional' ? s.traditional : s.psychological
-    })),
+    symbols: finalSymbols,
     deepAnalysis,
     advice,
-    emotionScores: {
-      fear: 25,
-      joy: 40,
-      anxiety: 30,
-      peace: 50
-    },
+    emotionScores: { fear, joy, anxiety, peace },
     tarotCard: {
       title: cardTitle,
       description: cardDesc,
-      cardType: ['star', 'moon', 'sun', 'tower', 'fool', 'lovers'].includes(cardType) ? cardType : 'star'
+      cardType
     }
   };
 }
