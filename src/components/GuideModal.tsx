@@ -30,21 +30,25 @@ export const GuideModal: React.FC<GuideModalProps> = ({
 }) => {
   const [copiedFlag1, setCopiedFlag1] = useState(false);
   const [copiedFlag2, setCopiedFlag2] = useState(false);
-  const [showSetupDetails, setShowSetupDetails] = useState(false);
+  const [copiedComponents, setCopiedComponents] = useState(false);
 
   if (!isOpen) return null;
 
   const flag1 = 'chrome://flags/#optimization-guide-on-device-model';
   const flag2 = 'chrome://flags/#prompt-api-for-gemini-nano';
+  const compUrl = 'chrome://components';
 
   const handleCopy = (text: string, flagNum: number) => {
     navigator.clipboard.writeText(text);
     if (flagNum === 1) {
       setCopiedFlag1(true);
       setTimeout(() => setCopiedFlag1(false), 2000);
-    } else {
+    } else if (flagNum === 2) {
       setCopiedFlag2(true);
       setTimeout(() => setCopiedFlag2(false), 2000);
+    } else {
+      setCopiedComponents(true);
+      setTimeout(() => setCopiedComponents(false), 2000);
     }
   };
 
@@ -140,79 +144,78 @@ export const GuideModal: React.FC<GuideModalProps> = ({
                   <div style={styles.alertBox}>
                     <Globe size={20} color="var(--color-secondary)" style={{ marginRight: '8px', flexShrink: 0 }} />
                     <div>
-                      <span style={{ fontWeight: '600', color: '#fff' }}>무료 크롬 내장 AI (Gemini Nano) 비활성 상태</span>
+                      <span style={{ fontWeight: '600', color: '#fff' }}>무료 크롬 내장 AI (Gemini Nano) 활성화 단계</span>
                       <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '4px' }}>
-                        구글 크롬 브라우저의 무료 내장 AI 설정을 활성화하시면 별도의 파일 다운로드 없이 
+                        구글 크롬 브라우저의 무료 내장 AI 설정을 활성화하고 모델 파일을 다운로드하셔야 
                         가장 빠르고 쾌적하게 100% 온디바이스 해몽을 즐기실 수 있습니다.
                       </p>
                     </div>
                   </div>
 
-                  {!showSetupDetails ? (
-                    <div style={styles.btnColumn}>
-                      <button 
-                        onClick={() => setShowSetupDetails(true)} 
-                        className="glow-btn"
-                        style={styles.actionBtn}
-                      >
-                        ⚡ 1분 크롬 AI 설정 가이드 보기
-                      </button>
-                      <button 
-                        onClick={() => onSelectEngine('mock-demo')} 
-                        style={styles.secondaryBtn}
-                      >
-                        🔮 로컬 성좌 사전 해몽으로 체인지 (즉시 실행)
-                      </button>
-                    </div>
-                  ) : (
-                    /* 크롬 설정 가이드 본문 */
-                    <div style={styles.guideContainer} className="fade-in">
-                      <h4 style={styles.guideHeader}>크롬 내장 AI(Gemini Nano) 활성화 3단계</h4>
-                      
-                      <div style={styles.step}>
-                        <div style={styles.stepBadge}>1</div>
-                        <div style={styles.stepContent}>
-                          <span style={styles.stepLabel}>첫 번째 플래그 활성화</span>
-                          <p style={styles.stepDesc}>아래 주소를 복사해 크롬 주소창에 넣은 뒤, 값을 <b>Enabled BypassPerfRequirement</b>로 변경합니다.</p>
-                          <div style={styles.copyBox}>
-                            <code style={styles.codeText}>{flag1}</code>
-                            <button onClick={() => handleCopy(flag1, 1)} style={styles.copyBtn}>
-                              {copiedFlag1 ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
-                            </button>
-                          </div>
+                  <div style={styles.guideContainer} className="fade-in">
+                    <h4 style={styles.guideHeader}>크롬 내장 AI(Gemini Nano) 설정 및 다운로드 3단계</h4>
+                    
+                    <div style={styles.step}>
+                      <div style={styles.stepBadge}>1</div>
+                      <div style={styles.stepContent}>
+                        <span style={styles.stepLabel}>크롬 플래그 설정 및 재시작 (최초 1회)</span>
+                        <p style={styles.stepDesc}>아래 주소들을 각각 복사해 주소창에 넣은 뒤 설정을 변경하고 크롬을 재시작합니다.</p>
+                        
+                        <div style={{ ...styles.copyBox, marginBottom: '6px' }}>
+                          <code style={styles.codeText}>{flag1}</code>
+                          <button onClick={() => handleCopy(flag1, 1)} style={styles.copyBtn} title="복사">
+                            {copiedFlag1 ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
+                          </button>
                         </div>
-                      </div>
+                        <span style={{ fontSize: '0.72rem', color: '#aaa', marginLeft: '4px' }}>➡️ 값을 <b>Enabled BypassPerfRequirement</b>로 변경</span>
 
-                      <div style={styles.step}>
-                        <div style={styles.stepBadge}>2</div>
-                        <div style={styles.stepContent}>
-                          <span style={styles.stepLabel}>두 번째 플래그 활성화</span>
-                          <p style={styles.stepDesc}>아래 주소를 복사해 크롬 주소창에 넣은 뒤, 값을 <b>Enabled</b>로 변경합니다.</p>
-                          <div style={styles.copyBox}>
-                            <code style={styles.codeText}>{flag2}</code>
-                            <button onClick={() => handleCopy(flag2, 2)} style={styles.copyBtn}>
-                              {copiedFlag2 ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
-                            </button>
-                          </div>
+                        <div style={{ ...styles.copyBox, marginTop: '8px', marginBottom: '6px' }}>
+                          <code style={styles.codeText}>{flag2}</code>
+                          <button onClick={() => handleCopy(flag2, 2)} style={styles.copyBtn} title="복사">
+                            {copiedFlag2 ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
+                          </button>
                         </div>
-                      </div>
+                        <span style={{ fontSize: '0.72rem', color: '#aaa', marginLeft: '4px' }}>➡️ 값을 <b>Enabled</b>로 변경</span>
 
-                      <div style={styles.step}>
-                        <div style={styles.stepBadge}>3</div>
-                        <div style={styles.stepContent}>
-                          <span style={styles.stepLabel}>브라우저 재시작</span>
-                          <p style={styles.stepDesc}>변경 후 크롬 맨 하단에 나타나는 <b>[Relaunch]</b>(다시 시작) 버튼을 누르고 이 페이지로 돌아옵니다.</p>
-                        </div>
-                      </div>
-
-                      <div style={styles.guideFooter}>
-                        <button onClick={() => setShowSetupDetails(false)} style={styles.backBtn}>뒤로가기</button>
-                        <button onClick={() => window.location.reload()} style={styles.reloadBtn}>
-                          <RefreshCw size={14} style={{ marginRight: '6px' }} /> 새로고침 적용
-                        </button>
+                        <p style={{ ...styles.stepDesc, marginTop: '8px', color: 'var(--color-secondary)' }}>
+                          ※ 설정 후 크롬 맨 아래에 나타나는 <b>[Relaunch]</b>(다시 시작) 버튼을 꼭 눌러주세요.
+                        </p>
                       </div>
                     </div>
-                  )}
+
+                    <div style={styles.step}>
+                      <div style={styles.stepBadge}>2</div>
+                      <div style={styles.stepContent}>
+                        <span style={styles.stepLabel}>실제 AI 모델 파일 다운로드</span>
+                        <p style={styles.stepDesc}>아래 주소를 주소창에 복사해 이동하여 실제 AI 모델 파일을 다운로드합니다.</p>
+                        
+                        <div style={styles.copyBox}>
+                          <code style={styles.codeText}>{compUrl}</code>
+                          <button onClick={() => handleCopy(compUrl, 3)} style={styles.copyBtn} title="복사">
+                            {copiedComponents ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
+                          </button>
+                        </div>
+                        <p style={{ ...styles.stepDesc, marginTop: '6px' }}>
+                          이동 후 <b>"Optimization Guide On Device Model"</b> 항목을 찾아 우측의 <b>[업데이트 확인]</b> 버튼을 누르면 다운로드가 시작됩니다. (버전이 0.0.0.0에서 실제 숫자 버전으로 바뀔 때까지 기다립니다.)
+                        </p>
+                      </div>
+                    </div>
+
+                    <div style={styles.step}>
+                      <div style={styles.stepBadge}>3</div>
+                      <div style={styles.stepContent}>
+                        <span style={styles.stepLabel}>완료 및 새로고침 적용</span>
+                        <p style={styles.stepDesc}>다운로드가 끝나면 아래 [새로고침 적용] 버튼을 눌러 상태를 갱신합니다.</p>
+                      </div>
+                    </div>
+
+                    <div style={styles.guideFooter}>
+                      <button onClick={() => onSelectEngine('mock-demo')} style={styles.backBtn}>🔮 사전 해몽으로 체인지</button>
+                      <button onClick={() => window.location.reload()} style={styles.reloadBtn}>
+                        <RefreshCw size={14} style={{ marginRight: '6px' }} /> 새로고침 적용
+                      </button>
+                    </div>
+                  </div>
                 </div>
               ) : (
                 /* 크롬이 아니거나 모바일/사파리인 경우 */
