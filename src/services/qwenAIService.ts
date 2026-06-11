@@ -33,7 +33,7 @@ export const qwenAIService = {
       
       // CDN을 통한 WebLLM 동적 로딩 (빌드 최적화 및 WASM 설정 트러블 방지)
       // @ts-ignore
-      const webLLM = await import('https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.46/+esm');
+      const webLLM = await import('https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.84/+esm');
       
       onProgress(5, 'AI 엔진 초기화 및 모델 다운로드 대기 중...');
 
