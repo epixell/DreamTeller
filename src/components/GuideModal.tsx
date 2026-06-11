@@ -195,9 +195,34 @@ export const GuideModal: React.FC<GuideModalProps> = ({
                             {copiedComponents ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
                           </button>
                         </div>
-                        <p style={{ ...styles.stepDesc, marginTop: '6px' }}>
-                          이동 후 <b>"Optimization Guide On Device Model"</b> 항목을 찾아 우측의 <b>[업데이트 확인]</b> 버튼을 누르면 다운로드가 시작됩니다. (버전이 0.0.0.0에서 실제 숫자 버전으로 바뀔 때까지 기다립니다.)
-                        </p>
+                        <div style={{
+                          backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                          border: '1px dashed rgba(255, 255, 255, 0.15)',
+                          borderRadius: '8px',
+                          padding: '12px',
+                          marginTop: '10px',
+                          fontSize: '0.8rem'
+                        }}>
+                          <div style={{ fontWeight: '600', color: 'var(--color-secondary)', marginBottom: '6px', fontSize: '0.78rem' }}>
+                            🔎 아래 항목을 찾아 [업데이트 확인] 버튼을 누르세요:
+                          </div>
+                          <div style={{ 
+                            fontFamily: 'monospace', 
+                            fontSize: '0.82rem', 
+                            color: '#fff', 
+                            backgroundColor: 'rgba(0,0,0,0.3)', 
+                            padding: '8px 12px', 
+                            borderRadius: '4px', 
+                            border: '1px solid rgba(255,255,255,0.08)',
+                            fontWeight: 'bold',
+                            letterSpacing: '0.02em'
+                          }}>
+                            Optimization Guide On Device Model
+                          </div>
+                          <div style={{ marginTop: '8px', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+                            * 우측의 <span style={{ color: '#fff', fontWeight: '600', border: '1px solid rgba(255, 255, 255, 0.2)', padding: '3px 8px', borderRadius: '4px', backgroundColor: 'rgba(255,255,255,0.08)', fontSize: '0.7rem' }}>업데이트 확인</span> 버튼을 클릭하시면 다운로드가 시작됩니다.
+                          </div>
+                        </div>
                       </div>
                     </div>
 
