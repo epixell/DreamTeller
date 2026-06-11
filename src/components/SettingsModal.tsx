@@ -89,15 +89,10 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     <Sparkles size={18} color="var(--color-secondary)" />
                     <span style={styles.cardTitle}>Chrome Gemini Nano</span>
                     <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', alignItems: 'center' }}>
-                      {browserInfo.chromeAIAvailable ? (
-                        <span style={styles.badgeSuccess}>✓ 설정 완료</span>
-                      ) : (
-                        <span style={styles.badgeWarning}>✗ 설정 필요</span>
-                      )}
                       {browserInfo.chromeAIAvailable && browserInfo.reason !== 'after-download' ? (
-                        <span style={styles.badgeSuccess}>✓ 다운로드 완료</span>
+                        <span style={styles.badgeSuccess}>✓ 설정 & 다운 완료</span>
                       ) : (
-                        <span style={styles.badgeWarning}>📥 다운로드 필요</span>
+                        <span style={styles.badgeWarning}>✗ 설정 & 다운 필요</span>
                       )}
                     </div>
                   </div>
@@ -105,11 +100,11 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     크롬 브라우저 내장 온디바이스 AI. (가장 빠름, 무료)
                     <br />
                     <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem', display: 'inline-block', marginTop: '3px' }}>
-                      * 크롬 플래그 설정을 마쳤더라도, 실제 AI 모델 파일이 다운로드 완료되기 전까지는 시스템 제약상 '설정 필요'로 감지될 수 있습니다.
+                      * 크롬 플래그 설정을 마쳤더라도, 실제 AI 모델 파일이 다운로드 완료되기 전까지는 시스템 제약상 '설정 & 다운 필요'로 감지될 수 있습니다.
                     </span>
                   </p>
                 </div>
-                {!browserInfo.chromeAIAvailable && (
+                {!(browserInfo.chromeAIAvailable && browserInfo.reason !== 'after-download') && (
                   <div style={styles.cardActionContainer}>
                     <button 
                       onClick={(e) => { e.stopPropagation(); onTriggerChromeGuide(); }} 
