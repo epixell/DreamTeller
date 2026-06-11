@@ -159,26 +159,84 @@ export const GuideModal: React.FC<GuideModalProps> = ({
                       <div style={styles.stepBadge}>1</div>
                       <div style={styles.stepContent}>
                         <span style={styles.stepLabel}>크롬 플래그 설정 및 재시작 (최초 1회)</span>
-                        <p style={styles.stepDesc}>아래 주소들을 각각 복사해 주소창에 넣은 뒤 설정을 변경하고 크롬을 재시작합니다.</p>
+                        <p style={styles.stepDesc}>아래 각 주소를 복사해 주소창에 넣은 뒤, 각 항목을 활성화하고 크롬을 재시작합니다.</p>
                         
+                        {/* Flag 1 */}
                         <div style={{ ...styles.copyBox, marginBottom: '6px' }}>
                           <code style={styles.codeText}>{flag1}</code>
                           <button onClick={() => handleCopy(flag1, 1)} style={styles.copyBtn} title="복사">
                             {copiedFlag1 ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
                           </button>
                         </div>
-                        <span style={{ fontSize: '0.72rem', color: '#aaa', marginLeft: '4px' }}>➡️ 값을 <b>Enabled BypassPerfRequirement</b>로 변경</span>
+                        
+                        <div style={{
+                          backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                          border: '1px dashed rgba(255, 255, 255, 0.12)',
+                          borderRadius: '8px',
+                          padding: '10px',
+                          marginTop: '6px',
+                          marginBottom: '14px',
+                          fontSize: '0.78rem'
+                        }}>
+                          <div style={{ fontWeight: '600', color: 'var(--color-secondary)', marginBottom: '4px', fontSize: '0.75rem' }}>
+                            🔎 설정할 항목 이름:
+                          </div>
+                          <div style={{ 
+                            fontFamily: 'monospace', 
+                            fontSize: '0.8rem', 
+                            color: '#fff', 
+                            backgroundColor: 'rgba(0,0,0,0.25)', 
+                            padding: '6px 10px', 
+                            borderRadius: '4px', 
+                            border: '1px solid rgba(255,255,255,0.06)',
+                            fontWeight: '600'
+                          }}>
+                            Enables optimization guide on device
+                          </div>
+                          <div style={{ marginTop: '6px', fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+                            * 우측 드롭다운 값을 <span style={{ color: '#51cf66', fontWeight: 'bold' }}>Enabled BypassPerfRequirement</span> 으로 설정
+                          </div>
+                        </div>
 
-                        <div style={{ ...styles.copyBox, marginTop: '8px', marginBottom: '6px' }}>
+                        {/* Flag 2 */}
+                        <div style={{ ...styles.copyBox, marginBottom: '6px' }}>
                           <code style={styles.codeText}>{flag2}</code>
                           <button onClick={() => handleCopy(flag2, 2)} style={styles.copyBtn} title="복사">
                             {copiedFlag2 ? <Check size={14} color="var(--color-secondary)" /> : <Copy size={14} />}
                           </button>
                         </div>
-                        <span style={{ fontSize: '0.72rem', color: '#aaa', marginLeft: '4px' }}>➡️ 값을 <b>Enabled</b>로 변경</span>
 
-                        <p style={{ ...styles.stepDesc, marginTop: '8px', color: 'var(--color-secondary)' }}>
-                          ※ 설정 후 크롬 맨 아래에 나타나는 <b>[Relaunch]</b>(다시 시작) 버튼을 꼭 눌러주세요.
+                        <div style={{
+                          backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                          border: '1px dashed rgba(255, 255, 255, 0.12)',
+                          borderRadius: '8px',
+                          padding: '10px',
+                          marginTop: '6px',
+                          marginBottom: '14px',
+                          fontSize: '0.78rem'
+                        }}>
+                          <div style={{ fontWeight: '600', color: 'var(--color-secondary)', marginBottom: '4px', fontSize: '0.75rem' }}>
+                            🔎 설정할 항목 이름:
+                          </div>
+                          <div style={{ 
+                            fontFamily: 'monospace', 
+                            fontSize: '0.8rem', 
+                            color: '#fff', 
+                            backgroundColor: 'rgba(0,0,0,0.25)', 
+                            padding: '6px 10px', 
+                            borderRadius: '4px', 
+                            border: '1px solid rgba(255,255,255,0.06)',
+                            fontWeight: '600'
+                          }}>
+                            Prompt API for Gemini Nano
+                          </div>
+                          <div style={{ marginTop: '6px', fontSize: '0.7rem', color: 'var(--text-muted)' }}>
+                            * 우측 드롭다운 값을 <span style={{ color: '#51cf66', fontWeight: 'bold' }}>Enabled</span> 으로 설정
+                          </div>
+                        </div>
+
+                        <p style={{ ...styles.stepDesc, marginTop: '8px', color: 'var(--color-secondary)', fontWeight: '600' }}>
+                          ※ 두 플래그 모두 변경한 후, 크롬 우측 하단에 나타나는 [Relaunch] (다시 시작) 버튼을 눌러 브라우저를 재시작해 주세요.
                         </p>
                       </div>
                     </div>
