@@ -146,7 +146,13 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                       <span style={styles.badgeWarning}>📥 다운로드 필요</span>
                     )}
                   </div>
-                  <p style={styles.cardDesc}>브라우저 내부 구동 AI 모델. (최초 1회 약 300MB 다운로드 필요)</p>
+                  <p style={styles.cardDesc}>
+                    브라우저 내부 구동 AI 모델. (최초 1회 약 300MB 다운로드 필요)
+                    <br />
+                    <span style={{ color: '#ff8787', fontSize: '0.7rem', display: 'inline-block', marginTop: '3px' }}>
+                      ⚠️ 브라우저 인터넷 캐시 청소 시 다운로드된 모델 파일이 함께 삭제됩니다.
+                    </span>
+                  </p>
                 </div>
                 {!(qwenAIService.isLoaded() || isCached) && (
                   <div style={styles.cardActionContainer}>
