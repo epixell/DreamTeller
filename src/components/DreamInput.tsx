@@ -4,6 +4,8 @@ import { Compass, Sparkles, Moon, Brain } from 'lucide-react';
 interface DreamInputProps {
   onInterpret: (content: string, mode: 'traditional' | 'psychological' | 'hybrid') => void;
   isProcessing: boolean;
+  currentEngine: 'chrome-nano' | 'qwen-local' | 'gemini-api' | 'mock-demo';
+  onOpenSettings: () => void;
 }
 
 interface StarParticle {
@@ -13,11 +15,26 @@ interface StarParticle {
   size: number;
 }
 
-export const DreamInput: React.FC<DreamInputProps> = ({ onInterpret, isProcessing }) => {
+export const DreamInput: React.FC<DreamInputProps> = ({ 
+  onInterpret, 
+  isProcessing,
+  currentEngine,
+  onOpenSettings
+}) => {
   const [content, setContent] = useState('');
   const [mode, setMode] = useState<'traditional' | 'psychological' | 'hybrid'>('hybrid');
   const [particles, setParticles] = useState<StarParticle[]>([]);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  const getEngineLabel = (engine: string) => {
+    switch (engine) {
+      case 'chrome-nano': return 'Chrome 내장 AI';
+      case 'qwen-local': return '로컬 AI (Qwen)';
+      case 'gemini-api': return 'Gemini Cloud API';
+      case 'mock-demo': return '성좌 사전 해몽';
+      default: return 'AI 엔진 선택';
+    }
+  };
 
   // 글씨를 타이핑할 때 별가루 입자(Particle) 생성 효과
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -72,6 +89,13 @@ export const DreamInput: React.FC<DreamInputProps> = ({ onInterpret, isProcessin
       <p style={styles.subtitle}>오늘 밤, 당신의 의식 뒤편에 남은 잔상은 무엇인가요?</p>
 
       {/* Dream Writing Textarea Container */}
+      <div style={styles.inputHeader}>
+        <span style={styles.inputLabel}>꿈의 조각들</span>
+        <button onClick={onOpenSettings} style={styles.engineBadge} title="AI 엔진 변경 (AI 관리자)">
+          ⚙️ AI 모델: <span style={{ textDecoration: 'underline', fontWeight: '600' }}>{getEngineLabel(currentEngine)}</span>
+        </button>
+      </div>
+
       <div style={styles.inputWrapper}>
         <textarea
           ref={textareaRef}
@@ -191,6 +215,34 @@ const styles: Record<string, React.CSSProperties> = {
     color: 'var(--text-muted)',
     marginBottom: '24px',
     textAlign: 'center',
+  },
+  inputHeader: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '8px',
+    padding: '0 4px',
+  },
+  inputLabel: {
+    fontSize: '0.85rem',
+    color: 'var(--text-muted)',
+    fontWeight: '500',
+  },
+  engineBadge: {
+    background: 'rgba(255, 255, 255, 0.05)',
+    border: '1px solid var(--border-color)',
+    borderRadius: '16px',
+    padding: '6px 14px',
+    color: 'var(--color-secondary)',
+    fontSize: '0.78rem',
+    cursor: 'pointer',
+    transition: 'all var(--transition-fast)',
+    outline: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '6px',
+    fontFamily: 'var(--font-primary)',
   },
   inputWrapper: {
     width: '100%',

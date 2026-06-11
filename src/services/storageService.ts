@@ -3,7 +3,7 @@ export interface DreamRecord {
   date: string;
   content: string;
   selectedMode: 'traditional' | 'psychological' | 'hybrid';
-  aiEngine: 'chrome-nano' | 'gemini-api' | 'mock-demo';
+  aiEngine: 'chrome-nano' | 'qwen-local' | 'gemini-api' | 'mock-demo';
   interpretation: {
     symbols: { name: string; meaning: string }[];
     deepAnalysis: string;
@@ -23,7 +23,7 @@ export interface DreamRecord {
 }
 
 export interface AppSettings {
-  preferredEngine: 'chrome-nano' | 'gemini-api' | 'mock-demo';
+  preferredEngine: 'chrome-nano' | 'qwen-local' | 'gemini-api' | 'mock-demo';
   geminiApiKey: string;
   theme: 'mystic';
 }
