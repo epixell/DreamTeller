@@ -149,19 +149,58 @@ export const GuideModal: React.FC<GuideModalProps> = ({
           ) : (
             /* ================= CHROME NANO 활성화 가이드 화면 ================= */
             <div style={styles.infoContainer} className="fade-in">
-              {browserInfo.isChrome && !browserInfo.chromeAIAvailable ? (
-                /* 크롬이지만 설정이 꺼진 경우 */
+              {!browserInfo.isChrome ? (
+                /* 크롬이 아니거나 모바일/사파리인 경우 */
                 <div>
                   <div style={styles.alertBox}>
-                    <Globe size={20} color="var(--color-secondary)" style={{ marginRight: '8px', flexShrink: 0 }} />
+                    <Globe size={20} color="var(--color-accent)" style={{ marginRight: '8px', flexShrink: 0 }} />
                     <div>
-                      <span style={{ fontWeight: '600', color: '#fff' }}>무료 크롬 내장 AI (Gemini Nano) 활성화 단계</span>
+                      <span style={{ fontWeight: '600', color: '#fff' }}>구글 크롬 브라우저 사용 권장</span>
                       <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '4px' }}>
-                        구글 크롬 브라우저의 무료 내장 AI 설정을 활성화하고 모델 파일을 다운로드하셔야 
-                        가장 빠르고 쾌적하게 100% 온디바이스 해몽을 즐기실 수 있습니다.
+                        현재 크롬 브라우저가 아니거나 내장 AI를 지원하지 않는 환경입니다. 크롬 브라우저를 사용하시면 추가 설정 없이 온디바이스 AI 해몽을 즐기실 수 있습니다.
                       </p>
                     </div>
                   </div>
+
+                  <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: '16px 0 24px', textAlign: 'center' }}>
+                    현재 환경에서는 다운로드 없이 즉시 실행되는 **성좌의 지혜 (로컬 사전 해몽)**를 통해 꿈을 해석해 드립니다.
+                  </p>
+
+                  <div style={styles.btnColumn}>
+                    <button 
+                      onClick={() => onSelectEngine('mock-demo')} 
+                      className="glow-btn"
+                      style={styles.actionBtn}
+                    >
+                      🔮 성좌의 지혜 (로컬 사전 해몽) 시작하기
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                /* 크롬 브라우저인 경우 */
+                <div>
+                  {browserInfo.chromeAIAvailable ? (
+                    <div style={{ ...styles.alertBox, backgroundColor: 'rgba(46, 204, 113, 0.08)', borderColor: 'rgba(46, 204, 113, 0.25)' }}>
+                      <Check size={20} color="#2ecc71" style={{ marginRight: '8px', flexShrink: 0 }} />
+                      <div>
+                        <span style={{ fontWeight: '600', color: '#fff' }}>✓ Chrome Gemini Nano 활성화 완료</span>
+                        <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '4px' }}>
+                          설정 및 모델 다운로드가 완전히 완료되어 사용 가능한 상태입니다.
+                        </p>
+                      </div>
+                    </div>
+                  ) : (
+                    <div style={styles.alertBox}>
+                      <Globe size={20} color="var(--color-secondary)" style={{ marginRight: '8px', flexShrink: 0 }} />
+                      <div>
+                        <span style={{ fontWeight: '600', color: '#fff' }}>무료 크롬 내장 AI (Gemini Nano) 활성화 단계</span>
+                        <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '4px' }}>
+                          구글 크롬 브라우저의 무료 내장 AI 설정을 활성화하고 모델 파일을 다운로드하셔야 
+                          가장 빠르고 쾌적하게 100% 온디바이스 해몽을 즐기실 수 있습니다.
+                        </p>
+                      </div>
+                    </div>
+                  )}
 
                   <div style={styles.guideContainer} className="fade-in">
                     <h4 style={styles.guideHeader}>
@@ -273,33 +312,6 @@ export const GuideModal: React.FC<GuideModalProps> = ({
                         <RefreshCw size={14} style={{ marginRight: '6px' }} /> 새로고침 적용
                       </button>
                     </div>
-                  </div>
-                </div>
-              ) : (
-                /* 크롬이 아니거나 모바일/사파리인 경우 */
-                <div>
-                  <div style={styles.alertBox}>
-                    <Globe size={20} color="var(--color-accent)" style={{ marginRight: '8px', flexShrink: 0 }} />
-                    <div>
-                      <span style={{ fontWeight: '600', color: '#fff' }}>구글 크롬 브라우저 사용 권장</span>
-                      <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '4px' }}>
-                        현재 크롬 브라우저가 아니거나 내장 AI를 지원하지 않는 환경입니다. 크롬 브라우저를 사용하시면 추가 설정 없이 온디바이스 AI 해몽을 즐기실 수 있습니다.
-                      </p>
-                    </div>
-                  </div>
-
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', margin: '16px 0 24px', textAlign: 'center' }}>
-                    현재 환경에서는 다운로드 없이 즉시 실행되는 **성좌의 지혜 (로컬 사전 해몽)**를 통해 꿈을 해석해 드립니다.
-                  </p>
-
-                  <div style={styles.btnColumn}>
-                    <button 
-                      onClick={() => onSelectEngine('mock-demo')} 
-                      className="glow-btn"
-                      style={styles.actionBtn}
-                    >
-                      🔮 성좌의 지혜 (로컬 사전 해몽) 시작하기
-                    </button>
                   </div>
                 </div>
               )}
