@@ -88,15 +88,26 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   <div style={styles.cardHeader}>
                     <Sparkles size={18} color="var(--color-secondary)" />
                     <span style={styles.cardTitle}>Chrome Gemini Nano</span>
-                    {browserInfo.chromeAIAvailable ? (
-                      <span style={styles.badgeSuccess}>✓ 활성화됨 (사용 가능)</span>
-                    ) : browserInfo.reason === 'after-download' ? (
-                      <span style={styles.badgeWarning}>📥 다운로드 필요</span>
-                    ) : (
-                      <span style={styles.badgeWarning}>✗ 설정 필요</span>
-                    )}
+                    <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', alignItems: 'center' }}>
+                      {browserInfo.chromeAIAvailable ? (
+                        <span style={styles.badgeSuccess}>✓ 설정 완료</span>
+                      ) : (
+                        <span style={styles.badgeWarning}>✗ 설정 필요</span>
+                      )}
+                      {browserInfo.chromeAIAvailable && browserInfo.reason !== 'after-download' ? (
+                        <span style={styles.badgeSuccess}>✓ 다운로드 완료</span>
+                      ) : (
+                        <span style={styles.badgeWarning}>📥 다운로드 필요</span>
+                      )}
+                    </div>
                   </div>
-                  <p style={styles.cardDesc}>크롬 브라우저 내장 온디바이스 AI. (가장 빠름, 무료)</p>
+                  <p style={styles.cardDesc}>
+                    크롬 브라우저 내장 온디바이스 AI. (가장 빠름, 무료)
+                    <br />
+                    <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem', display: 'inline-block', marginTop: '3px' }}>
+                      * 크롬 플래그 설정을 마쳤더라도, 실제 AI 모델 파일이 다운로드 완료되기 전까지는 시스템 제약상 '설정 필요'로 감지될 수 있습니다.
+                    </span>
+                  </p>
                 </div>
                 {!browserInfo.chromeAIAvailable && (
                   <div style={styles.cardActionContainer}>
