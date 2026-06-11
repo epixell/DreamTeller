@@ -201,32 +201,7 @@ ${modeDesc}
 `;
 };
 
-async function fetchGeminiAPI(apiKey: string, systemPrompt: string, userPrompt: string): Promise<string> {
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      contents: [
-        {
-          role: 'user',
-          parts: [{ text: systemPrompt + "\n\n" + userPrompt }]
-        }
-      ],
-      generationConfig: {
-        responseMimeType: 'application/json'
-      }
-    })
-  });
-  if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(`Gemini API 호출 실패: ${response.status} - ${errorText}`);
-  }
-  const result = await response.json();
-  return result.candidates?.[0]?.content?.parts?.[0]?.text || '';
-}
+
 
 export const aiService = {
   async interpret(
@@ -271,12 +246,7 @@ export const aiService = {
           });
         }
         rawResponse = await qwenAIService.prompt(SYSTEM_PROMPT, userPrompt, onProgress);
-      } else if (engineToUse === 'gemini-api') {
-        if (!settings.geminiApiKey) {
-          throw new Error('Gemini API 키가 입력되지 않았습니다. 설정에서 API 키를 입력해 주세요.');
-        }
-        if (onProgress) onProgress(40, 'Gemini Cloud 연결 중...');
-        rawResponse = await fetchGeminiAPI(settings.geminiApiKey, SYSTEM_PROMPT, userPrompt);
+
       } else {
         throw new Error('선택된 유효한 AI 엔진이 없습니다.');
       }

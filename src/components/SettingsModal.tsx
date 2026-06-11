@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Settings, X, Key, Cpu, Cloud, FileText, Sparkles } from 'lucide-react';
+import { Settings, X, Cpu, FileText, Sparkles } from 'lucide-react';
 import { storageService } from '../services/storageService';
 import type { AppSettings } from '../services/storageService';
 import { qwenAIService } from '../services/qwenAIService';
@@ -27,7 +27,6 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 }) => {
   const [settings, setSettings] = useState<AppSettings>({
     preferredEngine: 'chrome-nano',
-    geminiApiKey: '',
     theme: 'mystic',
   });
   const [isCached, setIsCached] = useState(false);
@@ -144,43 +143,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 )}
               </div>
 
-              {/* Gemini Cloud API */}
-              <div 
-                onClick={() => setSettings(prev => ({ ...prev, preferredEngine: 'gemini-api' }))}
-                className={`settings-card ${settings.preferredEngine === 'gemini-api' ? 'settings-card-active' : ''}`}
-                style={{
-                  ...styles.engineCard,
-                  ...(settings.preferredEngine === 'gemini-api' ? styles.engineCardActive : {})
-                }}
-              >
-                <div style={styles.cardMainContent}>
-                  <div style={styles.cardHeader}>
-                    <Cloud size={18} color="#4dabf7" />
-                    <span style={styles.cardTitle}>Gemini Cloud API</span>
-                    {settings.geminiApiKey.trim().length > 5 ? (
-                      <span style={styles.badgeSuccess}>✓ 키 설정됨 (사용 가능)</span>
-                    ) : (
-                      <span style={styles.badgeWarning}>🔑 키 필요</span>
-                    )}
-                  </div>
-                  <p style={styles.cardDesc}>구글 클라우드 기반 해석. (가장 고품질 해석, API 키 입력 필요)</p>
-                </div>
-                {!settings.geminiApiKey.trim() && (
-                  <div style={styles.cardActionContainer}>
-                    <button 
-                      onClick={(e) => { 
-                        e.stopPropagation(); 
-                        setSettings(prev => ({ ...prev, preferredEngine: 'gemini-api' })); 
-                      }} 
-                      className="settings-action-btn"
-                      style={styles.cardActionBtn}
-                      title="Gemini API 키 입력 필드 활성화"
-                    >
-                      🔑 설정하기
-                    </button>
-                  </div>
-                )}
-              </div>
+
 
               {/* Mock Dictionary Demo */}
               <div 
@@ -203,25 +166,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             </div>
           </div>
 
-          {/* Conditional Gemini API Key Input */}
-          {settings.preferredEngine === 'gemini-api' && (
-            <div style={styles.apiKeySection} className="fade-in">
-              <div style={styles.apiKeyLabelGroup}>
-                <Key size={16} color="var(--color-secondary)" style={{ marginRight: '6px' }} />
-                <span style={styles.sectionSubTitle}>Gemini API Key</span>
-              </div>
-              <input
-                type="password"
-                placeholder="AI-xxxx..."
-                value={settings.geminiApiKey}
-                onChange={(e) => setSettings(prev => ({ ...prev, geminiApiKey: e.target.value }))}
-                style={styles.input}
-              />
-              <p style={styles.apiKeyTip}>
-                * API 키는 브라우저 내부 LocalStorage에만 안전하게 보관됩니다.
-              </p>
-            </div>
-          )}
+
 
           {/* Action Buttons */}
           <div style={styles.actions}>

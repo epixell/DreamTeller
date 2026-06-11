@@ -4,7 +4,7 @@ import { Compass, Sparkles, Moon, Brain } from 'lucide-react';
 interface DreamInputProps {
   onInterpret: (content: string, mode: 'traditional' | 'psychological' | 'hybrid') => void;
   isProcessing: boolean;
-  currentEngine: 'chrome-nano' | 'qwen-local' | 'gemini-api' | 'mock-demo';
+  currentEngine: 'chrome-nano' | 'qwen-local' | 'mock-demo';
   onOpenSettings: () => void;
 }
 
@@ -30,7 +30,6 @@ export const DreamInput: React.FC<DreamInputProps> = ({
     switch (engine) {
       case 'chrome-nano': return 'Chrome 내장 AI';
       case 'qwen-local': return '로컬 AI (Qwen)';
-      case 'gemini-api': return 'Gemini Cloud API';
       case 'mock-demo': return '성좌 사전 해몽';
       default: return 'AI 엔진 선택';
     }

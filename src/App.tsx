@@ -30,7 +30,6 @@ export default function App() {
   // App Settings State
   const [settings, setSettings] = useState<AppSettings>({
     preferredEngine: 'chrome-nano',
-    geminiApiKey: '',
     theme: 'mystic'
   });
 
@@ -79,7 +78,7 @@ export default function App() {
     setSettings(newSettings);
   };
 
-  const handleSelectEngine = (engine: 'chrome-nano' | 'qwen-local' | 'gemini-api' | 'mock-demo') => {
+  const handleSelectEngine = (engine: 'chrome-nano' | 'qwen-local' | 'mock-demo') => {
     const updated = { ...settings, preferredEngine: engine };
     setSettings(updated);
     storageService.saveSettings(updated);

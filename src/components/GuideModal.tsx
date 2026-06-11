@@ -4,7 +4,7 @@ import { X, Copy, Globe, HelpCircle, Download, Check, RefreshCw } from 'lucide-r
 interface GuideModalProps {
   isOpen: boolean;
   onClose: () => void;
-  engineMode: 'chrome-nano' | 'qwen-local' | 'gemini-api' | 'mock-demo';
+  engineMode: 'chrome-nano' | 'qwen-local' | 'mock-demo';
   browserInfo: {
     isChrome: boolean;
     chromeAIAvailable: boolean;
@@ -14,7 +14,7 @@ interface GuideModalProps {
   downloadText: string;
   isDownloading: boolean;
   onStartQwenDownload: () => void;
-  onSelectEngine: (engine: 'chrome-nano' | 'qwen-local' | 'gemini-api' | 'mock-demo') => void;
+  onSelectEngine: (engine: 'chrome-nano' | 'qwen-local' | 'mock-demo') => void;
 }
 
 export const GuideModal: React.FC<GuideModalProps> = ({
