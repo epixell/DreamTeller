@@ -15,6 +15,7 @@ interface SettingsModalProps {
   };
   onTriggerQwenDownload: () => void;
   onTriggerChromeGuide: () => void;
+  onTriggerChromeDownload: () => void;
 }
 
 export const SettingsModal: React.FC<SettingsModalProps> = ({ 
@@ -23,7 +24,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   onSettingsChange,
   browserInfo,
   onTriggerQwenDownload,
-  onTriggerChromeGuide
+  onTriggerChromeGuide,
+  onTriggerChromeDownload
 }) => {
   const [settings, setSettings] = useState<AppSettings>({
     preferredEngine: 'chrome-nano',
@@ -88,6 +90,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     <span style={styles.cardTitle}>Chrome Gemini Nano</span>
                     {browserInfo.chromeAIAvailable ? (
                       <span style={styles.badgeSuccess}>✓ 활성화됨 (사용 가능)</span>
+                    ) : browserInfo.reason === 'after-download' ? (
+                      <span style={styles.badgeWarning}>📥 다운로드 필요</span>
                     ) : (
                       <span style={styles.badgeWarning}>✗ 설정 필요</span>
                     )}
@@ -103,6 +107,21 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                       title="크롬 내장 AI 설정 가이드 보기"
                     >
                       ⚙️ 설정하기
+                    </button>
+                    <button 
+                      onClick={(e) => { 
+                        e.stopPropagation(); 
+                        if (browserInfo.reason !== 'after-download') {
+                          alert("크롬 AI 설정(플래그 활성화)이 완료되지 않았습니다.\n먼저 '설정하기' 버튼을 눌러 안내 가이드에 따라 플래그 설정을 마쳐주세요!");
+                        } else {
+                          onTriggerChromeDownload(); 
+                        }
+                      }} 
+                      className="settings-action-btn"
+                      style={{ ...styles.cardActionBtn, marginLeft: '6px' }}
+                      title="크롬 내장 AI 모델 활성화 및 다운로드"
+                    >
+                      📥 다운받기 (1.5GB)
                     </button>
                   </div>
                 )}

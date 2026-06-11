@@ -105,6 +105,49 @@ export default function App() {
     setIsGuideOpen(true);     // 가이드 창 열기
   };
 
+  const handleTriggerChromeDownload = async () => {
+    // 크롬 AI 설정 활성화
+    const updated = { ...settings, preferredEngine: 'chrome-nano' as const };
+    setSettings(updated);
+    storageService.saveSettings(updated);
+
+    setIsSettingsOpen(false); // Settings 창 닫기
+    setIsGuideOpen(true);     // 가이드 창 열기
+
+    setIsDownloading(true);
+    setDownloadProgress(0);
+    setDownloadText('크롬 AI 모델 다운로드 활성화 시작 중...');
+
+    try {
+      // 크롬 AI 세션 생성을 강제 호출하여 다운로드 개시 및 모니터링
+      await chromeAIService.prompt(
+        "You are a helpful assistant.",
+        "Warm greetings.", 
+        (progress, text) => {
+          setDownloadProgress(progress);
+          setDownloadText(text);
+        }
+      );
+      
+      setIsDownloading(false);
+      setIsGuideOpen(false);
+      alert("크롬 내장 AI 모델이 다운로드 완료되었습니다!");
+      
+      // 브라우저 정보 리프레시
+      const aiStatus = await chromeAIService.isAvailable();
+      setBrowserInfo(prev => ({
+        ...prev,
+        chromeAIAvailable: aiStatus.available,
+        reason: aiStatus.reason
+      }));
+    } catch (e: any) {
+      console.warn("Chrome AI Download session trigger end:", e);
+      setIsDownloading(false);
+      // 크롬 브라우저 다운로드 특성 안내
+      alert("크롬 AI 백그라운드 다운로드가 유도되었습니다.\n\n즉시 완료되지 않는 경우 chrome://components에서 최적화 가이드 모델의 [업데이트 확인]을 클릭하면 신속하게 강제 다운로드됩니다.");
+    }
+  };
+
   // Qwen AI 모델 다운로드 수행 로직
   const handleStartQwenDownload = async (pendingContent?: string, pendingMode?: 'traditional' | 'psychological' | 'hybrid') => {
     setIsDownloading(true);
@@ -311,6 +354,7 @@ export default function App() {
         browserInfo={browserInfo}
         onTriggerQwenDownload={handleTriggerQwenDownload}
         onTriggerChromeGuide={handleTriggerChromeGuide}
+        onTriggerChromeDownload={handleTriggerChromeDownload}
       />
 
       <GuideModal 

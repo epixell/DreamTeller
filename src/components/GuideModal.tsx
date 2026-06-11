@@ -62,67 +62,75 @@ export const GuideModal: React.FC<GuideModalProps> = ({
         </div>
 
         <div style={styles.body}>
-          {engineMode === 'qwen-local' ? (
-            /* ================= QWEN 로컬 AI 다운로드 및 로딩 화면 ================= */
-            isDownloading ? (
-              <div style={styles.loadingContainer} className="fade-in">
-                <Download size={40} className="float" color="var(--color-secondary)" style={{ marginBottom: '16px' }} />
-                <h3 style={styles.loadingTitle} className="font-display text-gradient-cyan">로컬 AI 두뇌를 다운로드하는 중...</h3>
-                <p style={styles.loadingDesc}>
-                  기기 내에서 직접 해석할 Qwen2.5 AI 모델을 다운로드하고 있습니다.
-                  최초 1회만 약 300MB를 다운로드하며, 완료 후 즉시 구동됩니다.
-                </p>
-                
-                <div style={styles.progressContainer}>
-                  <div style={styles.progressBarBg}>
-                    <div style={{ ...styles.progressBarFill, width: `${downloadProgress}%` }} />
-                  </div>
-                  <div style={styles.progressLabels}>
-                    <span>{downloadText}</span>
-                    <span style={styles.percentText}>{downloadProgress}%</span>
-                  </div>
+          {isDownloading ? (
+            /* ================= 공통 다운로드 및 로딩 화면 ================= */
+            <div style={styles.loadingContainer} className="fade-in">
+              <Download size={40} className="float" color="var(--color-secondary)" style={{ marginBottom: '16px' }} />
+              <h3 style={styles.loadingTitle} className="font-display text-gradient-cyan">
+                {engineMode === 'chrome-nano' ? '크롬 내장 AI 활성화 및 진단 중...' : '로컬 AI 두뇌를 다운로드하는 중...'}
+              </h3>
+              <p style={styles.loadingDesc}>
+                {engineMode === 'chrome-nano' ? (
+                  '크롬 브라우저 내부의 Gemini Nano 모델(약 1.5GB)을 다운로드 및 활성화하고 있습니다. 첫 구동 시 크롬 브라우저가 백그라운드에서 다운로드를 제어하므로 상태가 업데이트되는 데 시간이 다소 걸릴 수 있습니다.'
+                ) : (
+                  '기기 내에서 직접 해석할 Qwen2.5 AI 모델을 다운로드하고 있습니다. 최초 1회만 약 300MB를 다운로드하며, 완료 후 즉시 구동됩니다.'
+                )}
+              </p>
+              
+              <div style={styles.progressContainer}>
+                <div style={styles.progressBarBg}>
+                  <div style={{ ...styles.progressBarFill, width: `${downloadProgress}%` }} />
                 </div>
-                
-                <p style={{ ...styles.hintText, marginTop: '20px' }}>
-                  * 네트워크 속도에 따라 30초~2분 정도 소요될 수 있습니다. 창을 닫지 마세요.
-                </p>
+                <div style={styles.progressLabels}>
+                  <span>{downloadText}</span>
+                  <span style={styles.percentText}>{downloadProgress}%</span>
+                </div>
               </div>
-            ) : (
-              <div style={styles.infoContainer} className="fade-in">
-                <div style={styles.alertBox}>
-                  <Download size={20} color="var(--color-secondary)" style={{ marginRight: '8px', flexShrink: 0 }} />
-                  <div>
-                    <span style={{ fontWeight: '600', color: '#fff' }}>로컬 AI 모델(300MB) 다운로드 동의</span>
-                    <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '4px' }}>
-                      해당 기기에서 완전히 독립적으로 동작하는 Qwen AI 모델(약 300MB)을 브라우저에 적재해야 합니다.
-                      인터넷 사용료가 발생할 수 있으며, 기기 사양에 따라 시간이 다소 걸릴 수 있습니다.
-                    </p>
-                  </div>
+              
+              <p style={{ ...styles.hintText, marginTop: '20px' }}>
+                {engineMode === 'chrome-nano' ? (
+                  '* 무반응일 경우, chrome://components 로 접속하여 "Optimization Guide On Device Model"의 [업데이트 확인]을 누르시면 아주 빠르게 완료됩니다.'
+                ) : (
+                  '* 네트워크 속도에 따라 30초~2분 정도 소요될 수 있습니다. 창을 닫지 마세요.'
+                )}
+              </p>
+            </div>
+          ) : engineMode === 'qwen-local' ? (
+            /* ================= QWEN 로컬 AI 다운로드 동의 화면 ================= */
+            <div style={styles.infoContainer} className="fade-in">
+              <div style={styles.alertBox}>
+                <Download size={20} color="var(--color-secondary)" style={{ marginRight: '8px', flexShrink: 0 }} />
+                <div>
+                  <span style={{ fontWeight: '600', color: '#fff' }}>로컬 AI 모델(300MB) 다운로드 동의</span>
+                  <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '4px' }}>
+                    해당 기기에서 완전히 독립적으로 동작하는 Qwen AI 모델(약 300MB)을 브라우저에 적재해야 합니다.
+                    인터넷 사용료가 발생할 수 있으며, 기기 사양에 따라 시간이 다소 걸릴 수 있습니다.
+                  </p>
                 </div>
+              </div>
 
-                <div style={styles.btnColumn}>
-                  <button 
-                    onClick={onStartQwenDownload} 
-                    className="glow-btn"
-                    style={styles.actionBtn}
-                  >
-                    📦 모델 다운로드 시작 (300MB)
-                  </button>
-                  <button 
-                    onClick={() => onSelectEngine('mock-demo')} 
-                    style={styles.secondaryBtn}
-                  >
-                    🔮 다운로드 없이 로컬 사전 해몽으로 진행
-                  </button>
-                  <button 
-                    onClick={onClose} 
-                    style={styles.tertiaryBtn}
-                  >
-                    취소
-                  </button>
-                </div>
+              <div style={styles.btnColumn}>
+                <button 
+                  onClick={onStartQwenDownload} 
+                  className="glow-btn"
+                  style={styles.actionBtn}
+                >
+                  📦 모델 다운로드 시작 (300MB)
+                </button>
+                <button 
+                  onClick={() => onSelectEngine('mock-demo')} 
+                  style={styles.secondaryBtn}
+                >
+                  🔮 다운로드 없이 로컬 사전 해몽으로 진행
+                </button>
+                <button 
+                  onClick={onClose} 
+                  style={styles.tertiaryBtn}
+                >
+                  취소
+                </button>
               </div>
-            )
+            </div>
           ) : (
             /* ================= CHROME NANO 활성화 가이드 화면 ================= */
             <div style={styles.infoContainer} className="fade-in">
