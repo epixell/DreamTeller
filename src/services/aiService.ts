@@ -110,8 +110,13 @@ function parseAIResponse(rawText: string, matchedSymbols: DreamSymbol[], selecte
     while ((bulletMatch = bulletRegex.exec(cleanText)) !== null) {
       const name = bulletMatch[1].trim();
       const meaning = bulletMatch[2].trim();
-      const lowerName = name.toLowerCase();
-      if (!['deepanalysis', 'advice', 'symbols', 'tarotcard', 'title', 'description', 'cardtype', 'emotionscores', 'fear', 'joy', 'anxiety', 'peace', '분석', '조언', '해석'].includes(lowerName)) {
+      const lowerName = name.toLowerCase().replace(/\s*/g, '');
+      const blacklistedNames = [
+        'deepanalysis', 'advice', 'symbols', 'tarotcard', 'title', 'description', 'cardtype', 'emotionscores', 'fear', 'joy', 'anxiety', 'peace',
+        '분석', '조언', '해석', '꿈내용', '분석모드', '동양적해석', '서양적해석', '꿈의상징적의미', '상징적의미', '종합적해석', '종합해석', '결론', '주의사항', '요약'
+      ];
+      // 텍스트 헤더가 아니고 의미 있는 상징 단어만 추출하도록 필터링
+      if (!blacklistedNames.includes(lowerName) && !blacklistedNames.some(b => lowerName.includes(b))) {
         symbols.push({ name, meaning });
       }
     }
@@ -140,6 +145,20 @@ function parseAIResponse(rawText: string, matchedSymbols: DreamSymbol[], selecte
       advice = '현실 세계의 소란함에서 벗어나 깊은 평온을 묵상하는 시간을 가지시기 바랍니다.';
     }
   }
+
+  // JSON 태그 찌꺼기 및 마크다운 볼드 기호 정제 헬퍼
+  const cleanUpJsonJunk = (text: string): string => {
+    return text
+      .replace(/(?:symbols|keyword|name|meaning|deepAnalysis|analysis|thoughtProcess|advice|suggestion|tarotCard|title|description|desc|cardType|emotionScores|fear|joy|anxiety|peace)\s*:\s*/gi, '')
+      .replace(/[{}\[\]"']/g, '') // 남아있는 괄호 및 따옴표 제거
+      .replace(/\*\*/g, '')        // 마크다운 볼드표시 제거
+      .replace(/,\s*,/g, ',')      // 연속된 쉼표 제거
+      .replace(/^,|,$/g, '')       // 문장 처음/끝의 쉼표 제거
+      .trim();
+  };
+
+  if (deepAnalysis) deepAnalysis = cleanUpJsonJunk(deepAnalysis);
+  if (advice) advice = cleanUpJsonJunk(advice);
 
   const finalSymbols = symbols.length > 0 ? symbols : matchedSymbols.map(s => ({
     name: s.name,
