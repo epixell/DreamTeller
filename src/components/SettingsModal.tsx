@@ -104,33 +104,31 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     </span>
                   </p>
                 </div>
-                {!(browserInfo.chromeAIAvailable && browserInfo.reason !== 'after-download') && (
-                  <div style={styles.cardActionContainer}>
-                    <button 
-                      onClick={(e) => { e.stopPropagation(); onTriggerChromeGuide(); }} 
-                      className="settings-action-btn"
-                      style={styles.cardActionBtn}
-                      title="크롬 내장 AI 설정 가이드 보기"
-                    >
-                      ⚙️ 설정하기
-                    </button>
-                    <button 
-                      onClick={(e) => { 
-                        e.stopPropagation(); 
-                        if (!browserInfo.isChrome) {
-                          alert("크롬 브라우저가 아닙니다. 크롬 브라우저로 접속해 주세요!");
-                        } else {
-                          onTriggerChromeDownload(); 
-                        }
-                      }} 
-                      className="settings-action-btn"
-                      style={{ ...styles.cardActionBtn, marginLeft: '6px' }}
-                      title="크롬 내장 AI 모델 활성화 및 다운로드"
-                    >
-                      📥 다운받기 (1.5GB)
-                    </button>
-                  </div>
-                )}
+                <div style={styles.cardActionContainer}>
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); onTriggerChromeGuide(); }} 
+                    className="settings-action-btn"
+                    style={styles.cardActionBtn}
+                    title="크롬 내장 AI 설정 가이드 보기"
+                  >
+                    ⚙️ 설정하기
+                  </button>
+                  <button 
+                    onClick={(e) => { 
+                      e.stopPropagation(); 
+                      if (!browserInfo.isChrome) {
+                        alert("크롬 브라우저가 아닙니다. 크롬 브라우저로 접속해 주세요!");
+                      } else {
+                        onTriggerChromeDownload(); 
+                      }
+                    }} 
+                    className="settings-action-btn"
+                    style={{ ...styles.cardActionBtn, marginLeft: '6px' }}
+                    title="크롬 내장 AI 모델 활성화 및 다운로드"
+                  >
+                    📥 다운받기 (1.5GB)
+                  </button>
+                </div>
               </div>
 
               {/* Qwen Local */}
