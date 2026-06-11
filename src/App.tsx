@@ -195,9 +195,15 @@ export default function App() {
         if (!confirmDownload) {
           return; // 다운로드 취소 시 중단
         }
+        setIsGuideOpen(true);
+        handleStartQwenDownload(content, mode);
+        return;
       }
-      setIsGuideOpen(true);
-      handleStartQwenDownload(content, mode);
+      
+      // 이미 모델이 브라우저 캐시에 존재하면 가이드창 없이 즉시 해석 로딩 화면(DreamAnalyzer)으로 진입
+      setDreamText(content);
+      setSelectedMode(mode);
+      startInterpretation(content, mode);
       return;
     }
 
