@@ -89,5 +89,20 @@ export const qwenAIService = {
   // 엔진 로드 상태 확인
   isLoaded(): boolean {
     return engine !== null;
+  },
+
+  // 모델이 브라우저의 디스크 캐시(IndexedDB/CacheStorage)에 저장되어 있는지 확인
+  async checkModelCached(): Promise<boolean> {
+    try {
+      // @ts-ignore
+      const webLLM = await import('https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.84/+esm');
+      if (webLLM && typeof webLLM.hasModelInCache === 'function') {
+        return await webLLM.hasModelInCache(MODEL_ID);
+      }
+      return false;
+    } catch (e) {
+      console.warn('Failed to check cache status:', e);
+      return false;
+    }
   }
 };

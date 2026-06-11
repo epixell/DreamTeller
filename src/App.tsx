@@ -141,11 +141,14 @@ export default function App() {
 
     // 1. 로컬 AI 모델(Qwen)이 선택되었고 아직 구동 엔진이 로딩되지 않은 경우
     if (preferredEngine === 'qwen-local' && !qwenAIService.isLoaded()) {
-      const confirmDownload = window.confirm(
-        "로컬 AI 모델(약 300MB)을 다운로드하시겠습니까?\n\n최초 1회만 다운로드하며 브라우저 내부에서 네트워크 연결 없이 직접 꿈을 해석하게 됩니다."
-      );
-      if (!confirmDownload) {
-        return; // 다운로드 취소 시 정단
+      const isCached = await qwenAIService.checkModelCached();
+      if (!isCached) {
+        const confirmDownload = window.confirm(
+          "로컬 AI 모델(약 300MB)을 다운로드하시겠습니까?\n\n최초 1회만 다운로드하며 브라우저 내부에서 네트워크 연결 없이 직접 꿈을 해석하게 됩니다."
+        );
+        if (!confirmDownload) {
+          return; // 다운로드 취소 시 중단
+        }
       }
       setIsGuideOpen(true);
       handleStartQwenDownload(content, mode);

@@ -30,10 +30,14 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
     geminiApiKey: '',
     theme: 'mystic',
   });
+  const [isCached, setIsCached] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
       setSettings(storageService.getSettings());
+      qwenAIService.checkModelCached().then(cached => {
+        setIsCached(cached);
+      });
     }
   }, [isOpen]);
 
@@ -118,7 +122,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   <div style={styles.cardHeader}>
                     <Cpu size={18} color="var(--color-primary)" />
                     <span style={styles.cardTitle}>로컬 AI (Qwen2.5)</span>
-                    {qwenAIService.isLoaded() ? (
+                    {qwenAIService.isLoaded() || isCached ? (
                       <span style={styles.badgeSuccess}>✓ 준비 완료 (사용 가능)</span>
                     ) : (
                       <span style={styles.badgeWarning}>📥 다운로드 필요</span>
@@ -126,7 +130,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   </div>
                   <p style={styles.cardDesc}>브라우저 내부 구동 AI 모델. (최초 1회 약 300MB 다운로드 필요)</p>
                 </div>
-                {!qwenAIService.isLoaded() && (
+                {!(qwenAIService.isLoaded() || isCached) && (
                   <div style={styles.cardActionContainer}>
                     <button 
                       onClick={(e) => { e.stopPropagation(); onTriggerQwenDownload(); }} 
