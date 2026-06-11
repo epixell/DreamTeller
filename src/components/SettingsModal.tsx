@@ -84,7 +84,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     <Sparkles size={18} color="var(--color-secondary)" />
                     <span style={styles.cardTitle}>Chrome Gemini Nano</span>
                     {browserInfo.chromeAIAvailable ? (
-                      <span style={styles.badgeSuccess}>✓ 활성화됨</span>
+                      <span style={styles.badgeSuccess}>✓ 활성화됨 (사용 가능)</span>
                     ) : (
                       <span style={styles.badgeWarning}>✗ 설정 필요</span>
                     )}
@@ -119,7 +119,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     <Cpu size={18} color="var(--color-primary)" />
                     <span style={styles.cardTitle}>로컬 AI (Qwen2.5)</span>
                     {qwenAIService.isLoaded() ? (
-                      <span style={styles.badgeSuccess}>✓ 준비 완료</span>
+                      <span style={styles.badgeSuccess}>✓ 준비 완료 (사용 가능)</span>
                     ) : (
                       <span style={styles.badgeWarning}>📥 다운로드 필요</span>
                     )}
@@ -154,7 +154,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     <Cloud size={18} color="#4dabf7" />
                     <span style={styles.cardTitle}>Gemini Cloud API</span>
                     {settings.geminiApiKey.trim().length > 5 ? (
-                      <span style={styles.badgeSuccess}>✓ 키 설정됨</span>
+                      <span style={styles.badgeSuccess}>✓ 키 설정됨 (사용 가능)</span>
                     ) : (
                       <span style={styles.badgeWarning}>🔑 키 필요</span>
                     )}
@@ -191,7 +191,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   <div style={styles.cardHeader}>
                     <FileText size={18} color="#a5d8ff" />
                     <span style={styles.cardTitle}>성좌의 지혜 (사전 해몽)</span>
-                    <span style={styles.badgeSuccess}>✓ 즉시 가능</span>
+                    <span style={styles.badgeSuccess}>✓ 즉시 사용 가능</span>
                   </div>
                   <p style={styles.cardDesc}>네트워크와 기기 사양 제한이 없는 순수 로컬 상징 사전 기반 분석.</p>
                 </div>
