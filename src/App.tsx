@@ -39,6 +39,8 @@ export default function App() {
     language: 'ko'
   });
 
+  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
+
   // Browser Diagnostics Info
   const [browserInfo, setBrowserInfo] = useState<{
     isChrome: boolean;
@@ -79,6 +81,19 @@ export default function App() {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  // Click-outside listener for language dropdown
+  useEffect(() => {
+    if (!isLangDropdownOpen) return;
+    const handleOutsideClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.lang-toggle-btn') && !target.closest('.lang-dropdown-menu')) {
+        setIsLangDropdownOpen(false);
+      }
+    };
+    document.addEventListener('click', handleOutsideClick);
+    return () => document.removeEventListener('click', handleOutsideClick);
+  }, [isLangDropdownOpen]);
+
   // 설정 저장 완료 후 동기화
   const handleSettingsChange = (newSettings: AppSettings) => {
     setSettings(newSettings);
@@ -90,11 +105,11 @@ export default function App() {
     storageService.saveSettings(updated);
   };
 
-  const handleToggleLanguage = () => {
-    const newLang: 'ko' | 'en' = settings.language === 'ko' ? 'en' : 'ko';
-    const updated = { ...settings, language: newLang };
+  const handleSelectLanguage = (lang: 'ko' | 'en') => {
+    const updated = { ...settings, language: lang };
     setSettings(updated);
     storageService.saveSettings(updated);
+    setIsLangDropdownOpen(false);
   };
 
   const handleTriggerQwenDownload = () => {
@@ -422,17 +437,44 @@ export default function App() {
           </div>
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <button 
-              onClick={handleToggleLanguage} 
-              style={styles.langBtn} 
-              title={settings.language === 'ko' ? "Switch to English" : "한국어로 전환"}
-              className="lang-toggle-btn"
-            >
-              <Globe size={16} color="var(--color-secondary)" style={{ marginRight: '6px' }} />
-              <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-main)' }}>
-                {settings.language === 'ko' ? 'KO' : 'EN'}
-              </span>
-            </button>
+            <div style={{ position: 'relative' }}>
+              <button 
+                onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)} 
+                style={styles.langBtn} 
+                title={settings.language === 'ko' ? "언어 선택 / Select Language" : "Select Language / 언어 선택"}
+                className="lang-toggle-btn"
+              >
+                <Globe size={16} color="var(--color-secondary)" style={{ marginRight: '6px' }} />
+                <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                  {settings.language === 'ko' ? 'KO' : 'EN'}
+                </span>
+              </button>
+
+              {isLangDropdownOpen && (
+                <div style={styles.langDropdown} className="glass-panel lang-dropdown-menu fade-in">
+                  <button 
+                    onClick={() => handleSelectLanguage('ko')} 
+                    style={{
+                      ...styles.dropdownItem,
+                      color: settings.language === 'ko' ? 'var(--color-secondary)' : 'var(--text-main)',
+                      fontWeight: settings.language === 'ko' ? 600 : 400
+                    }}
+                  >
+                    🇰🇷 한국어
+                  </button>
+                  <button 
+                    onClick={() => handleSelectLanguage('en')} 
+                    style={{
+                      ...styles.dropdownItem,
+                      color: settings.language === 'en' ? 'var(--color-secondary)' : 'var(--text-main)',
+                      fontWeight: settings.language === 'en' ? 600 : 400
+                    }}
+                  >
+                    🇺🇸 English
+                  </button>
+                </div>
+              )}
+            </div>
 
             <button 
               onClick={() => setIsSettingsOpen(true)} 
@@ -673,6 +715,33 @@ const styles: Record<string, React.CSSProperties> = {
     alignItems: 'center',
     cursor: 'pointer',
     transition: 'all var(--transition-fast)',
+    outline: 'none',
+  },
+  langDropdown: {
+    position: 'absolute',
+    top: '44px',
+    right: '0',
+    backgroundColor: 'rgba(15, 10, 25, 0.92)',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
+    borderRadius: '12px',
+    padding: '6px',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '4px',
+    zIndex: 1000,
+    width: '120px',
+    boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.5)',
+  },
+  dropdownItem: {
+    background: 'none',
+    border: 'none',
+    padding: '8px 12px',
+    borderRadius: '8px',
+    fontSize: '0.8rem',
+    textAlign: 'left',
+    cursor: 'pointer',
+    width: '100%',
+    transition: 'background-color 0.2s, color 0.2s',
     outline: 'none',
   },
   mainContent: {

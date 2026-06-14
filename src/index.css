@@ -486,3 +486,11 @@ p {
   to { opacity: 1; transform: translateY(0); }
 }
 
+
+/* Language Dropdown Menu Styling */
+.lang-dropdown-menu button {
+  color: var(--text-main);
+}
+.lang-dropdown-menu button:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
