@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Compass, Sparkles, Moon, Brain } from 'lucide-react';
-import { i18n } from '../services/i18nService';
+import { useTranslation } from 'react-i18next';
 
 interface DreamInputProps {
   onInterpret: (content: string, mode: 'traditional' | 'psychological' | 'hybrid') => void;
@@ -73,30 +73,30 @@ export const DreamInput: React.FC<DreamInputProps> = ({
     }
   };
 
+  const { t } = useTranslation();
+
   const handleSubmit = () => {
     if (content.trim().length < 5) {
-      alert(i18n[language].minCharAlert);
+      alert(t('minCharAlert'));
       return;
     }
     onInterpret(content, mode);
   };
 
-  const t = i18n[language];
-
   return (
     <div style={styles.container} className="glass-panel fade-in">
       <div style={styles.header}>
         <Sparkles size={20} color="var(--color-secondary)" style={{ animation: 'float 3s ease-in-out infinite' }} />
-        <h2 style={styles.title} className="font-display text-gradient-cyan">{t.portalTitle}</h2>
+        <h2 style={styles.title} className="font-display text-gradient-cyan">{t('portalTitle')}</h2>
       </div>
 
-      <p style={styles.subtitle}>{t.portalSubtitle}</p>
+      <p style={styles.subtitle}>{t('portalSubtitle')}</p>
 
       {/* Dream Writing Textarea Container */}
       <div style={styles.inputHeader}>
-        <span style={styles.inputLabel}>{t.inputLabel}</span>
+        <span style={styles.inputLabel}>{t('inputLabel')}</span>
         <button onClick={onOpenSettings} style={styles.engineBadge} title={language === 'en' ? 'Change AI engine' : 'AI 엔진 변경 (AI 관리자)'}>
-          ⚙️ {t.engineBadge}: <span style={{ textDecoration: 'underline', fontWeight: '600' }}>{getEngineLabel(currentEngine)}</span>
+          ⚙️ {t('engineBadge')}: <span style={{ textDecoration: 'underline', fontWeight: '600' }}>{getEngineLabel(currentEngine)}</span>
         </button>
       </div>
 
@@ -106,7 +106,7 @@ export const DreamInput: React.FC<DreamInputProps> = ({
           value={content}
           onChange={(e) => setContent(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder={t.inputPlaceholder}
+          placeholder={t('inputPlaceholder')}
           style={styles.textarea}
           disabled={isProcessing}
         />
@@ -126,13 +126,13 @@ export const DreamInput: React.FC<DreamInputProps> = ({
         ))}
 
         <div style={styles.charCounter}>
-          {content.length} {t.charCount}
+          {content.length} {t('charCount')}
         </div>
       </div>
 
       {/* Mode Selector */}
       <div style={styles.selectorContainer}>
-        <span style={styles.selectorLabel}>{t.filterLabel}</span>
+        <span style={styles.selectorLabel}>{t('filterLabel')}</span>
         <div style={styles.tabsGrid}>
           {/* Hybrid Mode */}
           <button 
@@ -144,7 +144,7 @@ export const DreamInput: React.FC<DreamInputProps> = ({
             disabled={isProcessing}
           >
             <Compass size={16} style={{ marginRight: '6px' }} />
-            {t.modeHybrid}
+            {t('modeHybrid')}
           </button>
 
           {/* Traditional Mode */}
@@ -157,7 +157,7 @@ export const DreamInput: React.FC<DreamInputProps> = ({
             disabled={isProcessing}
           >
             <Moon size={16} style={{ marginRight: '6px' }} />
-            {t.modeTraditional}
+            {t('modeTraditional')}
           </button>
 
           {/* Psychological Mode */}
@@ -170,7 +170,7 @@ export const DreamInput: React.FC<DreamInputProps> = ({
             disabled={isProcessing}
           >
             <Brain size={16} style={{ marginRight: '6px' }} />
-            {t.modePsychological}
+            {t('modePsychological')}
           </button>
         </div>
       </div>
@@ -183,11 +183,11 @@ export const DreamInput: React.FC<DreamInputProps> = ({
         disabled={isProcessing}
       >
         <Sparkles size={16} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
-        {t.interpretBtn}
+        {t('interpretBtn')}
       </button>
 
       {/* Key tip */}
-      <span style={styles.shortcutTip}>{t.shortcutTip}</span>
+      <span style={styles.shortcutTip}>{t('shortcutTip')}</span>
     </div>
   );
 };

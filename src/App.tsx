@@ -11,9 +11,10 @@ import { storageService } from './services/storageService';
 import type { AppSettings, ChatSession, ChatMessage } from './services/storageService';
 import { chromeAIService } from './services/chromeAIService';
 import { qwenAIService } from './services/qwenAIService';
-import { i18n } from './services/i18nService';
+import { useTranslation } from 'react-i18next';
 
 export default function App() {
+  const { t, i18n: i18nInstance } = useTranslation();
   // Navigation & Modals
   const [currentView, setCurrentView] = useState<'main' | 'admin'>('main');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -60,6 +61,7 @@ export default function App() {
     // 1. 설정 정보 불러오기
     const stored = storageService.getSettings();
     setSettings(stored);
+    i18nInstance.changeLanguage(stored.language);
 
     // 2. 브라우저 크롬 AI 상태 확인
     const checkBrowser = async () => {
@@ -109,6 +111,7 @@ export default function App() {
     const updated = { ...settings, language: lang };
     setSettings(updated);
     storageService.saveSettings(updated);
+    i18nInstance.changeLanguage(lang);
     setIsLangDropdownOpen(false);
   };
 
@@ -298,7 +301,7 @@ export default function App() {
             id: `msg_ai_${Date.now()}`,
             sender: 'ai',
             timestamp: new Date().toISOString(),
-            text: i18n[settings.language].aiResponseSuccess,
+            text: t('aiResponseSuccess'),
             interpretation: interp
           }
         ]
@@ -350,7 +353,7 @@ export default function App() {
 
     // AI 응답 처리 시작
     setIsChatProcessing(true);
-    setChatProgressText(i18n[settings.language].aiChatConnecting);
+    setChatProgressText(t('aiChatConnecting'));
     setChatProgressPercent(20);
 
     try {
@@ -396,7 +399,7 @@ export default function App() {
         id: `msg_ai_${Date.now()}`,
         sender: 'ai',
         timestamp: new Date().toISOString(),
-        text: i18n[settings.language].aiChatError
+        text: t('aiChatError')
       };
 
       const finalSession = {
@@ -412,7 +415,6 @@ export default function App() {
     }
   };
 
-  const t = i18n[settings.language];
 
   return (
     <div className="app-container">
@@ -569,7 +571,7 @@ export default function App() {
                         type="text"
                         value={followUpText}
                         onChange={(e) => setFollowUpText(e.target.value)}
-                        placeholder={t.chatInputPlaceholder}
+                        placeholder={t('chatInputPlaceholder')}
                         className="chat-input-field"
                         disabled={isChatProcessing}
                       />
@@ -604,11 +606,11 @@ export default function App() {
             {currentView === 'main' ? (
               <button onClick={() => setCurrentView('admin')} style={styles.footerLinkBtn}>
                 <Key size={12} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
-                {t.aetherGate}
+                {t('aetherGate')}
               </button>
             ) : (
               <button onClick={() => setCurrentView('main')} style={styles.footerLinkBtn}>
-                {t.backToHome}
+                {t('backToHome')}
               </button>
             )}
           </div>

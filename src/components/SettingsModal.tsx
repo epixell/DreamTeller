@@ -3,7 +3,7 @@ import { Settings, X, Cpu, FileText, Sparkles } from 'lucide-react';
 import { storageService } from '../services/storageService';
 import type { AppSettings } from '../services/storageService';
 import { qwenAIService } from '../services/qwenAIService';
-import { i18n } from '../services/i18nService';
+import { useTranslation } from 'react-i18next';
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -28,6 +28,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   onTriggerChromeGuide,
   onTriggerChromeDownload
 }) => {
+  const { t, i18n: i18nInstance } = useTranslation();
   const [settings, setSettings] = useState<AppSettings>({
     preferredEngine: 'chrome-nano',
     theme: 'mystic',
@@ -54,8 +55,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 
   if (!isOpen) return null;
 
-  const t = i18n[settings.language];
-  const isEn = settings.language === 'en';
+  const isEn = i18nInstance.language === 'en';
 
   return (
     <div style={styles.overlay} className="fade-in">
@@ -63,9 +63,9 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         <div style={styles.header}>
           <h2 style={styles.title} className="font-display text-gradient-cyan">
             <Settings size={22} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
-            {t.settingsTitle}
+            {t('settingsTitle')}
           </h2>
-          <button onClick={onClose} style={styles.closeBtn} title={t.close}>
+          <button onClick={onClose} style={styles.closeBtn} title={t('close')}>
             <X size={20} />
           </button>
         </div>
@@ -73,7 +73,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         <div style={styles.body}>
           {/* AI Engine Selection */}
           <div style={styles.section}>
-            <h3 style={styles.sectionTitle}>{t.engineSelect}</h3>
+            <h3 style={styles.sectionTitle}>{t('engineSelect')}</h3>
             <p style={styles.description}>
               {isEn 
                 ? 'Select the brain model to decode your consciousness. On-device models interpret dreams directly inside your browser without data leakage.'
@@ -94,7 +94,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 <div style={styles.cardMainContent}>
                   <div style={styles.cardHeader}>
                     <Sparkles size={18} color="var(--color-secondary)" />
-                    <span style={styles.cardTitle}>{t.chromeNano}</span>
+                    <span style={styles.cardTitle}>{t('chromeNano')}</span>
                     <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', alignItems: 'center' }}>
                       {browserInfo.chromeAIAvailable && browserInfo.reason !== 'after-download' ? (
                         <span style={styles.badgeSuccess}>{isEn ? '✓ Active' : '✓ 설정 & 다운 완료'}</span>
@@ -104,7 +104,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     </div>
                   </div>
                   <p style={styles.cardDesc}>
-                    {t.engineChromeDesc}
+                    {t('engineChromeDesc')}
                     <br />
                     <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem', display: 'inline-block', marginTop: '3px' }}>
                       {isEn
@@ -152,7 +152,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 <div style={styles.cardMainContent}>
                   <div style={styles.cardHeader}>
                     <Cpu size={18} color="var(--color-primary)" />
-                    <span style={styles.cardTitle}>{t.qwenLocal}</span>
+                    <span style={styles.cardTitle}>{t('qwenLocal')}</span>
                     {qwenAIService.isLoaded() || isCached ? (
                       <span style={styles.badgeSuccess}>{isEn ? '✓ Ready' : '✓ 준비 완료 (사용 가능)'}</span>
                     ) : (
@@ -160,7 +160,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     )}
                   </div>
                   <p style={styles.cardDesc}>
-                    {t.engineQwenDesc}
+                    {t('engineQwenDesc')}
                     <br />
                     <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem', display: 'inline-block', marginTop: '3px' }}>
                       {isEn
@@ -195,10 +195,10 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 <div style={styles.cardMainContent}>
                   <div style={styles.cardHeader}>
                     <FileText size={18} color="#a5d8ff" />
-                    <span style={styles.cardTitle}>{t.mockDemo}</span>
+                    <span style={styles.cardTitle}>{t('mockDemo')}</span>
                     <span style={styles.badgeSuccess}>{isEn ? '✓ Ready' : '✓ 즉시 사용 가능'}</span>
                   </div>
-                  <p style={styles.cardDesc}>{t.engineMockDesc}</p>
+                  <p style={styles.cardDesc}>{t('engineMockDesc')}</p>
                 </div>
               </div>
             </div>

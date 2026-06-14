@@ -4,7 +4,7 @@ import { dictionaryService } from '../services/dictionaryService';
 import type { DreamSymbol } from '../services/dictionaryService';
 import { storageService } from '../services/storageService';
 import type { AuditLog } from '../services/storageService';
-import { i18n } from '../services/i18nService';
+import { useTranslation } from 'react-i18next';
 
 interface AdminDashboardProps {
   onBackToMain: () => void;
@@ -12,6 +12,7 @@ interface AdminDashboardProps {
 }
 
 export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain, language }) => {
+  const { t, i18n: i18nInstance } = useTranslation();
   const [password, setPassword] = useState('');
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
@@ -156,14 +157,13 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain, la
 
   // --- Log Operations ---
   const handleClearLogs = () => {
-    if (confirm(i18n[language].confirmClearLogs)) {
+    if (confirm(t('confirmClearLogs'))) {
       storageService.clearAuditLogs();
       setLogs([]);
     }
   };
 
-  const isEn = language === 'en';
-  const t = i18n[language];
+  const isEn = i18nInstance.language === 'en';
 
   if (!isUnlocked) {
     /* 1. 비밀번호 입력 잠금 화면 */
@@ -197,7 +197,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain, la
             <div style={styles.loginBtnGroup}>
               <button type="button" onClick={onBackToMain} style={styles.loginBackBtn}>
                 <ArrowLeft size={16} style={{ marginRight: '6px', verticalAlign: 'middle' }} />
-                {t.backToMain}
+                {t('backToMain')}
               </button>
               <button type="submit" className="glow-btn" style={styles.loginSubmitBtn}>
                 Gate Unlock
@@ -217,7 +217,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain, la
         <div>
           <h1 style={styles.dashTitle} className="font-display text-gradient-purple">
             <Unlock size={24} style={{ marginRight: '10px', verticalAlign: 'middle' }} />
-            {t.adminTitle}
+            {t('adminTitle')}
           </h1>
           <p style={styles.dashSubtitle}>
             {isEn ? 'Dream Interpretation Manual & Symbol Dictionary Control Panel' : '꿈 분석 기준 매뉴얼 및 상징 데이터 제어판'}

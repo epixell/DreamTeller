@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Copy, Globe, HelpCircle, Download, Check, RefreshCw } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface GuideModalProps {
   isOpen: boolean;
@@ -17,7 +18,7 @@ interface GuideModalProps {
   onSelectEngine: (engine: 'chrome-nano' | 'qwen-local' | 'mock-demo') => void;
   chromeSubMode?: 'setup' | 'download';
   onStartChromeDownload?: () => void;
-  language: 'ko' | 'en';
+  language?: 'ko' | 'en';
 }
 
 export const GuideModal: React.FC<GuideModalProps> = ({
@@ -31,9 +32,9 @@ export const GuideModal: React.FC<GuideModalProps> = ({
   onStartQwenDownload,
   onSelectEngine,
   chromeSubMode = 'setup',
-  onStartChromeDownload,
-  language
+  onStartChromeDownload
 }) => {
+  const { i18n } = useTranslation();
   const [copiedFlag1, setCopiedFlag1] = useState(false);
   const [copiedFlag2, setCopiedFlag2] = useState(false);
   const [copiedComponents, setCopiedComponents] = useState(false);
@@ -65,7 +66,7 @@ export const GuideModal: React.FC<GuideModalProps> = ({
     }
   };
 
-  const isEn = language === 'en';
+  const isEn = i18n.language === 'en';
 
   return (
     <div style={styles.overlay} className="fade-in">

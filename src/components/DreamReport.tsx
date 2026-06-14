@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, Moon, Sun, Star, Compass, Heart, AlertOctagon, RotateCcw } from 'lucide-react';
 import type { InterpretationResult } from '../services/aiService';
-import { i18n } from '../services/i18nService';
+import { useTranslation } from 'react-i18next';
 
 interface DreamReportProps {
   dreamText: string;
@@ -25,7 +25,7 @@ export const DreamReport: React.FC<DreamReportProps> = ({
 
   const { symbols, deepAnalysis, advice, emotionScores, tarotCard } = result;
 
-  const t = i18n[language];
+  const { t } = useTranslation();
 
   // 타로 카드 컨셉에 따른 아이콘 및 카드 색상 테마 분기
   const getCardTheme = (type: string) => {
@@ -99,9 +99,9 @@ export const DreamReport: React.FC<DreamReportProps> = ({
       
       {/* 1. 입력했던 꿈 요약 */}
       <div style={styles.dreamQuoteBox} className="glass-panel">
-        <span style={styles.quoteMark}>{t.quoteStart}</span>
+        <span style={styles.quoteMark}>{t('quoteStart')}</span>
         <p style={styles.dreamText}>{dreamText}</p>
-        <span style={{ ...styles.quoteMark, ...styles.quoteMarkEnd }}>{t.quoteEnd}</span>
+        <span style={{ ...styles.quoteMark, ...styles.quoteMarkEnd }}>{t('quoteEnd')}</span>
         <div style={styles.badgeLine}>
           <span style={styles.modeBadge}>{getModeLabel(selectedMode)}</span>
         </div>
@@ -112,7 +112,7 @@ export const DreamReport: React.FC<DreamReportProps> = ({
         
         {/* 타로 카드 구역 */}
         <div style={styles.cardSection}>
-          <span style={styles.cardHelp}>{t.tarotHelp}</span>
+          <span style={styles.cardHelp}>{t('tarotHelp')}</span>
           
           <div 
             style={{
@@ -126,7 +126,7 @@ export const DreamReport: React.FC<DreamReportProps> = ({
               <div style={styles.cardBackInner}>
                 <div style={styles.cardBackOrb} className="float" />
                 <div style={styles.cardBackLines} />
-                <span style={styles.cardBackText} className="font-display">{t.cardBackText}</span>
+                <span style={styles.cardBackText} className="font-display">{t('cardBackText')}</span>
               </div>
             </div>
 
@@ -159,13 +159,13 @@ export const DreamReport: React.FC<DreamReportProps> = ({
               onClick={() => setActiveTab('analysis')}
               style={{ ...styles.tabBtn, ...(activeTab === 'analysis' ? styles.tabBtnActive : {}) }}
             >
-              {t.tabAnalysis}
+              {t('tabAnalysis')}
             </button>
             <button 
               onClick={() => setActiveTab('symbols')}
               style={{ ...styles.tabBtn, ...(activeTab === 'symbols' ? styles.tabBtnActive : {}) }}
             >
-              {t.tabSymbols} ({symbols.length})
+              {t('tabSymbols')} ({symbols.length})
             </button>
           </div>
 
@@ -174,12 +174,12 @@ export const DreamReport: React.FC<DreamReportProps> = ({
               /* TAB A: Deep Analysis & Advice */
               <div className="fade-in" style={styles.textColumn}>
                 <div style={styles.textBlock}>
-                  <h4 style={styles.blockTitle} className="font-display text-gradient-purple">{t.sectionAnalysis}</h4>
+                  <h4 style={styles.blockTitle} className="font-display text-gradient-purple">{t('sectionAnalysis')}</h4>
                   <p style={styles.blockText}>{deepAnalysis}</p>
                 </div>
 
                 <div style={styles.textBlock}>
-                  <h4 style={styles.blockTitle} className="font-display text-gradient-gold">{t.sectionAdvice}</h4>
+                  <h4 style={styles.blockTitle} className="font-display text-gradient-gold">{t('sectionAdvice')}</h4>
                   <p style={styles.blockText}>{advice}</p>
                 </div>
               </div>
@@ -187,7 +187,7 @@ export const DreamReport: React.FC<DreamReportProps> = ({
               /* TAB B: Extracted Symbols */
               <div className="fade-in" style={styles.symbolsList}>
                 {symbols.length === 0 ? (
-                  <p style={styles.emptyText}>{t.emptySymbols}</p>
+                  <p style={styles.emptyText}>{t('emptySymbols')}</p>
                 ) : (
                   symbols.map((s, idx) => (
                     <div key={idx} style={styles.symbolCard}>
@@ -201,13 +201,13 @@ export const DreamReport: React.FC<DreamReportProps> = ({
 
             {/* Emotion Scores (감정 지표) */}
             <div style={styles.emotionsContainer}>
-              <h4 style={styles.emotionsTitle} className="font-display text-gradient-cyan">{t.sectionEmotions}</h4>
+              <h4 style={styles.emotionsTitle} className="font-display text-gradient-cyan">{t('sectionEmotions')}</h4>
               
               <div style={styles.emotionsGrid}>
                 {/* Fear */}
                 <div style={styles.emotionItem}>
                   <div style={styles.emotionMeta}>
-                    <span>{t.emotionFear}</span>
+                    <span>{t('emotionFear')}</span>
                     <span style={{ color: '#ff6b6b' }}>{emotionScores.fear}%</span>
                   </div>
                   <div style={styles.meterBg}>
@@ -218,7 +218,7 @@ export const DreamReport: React.FC<DreamReportProps> = ({
                 {/* Joy */}
                 <div style={styles.emotionItem}>
                   <div style={styles.emotionMeta}>
-                    <span>{t.emotionJoy}</span>
+                    <span>{t('emotionJoy')}</span>
                     <span style={{ color: 'var(--color-accent)' }}>{emotionScores.joy}%</span>
                   </div>
                   <div style={styles.meterBg}>
@@ -229,7 +229,7 @@ export const DreamReport: React.FC<DreamReportProps> = ({
                 {/* Anxiety */}
                 <div style={styles.emotionItem}>
                   <div style={styles.emotionMeta}>
-                    <span>{t.emotionAnxiety}</span>
+                    <span>{t('emotionAnxiety')}</span>
                     <span style={{ color: '#d681ff' }}>{emotionScores.anxiety}%</span>
                   </div>
                   <div style={styles.meterBg}>
@@ -240,7 +240,7 @@ export const DreamReport: React.FC<DreamReportProps> = ({
                 {/* Peace */}
                 <div style={styles.emotionItem}>
                   <div style={styles.emotionMeta}>
-                    <span>{t.emotionPeace}</span>
+                    <span>{t('emotionPeace')}</span>
                     <span style={{ color: 'var(--color-secondary)' }}>{emotionScores.peace}%</span>
                   </div>
                   <div style={styles.meterBg}>
@@ -260,7 +260,7 @@ export const DreamReport: React.FC<DreamReportProps> = ({
         <div style={styles.actionRow}>
           <button onClick={onReset} className="glow-btn" style={styles.resetBtn}>
             <RotateCcw size={16} style={{ marginRight: '6px', verticalAlign: 'middle' }} />
-            {t.otherDreamBtn}
+            {t('otherDreamBtn')}
           </button>
         </div>
       )}
