@@ -1,24 +1,31 @@
 import React, { useState } from 'react';
 import { Sparkles, Moon, Sun, Star, Compass, Heart, AlertOctagon, RotateCcw } from 'lucide-react';
 import type { InterpretationResult } from '../services/aiService';
+import { i18n } from '../services/i18nService';
 
 interface DreamReportProps {
   dreamText: string;
   result: InterpretationResult;
   selectedMode: 'traditional' | 'psychological' | 'hybrid';
   onReset: () => void;
+  inlineMode?: boolean;
+  language: 'ko' | 'en';
 }
 
 export const DreamReport: React.FC<DreamReportProps> = ({
   dreamText,
   result,
   selectedMode,
-  onReset
+  onReset,
+  inlineMode = false,
+  language
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [activeTab, setActiveTab] = useState<'analysis' | 'symbols'>('analysis');
 
   const { symbols, deepAnalysis, advice, emotionScores, tarotCard } = result;
+
+  const t = i18n[language];
 
   // 타로 카드 컨셉에 따른 아이콘 및 카드 색상 테마 분기
   const getCardTheme = (type: string) => {
@@ -72,19 +79,29 @@ export const DreamReport: React.FC<DreamReportProps> = ({
   const cardTheme = getCardTheme(tarotCard.cardType);
 
   const getModeLabel = (mode: string) => {
-    if (mode === 'traditional') return '동양 전통 해몽';
-    if (mode === 'psychological') return '서양 심층 심리학';
-    return '종합 융합 분석';
+    if (mode === 'traditional') return language === 'en' ? 'Eastern Traditional' : '동양 전통 해몽';
+    if (mode === 'psychological') return language === 'en' ? 'Western Psychological' : '서양 심리학 해석';
+    return language === 'en' ? 'Comprehensive Hybrid' : '종합 융합 분석';
+  };
+
+  const containerStyle = {
+    ...styles.container,
+    ...(inlineMode ? {
+      width: '100%',
+      maxWidth: '100%',
+      margin: '0',
+      padding: '0'
+    } : {})
   };
 
   return (
-    <div style={styles.container} className="fade-in">
+    <div style={containerStyle} className="fade-in">
       
       {/* 1. 입력했던 꿈 요약 */}
       <div style={styles.dreamQuoteBox} className="glass-panel">
-        <span style={styles.quoteMark}>“</span>
+        <span style={styles.quoteMark}>{t.quoteStart}</span>
         <p style={styles.dreamText}>{dreamText}</p>
-        <span style={{ ...styles.quoteMark, ...styles.quoteMarkEnd }}>”</span>
+        <span style={{ ...styles.quoteMark, ...styles.quoteMarkEnd }}>{t.quoteEnd}</span>
         <div style={styles.badgeLine}>
           <span style={styles.modeBadge}>{getModeLabel(selectedMode)}</span>
         </div>
@@ -95,7 +112,7 @@ export const DreamReport: React.FC<DreamReportProps> = ({
         
         {/* 타로 카드 구역 */}
         <div style={styles.cardSection}>
-          <span style={styles.cardHelp}>카드를 탭하여 꿈의 비전을 열어보세요</span>
+          <span style={styles.cardHelp}>{t.tarotHelp}</span>
           
           <div 
             style={{
@@ -109,7 +126,7 @@ export const DreamReport: React.FC<DreamReportProps> = ({
               <div style={styles.cardBackInner}>
                 <div style={styles.cardBackOrb} className="float" />
                 <div style={styles.cardBackLines} />
-                <span style={styles.cardBackText} className="font-display">DREAM TELLER</span>
+                <span style={styles.cardBackText} className="font-display">{t.cardBackText}</span>
               </div>
             </div>
 
@@ -142,13 +159,13 @@ export const DreamReport: React.FC<DreamReportProps> = ({
               onClick={() => setActiveTab('analysis')}
               style={{ ...styles.tabBtn, ...(activeTab === 'analysis' ? styles.tabBtnActive : {}) }}
             >
-              심층 풀이 리포트
+              {t.tabAnalysis}
             </button>
             <button 
               onClick={() => setActiveTab('symbols')}
               style={{ ...styles.tabBtn, ...(activeTab === 'symbols' ? styles.tabBtnActive : {}) }}
             >
-              추출된 꿈 상징 ({symbols.length})
+              {t.tabSymbols} ({symbols.length})
             </button>
           </div>
 
@@ -157,12 +174,12 @@ export const DreamReport: React.FC<DreamReportProps> = ({
               /* TAB A: Deep Analysis & Advice */
               <div className="fade-in" style={styles.textColumn}>
                 <div style={styles.textBlock}>
-                  <h4 style={styles.blockTitle} className="font-display text-gradient-purple">심층 분석</h4>
+                  <h4 style={styles.blockTitle} className="font-display text-gradient-purple">{t.sectionAnalysis}</h4>
                   <p style={styles.blockText}>{deepAnalysis}</p>
                 </div>
 
                 <div style={styles.textBlock}>
-                  <h4 style={styles.blockTitle} className="font-display text-gradient-gold">현실에 주는 조언</h4>
+                  <h4 style={styles.blockTitle} className="font-display text-gradient-gold">{t.sectionAdvice}</h4>
                   <p style={styles.blockText}>{advice}</p>
                 </div>
               </div>
@@ -170,7 +187,7 @@ export const DreamReport: React.FC<DreamReportProps> = ({
               /* TAB B: Extracted Symbols */
               <div className="fade-in" style={styles.symbolsList}>
                 {symbols.length === 0 ? (
-                  <p style={styles.emptyText}>추출된 주요 해몽 상징 단어가 없습니다.</p>
+                  <p style={styles.emptyText}>{t.emptySymbols}</p>
                 ) : (
                   symbols.map((s, idx) => (
                     <div key={idx} style={styles.symbolCard}>
@@ -184,13 +201,13 @@ export const DreamReport: React.FC<DreamReportProps> = ({
 
             {/* Emotion Scores (감정 지표) */}
             <div style={styles.emotionsContainer}>
-              <h4 style={styles.emotionsTitle} className="font-display text-gradient-cyan">무의식 감정 분석</h4>
+              <h4 style={styles.emotionsTitle} className="font-display text-gradient-cyan">{t.sectionEmotions}</h4>
               
               <div style={styles.emotionsGrid}>
                 {/* Fear */}
                 <div style={styles.emotionItem}>
                   <div style={styles.emotionMeta}>
-                    <span>공포 / 악몽도</span>
+                    <span>{t.emotionFear}</span>
                     <span style={{ color: '#ff6b6b' }}>{emotionScores.fear}%</span>
                   </div>
                   <div style={styles.meterBg}>
@@ -201,7 +218,7 @@ export const DreamReport: React.FC<DreamReportProps> = ({
                 {/* Joy */}
                 <div style={styles.emotionItem}>
                   <div style={styles.emotionMeta}>
-                    <span>기쁨 / 흥분</span>
+                    <span>{t.emotionJoy}</span>
                     <span style={{ color: 'var(--color-accent)' }}>{emotionScores.joy}%</span>
                   </div>
                   <div style={styles.meterBg}>
@@ -212,7 +229,7 @@ export const DreamReport: React.FC<DreamReportProps> = ({
                 {/* Anxiety */}
                 <div style={styles.emotionItem}>
                   <div style={styles.emotionMeta}>
-                    <span>불안 / 긴장</span>
+                    <span>{t.emotionAnxiety}</span>
                     <span style={{ color: '#d681ff' }}>{emotionScores.anxiety}%</span>
                   </div>
                   <div style={styles.meterBg}>
@@ -223,7 +240,7 @@ export const DreamReport: React.FC<DreamReportProps> = ({
                 {/* Peace */}
                 <div style={styles.emotionItem}>
                   <div style={styles.emotionMeta}>
-                    <span>평온 / 안도감</span>
+                    <span>{t.emotionPeace}</span>
                     <span style={{ color: 'var(--color-secondary)' }}>{emotionScores.peace}%</span>
                   </div>
                   <div style={styles.meterBg}>
@@ -239,12 +256,14 @@ export const DreamReport: React.FC<DreamReportProps> = ({
       </div>
 
       {/* 3. 액션 버튼 그룹 */}
-      <div style={styles.actionRow}>
-        <button onClick={onReset} className="glow-btn" style={styles.resetBtn}>
-          <RotateCcw size={16} style={{ marginRight: '6px', verticalAlign: 'middle' }} />
-          다른 꿈 적기
-        </button>
-      </div>
+      {!inlineMode && (
+        <div style={styles.actionRow}>
+          <button onClick={onReset} className="glow-btn" style={styles.resetBtn}>
+            <RotateCcw size={16} style={{ marginRight: '6px', verticalAlign: 'middle' }} />
+            {t.otherDreamBtn}
+          </button>
+        </div>
+      )}
 
     </div>
   );

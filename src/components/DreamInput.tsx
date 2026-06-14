@@ -1,11 +1,13 @@
 import React, { useState, useRef } from 'react';
 import { Compass, Sparkles, Moon, Brain } from 'lucide-react';
+import { i18n } from '../services/i18nService';
 
 interface DreamInputProps {
   onInterpret: (content: string, mode: 'traditional' | 'psychological' | 'hybrid') => void;
   isProcessing: boolean;
   currentEngine: 'chrome-nano' | 'qwen-local' | 'mock-demo';
   onOpenSettings: () => void;
+  language: 'ko' | 'en';
 }
 
 interface StarParticle {
@@ -19,7 +21,8 @@ export const DreamInput: React.FC<DreamInputProps> = ({
   onInterpret, 
   isProcessing,
   currentEngine,
-  onOpenSettings
+  onOpenSettings,
+  language
 }) => {
   const [content, setContent] = useState('');
   const [mode, setMode] = useState<'traditional' | 'psychological' | 'hybrid'>('hybrid');
@@ -28,10 +31,10 @@ export const DreamInput: React.FC<DreamInputProps> = ({
 
   const getEngineLabel = (engine: string) => {
     switch (engine) {
-      case 'chrome-nano': return 'Chrome 내장 AI';
-      case 'qwen-local': return '로컬 AI (Qwen)';
-      case 'mock-demo': return '성좌 사전 해몽';
-      default: return 'AI 엔진 선택';
+      case 'chrome-nano': return language === 'en' ? 'Chrome Built-in AI' : 'Chrome 내장 AI';
+      case 'qwen-local': return language === 'en' ? 'Local AI (Qwen)' : '로컬 AI (Qwen)';
+      case 'mock-demo': return language === 'en' ? 'Star Dictionary' : '성좌 사전 해몽';
+      default: return language === 'en' ? 'Select AI Engine' : 'AI 엔진 선택';
     }
   };
 
@@ -72,26 +75,28 @@ export const DreamInput: React.FC<DreamInputProps> = ({
 
   const handleSubmit = () => {
     if (content.trim().length < 5) {
-      alert('꿈의 기억을 조금만 더 자세히(최소 5자 이상) 적어주세요.');
+      alert(i18n[language].minCharAlert);
       return;
     }
     onInterpret(content, mode);
   };
 
+  const t = i18n[language];
+
   return (
     <div style={styles.container} className="glass-panel fade-in">
       <div style={styles.header}>
         <Sparkles size={20} color="var(--color-secondary)" style={{ animation: 'float 3s ease-in-out infinite' }} />
-        <h2 style={styles.title} className="font-display text-gradient-cyan">기억의 포털</h2>
+        <h2 style={styles.title} className="font-display text-gradient-cyan">{t.portalTitle}</h2>
       </div>
 
-      <p style={styles.subtitle}>오늘 밤, 당신의 의식 뒤편에 남은 잔상은 무엇인가요?</p>
+      <p style={styles.subtitle}>{t.portalSubtitle}</p>
 
       {/* Dream Writing Textarea Container */}
       <div style={styles.inputHeader}>
-        <span style={styles.inputLabel}>꿈의 조각들</span>
-        <button onClick={onOpenSettings} style={styles.engineBadge} title="AI 엔진 변경 (AI 관리자)">
-          ⚙️ AI 모델: <span style={{ textDecoration: 'underline', fontWeight: '600' }}>{getEngineLabel(currentEngine)}</span>
+        <span style={styles.inputLabel}>{t.inputLabel}</span>
+        <button onClick={onOpenSettings} style={styles.engineBadge} title={language === 'en' ? 'Change AI engine' : 'AI 엔진 변경 (AI 관리자)'}>
+          ⚙️ {t.engineBadge}: <span style={{ textDecoration: 'underline', fontWeight: '600' }}>{getEngineLabel(currentEngine)}</span>
         </button>
       </div>
 
@@ -101,7 +106,7 @@ export const DreamInput: React.FC<DreamInputProps> = ({
           value={content}
           onChange={(e) => setContent(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="하늘을 날아다녔던 기억, 어두운 방에서 헤매던 기억 등 생각나는 꿈의 조각들을 자유롭게 적어보세요..."
+          placeholder={t.inputPlaceholder}
           style={styles.textarea}
           disabled={isProcessing}
         />
@@ -121,13 +126,13 @@ export const DreamInput: React.FC<DreamInputProps> = ({
         ))}
 
         <div style={styles.charCounter}>
-          {content.length} 자
+          {content.length} {t.charCount}
         </div>
       </div>
 
       {/* Mode Selector */}
       <div style={styles.selectorContainer}>
-        <span style={styles.selectorLabel}>해석 필터 (해석 렌즈) 선택</span>
+        <span style={styles.selectorLabel}>{t.filterLabel}</span>
         <div style={styles.tabsGrid}>
           {/* Hybrid Mode */}
           <button 
@@ -139,7 +144,7 @@ export const DreamInput: React.FC<DreamInputProps> = ({
             disabled={isProcessing}
           >
             <Compass size={16} style={{ marginRight: '6px' }} />
-            종합 융합 분석
+            {t.modeHybrid}
           </button>
 
           {/* Traditional Mode */}
@@ -152,7 +157,7 @@ export const DreamInput: React.FC<DreamInputProps> = ({
             disabled={isProcessing}
           >
             <Moon size={16} style={{ marginRight: '6px' }} />
-            동양 전통 해몽
+            {t.modeTraditional}
           </button>
 
           {/* Psychological Mode */}
@@ -165,7 +170,7 @@ export const DreamInput: React.FC<DreamInputProps> = ({
             disabled={isProcessing}
           >
             <Brain size={16} style={{ marginRight: '6px' }} />
-            서양 심리학 해석
+            {t.modePsychological}
           </button>
         </div>
       </div>
@@ -178,11 +183,11 @@ export const DreamInput: React.FC<DreamInputProps> = ({
         disabled={isProcessing}
       >
         <Sparkles size={16} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
-        무의식 해석하기
+        {t.interpretBtn}
       </button>
 
       {/* Key tip */}
-      <span style={styles.shortcutTip}>Ctrl + Enter 키로 즉시 실행 가능</span>
+      <span style={styles.shortcutTip}>{t.shortcutTip}</span>
     </div>
   );
 };

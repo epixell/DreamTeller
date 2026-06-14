@@ -3,6 +3,7 @@ import { Settings, X, Cpu, FileText, Sparkles } from 'lucide-react';
 import { storageService } from '../services/storageService';
 import type { AppSettings } from '../services/storageService';
 import { qwenAIService } from '../services/qwenAIService';
+import { i18n } from '../services/i18nService';
 
 interface SettingsModalProps {
   isOpen: boolean;
@@ -30,6 +31,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   const [settings, setSettings] = useState<AppSettings>({
     preferredEngine: 'chrome-nano',
     theme: 'mystic',
+    language: 'ko'
   });
   const [isCached, setIsCached] = useState(false);
 
@@ -52,15 +54,18 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 
   if (!isOpen) return null;
 
+  const t = i18n[settings.language];
+  const isEn = settings.language === 'en';
+
   return (
     <div style={styles.overlay} className="fade-in">
       <div style={styles.modal} className="glass-panel">
         <div style={styles.header}>
           <h2 style={styles.title} className="font-display text-gradient-cyan">
             <Settings size={22} style={{ marginRight: '8px', verticalAlign: 'middle' }} />
-            Aether Gate - AI 관리자
+            {t.settingsTitle}
           </h2>
-          <button onClick={onClose} style={styles.closeBtn} title="닫기">
+          <button onClick={onClose} style={styles.closeBtn} title={t.close}>
             <X size={20} />
           </button>
         </div>
@@ -68,9 +73,11 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         <div style={styles.body}>
           {/* AI Engine Selection */}
           <div style={styles.section}>
-            <h3 style={styles.sectionTitle}>꿈 해석 AI 모델 설정</h3>
+            <h3 style={styles.sectionTitle}>{t.engineSelect}</h3>
             <p style={styles.description}>
-              의식을 해독할 두뇌 모델을 선택하세요. 온디바이스 모델은 브라우저 내부에서 데이터 유출 없이 직접 해몽합니다.
+              {isEn 
+                ? 'Select the brain model to decode your consciousness. On-device models interpret dreams directly inside your browser without data leakage.'
+                : '의식을 해독할 두뇌 모델을 선택하세요. 온디바이스 모델은 브라우저 내부에서 데이터 유출 없이 직접 해몽합니다.'}
             </p>
 
             <div style={styles.engineGrid}>
@@ -87,20 +94,22 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 <div style={styles.cardMainContent}>
                   <div style={styles.cardHeader}>
                     <Sparkles size={18} color="var(--color-secondary)" />
-                    <span style={styles.cardTitle}>Chrome Gemini Nano</span>
+                    <span style={styles.cardTitle}>{t.chromeNano}</span>
                     <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', alignItems: 'center' }}>
                       {browserInfo.chromeAIAvailable && browserInfo.reason !== 'after-download' ? (
-                        <span style={styles.badgeSuccess}>✓ 설정 & 다운 완료</span>
+                        <span style={styles.badgeSuccess}>{isEn ? '✓ Active' : '✓ 설정 & 다운 완료'}</span>
                       ) : (
-                        <span style={styles.badgeWarning}>✗ 설정 & 다운 필요</span>
+                        <span style={styles.badgeWarning}>{isEn ? '✗ Setup Required' : '✗ 설정 & 다운 필요'}</span>
                       )}
                     </div>
                   </div>
                   <p style={styles.cardDesc}>
-                    크롬 브라우저 내장 온디바이스 AI. (가장 빠름, 무료)
+                    {t.engineChromeDesc}
                     <br />
                     <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem', display: 'inline-block', marginTop: '3px' }}>
-                      * 크롬 플래그 설정을 마쳤더라도, 실제 AI 모델 파일이 다운로드 완료되기 전까지는 시스템 제약상 '설정 & 다운 필요'로 감지될 수 있습니다.
+                      {isEn
+                        ? "* Even if you set Chrome flags, it may be detected as 'Setup Required' until the actual AI model file download finishes."
+                        : "* 크롬 플래그 설정을 마쳤더라도, 실제 AI 모델 파일이 다운로드 완료되기 전까지는 시스템 제약상 '설정 & 다운 필요'로 감지될 수 있습니다."}
                     </span>
                   </p>
                 </div>
@@ -109,24 +118,24 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                     onClick={(e) => { e.stopPropagation(); onTriggerChromeGuide(); }} 
                     className="settings-action-btn"
                     style={styles.cardActionBtn}
-                    title="크롬 내장 AI 설정 가이드 보기"
+                    title={isEn ? "View Chrome built-in AI configuration guide" : "크롬 내장 AI 설정 가이드 보기"}
                   >
-                    ⚙️ 설정하기
+                    {isEn ? '⚙️ Configure' : '⚙️ 설정하기'}
                   </button>
                   <button 
                     onClick={(e) => { 
                       e.stopPropagation(); 
                       if (!browserInfo.isChrome) {
-                        alert("크롬 브라우저가 아닙니다. 크롬 브라우저로 접속해 주세요!");
+                        alert(isEn ? "Not Chrome. Please access using Google Chrome!" : "크롬 브라우저가 아닙니다. 크롬 브라우저로 접속해 주세요!");
                       } else {
                         onTriggerChromeDownload(); 
                       }
                     }} 
                     className="settings-action-btn"
                     style={{ ...styles.cardActionBtn, marginLeft: '6px' }}
-                    title="크롬 내장 AI 모델 활성화 및 다운로드"
+                    title={isEn ? "Trigger Chrome built-in AI model download" : "크롬 내장 AI 모델 활성화 및 다운로드"}
                   >
-                    📥 다운받기 (1.5GB)
+                    {isEn ? '📥 Download' : '📥 다운받기 (1.5GB)'}
                   </button>
                 </div>
               </div>
@@ -143,18 +152,20 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 <div style={styles.cardMainContent}>
                   <div style={styles.cardHeader}>
                     <Cpu size={18} color="var(--color-primary)" />
-                    <span style={styles.cardTitle}>로컬 AI (Qwen2.5)</span>
+                    <span style={styles.cardTitle}>{t.qwenLocal}</span>
                     {qwenAIService.isLoaded() || isCached ? (
-                      <span style={styles.badgeSuccess}>✓ 준비 완료 (사용 가능)</span>
+                      <span style={styles.badgeSuccess}>{isEn ? '✓ Ready' : '✓ 준비 완료 (사용 가능)'}</span>
                     ) : (
-                      <span style={styles.badgeWarning}>📥 다운로드 필요</span>
+                      <span style={styles.badgeWarning}>{isEn ? '📥 Download Needed' : '📥 다운로드 필요'}</span>
                     )}
                   </div>
                   <p style={styles.cardDesc}>
-                    브라우저 내부 구동 AI 모델. (최초 1회 약 300MB 다운로드 필요)
+                    {t.engineQwenDesc}
                     <br />
                     <span style={{ color: 'var(--text-muted)', fontSize: '0.7rem', display: 'inline-block', marginTop: '3px' }}>
-                      * 브라우저 인터넷 캐시 청소 시 모델 파일이 함께 삭제될 수 있습니다.
+                      {isEn
+                        ? "* Clearing browser cache may delete the local AI model files."
+                        : "* 브라우저 인터넷 캐시 청소 시 모델 파일이 함께 삭제될 수 있습니다."}
                     </span>
                   </p>
                 </div>
@@ -164,15 +175,13 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                       onClick={(e) => { e.stopPropagation(); onTriggerQwenDownload(); }} 
                       className="settings-action-btn"
                       style={styles.cardActionBtn}
-                      title="Qwen AI 로컬 다운로드 시작"
+                      title={isEn ? "Start downloading Qwen local AI" : "Qwen AI 로컬 다운로드 시작"}
                     >
-                      📦 다운받기
+                      {isEn ? '📦 Download' : '📦 다운받기'}
                     </button>
                   </div>
                 )}
               </div>
-
-
 
               {/* Mock Dictionary Demo */}
               <div 
@@ -186,24 +195,22 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 <div style={styles.cardMainContent}>
                   <div style={styles.cardHeader}>
                     <FileText size={18} color="#a5d8ff" />
-                    <span style={styles.cardTitle}>성좌의 지혜 (사전 해몽)</span>
-                    <span style={styles.badgeSuccess}>✓ 즉시 사용 가능</span>
+                    <span style={styles.cardTitle}>{t.mockDemo}</span>
+                    <span style={styles.badgeSuccess}>{isEn ? '✓ Ready' : '✓ 즉시 사용 가능'}</span>
                   </div>
-                  <p style={styles.cardDesc}>네트워크와 기기 사양 제한이 없는 순수 로컬 상징 사전 기반 분석.</p>
+                  <p style={styles.cardDesc}>{t.engineMockDesc}</p>
                 </div>
               </div>
             </div>
           </div>
 
-
-
           {/* Action Buttons */}
           <div style={styles.actions}>
             <button onClick={onClose} style={styles.cancelBtn}>
-              취소
+              {isEn ? 'Cancel' : '취소'}
             </button>
             <button onClick={handleSave} className="glow-btn" style={styles.saveBtn}>
-              설정 저장
+              {isEn ? 'Save Settings' : '설정 저장'}
             </button>
           </div>
         </div>

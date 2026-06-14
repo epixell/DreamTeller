@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Key, Settings as SettingsIcon } from 'lucide-react';
+import { Sparkles, Key, Settings as SettingsIcon, Menu, Send, Globe } from 'lucide-react';
 import { DreamInput } from './components/DreamInput';
 import { DreamAnalyzer } from './components/DreamAnalyzer';
 import { DreamReport } from './components/DreamReport';
 import { AdminDashboard } from './components/AdminDashboard';
 import { SettingsModal } from './components/SettingsModal';
 import { GuideModal } from './components/GuideModal';
+import { Sidebar } from './components/Sidebar';
 import { aiService } from './services/aiService';
-import type { InterpretationResult } from './services/aiService';
 import { storageService } from './services/storageService';
-import type { AppSettings } from './services/storageService';
+import type { AppSettings, ChatSession, ChatMessage } from './services/storageService';
 import { chromeAIService } from './services/chromeAIService';
 import { qwenAIService } from './services/qwenAIService';
+import { i18n } from './services/i18nService';
 
 export default function App() {
   // Navigation & Modals
@@ -24,14 +25,21 @@ export default function App() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [progressText, setProgressText] = useState('');
   const [progressPercent, setProgressPercent] = useState(0);
-  const [dreamText, setDreamText] = useState('');
-  const [selectedMode, setSelectedMode] = useState<'traditional' | 'psychological' | 'hybrid'>('hybrid');
-  const [result, setResult] = useState<InterpretationResult | null>(null);
+
+  // Chat Session States
+  const [sessions, setSessions] = useState<ChatSession[]>([]);
+  const [activeSessionId, setActiveSessionId] = useState<string | null>(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [followUpText, setFollowUpText] = useState('');
+  const [isChatProcessing, setIsChatProcessing] = useState(false);
+  const [chatProgressText, setChatProgressText] = useState('');
+  const [chatProgressPercent, setChatProgressPercent] = useState(0);
 
   // App Settings State
   const [settings, setSettings] = useState<AppSettings>({
     preferredEngine: 'chrome-nano',
-    theme: 'mystic'
+    theme: 'mystic',
+    language: 'ko'
   });
 
   // Browser Diagnostics Info
@@ -53,6 +61,10 @@ export default function App() {
     // 1. 설정 정보 불러오기
     const stored = storageService.getSettings();
     setSettings(stored);
+
+    // 1.5. 채팅 세션 정보 불러오기
+    const storedSessions = storageService.getChatSessions();
+    setSessions(storedSessions);
 
     // 2. 브라우저 크롬 AI 상태 확인
     const checkBrowser = async () => {
@@ -81,6 +93,13 @@ export default function App() {
 
   const handleSelectEngine = (engine: 'chrome-nano' | 'qwen-local' | 'mock-demo') => {
     const updated = { ...settings, preferredEngine: engine };
+    setSettings(updated);
+    storageService.saveSettings(updated);
+  };
+
+  const handleToggleLanguage = () => {
+    const newLang: 'ko' | 'en' = settings.language === 'ko' ? 'en' : 'ko';
+    const updated = { ...settings, language: newLang };
     setSettings(updated);
     storageService.saveSettings(updated);
   };
@@ -121,7 +140,7 @@ export default function App() {
   const handleStartChromeDownload = async () => {
     setIsDownloading(true);
     setDownloadProgress(0);
-    setDownloadText('크롬 AI 모델 다운로드 활성화 시작 중...');
+    setDownloadText(settings.language === 'en' ? 'Starting Chrome AI model download activation...' : '크롬 AI 모델 다운로드 활성화 시작 중...');
 
     try {
       // 크롬 AI 세션 생성을 강제 호출하여 다운로드 개시 및 모니터링
@@ -136,7 +155,7 @@ export default function App() {
       
       setIsDownloading(false);
       setIsGuideOpen(false);
-      alert("크롬 내장 AI 모델이 다운로드 완료되었습니다!");
+      alert(settings.language === 'en' ? "Chrome built-in AI model has been downloaded successfully!" : "크롬 내장 AI 모델이 다운로드 완료되었습니다!");
       
       // 브라우저 정보 리프레시
       const aiStatus = await chromeAIService.isAvailable();
@@ -148,7 +167,6 @@ export default function App() {
     } catch (e: any) {
       console.warn("Chrome AI Download session trigger end:", e);
       setIsDownloading(false);
-      // 경고창 대신 가이드 모달에서 자연스럽게 다운로드 방법을 확인하도록 유도 (alert 제거)
     }
   };
 
@@ -156,7 +174,7 @@ export default function App() {
   const handleStartQwenDownload = async (pendingContent?: string, pendingMode?: 'traditional' | 'psychological' | 'hybrid') => {
     setIsDownloading(true);
     setDownloadProgress(0);
-    setDownloadText('AI 라이브러리 및 모델 다운로드 준비 중...');
+    setDownloadText(settings.language === 'en' ? 'Preparing AI library and model download...' : 'AI 라이브러리 및 모델 다운로드 준비 중...');
 
     try {
       await qwenAIService.initEngine((progress, text) => {
@@ -169,13 +187,11 @@ export default function App() {
 
       // 꿈 해석 대기 큐가 있었다면 즉시 구동
       if (pendingContent && pendingMode) {
-        setDreamText(pendingContent);
-        setSelectedMode(pendingMode);
         startInterpretation(pendingContent, pendingMode);
       }
     } catch (e: any) {
       console.error(e);
-      alert(`로컬 AI 모델 다운로드 중 오류 발생: ${e.message || e}`);
+      alert(settings.language === 'en' ? `Error during local AI model download: ${e.message || e}` : `로컬 AI 모델 다운로드 중 오류 발생: ${e.message || e}`);
       setIsDownloading(false);
     }
   };
@@ -190,7 +206,9 @@ export default function App() {
       const isCached = await qwenAIService.checkModelCached();
       if (!isCached) {
         const confirmDownload = window.confirm(
-          "로컬 AI 모델(약 300MB)을 다운로드하시겠습니까?\n\n최초 1회만 다운로드하며 브라우저 내부에서 네트워크 연결 없이 직접 꿈을 해석하게 됩니다."
+          currentSettings.language === 'en'
+            ? "Would you like to download the local AI model (approx. 300MB)?\n\nThis is a one-time download, after which dreams will be interpreted directly inside your browser without any network connection."
+            : "로컬 AI 모델(약 300MB)을 다운로드하시겠습니까?\n\n최초 1회만 다운로드하며 브라우저 내부에서 네트워크 연결 없이 직접 꿈을 해석하게 됩니다."
         );
         if (!confirmDownload) {
           return; // 다운로드 취소 시 중단
@@ -201,8 +219,6 @@ export default function App() {
       }
       
       // 이미 모델이 브라우저 캐시에 존재하면 가이드창 없이 즉시 해석 로딩 화면(DreamAnalyzer)으로 진입
-      setDreamText(content);
-      setSelectedMode(mode);
       startInterpretation(content, mode);
       return;
     }
@@ -214,8 +230,6 @@ export default function App() {
     }
 
     // 3. 정상 상태일 때 해석 실행
-    setDreamText(content);
-    setSelectedMode(mode);
     startInterpretation(content, mode);
   };
 
@@ -226,8 +240,7 @@ export default function App() {
   ) => {
     setIsProcessing(true);
     setProgressPercent(0);
-    setProgressText('무의식의 에너지를 정렬하는 중...');
-    setResult(null);
+    setProgressText(settings.language === 'en' ? 'Aligning the energies of your subconscious...' : '무의식의 에너지를 정렬하는 중...');
 
     const activeSettings = storageService.getSettings();
 
@@ -237,13 +250,14 @@ export default function App() {
       timestamp: new Date().toISOString(),
       eventType: 'interpretation_start',
       engineUsed: activeSettings.preferredEngine,
-      details: `꿈 길이: ${content.length}자, 해석 모드: ${mode}`
+      details: `Dream length: ${content.length} chars, mode: ${mode}`
     });
 
     try {
       const interp = await aiService.interpret(
         content,
         mode,
+        settings.language,
         (progress, text) => {
           setProgressPercent(progress);
           setProgressText(text);
@@ -256,13 +270,39 @@ export default function App() {
         timestamp: new Date().toISOString(),
         eventType: 'interpretation_success',
         engineUsed: activeSettings.preferredEngine,
-        details: `해석 성공`
+        details: `Interpretation success`
       });
 
-      setResult(interp);
+      // 신규 채팅 세션 생성
+      const newSession: ChatSession = {
+        id: `session_${Date.now()}`,
+        title: content.trim().length > 15 ? content.trim().substring(0, 15) + '...' : content.trim(),
+        date: new Date().toLocaleDateString(settings.language === 'en' ? 'en-US' : 'ko-KR', { month: 'short', day: 'numeric' }),
+        mode: mode,
+        messages: [
+          {
+            id: `msg_user_${Date.now()}`,
+            sender: 'user',
+            timestamp: new Date().toISOString(),
+            text: content
+          },
+          {
+            id: `msg_ai_${Date.now()}`,
+            sender: 'ai',
+            timestamp: new Date().toISOString(),
+            text: i18n[settings.language].aiResponseSuccess,
+            interpretation: interp
+          }
+        ]
+      };
+
+      storageService.saveChatSession(newSession);
+      const updated = storageService.getChatSessions();
+      setSessions(updated);
+      setActiveSessionId(newSession.id);
     } catch (e: any) {
       console.error('Interpretation failed', e);
-      alert('꿈 해석 도중 오류가 발생했습니다.');
+      alert(settings.language === 'en' ? 'An error occurred during dream interpretation.' : '꿈 해석 도중 오류가 발생했습니다.');
       
       // 실패 감사 로그 남기기
       storageService.addAuditLog({
@@ -270,7 +310,7 @@ export default function App() {
         timestamp: new Date().toISOString(),
         eventType: 'interpretation_fail',
         engineUsed: activeSettings.preferredEngine,
-        details: `실패 원인: ${e.message || e}`
+        details: `Fail reason: ${e.message || e}`
       });
     } finally {
       setIsProcessing(false);
@@ -279,108 +319,353 @@ export default function App() {
 
   // 새로운 꿈 쓰기로 초기화
   const handleReset = () => {
-    setResult(null);
-    setDreamText('');
+    setActiveSessionId(null);
   };
 
-  return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+  // 대화 개별 삭제
+  const handleDeleteSession = (id: string) => {
+    storageService.deleteChatSession(id);
+    const updated = storageService.getChatSessions();
+    setSessions(updated);
+    if (activeSessionId === id) {
+      setActiveSessionId(null);
+    }
+  };
+
+  // 모든 기록 삭제
+  const handleClearAll = () => {
+    if (window.confirm(settings.language === 'en' ? 'Are you sure you want to clear all dream chat history? This action cannot be undone.' : '기록된 모든 꿈 대화 기록을 지우시겠습니까? 이 작업은 복구할 수 없습니다.')) {
+      storageService.clearAllChatSessions();
+      setSessions([]);
+      setActiveSessionId(null);
+    }
+  };
+
+  // 후속 꼬리 질문 전송
+  const handleSendFollowUp = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!followUpText.trim() || !activeSessionId || isChatProcessing) return;
+
+    const activeSession = sessions.find(s => s.id === activeSessionId);
+    if (!activeSession) return;
+
+    const userMessage: ChatMessage = {
+      id: `msg_user_${Date.now()}`,
+      sender: 'user',
+      timestamp: new Date().toISOString(),
+      text: followUpText.trim()
+    };
+
+    // 로컬 세션 데이터 업데이트
+    const updatedSession = {
+      ...activeSession,
+      messages: [...activeSession.messages, userMessage]
+    };
+    
+    storageService.saveChatSession(updatedSession);
+    setSessions(storageService.getChatSessions());
+    setFollowUpText('');
+
+    // AI 응답 처리 시작
+    setIsChatProcessing(true);
+    setChatProgressText(i18n[settings.language].aiChatConnecting);
+    setChatProgressPercent(20);
+
+    try {
+      const initialDream = activeSession.messages[0].text;
+      const initialResult = activeSession.messages[1].interpretation;
       
-      {/* 1. 마우스 아우라 이펙트 */}
-      <div 
-        className="mouse-aura" 
-        style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }} 
+      if (!initialResult) throw new Error('최초 해몽 결과가 존재하지 않습니다.');
+
+      const chatHistory = activeSession.messages.slice(2).map(m => ({
+        sender: m.sender,
+        text: m.text
+      }));
+
+      const responseText = await aiService.chat(
+        chatHistory,
+        userMessage.text,
+        initialDream,
+        initialResult,
+        settings.language,
+        (progress, text) => {
+          setChatProgressPercent(progress);
+          setChatProgressText(text);
+        }
+      );
+
+      const aiMessage: ChatMessage = {
+        id: `msg_ai_${Date.now()}`,
+        sender: 'ai',
+        timestamp: new Date().toISOString(),
+        text: responseText
+      };
+
+      const finalSession = {
+        ...updatedSession,
+        messages: [...updatedSession.messages, aiMessage]
+      };
+
+      storageService.saveChatSession(finalSession);
+      setSessions(storageService.getChatSessions());
+    } catch (err) {
+      console.error('Follow-up chat failed:', err);
+      
+      const errorMessage: ChatMessage = {
+        id: `msg_ai_${Date.now()}`,
+        sender: 'ai',
+        timestamp: new Date().toISOString(),
+        text: i18n[settings.language].aiChatError
+      };
+
+      const finalSession = {
+        ...updatedSession,
+        messages: [...updatedSession.messages, errorMessage]
+      };
+      
+      storageService.saveChatSession(finalSession);
+      setSessions(storageService.getChatSessions());
+    } finally {
+      setIsChatProcessing(false);
+      setChatProgressPercent(0);
+      setChatProgressText('');
+    }
+  };
+
+  const t = i18n[settings.language];
+
+  return (
+    <div className="app-container">
+      
+      {/* 1. 사이드바 */}
+      <Sidebar 
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
+        sessions={sessions}
+        activeSessionId={activeSessionId}
+        onSelectSession={(id) => {
+          setActiveSessionId(id);
+          if (id === null) {
+            handleReset();
+          }
+        }}
+        onDeleteSession={handleDeleteSession}
+        onOpenSettings={() => setIsSettingsOpen(true)}
+        onOpenAdmin={() => setCurrentView('admin')}
+        onClearAll={handleClearAll}
+        language={settings.language}
       />
 
-      {/* 2. 상단 헤더 영역 */}
-      <header style={styles.header} className="glass-panel">
-        <div style={styles.logoGroup} onClick={handleReset}>
-          <div style={styles.logoIconContainer} className="star-spin">
-            <Sparkles size={18} color="var(--color-accent)" />
-          </div>
-          <span style={styles.logoText} className="font-display text-gradient-cyan">DreamTeller</span>
-        </div>
+      <div className="main-wrapper">
         
-        {currentView === 'main' && (
-          <button 
-            onClick={() => setIsSettingsOpen(true)} 
-            style={styles.settingsBtn} 
-            title="AI 관리자 (설정)"
-          >
-            <SettingsIcon size={20} color="var(--color-secondary)" />
-          </button>
-        )}
-      </header>
+        {/* 마우스 아우라 이펙트 */}
+        <div 
+          className="mouse-aura" 
+          style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }} 
+        />
 
-      {/* 3. 메인 콘텐츠 */}
-      <main style={styles.mainContent}>
-        {currentView === 'admin' ? (
-          <AdminDashboard onBackToMain={() => setCurrentView('main')} />
-        ) : (
-          <div style={{ width: '100%' }}>
-            {isProcessing ? (
-              <DreamAnalyzer progressText={progressText} progressPercent={progressPercent} />
-            ) : result ? (
-              <DreamReport 
-                dreamText={dreamText}
-                result={result}
-                selectedMode={selectedMode}
-                onReset={handleReset}
-              />
+        {/* 2. 상단 헤더 영역 */}
+        <header style={styles.header} className="glass-panel">
+          <div style={styles.logoGroup}>
+            <button 
+              onClick={() => setIsSidebarOpen(true)} 
+              style={styles.menuBtn} 
+              className="mobile-only"
+              title={t.menuTitle}
+            >
+              <Menu size={20} color="var(--text-muted)" />
+            </button>
+            <div style={styles.logoClickable} onClick={handleReset}>
+              <div style={styles.logoIconContainer} className="star-spin">
+                <Sparkles size={18} color="var(--color-accent)" />
+              </div>
+              <span style={styles.logoText} className="font-display text-gradient-cyan">DreamTeller</span>
+            </div>
+          </div>
+          
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <button 
+              onClick={handleToggleLanguage} 
+              style={styles.langBtn} 
+              title={settings.language === 'ko' ? "Switch to English" : "한국어로 전환"}
+              className="lang-toggle-btn"
+            >
+              <Globe size={16} color="var(--color-secondary)" style={{ marginRight: '6px' }} />
+              <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-main)' }}>
+                {settings.language === 'ko' ? 'KO' : 'EN'}
+              </span>
+            </button>
+
+            <button 
+              onClick={() => setIsSettingsOpen(true)} 
+              style={styles.settingsBtn} 
+              title={settings.language === 'en' ? "AI control panel" : "AI 관리자 (설정)"}
+            >
+              <SettingsIcon size={20} color="var(--color-secondary)" />
+            </button>
+          </div>
+        </header>
+
+        {/* 3. 메인 콘텐츠 */}
+        <main style={styles.mainContent}>
+          {currentView === 'admin' ? (
+            <AdminDashboard onBackToMain={() => setCurrentView('main')} language={settings.language} />
+          ) : (
+            <div style={{ width: '100%', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+              {isProcessing ? (
+                // 최초 해몽 진행중인 경우 로딩 화면 렌더링
+                <DreamAnalyzer progressText={progressText} progressPercent={progressPercent} />
+              ) : activeSessionId && sessions.find(s => s.id === activeSessionId) ? (
+                // 활성화된 채팅 세션이 있는 경우
+                (() => {
+                  const activeSession = sessions.find(s => s.id === activeSessionId)!;
+                  return (
+                    <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, width: '100%' }}>
+                      <div className="chat-messages-list">
+                        {activeSession.messages.map((msg, index) => {
+                          const isUser = msg.sender === 'user';
+                          
+                          // 두 번째 메시지(첫 AI 메시지)인 경우, 해석 리포트 카드 렌더링
+                          if (!isUser && index === 1 && msg.interpretation) {
+                            return (
+                              <div key={msg.id} className="chat-bubble ai">
+                                <DreamReport 
+                                  dreamText={activeSession.messages[0].text}
+                                  result={msg.interpretation}
+                                  selectedMode={activeSession.mode}
+                                  onReset={handleReset}
+                                  inlineMode={true}
+                                  language={settings.language}
+                                />
+                              </div>
+                            );
+                          }
+
+                          // 일반 대화 말풍선 렌더링
+                          return (
+                            <div 
+                              key={msg.id} 
+                              className={`chat-bubble ${isUser ? 'user' : 'ai chat-text-bubble'}`}
+                            >
+                              <div style={{ whiteSpace: 'pre-wrap' }}>{msg.text}</div>
+                              <div style={styles.bubbleDate}>
+                                {new Date(msg.timestamp).toLocaleTimeString(settings.language === 'en' ? 'en-US' : 'ko-KR', { hour: '2-digit', minute: '2-digit' })}
+                              </div>
+                            </div>
+                          );
+                        })}
+
+                        {/* 후속 질문 대화 AI 타이핑 진행 상황 로딩 */}
+                        {isChatProcessing && (
+                          <div className="chat-bubble ai chat-text-bubble">
+                            <div className="chat-typing-progress">
+                              <span>{chatProgressText}</span>
+                              <div style={{
+                                width: '100%',
+                                height: '4px',
+                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                                borderRadius: '2px',
+                                overflow: 'hidden'
+                              }}>
+                                <div style={{
+                                  width: `${chatProgressPercent}%`,
+                                  height: '100%',
+                                  backgroundColor: 'var(--color-secondary)',
+                                  borderRadius: '2px',
+                                  transition: 'width 0.3s'
+                                }} />
+                              </div>
+                              <div className="chat-typing-indicator">
+                                <div className="chat-typing-dot" />
+                                <div className="chat-typing-dot" />
+                                <div className="chat-typing-dot" />
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
+                      {/* 하단 고정형 채팅 메시지 입력바 */}
+                      <div className="chat-input-bar-container">
+                        <form onSubmit={handleSendFollowUp} className="chat-input-bar">
+                          <input 
+                            type="text"
+                            value={followUpText}
+                            onChange={(e) => setFollowUpText(e.target.value)}
+                            placeholder={t.chatInputPlaceholder}
+                            className="chat-input-field"
+                            disabled={isChatProcessing}
+                          />
+                          <button 
+                            type="submit" 
+                            className="chat-send-btn"
+                            disabled={isChatProcessing || !followUpText.trim()}
+                          >
+                            <Send size={14} />
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  );
+                })()
+              ) : (
+                // 새 채팅 상태 (활성화 대화 없음)
+                <DreamInput 
+                  onInterpret={handleInterpretSubmit} 
+                  isProcessing={isProcessing} 
+                  currentEngine={settings.preferredEngine}
+                  onOpenSettings={() => setIsSettingsOpen(true)}
+                  language={settings.language}
+                />
+              )}
+            </div>
+          )}
+        </main>
+
+        {/* 4. 하단 푸터 영역 */}
+        <footer style={styles.footer}>
+          <p style={styles.footerText}>© 2026 DreamTeller. Client-Side On-Device AI Dream Interpretation. All Rights Reserved.</p>
+          <div style={styles.footerLinks}>
+            {currentView === 'main' ? (
+              <button onClick={() => setCurrentView('admin')} style={styles.footerLinkBtn}>
+                <Key size={12} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
+                {t.aetherGate}
+              </button>
             ) : (
-              <DreamInput 
-                onInterpret={handleInterpretSubmit} 
-                isProcessing={isProcessing} 
-                currentEngine={settings.preferredEngine}
-                onOpenSettings={() => setIsSettingsOpen(true)}
-              />
+              <button onClick={() => setCurrentView('main')} style={styles.footerLinkBtn}>
+                {t.backToHome}
+              </button>
             )}
           </div>
-        )}
-      </main>
+        </footer>
 
-      {/* 4. 하단 푸터 영역 */}
-      <footer style={styles.footer}>
-        <p style={styles.footerText}>© 2026 DreamTeller. Client-Side On-Device AI Dream Interpretation. All Rights Reserved.</p>
-        <div style={styles.footerLinks}>
-          {currentView === 'main' ? (
-            <button onClick={() => setCurrentView('admin')} style={styles.footerLinkBtn}>
-              <Key size={12} style={{ marginRight: '4px', verticalAlign: 'middle' }} />
-              Aether Gate (관리자)
-            </button>
-          ) : (
-            <button onClick={() => setCurrentView('main')} style={styles.footerLinkBtn}>
-              메인 홈으로
-            </button>
-          )}
-        </div>
-      </footer>
+        {/* 5. 모달 오버레이 관리 */}
+        <SettingsModal 
+          isOpen={isSettingsOpen} 
+          onClose={() => setIsSettingsOpen(false)} 
+          onSettingsChange={handleSettingsChange}
+          browserInfo={browserInfo}
+          onTriggerQwenDownload={handleTriggerQwenDownload}
+          onTriggerChromeGuide={handleTriggerChromeGuide}
+          onTriggerChromeDownload={handleTriggerChromeDownload}
+        />
 
-      {/* 5. 모달 오버레이 관리 */}
-      <SettingsModal 
-        isOpen={isSettingsOpen} 
-        onClose={() => setIsSettingsOpen(false)} 
-        onSettingsChange={handleSettingsChange}
-        browserInfo={browserInfo}
-        onTriggerQwenDownload={handleTriggerQwenDownload}
-        onTriggerChromeGuide={handleTriggerChromeGuide}
-        onTriggerChromeDownload={handleTriggerChromeDownload}
-      />
+        <GuideModal 
+          isOpen={isGuideOpen}
+          onClose={() => setIsGuideOpen(false)}
+          engineMode={settings.preferredEngine}
+          browserInfo={browserInfo}
+          downloadProgress={downloadProgress}
+          downloadText={downloadText}
+          isDownloading={isDownloading}
+          onStartQwenDownload={() => handleStartQwenDownload()}
+          onSelectEngine={handleSelectEngine}
+          chromeSubMode={chromeSubMode}
+          onStartChromeDownload={handleStartChromeDownload}
+          language={settings.language}
+        />
 
-      <GuideModal 
-        isOpen={isGuideOpen}
-        onClose={() => setIsGuideOpen(false)}
-        engineMode={settings.preferredEngine}
-        browserInfo={browserInfo}
-        downloadProgress={downloadProgress}
-        downloadText={downloadText}
-        isDownloading={isDownloading}
-        onStartQwenDownload={() => handleStartQwenDownload()}
-        onSelectEngine={handleSelectEngine}
-        chromeSubMode={chromeSubMode}
-        onStartChromeDownload={handleStartChromeDownload}
-      />
-
+      </div>
     </div>
   );
 }
@@ -397,6 +682,20 @@ const styles: Record<string, React.CSSProperties> = {
     boxSizing: 'border-box',
   },
   logoGroup: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  menuBtn: {
+    background: 'none',
+    border: 'none',
+    cursor: 'pointer',
+    padding: '6px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: '10px',
+  },
+  logoClickable: {
     display: 'flex',
     alignItems: 'center',
     gap: '10px',
@@ -430,6 +729,19 @@ const styles: Record<string, React.CSSProperties> = {
     transition: 'all var(--transition-fast)',
     outline: 'none',
   },
+  langBtn: {
+    background: 'rgba(255, 255, 255, 0.03)',
+    border: '1px solid var(--border-color)',
+    borderRadius: '20px',
+    padding: '0 12px',
+    height: '38px',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    cursor: 'pointer',
+    transition: 'all var(--transition-fast)',
+    outline: 'none',
+  },
   mainContent: {
     flexGrow: 1,
     display: 'flex',
@@ -438,6 +750,12 @@ const styles: Record<string, React.CSSProperties> = {
     paddingBottom: '60px',
     width: '100%',
     boxSizing: 'border-box',
+  },
+  bubbleDate: {
+    fontSize: '0.65rem',
+    opacity: 0.4,
+    marginTop: '6px',
+    textAlign: 'right',
   },
   footer: {
     display: 'flex',

@@ -4,12 +4,14 @@ import { dictionaryService } from '../services/dictionaryService';
 import type { DreamSymbol } from '../services/dictionaryService';
 import { storageService } from '../services/storageService';
 import type { AuditLog } from '../services/storageService';
+import { i18n } from '../services/i18nService';
 
 interface AdminDashboardProps {
   onBackToMain: () => void;
+  language: 'ko' | 'en';
 }
 
-export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) => {
+export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain, language }) => {
   const [password, setPassword] = useState('');
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
@@ -82,7 +84,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
   // --- Dictionary Operations ---
   const handleAddNew = () => {
     if (!newSymbol.name || !newSymbol.traditional || !newSymbol.psychological) {
-      alert('모든 필드를 채워주세요.');
+      alert(language === 'en' ? 'Please fill in all fields.' : '모든 필드를 채워주세요.');
       return;
     }
     const added = dictionaryService.addSymbol(newSymbol);
@@ -102,7 +104,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
 
   const handleUpdate = () => {
     if (!editingSymbol || !editingSymbol.name || !editingSymbol.traditional || !editingSymbol.psychological) {
-      alert('모든 필드를 채워주세요.');
+      alert(language === 'en' ? 'Please fill in all fields.' : '모든 필드를 채워주세요.');
       return;
     }
     dictionaryService.updateSymbol(editingSymbol);
@@ -121,7 +123,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
   };
 
   const handleDelete = (key: string, name: string) => {
-    if (confirm(`'${name}' 상징을 삭제하시겠습니까?`)) {
+    if (confirm(language === 'en' ? `Are you sure you want to delete the symbol '${name}'?` : `'${name}' 상징을 삭제하시겠습니까?`)) {
       dictionaryService.deleteSymbol(key);
       setSymbols(symbols.filter(s => s.key !== key));
       
@@ -137,7 +139,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
   };
 
   const handleReset = () => {
-    if (confirm('모든 꿈 사전을 원래 기본값으로 복원하시겠습니까? 커스텀 추가된 내용은 전부 삭제됩니다.')) {
+    if (confirm(language === 'en' ? 'Restore all dream symbols to defaults? Any custom added symbols will be lost.' : '모든 꿈 사전을 원래 기본값으로 복원하시겠습니까? 커스텀 추가된 내용은 전부 삭제됩니다.')) {
       dictionaryService.resetToDefault();
       setSymbols(dictionaryService.getSymbols());
       
@@ -154,11 +156,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
 
   // --- Log Operations ---
   const handleClearLogs = () => {
-    if (confirm('모든 감사 로그를 지우시겠습니까?')) {
+    if (confirm(i18n[language].confirmClearLogs)) {
       storageService.clearAuditLogs();
       setLogs([]);
     }
   };
+
+  const isEn = language === 'en';
+  const t = i18n[language];
 
   if (!isUnlocked) {
     /* 1. 비밀번호 입력 잠금 화면 */
@@ -169,7 +174,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
             <Lock size={32} color="var(--color-accent)" />
           </div>
           <h2 style={styles.loginTitle} className="font-display text-gradient-cyan">Aether Gate</h2>
-          <p style={styles.loginSubtitle}>관리자 인증이 필요합니다.</p>
+          <p style={styles.loginSubtitle}>{isEn ? 'Administrator authentication required.' : '관리자 인증이 필요합니다.'}</p>
           
           <form onSubmit={handleLogin} style={styles.form}>
             <input 
@@ -185,14 +190,14 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
             />
             {passwordError && (
               <p style={styles.errorText} className="fade-in">
-                비밀번호가 일치하지 않습니다. 다시 입력해 주세요.
+                {isEn ? 'Password does not match. Please try again.' : '비밀번호가 일치하지 않습니다. 다시 입력해 주세요.'}
               </p>
             )}
             
             <div style={styles.loginBtnGroup}>
               <button type="button" onClick={onBackToMain} style={styles.loginBackBtn}>
                 <ArrowLeft size={16} style={{ marginRight: '6px', verticalAlign: 'middle' }} />
-                메인화면으로
+                {t.backToMain}
               </button>
               <button type="submit" className="glow-btn" style={styles.loginSubmitBtn}>
                 Gate Unlock
@@ -212,16 +217,18 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
         <div>
           <h1 style={styles.dashTitle} className="font-display text-gradient-purple">
             <Unlock size={24} style={{ marginRight: '10px', verticalAlign: 'middle' }} />
-            Aether Gate - 관리자 포털
+            {t.adminTitle}
           </h1>
-          <p style={styles.dashSubtitle}>꿈 분석 기준 매뉴얼 및 상징 데이터 제어판</p>
+          <p style={styles.dashSubtitle}>
+            {isEn ? 'Dream Interpretation Manual & Symbol Dictionary Control Panel' : '꿈 분석 기준 매뉴얼 및 상징 데이터 제어판'}
+          </p>
         </div>
         <div style={styles.headerBtnGroup}>
           <button onClick={onBackToMain} style={styles.headerBackBtn}>
-            <ArrowLeft size={16} style={{ marginRight: '6px' }} /> 메인으로
+            <ArrowLeft size={16} style={{ marginRight: '6px' }} /> {isEn ? 'Home' : '메인으로'}
           </button>
           <button onClick={handleLogout} style={styles.logoutBtn}>
-            포털 잠그기
+            {isEn ? 'Lock Portal' : '포털 잠그기'}
           </button>
         </div>
       </div>
@@ -232,25 +239,25 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
           onClick={() => setActiveTab('dictionary')} 
           style={{ ...styles.tabBtn, ...(activeTab === 'dictionary' ? styles.tabBtnActive : {}) }}
         >
-          <Database size={16} style={{ marginRight: '6px' }} /> 꿈 상징 사전 관리
+          <Database size={16} style={{ marginRight: '6px' }} /> {isEn ? 'Manage Symbols' : '꿈 상징 사전 관리'}
         </button>
         <button 
           onClick={() => setActiveTab('whitepaper')} 
           style={{ ...styles.tabBtn, ...(activeTab === 'whitepaper' ? styles.tabBtnActive : {}) }}
         >
-          <BookOpen size={16} style={{ marginRight: '6px' }} /> 꿈 해석 백서
+          <BookOpen size={16} style={{ marginRight: '6px' }} /> {isEn ? 'Dream Whitepaper' : '꿈 해석 백서'}
         </button>
         <button 
           onClick={() => setActiveTab('prompts')} 
           style={{ ...styles.tabBtn, ...(activeTab === 'prompts' ? styles.tabBtnActive : {}) }}
         >
-          <Settings size={16} style={{ marginRight: '6px' }} /> AI 시스템 지시문
+          <Settings size={16} style={{ marginRight: '6px' }} /> {isEn ? 'AI System Prompt' : 'AI 시스템 지시문'}
         </button>
         <button 
           onClick={() => setActiveTab('logs')} 
           style={{ ...styles.tabBtn, ...(activeTab === 'logs' ? styles.tabBtnActive : {}) }}
         >
-          <Clipboard size={16} style={{ marginRight: '6px' }} /> 감사 로그 모니터
+          <Clipboard size={16} style={{ marginRight: '6px' }} /> {isEn ? 'Audit Logs' : '감사 로그 모니터'}
         </button>
       </div>
 
@@ -262,17 +269,21 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
           <div className="fade-in">
             <div style={styles.sectionHeader}>
               <div>
-                <h2 style={styles.contentTitle}>꿈 상징 사전 (Dream Dictionaries)</h2>
+                <h2 style={styles.contentTitle}>
+                  {isEn ? 'Dream Symbol Dictionary' : '꿈 상징 사전 (Dream Dictionaries)'}
+                </h2>
                 <p style={styles.contentDesc}>
-                  꿈 해석 시 추출할 상징 키워드 목록입니다. 여기에 등록된 값은 <b>데모 모드 풀이</b>의 원천이 되며, <b>AI 가이드 프롬프트</b>에 실시간 주입됩니다.
+                  {isEn 
+                    ? 'List of key symbol keywords extracted during dream interpretation. Stored values serve as the data source for dictionary-only mode and are injected into AI prompts.'
+                    : '꿈 해석 시 추출할 상징 키워드 목록입니다. 여기에 등록된 값은 데모 모드 풀이의 원천이 되며, AI 가이드 프롬프트에 실시간 주입됩니다.'}
                 </p>
               </div>
               <div style={{ display: 'flex', gap: '10px' }}>
                 <button onClick={handleReset} style={styles.resetBtn}>
-                  <RotateCcw size={14} style={{ marginRight: '6px' }} /> 기본값 초기화
+                  <RotateCcw size={14} style={{ marginRight: '6px' }} /> {isEn ? 'Reset to Default' : '기본값 초기화'}
                 </button>
                 <button onClick={() => { setIsAddingNew(true); setEditingSymbol(null); }} className="glow-btn" style={styles.addBtn}>
-                  <Plus size={16} style={{ marginRight: '6px' }} /> 신규 상징 추가
+                  <Plus size={16} style={{ marginRight: '6px' }} /> {isEn ? 'Add New Symbol' : '신규 상징 추가'}
                 </button>
               </div>
             </div>
@@ -280,40 +291,40 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
             {/* Add New Form */}
             {isAddingNew && (
               <div style={styles.crudForm} className="fade-in">
-                <h3 style={styles.formTitle}>새로운 꿈 상징 추가</h3>
+                <h3 style={styles.formTitle}>{isEn ? 'Add New Dream Symbol' : '새로운 꿈 상징 추가'}</h3>
                 <div style={styles.formGrid}>
                   <div style={styles.inputGroup}>
-                    <label style={styles.label}>상징 이름 (예: 나비, 이별)</label>
+                    <label style={styles.label}>{isEn ? 'Symbol Name (e.g., butterfly, departure)' : '상징 이름 (예: 나비, 이별)'}</label>
                     <input 
                       type="text" 
                       value={newSymbol.name}
                       onChange={(e) => setNewSymbol({ ...newSymbol, name: e.target.value })}
                       style={styles.inputText}
-                      placeholder="키워드를 적으세요..."
+                      placeholder={isEn ? 'Enter keyword...' : '키워드를 적으세요...'}
                     />
                   </div>
                   <div style={styles.inputGroup}>
-                    <label style={styles.label}>동양 전통 해몽 해석</label>
+                    <label style={styles.label}>{isEn ? 'Eastern Traditional Interpretation' : '동양 전통 해몽 해석'}</label>
                     <textarea 
                       value={newSymbol.traditional}
                       onChange={(e) => setNewSymbol({ ...newSymbol, traditional: e.target.value })}
                       style={styles.textarea}
-                      placeholder="동양 철학/길흉화복적 풀이..."
+                      placeholder={isEn ? 'Eastern philosophy / fortune interpretation...' : '동양 철학/길흉화복적 풀이...'}
                     />
                   </div>
                   <div style={styles.inputGroup}>
-                    <label style={styles.label}>서양 정신분석학 해석 (프로이트/융)</label>
+                    <label style={styles.label}>{isEn ? 'Western Psychoanalytical Interpretation (Freud/Jung)' : '서양 정신분석학 해석 (프로이트/융)'}</label>
                     <textarea 
                       value={newSymbol.psychological}
                       onChange={(e) => setNewSymbol({ ...newSymbol, psychological: e.target.value })}
                       style={styles.textarea}
-                      placeholder="내면 심리/무의식/욕구 투영 풀이..."
+                      placeholder={isEn ? 'Inner mind / subconscious / desire projection...' : '내면 심리/무의식/욕구 투영 풀이...'}
                     />
                   </div>
                 </div>
                 <div style={styles.formBtnGroup}>
-                  <button onClick={() => setIsAddingNew(false)} style={styles.formCancelBtn}>취소</button>
-                  <button onClick={handleAddNew} className="glow-btn" style={styles.formSubmitBtn}>추가 저장</button>
+                  <button onClick={() => setIsAddingNew(false)} style={styles.formCancelBtn}>{isEn ? 'Cancel' : '취소'}</button>
+                  <button onClick={handleAddNew} className="glow-btn" style={styles.formSubmitBtn}>{isEn ? 'Save' : '추가 저장'}</button>
                 </div>
               </div>
             )}
@@ -321,10 +332,10 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
             {/* Edit Form */}
             {editingSymbol && (
               <div style={styles.crudForm} className="fade-in">
-                <h3 style={styles.formTitle}>꿈 상징 편집</h3>
+                <h3 style={styles.formTitle}>{isEn ? 'Edit Dream Symbol' : '꿈 상징 편집'}</h3>
                 <div style={styles.formGrid}>
                   <div style={styles.inputGroup}>
-                    <label style={styles.label}>상징 이름</label>
+                    <label style={styles.label}>{isEn ? 'Symbol Name' : '상징 이름'}</label>
                     <input 
                       type="text" 
                       value={editingSymbol.name}
@@ -333,7 +344,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
                     />
                   </div>
                   <div style={styles.inputGroup}>
-                    <label style={styles.label}>동양 전통 해몽 해석</label>
+                    <label style={styles.label}>{isEn ? 'Eastern Traditional Interpretation' : '동양 전통 해몽 해석'}</label>
                     <textarea 
                       value={editingSymbol.traditional}
                       onChange={(e) => setEditingSymbol({ ...editingSymbol, traditional: e.target.value })}
@@ -341,7 +352,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
                     />
                   </div>
                   <div style={styles.inputGroup}>
-                    <label style={styles.label}>서양 정신분석학 해석 (프로이트/융)</label>
+                    <label style={styles.label}>{isEn ? 'Western Psychoanalytical Interpretation (Freud/Jung)' : '서양 정신분석학 해석 (프로이트/융)'}</label>
                     <textarea 
                       value={editingSymbol.psychological}
                       onChange={(e) => setEditingSymbol({ ...editingSymbol, psychological: e.target.value })}
@@ -350,8 +361,8 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
                   </div>
                 </div>
                 <div style={styles.formBtnGroup}>
-                  <button onClick={() => setEditingSymbol(null)} style={styles.formCancelBtn}>취소</button>
-                  <button onClick={handleUpdate} className="glow-btn" style={styles.formSubmitBtn}>변경 사항 저장</button>
+                  <button onClick={() => setEditingSymbol(null)} style={styles.formCancelBtn}>{isEn ? 'Cancel' : '취소'}</button>
+                  <button onClick={handleUpdate} className="glow-btn" style={styles.formSubmitBtn}>{isEn ? 'Save Changes' : '변경 사항 저장'}</button>
                 </div>
               </div>
             )}
@@ -361,31 +372,33 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
               <table style={styles.table}>
                 <thead>
                   <tr style={styles.trHeader}>
-                    <th style={{ ...styles.th, width: '10%' }}>상징 키워드</th>
-                    <th style={{ ...styles.th, width: '40%' }}>동양 전통 해몽학 관점</th>
-                    <th style={{ ...styles.th, width: '40%' }}>서양 정신분석학 관점 (융/프로이트)</th>
-                    <th style={{ ...styles.th, width: '10%', textAlign: 'center' }}>관리</th>
+                    <th style={{ ...styles.th, width: '15%' }}>{isEn ? 'Symbol' : '상징 키워드'}</th>
+                    <th style={{ ...styles.th, width: '37.5%' }}>{isEn ? 'Eastern Traditional Perspective' : '동양 전통 해몽학 관점'}</th>
+                    <th style={{ ...styles.th, width: '37.5%' }}>{isEn ? 'Western Psychoanalytical Perspective' : '서양 정신분석학 관점 (융/프로이트)'}</th>
+                    <th style={{ ...styles.th, width: '10%', textAlign: 'center' }}>{isEn ? 'Manage' : '관리'}</th>
                   </tr>
                 </thead>
                 <tbody>
                   {symbols.map(s => (
                     <tr key={s.key} style={styles.tr}>
-                      <td style={{ ...styles.td, fontWeight: '600', color: 'var(--color-secondary)' }}>{s.name}</td>
-                      <td style={styles.td}>{s.traditional}</td>
-                      <td style={styles.td}>{s.psychological}</td>
+                      <td style={{ ...styles.td, fontWeight: '600', color: 'var(--color-secondary)' }}>
+                        {isEn ? (s.nameEn || s.name) : s.name}
+                      </td>
+                      <td style={styles.td}>{isEn ? (s.traditionalEn || s.traditional) : s.traditional}</td>
+                      <td style={styles.td}>{isEn ? (s.psychologicalEn || s.psychological) : s.psychological}</td>
                       <td style={{ ...styles.td, textAlign: 'center' }}>
                         <div style={styles.actionsCell}>
                           <button 
                             onClick={() => { setEditingSymbol(s); setIsAddingNew(false); }}
                             style={styles.editBtn}
-                            title="편집"
+                            title={isEn ? 'Edit' : '편집'}
                           >
                             <Edit2 size={14} />
                           </button>
                           <button 
                             onClick={() => handleDelete(s.key, s.name)}
                             style={styles.deleteBtn}
-                            title="삭제"
+                            title={isEn ? 'Delete' : '삭제'}
                           >
                             <Trash2 size={14} />
                           </button>
@@ -503,7 +516,9 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
             <div style={{ ...styles.alertBox, marginTop: '20px', border: '1px solid rgba(255, 255, 255, 0.1)', backgroundColor: 'rgba(255, 255, 255, 0.01)' }}>
               <AlertTriangle size={20} color="var(--color-accent)" style={{ marginRight: '10px', flexShrink: 0 }} />
               <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                * 프롬프트 템플릿의 변형과 미세 조정(Fine-tuning)은 <code>src/services/aiService.ts</code> 소스코드 내 <code>getSystemPrompt()</code> 함수에서 개발자용 커스텀 편집으로 제어됩니다.
+                {isEn 
+                  ? '* Modifications and fine-tuning of the prompt template are controlled via developer custom edits in the code inside src/services/aiService.ts.'
+                  : '* 프롬프트 템플릿의 변형과 미세 조정(Fine-tuning)은 src/services/aiService.ts 소스코드 내 getSystemPrompt() 함수에서 개발자용 커스텀 편집으로 제어됩니다.'}
               </div>
             </div>
           </div>
@@ -514,20 +529,22 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain }) 
           <div className="fade-in">
             <div style={styles.sectionHeader}>
               <div>
-                <h2 style={styles.contentTitle}>시스템 감사 로그 (Audit Logs)</h2>
+                <h2 style={styles.contentTitle}>{isEn ? 'System Audit Logs' : '시스템 감사 로그 (Audit Logs)'}</h2>
                 <p style={styles.contentDesc}>
-                  꿈 해석 시도, 성공/실패율, 사전 편집 등 로컬 브라우저 세션에서 수집된 익명화된 성능 및 진단 기록입니다.
+                  {isEn 
+                    ? 'Anonymized performance and diagnostic records collected during local browser sessions, including interpretation attempts, success rates, and dictionary edits.'
+                    : '꿈 해석 시도, 성공/실패율, 사전 편집 등 로컬 브라우저 세션에서 수집된 익명화된 성능 및 진단 기록입니다.'}
                 </p>
               </div>
               <div>
                 <button onClick={handleClearLogs} style={styles.deleteBtnText} disabled={logs.length === 0}>
-                  로그 기록 영구삭제
+                  {isEn ? 'Clear All Logs' : '로그 기록 영구삭제'}
                 </button>
               </div>
             </div>
 
             {logs.length === 0 ? (
-              <div style={styles.emptyLogs}>감사 기록이 비어 있습니다.</div>
+              <div style={styles.emptyLogs}>{isEn ? 'Audit logs are empty.' : '감사 기록이 비어 있습니다.'}</div>
             ) : (
               <div style={styles.logList}>
                 {logs.map(log => (
