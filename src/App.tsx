@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Key, Settings as SettingsIcon, Menu, Send, Globe } from 'lucide-react';
+import { Sparkles, Key, Settings as SettingsIcon, Send, Globe } from 'lucide-react';
 import { DreamInput } from './components/DreamInput';
 import { DreamAnalyzer } from './components/DreamAnalyzer';
 import { DreamReport } from './components/DreamReport';
 import { AdminDashboard } from './components/AdminDashboard';
 import { SettingsModal } from './components/SettingsModal';
 import { GuideModal } from './components/GuideModal';
-import { Sidebar } from './components/Sidebar';
 import { aiService } from './services/aiService';
 import { storageService } from './services/storageService';
 import type { AppSettings, ChatSession, ChatMessage } from './services/storageService';
@@ -26,10 +25,8 @@ export default function App() {
   const [progressText, setProgressText] = useState('');
   const [progressPercent, setProgressPercent] = useState(0);
 
-  // Chat Session States
-  const [sessions, setSessions] = useState<ChatSession[]>([]);
-  const [activeSessionId, setActiveSessionId] = useState<string | null>(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  // Chat Session State (Single-session in-memory)
+  const [activeSession, setActiveSession] = useState<ChatSession | null>(null);
   const [followUpText, setFollowUpText] = useState('');
   const [isChatProcessing, setIsChatProcessing] = useState(false);
   const [chatProgressText, setChatProgressText] = useState('');
@@ -61,10 +58,6 @@ export default function App() {
     // 1. 설정 정보 불러오기
     const stored = storageService.getSettings();
     setSettings(stored);
-
-    // 1.5. 채팅 세션 정보 불러오기
-    const storedSessions = storageService.getChatSessions();
-    setSessions(storedSessions);
 
     // 2. 브라우저 크롬 AI 상태 확인
     const checkBrowser = async () => {
@@ -296,10 +289,7 @@ export default function App() {
         ]
       };
 
-      storageService.saveChatSession(newSession);
-      const updated = storageService.getChatSessions();
-      setSessions(updated);
-      setActiveSessionId(newSession.id);
+      setActiveSession(newSession);
     } catch (e: any) {
       console.error('Interpretation failed', e);
       alert(settings.language === 'en' ? 'An error occurred during dream interpretation.' : '꿈 해석 도중 오류가 발생했습니다.');
@@ -319,35 +309,13 @@ export default function App() {
 
   // 새로운 꿈 쓰기로 초기화
   const handleReset = () => {
-    setActiveSessionId(null);
-  };
-
-  // 대화 개별 삭제
-  const handleDeleteSession = (id: string) => {
-    storageService.deleteChatSession(id);
-    const updated = storageService.getChatSessions();
-    setSessions(updated);
-    if (activeSessionId === id) {
-      setActiveSessionId(null);
-    }
-  };
-
-  // 모든 기록 삭제
-  const handleClearAll = () => {
-    if (window.confirm(settings.language === 'en' ? 'Are you sure you want to clear all dream chat history? This action cannot be undone.' : '기록된 모든 꿈 대화 기록을 지우시겠습니까? 이 작업은 복구할 수 없습니다.')) {
-      storageService.clearAllChatSessions();
-      setSessions([]);
-      setActiveSessionId(null);
-    }
+    setActiveSession(null);
   };
 
   // 후속 꼬리 질문 전송
   const handleSendFollowUp = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!followUpText.trim() || !activeSessionId || isChatProcessing) return;
-
-    const activeSession = sessions.find(s => s.id === activeSessionId);
-    if (!activeSession) return;
+    if (!followUpText.trim() || !activeSession || isChatProcessing) return;
 
     const userMessage: ChatMessage = {
       id: `msg_user_${Date.now()}`,
@@ -362,8 +330,7 @@ export default function App() {
       messages: [...activeSession.messages, userMessage]
     };
     
-    storageService.saveChatSession(updatedSession);
-    setSessions(storageService.getChatSessions());
+    setActiveSession(updatedSession);
     setFollowUpText('');
 
     // AI 응답 처리 시작
@@ -406,8 +373,7 @@ export default function App() {
         messages: [...updatedSession.messages, aiMessage]
       };
 
-      storageService.saveChatSession(finalSession);
-      setSessions(storageService.getChatSessions());
+      setActiveSession(finalSession);
     } catch (err) {
       console.error('Follow-up chat failed:', err);
       
@@ -423,8 +389,7 @@ export default function App() {
         messages: [...updatedSession.messages, errorMessage]
       };
       
-      storageService.saveChatSession(finalSession);
-      setSessions(storageService.getChatSessions());
+      setActiveSession(finalSession);
     } finally {
       setIsChatProcessing(false);
       setChatProgressPercent(0);
@@ -436,25 +401,6 @@ export default function App() {
 
   return (
     <div className="app-container">
-      
-      {/* 1. 사이드바 */}
-      <Sidebar 
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-        sessions={sessions}
-        activeSessionId={activeSessionId}
-        onSelectSession={(id) => {
-          setActiveSessionId(id);
-          if (id === null) {
-            handleReset();
-          }
-        }}
-        onDeleteSession={handleDeleteSession}
-        onOpenSettings={() => setIsSettingsOpen(true)}
-        onOpenAdmin={() => setCurrentView('admin')}
-        onClearAll={handleClearAll}
-        language={settings.language}
-      />
 
       <div className="main-wrapper">
         
@@ -467,14 +413,6 @@ export default function App() {
         {/* 2. 상단 헤더 영역 */}
         <header style={styles.header} className="glass-panel">
           <div style={styles.logoGroup}>
-            <button 
-              onClick={() => setIsSidebarOpen(true)} 
-              style={styles.menuBtn} 
-              className="mobile-only"
-              title={t.menuTitle}
-            >
-              <Menu size={20} color="var(--text-muted)" />
-            </button>
             <div style={styles.logoClickable} onClick={handleReset}>
               <div style={styles.logoIconContainer} className="star-spin">
                 <Sparkles size={18} color="var(--color-accent)" />
@@ -515,99 +453,94 @@ export default function App() {
               {isProcessing ? (
                 // 최초 해몽 진행중인 경우 로딩 화면 렌더링
                 <DreamAnalyzer progressText={progressText} progressPercent={progressPercent} />
-              ) : activeSessionId && sessions.find(s => s.id === activeSessionId) ? (
+              ) : activeSession ? (
                 // 활성화된 채팅 세션이 있는 경우
-                (() => {
-                  const activeSession = sessions.find(s => s.id === activeSessionId)!;
-                  return (
-                    <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, width: '100%' }}>
-                      <div className="chat-messages-list">
-                        {activeSession.messages.map((msg, index) => {
-                          const isUser = msg.sender === 'user';
-                          
-                          // 두 번째 메시지(첫 AI 메시지)인 경우, 해석 리포트 카드 렌더링
-                          if (!isUser && index === 1 && msg.interpretation) {
-                            return (
-                              <div key={msg.id} className="chat-bubble ai">
-                                <DreamReport 
-                                  dreamText={activeSession.messages[0].text}
-                                  result={msg.interpretation}
-                                  selectedMode={activeSession.mode}
-                                  onReset={handleReset}
-                                  inlineMode={true}
-                                  language={settings.language}
-                                />
-                              </div>
-                            );
-                          }
-
-                          // 일반 대화 말풍선 렌더링
-                          return (
-                            <div 
-                              key={msg.id} 
-                              className={`chat-bubble ${isUser ? 'user' : 'ai chat-text-bubble'}`}
-                            >
-                              <div style={{ whiteSpace: 'pre-wrap' }}>{msg.text}</div>
-                              <div style={styles.bubbleDate}>
-                                {new Date(msg.timestamp).toLocaleTimeString(settings.language === 'en' ? 'en-US' : 'ko-KR', { hour: '2-digit', minute: '2-digit' })}
-                              </div>
-                            </div>
-                          );
-                        })}
-
-                        {/* 후속 질문 대화 AI 타이핑 진행 상황 로딩 */}
-                        {isChatProcessing && (
-                          <div className="chat-bubble ai chat-text-bubble">
-                            <div className="chat-typing-progress">
-                              <span>{chatProgressText}</span>
-                              <div style={{
-                                width: '100%',
-                                height: '4px',
-                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                borderRadius: '2px',
-                                overflow: 'hidden'
-                              }}>
-                                <div style={{
-                                  width: `${chatProgressPercent}%`,
-                                  height: '100%',
-                                  backgroundColor: 'var(--color-secondary)',
-                                  borderRadius: '2px',
-                                  transition: 'width 0.3s'
-                                }} />
-                              </div>
-                              <div className="chat-typing-indicator">
-                                <div className="chat-typing-dot" />
-                                <div className="chat-typing-dot" />
-                                <div className="chat-typing-dot" />
-                              </div>
-                            </div>
+                <div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1, width: '100%' }}>
+                  <div className="chat-messages-list">
+                    {activeSession.messages.map((msg, index) => {
+                      const isUser = msg.sender === 'user';
+                      
+                      // 두 번째 메시지(첫 AI 메시지)인 경우, 해석 리포트 카드 렌더링
+                      if (!isUser && index === 1 && msg.interpretation) {
+                        return (
+                          <div key={msg.id} className="chat-bubble ai">
+                            <DreamReport 
+                              dreamText={activeSession.messages[0].text}
+                              result={msg.interpretation}
+                              selectedMode={activeSession.mode}
+                              onReset={handleReset}
+                              inlineMode={true}
+                              language={settings.language}
+                            />
                           </div>
-                        )}
-                      </div>
+                        );
+                      }
 
-                      {/* 하단 고정형 채팅 메시지 입력바 */}
-                      <div className="chat-input-bar-container">
-                        <form onSubmit={handleSendFollowUp} className="chat-input-bar">
-                          <input 
-                            type="text"
-                            value={followUpText}
-                            onChange={(e) => setFollowUpText(e.target.value)}
-                            placeholder={t.chatInputPlaceholder}
-                            className="chat-input-field"
-                            disabled={isChatProcessing}
-                          />
-                          <button 
-                            type="submit" 
-                            className="chat-send-btn"
-                            disabled={isChatProcessing || !followUpText.trim()}
-                          >
-                            <Send size={14} />
-                          </button>
-                        </form>
+                      // 일반 대화 말풍선 렌더링
+                      return (
+                        <div 
+                          key={msg.id} 
+                          className={`chat-bubble ${isUser ? 'user' : 'ai chat-text-bubble'}`}
+                        >
+                          <div style={{ whiteSpace: 'pre-wrap' }}>{msg.text}</div>
+                          <div style={styles.bubbleDate}>
+                            {new Date(msg.timestamp).toLocaleTimeString(settings.language === 'en' ? 'en-US' : 'ko-KR', { hour: '2-digit', minute: '2-digit' })}
+                          </div>
+                        </div>
+                      );
+                    })}
+
+                    {/* 후속 질문 대화 AI 타이핑 진행 상황 로딩 */}
+                    {isChatProcessing && (
+                      <div className="chat-bubble ai chat-text-bubble">
+                        <div className="chat-typing-progress">
+                          <span>{chatProgressText}</span>
+                          <div style={{
+                            width: '100%',
+                            height: '4px',
+                            backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                            borderRadius: '2px',
+                            overflow: 'hidden'
+                          }}>
+                            <div style={{
+                              width: `${chatProgressPercent}%`,
+                              height: '100%',
+                              backgroundColor: 'var(--color-secondary)',
+                              borderRadius: '2px',
+                              transition: 'width 0.3s'
+                            }} />
+                          </div>
+                          <div className="chat-typing-indicator">
+                            <div className="chat-typing-dot" />
+                            <div className="chat-typing-dot" />
+                            <div className="chat-typing-dot" />
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })()
+                    )}
+                  </div>
+
+                  {/* 하단 고정형 채팅 메시지 입력바 */}
+                  <div className="chat-input-bar-container">
+                    <form onSubmit={handleSendFollowUp} className="chat-input-bar">
+                      <input 
+                        type="text"
+                        value={followUpText}
+                        onChange={(e) => setFollowUpText(e.target.value)}
+                        placeholder={t.chatInputPlaceholder}
+                        className="chat-input-field"
+                        disabled={isChatProcessing}
+                      />
+                      <button 
+                        type="submit" 
+                        className="chat-send-btn"
+                        disabled={isChatProcessing || !followUpText.trim()}
+                      >
+                        <Send size={14} />
+                      </button>
+                    </form>
+                  </div>
+                </div>
               ) : (
                 // 새 채팅 상태 (활성화 대화 없음)
                 <DreamInput 

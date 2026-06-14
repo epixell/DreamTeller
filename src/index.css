@@ -269,7 +269,7 @@ p {
   flex-direction: column;
   min-height: 100vh;
   transition: padding-left var(--transition-normal);
-  padding-left: 280px; /* Width of desktop sidebar */
+  padding-left: 0;
   box-sizing: border-box;
 }
 

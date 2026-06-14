@@ -59,7 +59,6 @@ export interface AuditLog {
 const HISTORY_KEY = 'dreamteller_history';
 const SETTINGS_KEY = 'dreamteller_settings';
 const LOGS_KEY = 'dreamteller_audit_logs';
-const CHATS_KEY = 'dreamteller_chats';
 
 
 export const storageService = {
@@ -139,37 +138,6 @@ export const storageService = {
     localStorage.removeItem(LOGS_KEY);
   },
 
-  // --- Chat Sessions ---
-  getChatSessions(): ChatSession[] {
-    const data = localStorage.getItem(CHATS_KEY);
-    if (!data) return [];
-    try {
-      return JSON.parse(data);
-    } catch (e) {
-      console.error('Failed to parse chat sessions', e);
-      return [];
-    }
-  },
 
-  saveChatSession(session: ChatSession): void {
-    const sessions = this.getChatSessions();
-    const index = sessions.findIndex(s => s.id === session.id);
-    if (index > -1) {
-      sessions[index] = session;
-    } else {
-      sessions.unshift(session); // New session at the top
-    }
-    localStorage.setItem(CHATS_KEY, JSON.stringify(sessions));
-  },
-
-  deleteChatSession(id: string): void {
-    let sessions = this.getChatSessions();
-    sessions = sessions.filter(s => s.id !== id);
-    localStorage.setItem(CHATS_KEY, JSON.stringify(sessions));
-  },
-
-  clearAllChatSessions(): void {
-    localStorage.removeItem(CHATS_KEY);
-  }
 };
 
