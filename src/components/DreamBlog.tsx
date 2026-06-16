@@ -22,8 +22,8 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
     {
       id: 'dragon-dream',
       title: language === 'en' 
-        ? "All About Dragon Dreams: In-Depth Analysis Divided into Good and Bad Directions"
-        : "용꿈의 모든 것: 좋은 방향과 나쁜 방향으로 나누어 보는 상황별 심층 분석",
+        ? "All About Dragon Dreams - In-Depth Analysis"
+        : "용 꿈의 모든 것 - 용 꿈 심층분석",
       excerpt: language === 'en'
         ? "Explore the ancient mythological roots, psychological archetypes, and situational meanings of dragon dreams, structured into positive guides and warning signals."
         : "용이 소용돌이치며 오르는 찬란한 길조와 하늘에서 추락하는 나쁜 징조 등, 영험한 천상의 야수 용꿈의 정체와 대처법을 상세히 분석합니다.",
@@ -36,8 +36,8 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
     {
       id: 'tiger-dream',
       title: language === 'en'
-        ? "All About Tiger Dreams: In-Depth Analysis Divided into Good and Bad Directions"
-        : "호랑이꿈의 모든 것: 좋은 방향과 나쁜 방향으로 나누어 보는 상황별 심층 분석",
+        ? "All About Tiger Dreams - In-Depth Analysis"
+        : "호랑이 꿈의 모든 것 - 호랑이 꿈 심층분석",
       excerpt: language === 'en'
         ? "Uncover the spiritual protection, psychological shadow integration, and situational meanings of tiger dreams, categorized into lucky signs and cautionary warnings."
         : "방으로 걸어 들어오는 백호의 상서로운 길조부터 고양이로 변하거나 가문을 이탈하는 불길한 경고까지, 숲의 제왕이 선사하는 내면 에너지를 총정리합니다.",
