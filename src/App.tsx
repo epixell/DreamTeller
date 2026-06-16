@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Key, Settings as SettingsIcon, Send, Globe } from 'lucide-react';
+import { Sparkles, Key, Settings as SettingsIcon, Send, Globe, BookOpen } from 'lucide-react';
 import { DreamInput } from './components/DreamInput';
 import { DreamAnalyzer } from './components/DreamAnalyzer';
 import { DreamReport } from './components/DreamReport';
 import { AdminDashboard } from './components/AdminDashboard';
 import { SettingsModal } from './components/SettingsModal';
 import { GuideModal } from './components/GuideModal';
+import { DreamBlog } from './components/DreamBlog';
 import { aiService } from './services/aiService';
 import { storageService } from './services/storageService';
 import type { AppSettings, ChatSession, ChatMessage } from './services/storageService';
@@ -16,7 +17,7 @@ import { useTranslation } from 'react-i18next';
 export default function App() {
   const { t, i18n: i18nInstance } = useTranslation();
   // Navigation & Modals
-  const [currentView, setCurrentView] = useState<'main' | 'admin'>('main');
+  const [currentView, setCurrentView] = useState<'main' | 'admin' | 'blog'>('main');
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [chromeSubMode, setChromeSubMode] = useState<'setup' | 'download'>('setup');
@@ -328,6 +329,7 @@ export default function App() {
   // 새로운 꿈 쓰기로 초기화
   const handleReset = () => {
     setActiveSession(null);
+    setCurrentView('main');
   };
 
   // 후속 꼬리 질문 전송
@@ -438,7 +440,26 @@ export default function App() {
             </div>
           </div>
           
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+            <button 
+              onClick={() => setCurrentView(currentView === 'blog' ? 'main' : 'blog')}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: currentView === 'blog' ? 'var(--color-secondary)' : 'var(--text-main)',
+                fontSize: '0.9rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'color 0.2s',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px'
+              }}
+              title={settings.language === 'en' ? "Dream Library (Blog)" : "기억의 서고 (블로그)"}
+            >
+              <BookOpen size={16} />
+              <span>{settings.language === 'en' ? 'Library' : '기억의 서고'}</span>
+            </button>
             <div style={{ position: 'relative' }}>
               <button 
                 onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)} 
@@ -492,6 +513,8 @@ export default function App() {
         <main style={styles.mainContent}>
           {currentView === 'admin' ? (
             <AdminDashboard onBackToMain={() => setCurrentView('main')} language={settings.language} />
+          ) : currentView === 'blog' ? (
+            <DreamBlog language={settings.language} onBackToMain={() => setCurrentView('main')} />
           ) : (
             <div style={{ width: '100%', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
               {isProcessing ? (
