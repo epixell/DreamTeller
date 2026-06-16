@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowLeft, BookOpen, Calendar, Clock, User, MessageSquare, HelpCircle, ChevronRight } from 'lucide-react';
+import { ArrowLeft, BookOpen, User, MessageSquare, HelpCircle, ChevronRight } from 'lucide-react';
 
 interface BlogPost {
   id: string;
   title: string;
   excerpt: string;
   category: string;
-  date: string;
-  readTime: string;
   coverImage: string;
   author: string;
 }
@@ -28,8 +26,6 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
         ? "Explore the ancient mythological roots, psychological archetypes, and situational meanings of dragon dreams, structured into positive guides and warning signals."
         : "용이 소용돌이치며 오르는 찬란한 길조와 하늘에서 추락하는 나쁜 징조 등, 영험한 천상의 야수 용꿈의 정체와 대처법을 상세히 분석합니다.",
       category: language === 'en' ? "Celestial Beasts" : "영적 동물",
-      date: "2026-06-16",
-      readTime: language === 'en' ? "9 min read" : "9분 분량",
       coverImage: "/dragon_dream.png",
       author: "DreamTeller Editor"
     },
@@ -42,8 +38,6 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
         ? "Uncover the spiritual protection, psychological shadow integration, and situational meanings of tiger dreams, categorized into lucky signs and cautionary warnings."
         : "방으로 걸어 들어오는 백호의 상서로운 길조부터 고양이로 변하거나 가문을 이탈하는 불길한 경고까지, 숲의 제왕이 선사하는 내면 에너지를 총정리합니다.",
       category: language === 'en' ? "Spiritual Guides" : "행운과 명예",
-      date: "2026-06-15",
-      readTime: language === 'en' ? "8 min read" : "8분 분량",
       coverImage: "/tiger_dream.png",
       author: "DreamTeller Editor"
     }
@@ -107,14 +101,6 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
                   <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                     <User size={14} />
                     <span>{currentPost.author}</span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <Calendar size={14} />
-                    <span>{currentPost.date}</span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <Clock size={14} />
-                    <span>{currentPost.readTime}</span>
                   </div>
                 </div>
               </div>
@@ -505,11 +491,6 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
                 </div>
                 
                 <div className="blog-card-content">
-                  <div className="blog-card-meta">
-                    <span>{post.date}</span>
-                    <span>•</span>
-                    <span>{post.readTime}</span>
-                  </div>
                   <h3 className="blog-card-title">{post.title}</h3>
                   <p className="blog-card-desc">{post.excerpt}</p>
                   <div style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.8rem', color: 'var(--color-secondary)', marginTop: 'auto', fontWeight: '600' }}>
