@@ -16,35 +16,34 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
   const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string>('');
   
-  // Ref for scroll tracking in details view
   const observer = useRef<IntersectionObserver | null>(null);
 
   const posts: BlogPost[] = [
     {
       id: 'dragon-dream',
       title: language === 'en' 
-        ? "The Mystery of the Golden Dragon Ascending: Wealth, Power, and the Turning Points of Fate"
-        : "황금빛 용이 하늘로 승천하는 꿈의 실체: 재물과 권력, 그리고 인생의 대 전환점",
+        ? "All About Dragon Dreams: In-Depth Analysis Divided into Good and Bad Directions"
+        : "용꿈의 모든 것: 좋은 방향과 나쁜 방향으로 나누어 보는 상황별 심층 분석",
       excerpt: language === 'en'
-        ? "Explore the ancient mythological roots, psychological archetypes, and situational meanings behind dreaming of dragons. A comprehensive guide for AdSense-level quality."
-        : "고대 동양의 신화적 뿌리부터 칼 융의 현대 분석심리학적 해석까지, 용을 마주한 무의식의 정체와 상황별 길흉을 낱낱이 파헤칩니다.",
+        ? "Explore the ancient mythological roots, psychological archetypes, and situational meanings of dragon dreams, structured into positive guides and warning signals."
+        : "용이 소용돌이치며 오르는 찬란한 길조와 하늘에서 추락하는 나쁜 징조 등, 영험한 천상의 야수 용꿈의 정체와 대처법을 상세히 분석합니다.",
       category: language === 'en' ? "Celestial Beasts" : "영적 동물",
       date: "2026-06-16",
-      readTime: language === 'en' ? "8 min read" : "8분 분량",
+      readTime: language === 'en' ? "9 min read" : "9분 분량",
       coverImage: "/dragon_dream.png",
       author: "DreamTeller Editor"
     },
     {
       id: 'tiger-dream',
       title: language === 'en'
-        ? "Deep Interpretation of a White Tiger Entering the Room: Honor, Authority, and Awakening the Beast Within"
-        : "백호가 거실로 걸어 들어오는 꿈의 심층 해독: 명예와 내면의 거대한 힘의 각성",
+        ? "All About Tiger Dreams: In-Depth Analysis Divided into Good and Bad Directions"
+        : "호랑이꿈의 모든 것: 좋은 방향과 나쁜 방향으로 나누어 보는 상황별 심층 분석",
       excerpt: language === 'en'
-        ? "Uncover the spiritual protection, psychological shadow integration, and conceiving dream meanings when the majestic tiger appears in your room."
-        : "호랑이를 타고 벌판을 질주하거나 호랑이에게 온몸을 물려 피가 철철 흐르는 꿈 등, 동양의 영수 호랑이가 선사하는 내면 에너지의 실체를 조망합니다.",
+        ? "Uncover the spiritual protection, psychological shadow integration, and situational meanings of tiger dreams, categorized into lucky signs and cautionary warnings."
+        : "방으로 걸어 들어오는 백호의 상서로운 길조부터 고양이로 변하거나 가문을 이탈하는 불길한 경고까지, 숲의 제왕이 선사하는 내면 에너지를 총정리합니다.",
       category: language === 'en' ? "Spiritual Guides" : "행운과 명예",
       date: "2026-06-15",
-      readTime: language === 'en' ? "7 min read" : "7분 분량",
+      readTime: language === 'en' ? "8 min read" : "8분 분량",
       coverImage: "/tiger_dream.png",
       author: "DreamTeller Editor"
     }
@@ -54,7 +53,6 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
   useEffect(() => {
     if (!selectedPostId) return;
 
-    // Small delay to ensure elements are rendered
     const timer = setTimeout(() => {
       const headings = document.querySelectorAll('.blog-body-text h2, .blog-body-text h3');
       
@@ -132,110 +130,137 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
                 <div className="blog-body-text">
                   <p id="sec-intro" style={{ fontSize: '1.1rem', color: '#fff', fontWeight: '500', lineHeight: '1.9' }}>
                     {language === 'en'
-                      ? "The dragon stands as the ultimate spiritual creature in both ancient myths and the depths of our unconscious mind. Dreaming of a dragon, especially a golden one ascending into the starry skies, is regarded as one of the most powerful and auspicious visions a human being can experience. In this exhaustive guide, we explore the deep mythological roots, situational interpretations, and Jungian psychological archetypes to understand what it truly means when a dragon visits your dreamscape."
-                      : "용(Dragon)은 고대 인류 문명의 신화 속에서뿐만 아니라, 우리의 자아(Ego)와 무의식(Unconscious)을 잇는 가장 강력한 영적 상징물 중 하나로 꼽힙니다. 특히 황금빛 찬란한 용이 어둠을 가르고 은하수가 흐르는 하늘로 장엄하게 날아오르는 꿈은 인생 전반에 걸친 '대길(大吉)의 기운'을 암시하는 극상의 표상입니다. 본 가이드북에서는 용꿈이 지닌 고대의 민담적 해석부터 현대 정신분석학적 의미까지 총체적인 해석 렌즈를 제공합니다."}
+                      ? "The dragon stands as the ultimate spiritual creature in both ancient myths and the depths of our unconscious mind. Dreaming of a dragon is regarded as one of the most powerful and auspicious visions. However, not all dragon dreams bring absolute fortune; the outcome shifts dramatically depending on the flow of the dream. In this guide, we break down dragon dreams into Good Directions and Bad Directions, backed by mythology and psychology."
+                      : "용(Dragon)은 무의식의 가장 깊은 곳을 대변하는 천상의 영수이자 절대적인 기운의 표상입니다. 흔히 용꿈이라고 하면 무조건적인 일확천금의 상징으로 이해되지만, 꿈에서 흘러가는 상황의 전개에 따라 극단적인 길흉화복으로 분기됩니다. 본 가이드북에서는 용꿈의 상징적 에너지와 함께, 실제 인생에 긍정적인 파동을 미치는 '좋은 방향(길몽)'과 조심스러운 경고를 뜻하는 '나쁜 방향(흉몽/경고)'으로 상황을 명확히 분류해 해석해 드립니다."}
                   </p>
 
                   <blockquote style={{ fontSize: '0.95rem' }}>
                     {language === 'en'
-                      ? "\"The dragon does not merely signify good fortune; it signifies a massive reorganization of your inner creative power, preparing you to expand your ego's boundaries and take flight into new domains of life.\""
-                      : "“용꿈은 단순히 요행을 뜻하는 재물운을 넘어선다. 그것은 당신 내면의 잠재력이 완전히 깨어나, 자아의 한계를 깨부수고 인생이라는 거대한 캔버스 위로 높이 비상할 준비가 완료되었음을 선포하는 무의식의 외침이다.”"}
+                      ? "\"To dream of a dragon is to confront the latent fire within. When steered towards the light, it brings great fortune; when neglected or broken, it warns of an impending shift in fate.\""
+                      : "“용꿈을 꾸는 것은 가슴속에 잠재된 불꽃과 대면하는 일이다. 그것이 빛을 향해 치솟으면 위대한 행운이 되며, 날개가 꺾이거나 시들면 내면의 균형을 재조정하라는 경고가 된다.”"}
                   </blockquote>
 
                   <h2 id="sec-myth">
                     <BookOpen size={20} style={{ marginRight: '8px' }} />
-                    {language === 'en' ? "1. Ancient Mythological Roots & Cosmic Energy of the Dragon" : "1. 고대 신화적 관점으로 보는 용의 영적 기운"}
+                    {language === 'en' ? "1. Mythology & The Double-Edged Qi of the Dragon" : "1. 고대 신화적 관점으로 보는 용의 영적 기운"}
                   </h2>
                   <p>
                     {language === 'en'
-                      ? "In Eastern philosophy, the dragon is not a monster to be slain, but the supreme deity of nature, representing the balance of Yin and Yang, rain, clouds, and cosmic energy (Qi). It has been associated with emperors, rulers, and creators. When a dragon manifests in your dream, it indicates that the natural flowing energy of the universe is aligning in your favor. A golden dragon, in particular, represents the highest frequency of material abundance and moral authority."
-                      : "동양 철학에서 용은 서양의 '퇴치해야 할 괴물'의 이미지와 180도 다릅니다. 용은 자연과 하늘의 섭리를 다스리는 지고의 신성이며, 음양의 완벽한 조화와 천지개벽의 기운(氣)을 상징합니다. 고조선 문명에서부터 왕권과 황제의 상징으로 사용되었던 만큼, 용이 꿈에 나타났다는 것은 당신의 주변 환경이나 사회적 권위가 수직 상승할 기운을 천하가 돕고 있다는 대자연의 우주적 신호입니다."}
-                  </p>
-                  <p>
-                    {language === 'en'
-                      ? "Mythologists explain that the ascension of a dragon represents the transition from the mundane earthly realm to the celestial heights. If your life has felt stagnant, this dream serves as a message that the planetary gears are shifting, preparing you for an exponential leap rather than a gradual linear growth."
-                      : "신화학적 관점에서 용이 하늘로 오르는 행위는 지상(물리적 한계)에서 천상(초월적 성취)으로의 에너지 전이를 의미합니다. 그동안 사업이 정체되어 있었거나, 학업이나 커리어에서 높은 장벽을 마주하며 괴로워했다면, 이 꿈을 기점으로 당신의 운명이 점진적인 변화가 아닌, '수직적이고 압도적인 도약'의 단계로 나아감을 암시합니다."}
+                      ? "In Eastern philosophy, the dragon represents the absolute zenith of Qi (cosmic energy). It controls the clouds, oceans, and winds. Because the dragon is a mythical chimera constructed from various creatures, it represents the unification of disparate elements. Thus, a dragon dream signals that elements in your waking life are combining to create a massive transformation. However, because it carries such a high charge of energy, any disruption or injury to the dragon in your dream warns of a significant energetic imbalance."
+                      : "동양 철학에서 용은 대우주의 양기(陽氣)가 최고조에 달했을 때 실체화되는 상상 속의 신수입니다. 동양 신화에서 용은 날씨와 바다, 비구름을 다스리며 왕이나 황제의 권위로 칭송받았습니다. 용은 뱀의 몸, 잉어의 비늘, 호랑이의 발바닥 등 수많은 동물의 정수가 하나로 합쳐진 개체이므로 무의식 속 여러 생각과 현실적 조건들이 조화를 이루어 대격변을 선사한다는 의미를 지닙니다. 하지만 기운이 지나치게 강한 동물인 만큼, 꿈에서 용이 상처를 입거나 부정적인 조우를 겪게 되는 것은 인생의 지각 변동을 조심하라는 두 개의 날을 가지고 있습니다."}
                   </p>
 
-                  <h2 id="sec-situations">
+                  <h2 id="sec-good">
                     <MessageSquare size={20} style={{ marginRight: '8px' }} />
-                    {language === 'en' ? "2. Situational Interpretations: Analyzing Different Dragon Scenarios" : "2. 상황별 용꿈의 구체적 길흉화복 분석"}
+                    {language === 'en' ? "2. Good Directions: Auspicious Dragon Dreams and Luck" : "2. 좋은 방향으로 흘러가는 용꿈 (대길의 길몽)"}
                   </h2>
                   <p>
                     {language === 'en'
-                      ? "The meaning of your dream changes drastically based on the dragon's actions and your interaction with it. Let's analyze the most common scenarios:"
-                      : "꿈에서 용이 행한 행동과 사용자가 취한 상호작용은 해몽의 결을 크게 가르는 기준점이 됩니다. 아래의 주요 상황별 해독을 통해 본인이 꾼 꿈과 완벽히 매칭해 보세요."}
+                      ? "Auspicous dragon dreams are characterized by clean movement, bright colors, and feelings of awe. These dreams signal a dramatic rise in status, wealth, or health:"
+                      : "좋은 기운을 품은 용꿈은 밝은 빛, 힘찬 움직임, 그리고 경외감을 느끼는 정서가 주를 이룹니다. 이 꿈들은 사회적 권력의 확대, 재물운의 대폭 상승, 명예 획득 등을 강력하게 증명합니다."}
                   </p>
                   
                   <ul>
                     <li>
-                      <strong>{language === 'en' ? "A Golden Dragon Ascending to the Sky" : "황금룡이 소용돌이치며 승천하는 꿈"}</strong>: 
+                      <strong>{language === 'en' ? "2.1 The Golden Dragon Ascending with a Pearl" : "2.1 황금룡이 여의주를 물고 힘차게 승천하는 꿈"}</strong>: 
                       {language === 'en'
-                        ? " This is the absolute peak of auspicious dreams. It predicts massive success in business, exams, or social status. In many traditions, it is the ultimate conceiving dream (Tae-mong), foretelling a child who will achieve world-renowned prestige."
-                        : " 용꿈 중 최고의 극상(極上)에 속하는 길몽입니다. 추진 중인 사업의 대성공, 승진, 선거 당선, 국가 고시 합격 등 본인이 속한 그룹에서 최고의 명예를 얻게 됨을 강력히 예견합니다. 대대로 큰 인물이 태어날 때 꾸는 대표적인 태몽이기도 합니다."}
+                        ? " The absolute peak of all dreams. It predicts supreme success in career, business, or exams. If it is a conceiving dream (Tae-mong), it predicts the birth of a child destined for national or global prestige."
+                        : " 모든 해몽 중 으뜸에 해당하는 꿈입니다. 여의주(깨달음과 핵심 권능)를 물고 비상하는 모습은 본인이 주도하는 프로젝트의 초대박 성공, 시험 합격, 정계나 교단에서의 최고의 당선을 나타냅니다. 큰 권세를 떨칠 아이가 태어날 태몽으로도 유명합니다."}
                     </li>
                     <li>
-                      <strong>{language === 'en' ? "Being Bitten or Swallowed by a Dragon" : "용에게 물리거나 품에 꽉 안기는 꿈"}</strong>: 
+                      <strong>{language === 'en' ? "2.2 Being Bitten or Swallowed by a Dragon" : "2.2 용에게 직접 물리거나 품에 가득 안기는 꿈"}</strong>: 
                       {language === 'en'
-                        ? " Although it sounds frightening, it means you will receive support from an incredibly powerful benefactor (Gui-in). It signals that you are inheriting authority, capital, or mentorship that will elevate your entire career."
-                        : " 현실적으로는 두렵게 느껴질 수 있으나, 꿈에서는 거대한 행운의 에너지가 당신의 몸에 고스란히 융합됨을 의미합니다. 권세가나 막강한 자산가 등 인생을 구원해 줄 '귀인'의 강력한 조력을 받아 막대한 부를 거머쥐게 됩니다."}
+                        ? " This indicates that you will gain powerful support from a highly influential mentor or institution. It represents inheriting authority or capital that elevates your lifestyle."
+                        : " 현실에 대입하면 놀라운 일이나, 용이라는 상서로운 우주적 권위와 에너지가 내 몸속에 직접 융합되는 표상입니다. 막강한 귀인의 지지를 받거나, 상속이나 투자를 통해 막대한 상업적 자산을 물려받아 신분이 업그레이드됨을 뜻합니다."}
                     </li>
                     <li>
-                      <strong>{language === 'en' ? "Fighting and Defeating a Dragon" : "용과 온몸으로 사투를 벌여 이겨내는 꿈"}</strong>: 
+                      <strong>{language === 'en' ? "2.3 Riding on a Dragon's Back to Fly Through the Sky" : "2.3 용의 등에 걸터앉아 은하수와 넓은 하늘을 비행하는 꿈"}</strong>: 
                       {language === 'en'
-                        ? " It indicates that you will overcome seemingly impossible obstacles. If you are starting a business or facing a strong legal dispute, this is a clear sign of absolute victory and dominance."
-                        : " 당신이 마주한 감당하기 힘든 현실적 역경이나 라이벌을 완전히 제압하고 최후의 승리자가 됨을 상징합니다. 법적 소송, 치열한 입찰 경쟁, 혹은 내적인 강박증과의 싸움에서 마침내 왕좌를 차지할 징조입니다."}
+                        ? " Signals a rapid and stable advancement. You are in complete control of your destiny, riding the wind of favorable circumstances. Highly favorable for investors and leaders."
+                        : " 날개를 단 듯이 신속하고도 안정적으로 지위가 향상될 징조입니다. 우호적인 외부 환경을 타고 자신의 운명을 완전하게 제어하고 있음을 의미합니다. 지도자나 투자가에게 있어 사업의 무한 질주를 뜻합니다."}
                     </li>
                     <li>
-                      <strong>{language === 'en' ? "An Ascending Dragon Falling to the Ground" : "하늘로 높이 치솟던 용이 날개가 꺾여 추락하는 꿈"}</strong>: 
+                      <strong>{language === 'en' ? "2.4 The Dragon Breathing Fire Upon Your Body" : "2.4 용이 내 머리나 온몸 위로 거대한 불꽃을 뿜는 꿈"}</strong>: 
                       {language === 'en'
-                        ? " A cautionary vision. It represents pride, loss of status, or an unexpected downfall due to over-expansion. Take this as a warning from your subconscious to stay humble and double-check your investments."
-                        : " 경고의 메시지를 담은 흉몽에 가깝습니다. 과도한 욕심이나 방심으로 인해 쌓아 올린 명예를 잃거나, 무리한 사업 확장으로 인해 자금난에 직면할 수 있으니 현재 가진 것을 재점검하고 자중하라는 무의식의 브레이크 경고입니다."}
+                        ? " Fire represents purifying progress and explosive growth. It indicates that your works, creations, or business ventures will catch fire metaphorically, gaining massive popularity and financial success."
+                        : " 불꽃은 무의식의 정화와 폭발적인 발전을 표방합니다. 당신이 공들여 창작한 작품, 개발한 제품, 혹은 설립한 스타트업이 세간의 뜨거운 대중적 찬사를 받고 큰 재물을 모으게 됨을 상징합니다."}
+                    </li>
+                  </ul>
+
+                  <h2 id="sec-bad">
+                    <MessageSquare size={20} style={{ marginRight: '8px' }} />
+                    {language === 'en' ? "3. Bad Directions: Cautionary Dragon Dreams and Warnings" : "3. 나쁜 방향으로 흘러가는 용꿈 (주의와 경고의 흉몽)"}
+                  </h2>
+                  <p>
+                    {language === 'en'
+                      ? "Warning dragon dreams involve stagnation, downfall, or injury. These signify that you are over-expanding, ignoring inner conflicts, or facing an impending decline in fortune:"
+                      : "경고나 흉운을 의미하는 용꿈은 주로 추락, 부상, 혹은 갇히거나 어둠 속에서 방황하는 연출이 많습니다. 이는 욕망의 폭발로 인한 파멸, 건강의 악화, 계약이나 지위 상실의 강력한 징후이므로 극도의 안정이 필요합니다."}
+                  </p>
+
+                  <ul>
+                    <li>
+                      <strong>{language === 'en' ? "3.1 An Ascending Dragon Falling to the Earth" : "3.1 하늘로 높이 날아가던 용이 돌연 지상으로 추락하는 꿈"}</strong>: 
+                      {language === 'en'
+                        ? " Represents a sudden collapse in social status or project failure. It warns that pride and lack of planning will result in a heavy fall. Take a step back and check your foundations."
+                        : " 자신이 오랜 시간 공들여 쌓아 올린 사회적 지위나 커리어가 한순간의 실수로 땅바닥으로 굴러 떨어질 수 있음을 의미합니다. 오만함과 부실한 계획성이 낳을 참패를 막기 위해 스스로 기초를 재점검해야 합니다."}
+                    </li>
+                    <li>
+                      <strong>{language === 'en' ? "3.2 Fighting a Dragon and Losing, or Being Threatended" : "3.2 용과 목숨 걸고 싸웠으나 패배하거나 용이 날카롭게 위협하는 꿈"}</strong>: 
+                      {language === 'en'
+                        ? " You are struggling against a force that is far greater than your current capability. It suggests that you must stop forcing legal or business battles and seek reconciliation."
+                        : " 본인의 현재 능력치나 역량을 아득히 넘어서는 무리한 환경적 규제나 법률 소송, 혹은 대자본과의 무모한 경쟁을 벌여 정신이 갉아 먹히고 있음을 나타냅니다. 고집을 부리기보다는 한발 물러서야 안전합니다."}
+                    </li>
+                    <li>
+                      <strong>{language === 'en' ? "3.3 Losing the Mystic Dragon Pearl to Someone Else" : "3.3 빛나던 여의주를 다른 사람에게 강탈당하거나 길가에 떨어뜨려 잃어버리는 꿈"}</strong>: 
+                      {language === 'en'
+                        ? " The pearl represents your core advantage, intellectual property, or critical capital. This dream warns you of copyright theft, investment loss, or betrayals from business partners."
+                        : " 여의주는 인생의 주도권을 장악하는 지적재산권, 독점 기술, 혹은 핵심 투자 자금을 의미합니다. 이를 잃어버리는 표상은 동업자에게 기술을 뺏기거나, 사기 투자 계약에 휘말려 가문의 자본이 누수됨을 강력하게 경고합니다."}
+                    </li>
+                    <li>
+                      <strong>{language === 'en' ? "3.4 Seeing a Dragon with Damaged Scales or Bleeding Wounds" : "3.4 용의 비늘이 전부 벗겨져 흉측하게 변했거나 피투성이 상처를 입은 꿈"}</strong>: 
+                      {language === 'en'
+                        ? " The scales of a dragon protect its body. Damaged scales reflect a weakened immune system, health problems, or damage to your personal reputation. You need rest and recovery."
+                        : " 용의 비늘은 신성을 수호하는 갑옷과 같습니다. 비늘이 벗겨지고 상처 입은 용의 모습을 관찰하는 꿈은 본인의 육체적 면역계 붕괴, 중병의 발생 혹은 신용도 저하를 뜻하므로 당장 충분한 휴식과 마음 치료가 필요함을 뜻합니다."}
                     </li>
                   </ul>
 
                   <h2 id="sec-psychology">
                     <HelpCircle size={20} style={{ marginRight: '8px' }} />
-                    {language === 'en' ? "3. The Psychological Perspective: Carl Jung's Dragon Archetype" : "3. 현대 심리학과 칼 융의 관점에서 본 용(Dragon) 원형"}
+                    {language === 'en' ? "4. The Psychological Perspective: Carl Jung's Dragon Archetype" : "4. 현대 분석심리학(칼 융)의 눈으로 바라본 용 원형"}
                   </h2>
                   <p>
                     {language === 'en'
-                      ? "From the perspective of Carl Jung's analytical psychology, the dragon is a classic projection of the Self archetype, combined with the raw power of the Shadow. In Western psychology, the hero must slay the dragon to free the anima (the inner creative feminine soul). However, in Eastern Jungian analysis, integrating the dragon is the key to individuation."
-                      : "지그문트 프로이트와 칼 융의 분석심리학적 관점에서 꿈속의 용은 지극히 흥미로운 대상입니다. 융은 용을 우리 내면에 존재하는 가장 깊고 거대한 무의식의 에너지, 즉 '그림자(Shadow)'와 '자기(Self)' 원형의 강력한 결합체로 정의했습니다. 동양적 심리 도식에서 용을 길들이거나 승천시키는 꿈은 자아(Ego)가 억압된 충동을 통제하고 정신적 발전을 이룩해 내는 '자아 통합(Individuation)' 과정을 보여줍니다."}
-                  </p>
-                  <p>
-                    {language === 'en'
-                      ? "If you dream of a friendly or grand dragon, it shows that you have successfully integrated your raw emotional power (anger, ambition, passion) into your conscious ego. You are no longer controlled by unconscious impulses; instead, you harness them as a creative force to achieve your ambitions."
-                      : "당신의 깊숙한 내면 밑바닥에 숨겨져 있던 에너지(창조력, 야망, 강인한 분노 등)를 영리하게 다스려 삶의 강력한 추진력으로 승화시킬 준비가 되었다는 내면의 성숙도를 보여줍니다. 당신의 자아는 이제 충동에 휘둘리지 않고, 무의식을 다스려 창조적으로 승화시킬 힘을 확보한 것입니다."}
+                      ? "From the perspective of Carl Jung's analytical psychology, the dragon is a projection of the Self archetype combined with the raw power of the Shadow. Slashing the dragon (in Western myth) represents slaying the overbearing parent or unconscious control to establish the Ego. However, integrating and riding the dragon (in Eastern myth) represents the ultimate achievement of Individuation—where the Ego and the deep Unconscious flow in perfect harmony."
+                      : "칼 구스타프 융의 정신의학 모델에 따르면, 꿈속의 용은 인류 공통의 '집단 무의식(Collective Unconscious)'에서 비롯된 '자기(Self)' 원형의 가장 강력한 화신입니다. 동서양을 막론하고 용을 제어하거나 합일되는 꿈은, 자아(Ego)가 그동안 두렵고 어두워서 차마 대면하지 못했던 무의식의 영역(그림자)을 온전하게 흡수하여 고도의 인격적 발달을 성취하는 자아 통합의 역동적인 드라마를 그려냅니다."}
                   </p>
 
                   <h2 id="sec-faq">
                     <HelpCircle size={20} style={{ marginRight: '8px' }} />
-                    {language === 'en' ? "4. FAQ: Frequently Asked Questions about Dragon Dreams" : "4. 애드센스 승인을 부르는 용꿈해몽 자주 묻는 질문(FAQ)"}
+                    {language === 'en' ? "5. FAQ: Frequently Asked Questions about Dragon Dreams" : "5. 용 꿈해몽 자주 묻는 질문 (FAQ)"}
                   </h2>
                   
                   <div className="blog-faq-grid">
                     <div className="blog-faq-card">
                       <div className="blog-faq-q">
                         <span>Q1.</span>
-                        <strong>{language === 'en' ? "Should I buy a lottery ticket immediately after dreaming of a dragon?" : "용꿈을 꾸고 나면 반드시 즉시 복권을 사야 할까요?"}</strong>
+                        <strong>{language === 'en' ? "Do all positive dragon dreams guarantee winning the lottery?" : "좋은 용꿈을 꾸면 정말 무조건 복권에 당첨되나요?"}</strong>
                       </div>
                       <p className="blog-faq-a">
                         {language === 'en'
-                          ? "Yes, especially if the dragon was golden, held a pearl (Yeouiju), or was physically close to you. However, understand that a dragon dream is often a 'fate-changing' dream, which means it might bring long-term success through a new job, investment, or creation, rather than just instant lottery money."
-                          : "황금룡을 보았거나 용이 여의주를 물고 내 품으로 들어온 꿈이라면 즉시 복권을 사보는 것도 좋은 시도입니다. 다만, 용꿈은 단순한 횡재수를 넘어 내 인생 전반의 판도가 바뀌는 '운명 전환의 꿈'이기 때문에 취업, 승진, 신규 비즈니스 파트너십 구축 등 장기적인 큰 경제적 이득으로 찾아오는 경우가 훨씬 많습니다."}
+                          ? "While they represent a massive surge in wealth, a dragon dream is fundamentally a 'life path transition' dream. This means the fortune usually manifests as a long-term business success, major investment profit, or career promotion, rather than just simple instant scratch-card cash."
+                          : "대길의 행운을 상징하는 것은 맞으나, 복권과 같은 일시적 횡재보다 가문의 기둥이 바로 서는 장기적인 사업적 성공이나 핵심 자산의 우상향 등 삶의 레벨 전체가 한 차원 상승하는 행운으로 다가오는 경우가 훨씬 보편적입니다."}
                       </p>
                     </div>
 
                     <div className="blog-faq-card">
                       <div className="blog-faq-q">
                         <span>Q2.</span>
-                        <strong>{language === 'en' ? "How long does the magical energy of a dragon dream last?" : "용꿈이 주는 행운의 기운은 유효기간이 얼마나 되나요?"}</strong>
+                        <strong>{language === 'en' ? "How long does the influence of a dragon dream last?" : "용꿈의 기운은 현실에서 얼마나 오래 지속되나요?"}</strong>
                       </div>
                       <p className="blog-faq-a">
                         {language === 'en'
-                          ? "While minor dreams have a duration of 3 to 7 days, a grand dream like an ascending dragon represents a shift in your life's baseline energy. Its influence can actively shape your destiny for 3 to 10 years, and if it was a conceiving dream (Tae-mong), it lasts for the child's entire lifetime."
-                          : "일반적인 사소한 꿈들의 유효기간은 3일에서 길어야 일주일 남짓이지만, 용이 승천하거나 집안을 감싸 안는 꿈은 당신의 전체 생애 주기의 지각 변동을 의미하므로 짧게는 3년, 길게는 10년 이상 지속되며 평생의 운명을 결정하기도 합니다. 특히 태몽의 경우 그 아이의 일평생을 지배합니다."}
+                          ? "Minor dreams fade in 3 to 7 days, but a dragon dream represents a structural shift in your destiny. Its energetic effects can last from 3 to 10 years, and if it functions as a conceiving dream (Tae-mong), it defines the core path of the child's entire lifetime."
+                          : "보통의 일상적인 개꿈이나 심리몽은 3일 이내에 휘발되지만, 용이 온몸을 휘감거나 승천하는 거대한 비전은 최소 3년에서 10년이라는 긴 주기에 걸쳐 당신의 현실 운명을 비호합니다. 특히 태몽의 영향력은 일평생 지속됩니다."}
                       </p>
                     </div>
                   </div>
@@ -247,14 +272,14 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
                 <div className="blog-body-text">
                   <p id="sec-intro" style={{ fontSize: '1.1rem', color: '#fff', fontWeight: '500', lineHeight: '1.9' }}>
                     {language === 'en'
-                      ? "The tiger has long been feared and revered as the sovereign ruler of the mountains and the guardian spirit of lands. In the realm of dreams, when a majestic tiger—especially a white tiger—quietly steps into your room, it triggers an immediate emotional response: intense awe, fear, and curiosity. This article decodes the mystical, situational, and psychoanalytical meanings of dreaming about tigers to help you grasp the powerful message of authority and internal protection."
-                      : "호랑이는 오랫동안 숲 and 산의 군주이자 악귀를 물리치고 신성한 기운을 수호하는 영물로 숭배받아 왔습니다. 꿈의 세계에서 거대하고 기품 있는 호랑이, 특히 흰 털을 빛내는 백호가 소리 없이 거실이나 방 안으로 걸어 들어오는 꿈은 즉각적인 심리적 충격과 강렬한 외적 암시를 선사합니다. 본 글에서는 호랑이 꿈이 표방하는 명예, 수호력, 그리고 무의식적인 내면 에너지의 조율 방식을 철저히 파헤칩니다."}
+                      ? "The tiger has long been feared and revered as the sovereign ruler of the mountains and the guardian spirit of lands. In the realm of dreams, the tiger represents status, physical power, and primal instinct. However, just like the dragon, the tiger carries a double-edged sword. Whether your tiger dream brings protective fortune (Good Direction) or psychological threat (Bad Direction) depends entirely on the context. Let's explore these pathways."
+                      : "호랑이는 전통적으로 백수의 제왕이자 산신령을 호위하는 영물로, 인간에게 두려움과 경외심을 동시에 선사하는 영수입니다. 꿈속의 호랑이는 사회적 명예, 카리스마 넘치는 지배력, 날것 그대로의 본능적 에너지를 상징합니다. 하지만 호랑이 꿈 또한 전개 방향에 따라 대길의 조력자가 되기도 하고, 파괴적인 위협이 되기도 합니다. 호랑이 꿈이 던지는 '좋은 방향'과 '나쁜 방향'의 갈래를 상세히 파헤칩니다."}
                   </p>
 
                   <blockquote style={{ fontSize: '0.95rem' }}>
                     {language === 'en'
-                      ? "\"To face a tiger in your room is to face the raw, unadulterated power of your instinct. It is an invitation to stop hiding, step into your authority, and rule your life with courage.\""
-                      : "“방 안에서 호랑이를 마주하는 것은 날것 그대로의 본능적이고 순수한 내적 권력과의 대면이다. 이것은 당신에게 더 이상 뒤로 물러서지 말고, 스스로 권위를 지닌 지도자가 되어 삶을 단호하게 다스리라는 무의식의 맹렬한 외침이다.”"}
+                      ? "\"The tiger in your room is the animal shadow of your soul. Tame it, and you walk with the stride of a king; fear it, and you run from your own power.\""
+                      : "“방 안에서 호랑이를 마주하는 것은 영혼 속에 깃든 야수성과 대면하는 일이다. 길들이면 군주의 발걸음으로 당당해지고, 두려워 회피하면 본연의 힘으로부터 도망치는 꼴이다.”"}
                   </blockquote>
 
                   <h2 id="sec-myth">
@@ -263,60 +288,92 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
                   </h2>
                   <p>
                     {language === 'en'
-                      ? "Across global mythologies, the tiger represents primal energy, courage, status, and physical strength. In the East, the tiger is specifically known as the messenger of the mountain god (San-sin), guarding human settlements from evil spirits. Unlike the dragon, which operates in the cosmic and celestial realms, the tiger is the master of the physical, earthly plane. Dreaming of a tiger indicates that you are gaining strong protection, social status, or the strength to overcome practical hardships."
-                      : "전 세계 신화 속에서 호랑이는 맹수의 제왕이자 용맹함, 굴하지 않는 의지, 영적 수호력을 대표합니다. 한국 설화 속 호랑이는 잡귀와 액운을 쫓는 벽사(辟邪)의 강력한 상징이며, 종종 산신의 동반자이자 우직한 조력자로 등장합니다. 하늘의 구름을 다스리는 용과 달리 호랑이는 땅 위의 현실적인 물리 세계를 다스리는 영수입니다. 따라서 꿈에 호랑이가 등장했다는 것은 당신이 발을 딛고 있는 현실 세계에서 강력한 뒷배, 사회적 입지, 법적 권력을 확보하게 됨을 말해줍니다."}
-                  </p>
-                  <p>
-                    {language === 'en'
-                      ? "The white tiger (Baek-ho) represents a rare and divine version of this energy. In Feng Shui, it symbolizes the western direction and is associated with sudden, lightning-fast positive transformations. If a white tiger enters your room, it is a spiritual sign that a noble force is entering your personal sanctuary to banish misfortune and bring high honor."
-                      : "그중에서도 '백호'는 예로부터 상서로움의 극치를 달리는 전설적인 동물입니다. 동서남북 사방위 중 서쪽을 관장하며, 급격하고도 번개와 같은 긍정적인 운명의 혁신을 유발합니다. 백호가 문을 열고 당신의 방이나 거실로 들어왔다면, 잡스러운 흉액이 물러가고 집안에 높은 벼슬과 가문의 번창이 시작됨을 선포하는 하늘의 세련된 영적 노크와 같습니다."}
+                      ? "Unlike the dragon which represents abstract celestial energy, the tiger represents concrete physical and earthly power. In Eastern shamanism, the tiger serves as a protector deity that expels bad luck (Byeok-sa). When a tiger dream takes a positive path, it means that this shield of protection is active around you, granting you authority in the material world. When it takes a negative path, it points to internal anxiety or conflicts with physical reality."
+                      : "하늘의 구름을 일으키는 용이 우주적이고 추상적인 기운을 뜻한다면, 대지를 호령하는 호랑이는 물질 세계에서의 '현실적인 권력'과 '강인한 육체적 생명력'을 상징합니다. 고조선 문명부터 한국 민담에 이르기까지 호랑이는 산신령의 비호 아래 액운을 막는 벽사의 대명사였습니다. 호랑이 꿈이 긍정적으로 흐르면 현실 세계의 귀인과 세력 장악을 의미하며, 부정적으로 전개되면 감당하기 힘든 스트레스나 내재적 불안을 경고합니다."}
                   </p>
 
-                  <h2 id="sec-situations">
+                  <h2 id="sec-good">
                     <MessageSquare size={20} style={{ marginRight: '8px' }} />
-                    {language === 'en' ? "2. Situational Interpretations: Analyzing Different Tiger Dreams" : "2. 호랑이 꿈 상황별 정밀 해독"}
+                    {language === 'en' ? "2. Good Directions: Auspicious Tiger Dreams and Power" : "2. 좋은 방향으로 흘러가는 호랑이 꿈 (대길의 길몽)"}
                   </h2>
                   <p>
                     {language === 'en'
-                      ? "The interpretation of a tiger dream relies heavily on how the animal behaved and how you felt during the interaction:"
-                      : "호랑이 꿈은 상황에 따라 의미가 극적으로 달라집니다. 특히 호랑이가 공격성을 드러냈는지, 평화로웠는지 혹은 본인의 상호작용 방식에 초점을 맞추어야 합니다."}
+                      ? "Auspicious tiger dreams show the beast behaving peacefully, entering your home, or combining its strength with yours. These dreams signal leadership, wealth, and spiritual protection:"
+                      : "상서롭고 운이 좋은 호랑이 꿈은 주로 호랑이가 온화한 행동을 취하거나, 집안을 호위하거나, 당신과 우호적인 연대를 맺는 모습으로 나타납니다. 지위 상승, 엄청난 횡재, 수호력의 활성화를 의미합니다."}
                   </p>
                   
                   <ul>
                     <li>
-                      <strong>{language === 'en' ? "A White Tiger Stepping into the Room/House" : "백호가 집안이나 거실로 늠름하게 들어오는 꿈"}</strong>: 
+                      <strong>{language === 'en' ? "2.1 A White Tiger Stepping into the Room/House" : "2.1 백호가 품에 안기거나 집안이나 거실로 늠름하게 들어오는 꿈"}</strong>: 
                       {language === 'en'
-                        ? " High-level honor, wealth, and status are entering your household. It strongly suggests promotions, receiving high-profile projects, or a noble birth (Tae-mong) of a child destined for greatness."
-                        : " 집안 전체의 가운이 크게 번성할 징조입니다. 고위직으로의 승진, 막강한 권한을 가진 프로젝트 수주 등을 뜻하며, 공직이나 학계에서 큰 족적을 남길 훌륭한 자식을 얻을 귀한 태몽으로 해석됩니다."}
+                        ? " The white tiger is a holy messenger. Its presence in your home signals that massive honor, nobility, and status are settling into your life. It is also a rare Tae-mong (conceiving dream) for a child who will achieve national leadership."
+                        : " 백호는 사신(四神) 중 하나인 서쪽의 수호신입니다. 늠름한 백호가 제 발로 집안으로 걸어 들어오거나 품에 폭 안기는 꿈은 가문의 가운이 폭발적으로 상승하며 고관대작에 오를 귀인을 만날 징조입니다. 명예와 권력을 쥐어잡을 귀한 아이의 태몽이기도 합니다."}
                     </li>
                     <li>
-                      <strong>{language === 'en' ? "Being Bitten by a Tiger with Lots of Bleeding" : "호랑이에게 깊숙이 물려 붉은 피가 온몸에 흐르는 꿈"}</strong>: 
+                      <strong>{language === 'en' ? "2.2 Being Bitten by a Tiger with Lots of Bleeding" : "2.2 호랑이에게 깊숙이 물려 붉은 피가 온몸에 흐르는 꿈"}</strong>: 
                       {language === 'en'
-                        ? " Surprisingly, this is a massive fortune dream. In dream symbolism, blood represents wealth and life force. This dream signifies a huge influx of money, a highly successful contract, or a major win in investments."
-                        : " 현실에서는 끔찍하지만 꿈속에서 '피'는 생명력과 재화를 의미하므로, 피를 많이 흘릴수록 더 막대한 재물과 대단한 명예를 손에 쥐게 됨을 예견합니다. 복권 당첨, 부동산 대박, 사업적 초대형 계약 성사의 일순위 꿈입니다."}
+                        ? " Paradoxically, this is an elite fortune dream. In dream logic, blood represents the flow of life force and wealth. Getting bitten and bleeding heavily predicts a massive financial breakthrough or investment victory."
+                        : " 현실에선 끔찍하지만 해몽학에선 대길몽입니다. 붉은 피(생명력과 재화)가 온몸을 적시는 것은 거대한 투자 성공, 복권 당첨, 부동산 급등 등으로 인한 막대한 현금 자산의 유입을 예측합니다. 상처가 깊고 피가 철철 흐를수록 그 액수가 비례해 올라갑니다."}
                     </li>
                     <li>
-                      <strong>{language === 'en' ? "Riding on a Tiger's Back" : "호랑이의 등을 타고 질주하는 꿈"}</strong>: 
+                      <strong>{language === 'en' ? "2.3 Riding on a Tiger's Back to Run Across the Earth" : "2.3 호랑이의 등을 타고 드넓은 대지나 산맥을 질주하는 꿈"}</strong>: 
                       {language === 'en'
-                        ? " You are in complete control of a major organization, power, or destiny. It indicates that you will gain a high leadership position and lead a team to absolute success with immense influence."
-                        : " 당신이 현재 거대한 단체, 기업, 혹은 공공기관을 진두지휘할 리더의 자리에 등극함을 예견합니다. 호랑이의 강력한 동력(아래 직원, 자원)을 마음껏 통제하여 압도적인 카리스마를 떨치게 됩니다."}
+                        ? " This implies you are commanding a large organization or a powerful force. It shows that you have the capability to lead projects, employees, or political teams to absolute success."
+                        : " 야생의 맹수를 제어하고 타고 달리는 것은 거대 조직의 의장이나 단체의 통솔자가 됨을 뜻합니다. 막강한 동력(인적 자원, 외부 투자금)을 내 손아귀에 쥐고 마음껏 조종하며 목표한 야망을 순식간에 돌파하게 됩니다."}
                     </li>
                     <li>
-                      <strong>{language === 'en' ? "A Tiger Chasing You or Feeling Terrified" : "호랑이에게 쫓기며 극한의 공포를 느끼는 꿈"}</strong>: 
+                      <strong>{language === 'en' ? "2.4 Holding and Petting a Baby Tiger Cub" : "2.4 새끼 호랑이를 안아 들고 귀엽게 쓰다듬는 꿈"}</strong>: 
                       {language === 'en'
-                        ? " Represents a mental overload, stress, or feeling threatened by an authority figure in real life. It is your subconscious urging you to face the stressor directly rather than running away."
-                        : " 현재 감당하기 버거운 과중한 업무 스트레스나 권위적인 상사(혹은 외부 규제)에 가로막혀 심리적인 위축을 느끼고 있음을 보여줍니다. 회피하는 대신 근본적인 갈등의 고리를 정면으로 돌파해야 할 시점입니다."}
+                        ? " Baby tigers represent seeds of power or future assets. This dream signifies starting a promising business, discovering a highly talented subordinate, or a warm conceiving dream."
+                        : " 새끼 호랑이는 미래의 자산이나 영리한 인재를 의미합니다. 신규 벤처 사업의 훌륭한 파트너를 영입하거나, 회사에 충성도 높은 실력 있는 부하 직원을 두게 될 징조입니다. 귀엽고 다정한 기운이 넘쳐나는 대표적인 태몽이기도 합니다."}
+                    </li>
+                  </ul>
+
+                  <h2 id="sec-bad">
+                    <MessageSquare size={20} style={{ marginRight: '8px' }} />
+                    {language === 'en' ? "3. Bad Directions: Cautionary Tiger Dreams and Warnings" : "3. 나쁜 방향으로 흘러가는 호랑이 꿈 (주의와 경고의 흉몽)"}
+                  </h2>
+                  <p>
+                    {language === 'en'
+                      ? "Warning tiger dreams are characterized by terror, escape, degradation, or hostlity. These indicate that you are feeling overwhelmed, losing your status, or suffering from inner anxiety:"
+                      : "흉조를 띤 호랑이 꿈은 주로 쫓김, 상처, 고양이로의 변신, 이탈 등의 형태로 나타납니다. 본인의 나약해진 멘탈 상태, 가문의 권세 상실, 혹은 주변인들과의 심각한 갈등 조짐을 나타내므로 처신에 매우 조심해야 합니다."}
+                  </p>
+                  
+                  <ul>
+                    <li>
+                      <strong>{language === 'en' ? "3.1 Being Chased by a Tiger in Extreme Terror" : "3.1 호랑이에게 쫓기며 극도의 공포와 무력감에 휩싸이는 꿈"}</strong>: 
+                      {language === 'en'
+                        ? " Indicates you are suffering from immense pressure, or you are running away from an authoritarian figure or challenge. It warns you to confront the stressor directly."
+                        : " 현재 감당하기 힘든 회사 내 과중한 업무 압박, 혹은 폭력적인 상사나 가부장적인 권위자에게 짓눌려 마음의 고통을 겪고 있음을 뜻합니다. 도망치는 것만으로는 문제가 해결되지 않음을 알려주는 심리적 적신호입니다."}
+                    </li>
+                    <li>
+                      <strong>{language === 'en' ? "3.2 A Majestic Tiger Suddenly Turning into a Cat" : "3.2 늠름하던 호랑이가 갑자기 나약한 고양이로 변해버리는 꿈"}</strong>: 
+                      {language === 'en'
+                        ? " A classic warning of anti-climax. A business or investment that started with grand promises will lose all its power, resulting in a small, unprofitable outcome. Watch out for over-inflated deals."
+                        : " 시작은 창대했으나 끝은 초라하게 오그라드는 용두사미(龍頭蛇尾) 형국의 경고입니다. 거창하게 출범한 비즈니스의 알맹이가 텅 빈 사기성이었음을 뒤늦게 발견하거나, 명예롭던 파트너의 몰락을 겪게 될 수 있어 계약을 멈추어야 합니다."}
+                    </li>
+                    <li>
+                      <strong>{language === 'en' ? "3.3 A Tiger Leaving Your House or Vanishing" : "3.3 집안에 들어왔던 호랑이가 문 밖으로 도망치거나 돌연 사라지는 꿈"}</strong>: 
+                      {language === 'en'
+                        ? " The tiger represents the luck and authority protecting your family. If it escapes, it signifies a loss of capital, keys of power, or the departure of a crucial family member."
+                        : " 호랑이는 가문을 비호하는 수호신이자 대길의 권세입니다. 호랑이가 도망치는 것은 내 인생의 핵심 파워, 투자 자본의 증발, 혹은 가문의 핵심 기둥이자 의지가 되는 귀한 조력자가 나를 떠나 손해를 입게 됨을 예시합니다."}
+                    </li>
+                    <li>
+                      <strong>{language === 'en' ? "3.4 An Injured Tiger Growling Hostilely at You" : "3.4 덫에 걸렸거나 상처 입은 호랑이가 나를 향해 이빨을 드러내며 으르렁거리는 꿈"}</strong>: 
+                      {language === 'en'
+                        ? " Indicates conflicts with powerful figures. You might face lawsuits, workplace disputes, or backlash from parents. It warns you to mend relations and avoid aggressive words."
+                        : " 상처 입은 권위 있는 사람이나 세력과의 충돌을 의미합니다. 직장 내 상사와의 심각한 트러블, 관공서와의 소송, 혹은 가문 내 유산 분쟁 등으로 인해 곤욕을 치를 수 있으니 당분간 언행을 극도로 조심해야 합니다."}
                     </li>
                   </ul>
 
                   <h2 id="sec-psychology">
                     <HelpCircle size={20} style={{ marginRight: '8px' }} />
-                    {language === 'en' ? "3. Psychoanalysis: Primal Instincts and the Inner Guardian" : "3. 현대 정신분석학적 관점: 자아(Ego)와 그림자(Shadow)"}
+                    {language === 'en' ? "4. Psychoanalysis: Primal Instincts and the Inner Guardian" : "4. 현대 정신분석학적 관점: 자아(Ego)와 그림자(Shadow)"}
                   </h2>
                   <p>
                     {language === 'en'
                       ? "From a psychological perspective, a tiger represents the raw, instinctual energy of the Id (unconscious desires, animalistic instincts) that the conscious Ego is often afraid to face. Jungian therapists explain that facing a tiger in a dream symbolizes the confrontation with your personal Shadow."
-                      : "지그문트 프로이트의 정신분석 모델에 의하면, 호랑이는 억압된 성적 리비도, 원시적인 공격성, 생명력 그 자체인 '이드(Id)'를 대변합니다. 칼 융은 호랑이를 만나는 꿈을 의식세계인 자아(Ego)가 그동안 낯설거나 두려워서 억제해 왔던 무의식의 강력한 힘, 즉 '그림자(Shadow)'를 직면하는 사건으로 봅니다."}
+                      : "지그문트 프로이트의 정신분석 모델에 의하면, 호랑이는 억압된 성적 리비도, 원시적인 공격성, 생명력 그 자체인 '이드(Id)'를 대변합니다. 칼 융은 호랑이를 만나는 꿈을 의식세계인 자아(Ego)가 그동안 두렵고 어두워서 차마 대면하지 못했던 무의식의 강력한 힘, 즉 '그림자(Shadow)'를 직면하는 사건으로 봅니다."}
                   </p>
                   <p>
                     {language === 'en'
@@ -326,31 +383,31 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
 
                   <h2 id="sec-faq">
                     <HelpCircle size={20} style={{ marginRight: '8px' }} />
-                    {language === 'en' ? "4. FAQ: Common Questions about Tiger Dreams" : "4. 호랑이 꿈해몽 자주 묻는 질문(FAQ)"}
+                    {language === 'en' ? "5. FAQ: Common Questions about Tiger Dreams" : "5. 호랑이 꿈해몽 자주 묻는 질문 (FAQ)"}
                   </h2>
                   
                   <div className="blog-faq-grid">
                     <div className="blog-faq-card">
                       <div className="blog-faq-q">
                         <span>Q1.</span>
-                        <strong>{language === 'en' ? "What does it mean if the tiger in my dream turned into a small cat?" : "꿈에 나타난 호랑이가 갑자기 작은 고양이로 변했다면 무슨 뜻인가요?"}</strong>
+                        <strong>{language === 'en' ? "What if the tiger in my dream was friendly but still scary?" : "꿈에 나타난 호랑이가 다정하게 굴었지만 여전히 무서웠다면요?"}</strong>
                       </div>
                       <p className="blog-faq-a">
                         {language === 'en'
-                          ? "This represents the 'Dragon-head-snake-tail' (Yong-du-sa-mi) phenomenon. It cautions you that a business or deal that started with grand promises may lose its momentum and shrink into a minor, unprofitable venture. Check your contracts carefully."
-                          : "소위 용두사미(龍頭蛇尾)를 경고하는 꿈입니다. 거대하고 화려하게 시작한 동업이나 프로젝트가 시간이 지날수록 알맹이 없이 초라하게 쪼그라들거나, 권위 있었던 파트너의 실체가 허풍이었음을 깨닫게 될 징조입니다. 겉모습에 속지 말고 실속을 챙겨야 합니다."}
+                          ? "This represents the birth of a major power that you are not yet fully ready to handle. While it is fundamentally a positive sign, your mind is experiencing fear because the scope of the upcoming luck is much larger than your current capacity. Stay calm and accept the change."
+                          : "나를 향해 올 좋은 기운이나 강력한 권세의 크기가 본인이 평소에 담을 수 있는 그릇보다 훨씬 크기 때문에 자아가 압도감을 느끼는 경우입니다. 근본적으로는 길몽이니 두려워하지 말고 기운을 당당하게 받으셔도 좋습니다."}
                       </p>
                     </div>
 
                     <div className="blog-faq-card">
                       <div className="blog-faq-q">
                         <span>Q2.</span>
-                        <strong>{language === 'en' ? "What is the difference between a tiger dream and a lion dream?" : "호랑이 꿈과 사자 꿈의 차이점은 무슨 뜻인가요?"}</strong>
+                        <strong>{language === 'en' ? "What does it mean if a tiger fights a dragon or another beast?" : "호랑이가 용이나 다른 맹수와 치열하게 싸우는 꿈은 무엇을 뜻하나요?"}</strong>
                       </div>
                       <p className="blog-faq-a">
                         {language === 'en'
-                          ? "While both represent power, a lion symbolizes institutional, formal, and organizational authority (like a corporate structure or government). A tiger represents personal, raw charisma, unexpected dynamic fortune, and spiritual protection. A tiger dream is more individualistic and spiritual."
-                          : "둘 다 백수의 왕으로서 권력과 명예를 뜻하지만 미세한 차이가 존재합니다. 사자 꿈은 관료제, 대기업 등 '제도권 안의 조직적 권력과 규율'을 상징하는 반면, 호랑이 꿈은 '개인의 날것의 카리스마, 예측하기 어려운 야생적인 역동적 기운, 강력한 영적 보호막'을 의미합니다. 훨씬 더 즉각적이고 영험한 개인의 전환기를 뜻합니다."}
+                          ? "This symbolizes a clash between two major forces. In business or politics, it indicates a fierce power struggle. In personal psychology, it shows a conflict between your intellect (represented by the dragon) and your raw instinct (represented by the tiger). A resolution is near."
+                          : "현실에서는 두 개의 큰 세력, 혹은 직장 내 강력한 두 리더 사이에 대규모 알력 다툼이나 권력 투쟁이 벌어져 본인이 그 사이에 낄 수 있음을 의미합니다. 개인 심리로 대입하면 자신의 이성(용)과 야생적 본능(호랑이)이 팽팽한 내적 갈등을 벌이고 있음을 보여줍니다."}
                       </p>
                     </div>
                   </div>
@@ -382,10 +439,18 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
                 </li>
                 <li>
                   <button 
-                    onClick={() => handleTocClick('sec-situations')}
-                    className={`blog-toc-item ${activeSection === 'sec-situations' ? 'active' : ''}`}
+                    onClick={() => handleTocClick('sec-good')}
+                    className={`blog-toc-item ${activeSection === 'sec-good' ? 'active' : ''}`}
                   >
-                    {language === 'en' ? '2. Situational Interpretations' : '2. 상황별 정밀 해몽'}
+                    {language === 'en' ? '2. Good Directions (Lucky)' : '2. 좋은 방향 (길몽)'}
+                  </button>
+                </li>
+                <li>
+                  <button 
+                    onClick={() => handleTocClick('sec-bad')}
+                    className={`blog-toc-item ${activeSection === 'sec-bad' ? 'active' : ''}`}
+                  >
+                    {language === 'en' ? '3. Bad Directions (Cautionary)' : '3. 나쁜 방향 (흉몽)'}
                   </button>
                 </li>
                 <li>
@@ -393,7 +458,7 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
                     onClick={() => handleTocClick('sec-psychology')}
                     className={`blog-toc-item ${activeSection === 'sec-psychology' ? 'active' : ''}`}
                   >
-                    {language === 'en' ? '3. Psychological Analysis' : '3. 현대 정신분석학'}
+                    {language === 'en' ? '4. Psychological Analysis' : '4. 현대 정신분석학'}
                   </button>
                 </li>
                 <li>
@@ -401,7 +466,7 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
                     onClick={() => handleTocClick('sec-faq')}
                     className={`blog-toc-item ${activeSection === 'sec-faq' ? 'active' : ''}`}
                   >
-                    {language === 'en' ? '4. FAQ Section' : '4. 자주 묻는 질문 (FAQ)'}
+                    {language === 'en' ? '5. FAQ Section' : '5. 자주 묻는 질문 (FAQ)'}
                   </button>
                 </li>
               </ul>
@@ -421,7 +486,7 @@ export const DreamBlog: React.FC<{ language: 'ko' | 'en'; onBackToMain: () => vo
             </h1>
             <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
               {language === 'en' 
-                ? 'An educational repository for dream science, ancient myths, and AdSense-optimized guidelines.' 
+                ? 'An educational repository for dream science, ancient myths, and depth psychology.' 
                 : '신화적 고찰부터 무의식 심리학까지, 당신의 수면 아래 펼쳐지는 비전을 완벽히 해독하는 가이드북입니다.'}
             </p>
           </div>
