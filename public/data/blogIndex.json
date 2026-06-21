@@ -1,0 +1,222 @@
+[
+  {
+    "id": "dragon-dream",
+    "title": "용 꿈의 모든 것 - 용 꿈 심층분석",
+    "titleEn": "All About Dragon Dreams - In-Depth Analysis",
+    "excerpt": "용이 소용돌이치며 오르는 찬란한 길조와 하늘에서 추락하는 나쁜 징조 등, 영험한 천상의 야수 용꿈의 정체와 대처법을 상세히 분석합니다.",
+    "excerptEn": "Explore the ancient mythological roots, psychological archetypes, and situational meanings of dragon dreams, structured into positive guides and warning signals.",
+    "category": "영적 동물",
+    "categoryEn": "Celestial Beasts",
+    "coverImage": "/dragon_dream.png",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "tiger-dream",
+    "title": "호랑이 꿈의 모든 것 - 호랑이 꿈 심층분석",
+    "titleEn": "All About Tiger Dreams - In-Depth Analysis",
+    "excerpt": "방으로 걸어 들어오는 백호의 상서로운 길조부터 고양이로 변하거나 가문을 이탈하는 불길한 경고까지, 숲의 제왕이 선사하는 내면 에너지를 총정리합니다.",
+    "excerptEn": "Uncover the spiritual protection, psychological shadow integration, and situational meanings of tiger dreams, categorized into lucky signs and cautionary warnings.",
+    "category": "행운과 명예",
+    "categoryEn": "Spiritual Guides",
+    "coverImage": "/tiger_dream.png",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "water-dream",
+    "title": "물 꿈의 모든 것 - 물 꿈 심층분석",
+    "titleEn": "All About Water Dreams - In-Depth Analysis",
+    "excerpt": "맑은 물이 집안에 가득 차는 재물운의 대폭발부터 흙탕물에 빠져 허우적대는 심리적 정체까지, 생명력과 감정의 상징인 물 꿈을 해석합니다.",
+    "excerptEn": "From clear water flooding the house signaling wealth to drowning in muddy water reflecting emotional stagnation, decode the symbolic flow of water.",
+    "category": "자연과 원소",
+    "categoryEn": "Nature & Elements",
+    "coverImage": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "fire-dream",
+    "title": "불 꿈의 모든 것 - 불 꿈 심층분석",
+    "titleEn": "All About Fire Dreams - In-Depth Analysis",
+    "excerpt": "집이 활활 타오르는 번창의 신호부터 산불이 나 불길에 휩싸이는 파멸의 경고까지, 정화와 파괴의 강력한 이중적 에너지를 품은 불 꿈을 분석합니다.",
+    "excerptEn": "Understand the powerful dual energy of fire, from houses blazing with prosperity to forest fires warning of internal destruction.",
+    "category": "자연과 원소",
+    "categoryEn": "Nature & Elements",
+    "coverImage": "https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "snake-dream",
+    "title": "뱀 꿈의 모든 것 - 뱀 꿈 심층분석",
+    "titleEn": "All About Snake Dreams - In-Depth Analysis",
+    "excerpt": "지혜와 치유를 가져다주는 뱀에게 물리는 길몽부터 교활한 배신과 건강 악화를 상징하는 뱀떼의 습격까지, 인류 역사상 가장 오래된 상징을 풀이합니다.",
+    "excerptEn": "Explore one of the oldest symbols in human history, from lucky snake bites bringing wisdom and healing to warning nests of deceptive snakes.",
+    "category": "영적 동물",
+    "categoryEn": "Spiritual Animals",
+    "coverImage": "https://images.unsplash.com/photo-1531386151447-fd762e78f99e?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "money-dream",
+    "title": "돈 꿈의 모든 것 - 돈 꿈 심층분석",
+    "titleEn": "All About Money Dreams - In-Depth Analysis",
+    "excerpt": "지폐 다발을 줍거나 하늘에서 돈이 쏟아지는 재물운의 흐름부터 지갑을 소매치기당해 상실감에 빠지는 경고까지, 돈 꿈의 상징적 실체를 해독합니다.",
+    "excerptEn": "Decode the symbolic reality of money dreams, from picking up bundles of cash to losing your wallet to pickpockets signaling emotional loss.",
+    "category": "물건과 일상",
+    "categoryEn": "Objects & Life",
+    "coverImage": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "poop-dream",
+    "title": "똥 꿈의 모든 것 - 똥 꿈 심층분석",
+    "titleEn": "All About Poop Dreams - In-Depth Analysis",
+    "excerpt": "전통적인 횡재수의 대명사인 똥을 밟거나 온몸에 묻히는 길몽부터 더럽고 냄새나서 도망치다 망신을 당하는 심리적 불안의 신호까지 해독합니다.",
+    "excerptEn": "Decode the classic lucky sign of stepping on or being covered in feces, contrasted with psychological anxiety when fleeing in disgust.",
+    "category": "물건과 일상",
+    "categoryEn": "Objects & Life",
+    "coverImage": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "pig-dream",
+    "title": "돼지 꿈의 모든 것 - 돼지 꿈 심층분석",
+    "titleEn": "All About Pig Dreams - In-Depth Analysis",
+    "excerpt": "집안으로 풍요를 몰고 들어오는 복돼지 꿈부터 검은 돼지에게 쫓기거나 돼지가 도망쳐 가세가 기우는 흉몽까지, 다산과 번영의 아이콘을 탐구합니다.",
+    "excerptEn": "Investigate the icon of fertility and prosperity, from lucky pigs bringing abundance to running away from aggressive black wild boars.",
+    "category": "영적 동물",
+    "categoryEn": "Spiritual Animals",
+    "coverImage": "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "dog-dream",
+    "title": "개 꿈의 모든 것 - 개 꿈 심층분석",
+    "titleEn": "All About Dog Dreams - In-Depth Analysis",
+    "excerpt": "나를 지켜주는 든든한 동반자 흰 개를 입양하는 꿈부터 사나운 검은 개에게 물려 피를 흘리고 배신을 당하는 대인관계의 경고까지 살펴봅니다.",
+    "excerptEn": "Examine interpersonal alerts, from adopting a protective white dog to being bitten and betrayed by an aggressive black dog.",
+    "category": "영적 동물",
+    "categoryEn": "Spiritual Animals",
+    "coverImage": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "death-dream",
+    "title": "죽음 꿈의 모든 것 - 죽음/시체 꿈 심층분석",
+    "titleEn": "All About Death Dreams - In-Depth Analysis",
+    "excerpt": "새로운 탄생과 거대한 신분 상승을 예고하는 나의 죽음부터 시체를 만지거나 상여를 보며 오열하는 꿈까지, 대전환의 상징을 심층 해독합니다.",
+    "excerptEn": "Interpret the symbol of ultimate transformation, from dying yourself indicating rebirth to touching a corpse and wailing at a funeral.",
+    "category": "현상과 상태",
+    "categoryEn": "States & Phenom",
+    "coverImage": "https://images.unsplash.com/photo-1509248961158-e54f6934749c?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "teeth-dream",
+    "title": "이빨 꿈의 모든 것 - 이빨 빠지는 꿈 심층분석",
+    "titleEn": "All About Teeth Dreams - In-Depth Analysis",
+    "excerpt": "가족의 우환이나 건강 악화, 혹은 소속 단체의 붕괴를 예고하는 앞니/어금니 빠지는 흉몽부터 썩은 이가 빠져 묵은 체증이 내려가는 길몽까지 풀이합니다.",
+    "excerptEn": "Understand teeth loss dreams, from losing healthy molars warning of family sickness to pulling out decayed teeth bringing relief.",
+    "category": "신체와 행동",
+    "categoryEn": "Body & Actions",
+    "coverImage": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "falling-dream",
+    "title": "떨어지는 꿈의 모든 것 - 추락 꿈 심층분석",
+    "titleEn": "All About Falling Dreams - In-Depth Analysis",
+    "excerpt": "끝없는 절벽에서 떨어지며 느끼는 극도의 통제력 상실과 현실의 스트레스부터 높은 하늘에서 기분 좋게 하강하여 부드럽게 착지하는 길몽까지 해독합니다.",
+    "excerptEn": "Decode falling dreams, from the anxiety of losing control on a cliff to gliding down gracefully and landing safely in a valley.",
+    "category": "신체와 행동",
+    "categoryEn": "Body & Actions",
+    "coverImage": "https://images.unsplash.com/photo-1482862549707-f63cb32c5fd9?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "chased-dream",
+    "title": "쫓기는 꿈의 모든 것 - 쫓기는 꿈 심층분석",
+    "titleEn": "All About Chased Dreams - In-Depth Analysis",
+    "excerpt": "살인마나 괴물에게 끝없이 쫓기며 숨이 막히는 압박감과 회피 성향의 분석부터 나를 추격하던 존재를 용기 있게 돌아보고 물리치는 대길몽까지 다룹니다.",
+    "excerptEn": "Address the intense pressure of being chased by monsters, contrasted with the breakthrough of turning around and defeating the chaser.",
+    "category": "신체와 행동",
+    "categoryEn": "Body & Actions",
+    "coverImage": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "flying-dream",
+    "title": "비행 꿈의 모든 것 - 날아다니는 꿈 심층분석",
+    "titleEn": "All About Flying Dreams - In-Depth Analysis",
+    "excerpt": "자신의 날개로 하늘을 자유롭게 날아다니는 자아의 확장과 자유의 표상부터 중력을 이기지 못해 비틀거리다 전선에 걸려 추락하는 현실적 제약의 경고까지 해독합니다.",
+    "excerptEn": "Decode soaring in the sky as an expansion of self-expression, versus struggling to fly and getting tangled in electrical wires.",
+    "category": "신체와 행동",
+    "categoryEn": "Body & Actions",
+    "coverImage": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "hair-dream",
+    "title": "머리카락 꿈의 모든 것 - 머리카락 꿈 심층분석",
+    "titleEn": "All About Hair Dreams - In-Depth Analysis",
+    "excerpt": "머리가 길어지고 윤기가 흘러 생명력과 매력이 넘쳐나는 대길몽부터 원형 탈모가 생기거나 머리카락이 뭉텅이로 잘려나가 체면을 구기는 경고의 신호까지 풀이합니다.",
+    "excerptEn": "Unpack hair dreams, from silky long hair showing vitality to sudden hair loss representing loss of power, status, or self-esteem.",
+    "category": "신체와 행동",
+    "categoryEn": "Body & Actions",
+    "coverImage": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "baby-dream",
+    "title": "아기 꿈의 모든 것 - 아기 꿈 심층분석",
+    "titleEn": "All About Baby Dreams - In-Depth Analysis",
+    "excerpt": "새로운 시작과 순수한 창조적 에너지를 상징하는 아기를 품에 안아 기르는 꿈부터 늙고 아픈 아기를 돌보며 끝없는 책임감의 짐에 짓눌리는 심리적 경고까지 분석합니다.",
+    "excerptEn": "Nice baby dreams with new projects, versus a heavy crying baby indicating a load of responsibility.",
+    "category": "인물과 관계",
+    "categoryEn": "People & Relat",
+    "coverImage": "https://images.unsplash.com/photo-1519689680058-324335c77ebe?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "house-dream",
+    "title": "집 꿈의 모든 것 - 집 꿈 심층분석",
+    "titleEn": "All About House Dreams - In-Depth Analysis",
+    "excerpt": "새로운 궁궐 같은 대저택을 매입하거나 이사하는 영적·물적 성취의 신호부터 내 집이 낡아 무너지거나 낯선 침입자가 들어와 위협을 느끼는 흉몽까지 다룹니다.",
+    "excerptEn": "Discover house dreams representing the self structure, from buying a grand mansion to walls crumbling down warning of identity crisis.",
+    "category": "물건과 일상",
+    "categoryEn": "Objects & Life",
+    "coverImage": "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "ghost-dream",
+    "title": "귀신 꿈의 모든 것 - 귀신/유령 꿈 심층분석",
+    "titleEn": "All About Ghost Dreams - In-Depth Analysis",
+    "excerpt": "귀신에게 잡혀 꼼짝 못하는 마음속 깊은 미해결 트라우마와 무의식의 억압부터 지혜로운 조상의 혼령이 나타나 나아갈 길을 알려주는 예지적 길몽까지 살펴봅니다.",
+    "excerptEn": "Explore ghosts representing repressed shadows and memories, from paralyzed nightmares to wise ancestor spirits giving advice.",
+    "category": "현상과 상태",
+    "categoryEn": "States & Phenom",
+    "coverImage": "https://images.unsplash.com/photo-1505635339363-313459366351?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "blood-dream",
+    "title": "피 꿈의 모든 것 - 피 흘리는 꿈 심층분석",
+    "titleEn": "All About Blood Dreams - In-Depth Analysis",
+    "excerpt": "내 몸에서 뿜어져 나오는 붉은 피가 온 대지를 적시는 생명력과 재물의 대길몽부터 다른 사람의 마른 피가 묻어 부정적 감정에 휩싸이는 경고까지 해독합니다.",
+    "excerptEn": "Interpret blood representing energy and vital force, from clean flowing blood irrigating the soil (wealth) to dark dried blood warning of illness.",
+    "category": "신체와 행동",
+    "categoryEn": "Body & Actions",
+    "coverImage": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "shoes-dream",
+    "title": "신발 꿈의 모든 것 - 신발 꿈 심층분석",
+    "titleEn": "All About Shoes Dreams - In-Depth Analysis",
+    "excerpt": "나의 든든한 사회적 배경과 신분을 나타내는 명품 구두를 선물 받는 길몽부터 길 한복판에서 신발을 잃어버려 맨발로 당황하며 헤매는 고립의 경고까지 풀이합니다.",
+    "excerptEn": "Examine shoes representing social status and security, from receiving new shoes to losing them and walking barefoot in embarrassment.",
+    "category": "물건과 일상",
+    "categoryEn": "Objects & Life",
+    "coverImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  }
+]

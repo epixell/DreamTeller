@@ -1,0 +1,129 @@
+{
+  "id": "money-dream",
+  "title": "돈 꿈의 모든 것 - 돈 꿈 심층분석",
+  "titleEn": "All About Money Dreams - In-Depth Analysis",
+  "introduction": "돈 꿈은 단순히 물질적 부유함뿐만 아니라 자아 가치, 권력, 기회, 그리고 무의식적인 결핍을 나타냅니다. 돈을 가득 줍는 길몽부터 돈을 잃고 좌절하는 흉몽까지 세세히 짚어봅니다.",
+  "introductionEn": "Money dreams express self-worth, authority, opportunities, and subconscious deprivation. From finding bundles of cash to losing your wallet.",
+  "mythology": "화폐의 탄생 이전부터 재물은 신의 축복이었습니다. 동양 전통 해몽에서 금은보화나 지폐 다발을 얻는 것은 실제 재물운의 상승과 횡재수를 암시합니다. 하지만 찢어진 돈이나 모조 화폐를 얻는 것은 가짜 약속이나 사기를 경고합니다.",
+  "mythologyEn": "Wealth is a divine blessing. Obtaining gold or coins suggests actual fortune. Worn or fake paper money warns against empty promises.",
+  "sections": [
+    {
+      "id": "sec-good-1",
+      "title": "길가나 방바닥에서 빳빳한 새 지폐 다발을 무더기로 줍는 꿈",
+      "titleEn": "Picking up Bundles of New Bills",
+      "content": "강력한 횡재수이자 재물 길몽입니다. 직장인은 보너스를 받거나, 사업가는 큰 거래처를 뚫어 안정적인 자금을 회수하게 됨을 예고합니다.",
+      "contentEn": "A classic lottery omen. Predicts massive financial bonuses or closing highly profitable commercial contracts.",
+      "isAuspicious": true,
+      "keywords": [
+        "지폐",
+        "줍는",
+        "돈뭉치"
+      ]
+    },
+    {
+      "id": "sec-good-2",
+      "title": "하늘에서 엄청난 양의 동전이나 지폐가 쏟아져 내리는 꿈",
+      "titleEn": "Money Showering Down from the Sky",
+      "content": "이권이나 명예가 예기치 않게 사방에서 유입됨을 뜻합니다. 본인의 창작품이나 업무 성과가 사회적으로 대성공을 거두며 부를 창출합니다.",
+      "contentEn": "Signals unexpected influx of cash and reputation. Your works will achieve immense recognition and create wealth.",
+      "isAuspicious": true,
+      "keywords": [
+        "쏟아져",
+        "하늘에서",
+        "돈벼락"
+      ]
+    },
+    {
+      "id": "sec-good-3",
+      "title": "귀인이나 조상님으로부터 금빛 주머니나 돈 가방을 선물 받는 꿈",
+      "titleEn": "Receiving a Golden Bag or Money Bag",
+      "content": "막강한 후원자의 등장으로 자금난을 해결하거나 상속, 유산 등의 권익을 물려받게 될 고귀한 징조입니다.",
+      "contentEn": "Predicts a major investor backing your venture, or receiving inheritance or property rights from relatives.",
+      "isAuspicious": true,
+      "keywords": [
+        "선물 받는",
+        "돈가방",
+        "돈주머니"
+      ]
+    },
+    {
+      "id": "sec-good-4",
+      "title": "금은보화가 가득 찬 보물상자를 발견하여 집으로 가져오는 꿈",
+      "titleEn": "Finding a Treasure Box Full of Gold",
+      "content": "평생의 업적을 성취하거나 가업의 번창을 가져올 소중한 계약, 특허를 취득하게 될 것임을 암시합니다.",
+      "contentEn": "Represents achieving a lifelong dream or acquiring lucrative intellectual property rights.",
+      "isAuspicious": true,
+      "keywords": [
+        "보물상자",
+        "발견",
+        "가져오는"
+      ]
+    },
+    {
+      "id": "sec-bad-1",
+      "title": "지갑을 통째로 소매치기당하거나 돈을 잃어버리는 꿈",
+      "titleEn": "Losing Your Wallet or Being Pickpocketed",
+      "content": "나의 주도권, 자신감, 혹은 현실적 권리를 잃어버릴 수 있음을 뜻합니다. 믿었던 사람으로부터 배신을 당할 수 있으니 자산과 인맥을 점검하십시오.",
+      "contentEn": "Points to loss of self-confidence or operational control. Check security, and beware of betrayal by trusted partners.",
+      "isAuspicious": false,
+      "keywords": [
+        "소매치기",
+        "잃어버리는",
+        "분실"
+      ]
+    },
+    {
+      "id": "sec-bad-2",
+      "title": "거지에게 돈을 구걸하거나 가진 돈이 하나도 없어 당황하는 꿈",
+      "titleEn": "Begging for Money or Feeling Broke",
+      "content": "현재 본인의 자존감이 극도로 낮아져 있거나, 심각한 경제적 결핍에 따른 스트레스에 시달리고 있음을 반영하는 심리몽입니다.",
+      "contentEn": "Reflects severely damaged self-esteem or immense stress caused by financial struggles in waking life.",
+      "isAuspicious": false,
+      "keywords": [
+        "구걸",
+        "돈이 없는",
+        "파산"
+      ]
+    },
+    {
+      "id": "sec-bad-3",
+      "title": "받은 돈이 찢어져서 쓸 수 없거나 위조지폐임을 깨닫는 꿈",
+      "titleEn": "Torn Bills or Counterfeit Money",
+      "content": "남들의 가짜 제안이나 거짓된 감언이설에 속아 사기 피해를 당할 흉조입니다. 투자 계약 조항을 면밀하게 검토해야 합니다.",
+      "contentEn": "Warns of fraud or deceptive business proposals. Carefully examine every clause in contracts before signing.",
+      "isAuspicious": false,
+      "keywords": [
+        "찢어진",
+        "위조지폐",
+        "가짜돈"
+      ]
+    },
+    {
+      "id": "sec-bad-4",
+      "title": "주식이나 투자금액이 마이너스가 되어 절망하며 눈물 흘리는 꿈",
+      "titleEn": "Crying over Stock Market Crash",
+      "content": "무리한 투자나 감당할 수 없는 레버리지 사용에 대한 경고입니다. 현실에서 자산의 포트폴리오를 당장 안전자산 위주로 다듬으십시오.",
+      "contentEn": "A direct warning against high-risk speculations. Readjust your portfolio to secure liquid cash.",
+      "isAuspicious": false,
+      "keywords": [
+        "마이너스",
+        "손실",
+        "눈물"
+      ]
+    }
+  ],
+  "psychology": "정신분석학에서 돈은 '리비도( libido, 생명적 에너지)'와 자아 가치(Self-worth)를 뜻합니다. 돈을 줍는 것은 내면에 숨겨진 재각성된 에너지를 얻는 행위이며, 돈을 도둑맞는 것은 내면의 자아 가치관이 훼손되거나 현실의 타인에게 정신적 에너지를 탈취당하고 있음을 반영합니다.",
+  "psychologyEn": "Money mirrors self-worth and psychic energy (libido). Finding money represents reclaiming potential, while theft shows depleted emotional resources.",
+  "faqs": [
+    {
+      "question": "Q1. 다른 사람에게 큰돈을 그냥 빌려주는 꿈은 무엇인가요?",
+      "answer": "A1. 타인에게 호의를 베풀 일이 생기거나, 혹은 남을 돕는 과정에서 본인의 영향력이나 대인관계가 더욱 두터워질 좋은 예조입니다."
+    },
+    {
+      "question": "Q2. 낡은 동전을 여러 개 줍는 꿈은요?",
+      "answer": "A2. 지폐에 비해 동전은 구설수나 자잘한 근심을 상징하는 경우가 많습니다. 특히 낡고 녹슨 동전은 해묵은 걱정이 다시 수면 위로 올라올 수 있음을 뜻합니다."
+    }
+  ],
+  "conclusion": "돈 꿈은 현실의 재정을 점검하는 경종이자, 내적 자존감을 진단하는 거울입니다. 돈에 연연하기보다 스스로의 진정한 가치를 높이는 투자를 단행해 보세요.",
+  "conclusionEn": "Money dreams are mirrors to your inner value. Focus on self-investment to build absolute resilience."
+}

@@ -1,0 +1,129 @@
+{
+  "id": "poop-dream",
+  "title": "똥 꿈의 모든 것 - 똥 꿈 심층분석",
+  "titleEn": "All About Poop Dreams - In-Depth Analysis",
+  "introduction": "똥 꿈은 예로부터 재물운의 강력한 상징으로 불렸습니다. 하지만 꿈에서의 감정이나 상황에 따라 더러움으로 인한 창피함(흉몽)과 해방감(길몽)으로 확연히 구분됩니다.",
+  "introductionEn": "Feces dreams are traditionally famous for extreme fortune. Learn how raw disgust (shame) vs. physical relief (wealth) split the interpretation.",
+  "mythology": "똥은 비료로 쓰여 곡식을 자라나게 하는 순환의 핵심입니다. 농경 사회에서 똥은 곧 '비옥함과 생산성'이었습니다. 그렇기에 똥이 집안에 가득한 것은 대풍년과 곡간의 번창을 예견하는 대길조로 숭상받았습니다.",
+  "mythologyEn": "In agricultural eras, manure was fertility and harvest. Having your house filled with manure represents maximum productivity and prosperity.",
+  "sections": [
+    {
+      "id": "sec-good-1",
+      "title": "똥을 밟거나 온몸에 흠뻑 뒤집어쓰는 꿈",
+      "titleEn": "Stepping on or Being Covered in Feces",
+      "content": "최고의 재물 길몽입니다. 사업의 대성공, 상업적 이권의 확보, 혹은 뜻하지 않은 막대한 투자 유치를 예고합니다. 기분 나쁘지 않을수록 효력이 큽니다.",
+      "contentEn": "The legendary wealth omen. Predicts closing large contracts, scaling business, or securing seed funding with high returns.",
+      "isAuspicious": true,
+      "keywords": [
+        "밟거나",
+        "온몸에",
+        "묻히는"
+      ]
+    },
+    {
+      "id": "sec-good-2",
+      "title": "집안 마당이나 화장실에 황금색 똥이 산더미처럼 쌓여 있는 꿈",
+      "titleEn": "Golden Feces Piled up in Your Yard",
+      "content": "가업의 번창과 함께 자산 가치가 급상승할 훌륭한 길몽입니다. 가문에 경사가 나고 가족 전체가 재정적 안정기에 접어듭니다.",
+      "contentEn": "Signals rapid increase in real estate or asset values. The family business will flourish, ensuring generational stability.",
+      "isAuspicious": true,
+      "keywords": [
+        "황금색",
+        "산더미",
+        "화장실"
+      ]
+    },
+    {
+      "id": "sec-good-3",
+      "title": "시원하게 변을 보고 나서 날아갈 듯한 해방감을 느끼는 꿈",
+      "titleEn": "Feeling Physical Relief After Defecation",
+      "content": "오랫동안 정체되어 가로막혔던 난제나 고질적인 부채, 혹은 대인관계의 묵은 갈등이 깔끔하게 해소됨을 대변합니다.",
+      "contentEn": "Indicates clearing debts, resolving toxic conflicts, or overcoming stubborn project bottlenecks.",
+      "isAuspicious": true,
+      "keywords": [
+        "시원하게",
+        "해방감",
+        "배설"
+      ]
+    },
+    {
+      "id": "sec-good-4",
+      "title": "똥을 손으로 덥석 움켜쥐고 주무르는 꿈",
+      "titleEn": "Grabbing Feces with Your Bare Hand",
+      "content": "현실 세계의 돈을 본인의 통제하에 두고 강하게 굴려 나가게 될 것을 뜻합니다. 과감한 자산 투자가 대성공으로 돌아올 길몽입니다.",
+      "contentEn": "Indicates taking complete control of your investments and capital flow. Bold assets deployment yields high success.",
+      "isAuspicious": true,
+      "keywords": [
+        "손으로",
+        "움켜쥐는",
+        "주무르는"
+      ]
+    },
+    {
+      "id": "sec-bad-1",
+      "title": "더러운 똥을 피해 다니거나 냄새 때문에 심한 구역질을 하며 도망치는 꿈",
+      "titleEn": "Running Away from Feces in Disgust",
+      "content": "나에게 찾아온 재물 기회나 귀인의 제안을 스스로의 편견이나 두려움 때문에 걷어차고 손실을 입게 됨을 예고합니다.",
+      "contentEn": "Suggests missing valuable investment opportunities due to prejudice, fear, or over-sensitivity.",
+      "isAuspicious": false,
+      "keywords": [
+        "냄새",
+        "구역질",
+        "도망치는"
+      ]
+    },
+    {
+      "id": "sec-bad-2",
+      "title": "길거리 한복판에서 똥을 싸다가 사람들에게 들켜 몹시 망신당하는 꿈",
+      "titleEn": "Being Caught Defecating in Public",
+      "content": "나의 비밀이나 치부가 세상에 알려져 신용을 잃거나 구설수에 휘말릴 수 있음을 뜻합니다. 당분간 무모한 자랑이나 말실수를 피하십시오.",
+      "contentEn": "Warns of leaking private secrets leading to damaged reputation. Keep a low profile and watch your words.",
+      "isAuspicious": false,
+      "keywords": [
+        "망신",
+        "들켜",
+        "길거리"
+      ]
+    },
+    {
+      "id": "sec-bad-3",
+      "title": "대변이 나오지 않아 화장실에서 땀만 흘리고 끙끙 앓는 꿈",
+      "titleEn": "Struggling with Extreme Constipation",
+      "content": "일의 결실이 맺히지 않아 정체 상태에 빠지는 것을 암시합니다. 자금줄이 마르거나 창작 활동의 극심한 슬럼프를 나타내는 경고몽입니다.",
+      "contentEn": "Warns of severe project blockages or cash-flow constraints. Represents a painful creative or financial dry-spell.",
+      "isAuspicious": false,
+      "keywords": [
+        "나오지 않아",
+        "끙끙",
+        "변비"
+      ]
+    },
+    {
+      "id": "sec-bad-4",
+      "title": "똥 색깔이 시커멓거나 피가 섞여 나오는 꿈",
+      "titleEn": "Feces Being Pitch Black or Bloody",
+      "content": "건강에 중대한 우환이 생기거나, 진행 중인 거래에 치명적인 독소 조항이 들어와 실패하게 됨을 경고하는 주의몽입니다.",
+      "contentEn": "Alerts you to hidden health problems or critical legal traps in active business proposals.",
+      "isAuspicious": false,
+      "keywords": [
+        "시커먼",
+        "피가 섞여",
+        "혈변"
+      ]
+    }
+  ],
+  "psychology": "정신분석의 창시자 프로이트는 유아기 항문기(Anal Stage) 발달과 연관 지어, 변을 통제하는 과정이 자아의 통제력 및 소유욕 형성에 핵심 역할을 한다고 보았습니다. 칼 융의 분석심리학적 관점에서는 배설물을 '쓸모없는 과거의 노폐물(찌꺼기)을 버리고 내적 정화를 이룩하는 과정'으로 해석합니다.",
+  "psychologyEn": "Freud linked feces to the anal stage and possessiveness. Jungian analysis views defecation as purging obsolete memories and toxic thoughts to start fresh.",
+  "faqs": [
+    {
+      "question": "Q1. 똥차가 와서 우리 집의 똥을 몽땅 퍼내 가는 꿈은요?",
+      "answer": "A1. 똥을 가져가는 것은 재물이나 이권의 유출을 뜻합니다. 세금 징수를 당하거나 사기 피해를 입을 수 있으니 지갑을 잘 단속하십시오."
+    },
+    {
+      "question": "Q2. 동물의 똥(개똥, 소똥 등)을 밟은 꿈도 길몽인가요?",
+      "answer": "A2. 사람의 대변보다는 기운이 조금 낮지만, 역시 뜻밖의 용돈이나 작은 성취 등의 소소한 횡재수를 암시하는 긍정적인 꿈입니다."
+    }
+  ],
+  "conclusion": "똥 꿈은 해방과 풍요의 결실입니다. 배설을 통해 비워내는 힘을 깨달아, 현실의 무거운 집착을 비우고 비옥한 성공을 길러보시기 바랍니다.",
+  "conclusionEn": "Emptying leads to refilling. Release your burdens to grow fresh opportunities for success."
+}

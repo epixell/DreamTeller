@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Moon, Sun, Star, Compass, Heart, AlertOctagon, RotateCcw } from 'lucide-react';
+import { Sparkles, Moon, Sun, Star, Compass, Heart, AlertOctagon, RotateCcw, BookOpen } from 'lucide-react';
 import type { InterpretationResult } from '../services/aiService';
 import { useTranslation } from 'react-i18next';
 
@@ -10,6 +10,7 @@ interface DreamReportProps {
   onReset: () => void;
   inlineMode?: boolean;
   language: 'ko' | 'en';
+  onNavigateToBlogPost?: (postId: string) => void;
 }
 
 export const DreamReport: React.FC<DreamReportProps> = ({
@@ -18,7 +19,8 @@ export const DreamReport: React.FC<DreamReportProps> = ({
   selectedMode,
   onReset,
   inlineMode = false,
-  language
+  language,
+  onNavigateToBlogPost
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const [activeTab, setActiveTab] = useState<'analysis' | 'symbols'>('analysis');
@@ -182,6 +184,34 @@ export const DreamReport: React.FC<DreamReportProps> = ({
                   <h4 style={styles.blockTitle} className="font-display text-gradient-gold">{t('sectionAdvice')}</h4>
                   <p style={styles.blockText}>{advice}</p>
                 </div>
+
+                {result.referencedPost && (
+                  <div 
+                    style={{
+                      marginTop: '8px',
+                      padding: '12px 16px',
+                      backgroundColor: 'rgba(0, 242, 254, 0.05)',
+                      border: '1px dashed rgba(0, 242, 254, 0.2)',
+                      borderRadius: '8px',
+                      fontSize: '0.85rem',
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '8px',
+                      cursor: onNavigateToBlogPost ? 'pointer' : 'default'
+                    }}
+                    onClick={() => onNavigateToBlogPost && onNavigateToBlogPost(result.referencedPost!.id)}
+                    className="referenced-blog-box"
+                  >
+                    <BookOpen size={16} color="var(--color-secondary)" />
+                    <span>
+                      {language === 'en' ? (
+                        <>This interpretation referenced the library post: <strong style={{ color: 'var(--color-secondary)', textDecoration: 'underline' }}>{result.referencedPost.title}</strong></>
+                      ) : (
+                        <>이 해석은 기억의 서고의 <strong style={{ color: 'var(--color-secondary)', textDecoration: 'underline' }}>{result.referencedPost.title}</strong> 글을 참조했습니다.</>
+                      )}
+                    </span>
+                  </div>
+                )}
               </div>
             ) : (
               /* TAB B: Extracted Symbols */

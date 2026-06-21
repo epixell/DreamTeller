@@ -3,6 +3,7 @@ import { qwenAIService } from './qwenAIService';
 import { dictionaryService } from './dictionaryService';
 import type { DreamSymbol } from './dictionaryService';
 import { storageService } from './storageService';
+import { blogKeywords } from '../data/blogKeywords';
 
 export interface InterpretationResult {
   symbols: { name: string; meaning: string }[];
@@ -19,6 +20,10 @@ export interface InterpretationResult {
     description: string;
     cardType: string;
   };
+  referencedPost?: {
+    id: string;
+    title: string;
+  } | null;
 }
 
 // AI 응답을 안전하게 파싱하는 헬퍼 함수
@@ -555,6 +560,41 @@ export const aiService = {
     const settings = storageService.getSettings();
     const engineToUse = settings.preferredEngine;
 
+    // 1.5 Local RAG - 블로그 관련 컬럼 매칭 및 컨텍스트 로딩
+    let referencedPost = null;
+    let injectedContext = '';
+
+    const matchedKeyword = blogKeywords.find(item => {
+      return item.keywords.some(k => content.includes(k) || content.toLowerCase().includes(k.toLowerCase()));
+    });
+
+    if (matchedKeyword) {
+      try {
+        if (onProgress) {
+          onProgress(10, language === 'en' ? `Referencing column: ${matchedKeyword.postTitleEn}...` : `서고 자료 참조 중: ${matchedKeyword.postTitleKo}...`);
+        }
+        const res = await fetch(`/data/blog/${matchedKeyword.postId}.json`);
+        if (res.ok) {
+          const blogDetail = await res.json();
+          referencedPost = {
+            id: blogDetail.id,
+            title: language === 'en' ? blogDetail.titleEn : blogDetail.title
+          };
+          
+          injectedContext = `
+[참조 꿈해몽 전문 가이드라인 (Reference Blog Column)]
+- 제목 (Title): ${language === 'en' ? blogDetail.titleEn : blogDetail.title}
+- 신화/상징 의미 (Symbolic Meaning): ${language === 'en' ? blogDetail.mythologyEn : blogDetail.mythology}
+- 대표적인 상황별 해석 (Scenarios):
+${blogDetail.sections.map((s: any) => `  * ${language === 'en' ? s.titleEn : s.title}: ${language === 'en' ? s.contentEn : s.content}`).join('\n')}
+- 심리학적 배경 (Psychological Background): ${language === 'en' ? blogDetail.psychologyEn : blogDetail.psychology}
+`;
+        }
+      } catch (err) {
+        console.warn('Failed to fetch blog context for RAG:', err);
+      }
+    }
+
     // 만약 mock-demo가 선택되었으면 즉시 사전 해몽 반환
     if (engineToUse === 'mock-demo') {
       if (onProgress) {
@@ -564,13 +604,20 @@ export const aiService = {
         await new Promise(r => setTimeout(r, 600));
         onProgress(100, language === 'en' ? 'Connection to consciousness portal successful!' : '의식의 포털 연결 성공!');
       }
-      return generateMockInterpretation(matchedSymbols, mode, language);
+      const mockResult = generateMockInterpretation(matchedSymbols, mode, language);
+      return { ...mockResult, referencedPost };
     }
 
     // AI 엔진 구동 시작
     try {
       let rawResponse = '';
-      const userPrompt = language === 'en' ? createUserPromptEn(content, mode) : createUserPrompt(content, mode);
+      let userPrompt = language === 'en' ? createUserPromptEn(content, mode) : createUserPrompt(content, mode);
+      
+      // RAG 컨텍스트가 있으면 프롬프트 끝에 주입
+      if (injectedContext) {
+        userPrompt += `\n\n${injectedContext}\n\n*중요: 위 [참조 꿈해몽 전문 가이드라인]의 해몽 원리 및 신화/심리학적 맥락을 바탕으로 하여 사용자의 꿈 내용을 맞춤형으로 심층 해석해 주세요.`;
+      }
+      
       const sysPrompt = language === 'en' ? SYSTEM_PROMPT_EN : SYSTEM_PROMPT;
 
       if (engineToUse === 'chrome-nano') {
@@ -591,7 +638,7 @@ export const aiService = {
       if (onProgress) onProgress(95, language === 'en' ? 'Crystallizing interpretation data...' : '해석 데이터 결정화 중...');
       const parsed = parseAIResponse(rawResponse, matchedSymbols, mode, language);
       if (onProgress) onProgress(100, language === 'en' ? 'Portal decoded successfully!' : '포털 해독 완료!');
-      return parsed;
+      return { ...parsed, referencedPost };
 
     } catch (e: any) {
       console.warn('AI 해석 실패, 사전 해몽으로 백업 작동:', e);
@@ -599,7 +646,8 @@ export const aiService = {
         onProgress(80, language === 'en' ? `[Warning] AI interpretation failed. Accessing dream dictionary...` : `[경고] AI 해석 실패 (${e.message || e}). 성좌의 사전으로 해몽을 우회 중...`);
         await new Promise(r => setTimeout(r, 1200));
       }
-      return generateMockInterpretation(matchedSymbols, mode, language);
+      const mockResult = generateMockInterpretation(matchedSymbols, mode, language);
+      return { ...mockResult, referencedPost };
     }
   },
 

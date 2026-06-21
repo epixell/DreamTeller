@@ -18,6 +18,7 @@ export default function App() {
   const { t, i18n: i18nInstance } = useTranslation();
   // Navigation & Modals
   const [currentView, setCurrentView] = useState<'main' | 'admin' | 'blog'>('main');
+  const [selectedBlogPostId, setSelectedBlogPostId] = useState<string | null>(null);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isGuideOpen, setIsGuideOpen] = useState(false);
   const [chromeSubMode, setChromeSubMode] = useState<'setup' | 'download'>('setup');
@@ -330,6 +331,7 @@ export default function App() {
   const handleReset = () => {
     setActiveSession(null);
     setCurrentView('main');
+    setSelectedBlogPostId(null);
   };
 
   // 후속 꼬리 질문 전송
@@ -442,7 +444,10 @@ export default function App() {
           
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
             <button 
-              onClick={() => setCurrentView(currentView === 'blog' ? 'main' : 'blog')}
+              onClick={() => {
+                setCurrentView(currentView === 'blog' ? 'main' : 'blog');
+                setSelectedBlogPostId(null);
+              }}
               style={{
                 background: 'none',
                 border: 'none',
@@ -514,7 +519,14 @@ export default function App() {
           {currentView === 'admin' ? (
             <AdminDashboard onBackToMain={() => setCurrentView('main')} language={settings.language} />
           ) : currentView === 'blog' ? (
-            <DreamBlog language={settings.language} onBackToMain={() => setCurrentView('main')} />
+            <DreamBlog 
+              language={settings.language} 
+              onBackToMain={() => {
+                setCurrentView('main');
+                setSelectedBlogPostId(null);
+              }} 
+              initialPostId={selectedBlogPostId}
+            />
           ) : (
             <div style={{ width: '100%', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
               {isProcessing ? (
@@ -538,6 +550,10 @@ export default function App() {
                               onReset={handleReset}
                               inlineMode={true}
                               language={settings.language}
+                              onNavigateToBlogPost={(postId) => {
+                                setSelectedBlogPostId(postId);
+                                setCurrentView('blog');
+                              }}
                             />
                           </div>
                         );

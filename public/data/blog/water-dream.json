@@ -1,0 +1,129 @@
+{
+  "id": "water-dream",
+  "title": "물 꿈의 모든 것 - 물 꿈 심층분석",
+  "titleEn": "All About Water Dreams - In-Depth Analysis",
+  "introduction": "물은 생명력, 무의식의 흐름, 그리고 우리의 깊은 감정 상태를 상징합니다. 맑은 물이 솟구치는 꿈부터 어두운 흙탕물에 빠져 허우적대는 꿈까지, 상황에 따라 길몽과 흉몽으로 극명하게 나뉩니다. 이 글에서는 물 꿈의 다양한 길흉 상황을 심층 분석합니다.",
+  "introductionEn": "Water represents vitality, the flow of the subconscious, and emotional depth. From clear rising springs to muddy currents, explore the dual nature of water dreams.",
+  "mythology": "인류 신화에서 물은 세상의 기원이자 정화의 원천입니다. 동양 신화에서 맑은 물은 재물과 생명의 흐름을 뜻하며, 특히 강물이 내 집으로 굽이쳐 들어오는 것은 큰 권세와 가문의 번창을 의미합니다. 반면 거친 파도나 가뭄은 재난과 운기의 쇠퇴를 예고합니다.",
+  "mythologyEn": "In ancient mythology, water is the origin of life and purification. Clear water brings luck and wealth, while turbulent storms or dried wells signify misfortune and inner drought.",
+  "sections": [
+    {
+      "id": "sec-good-1",
+      "title": "맑은 물이 온 집안에 가득 차오르는 꿈",
+      "titleEn": "Clear Water Flooding the House",
+      "content": "가장 대표적인 재물 길몽입니다. 맑은 물이 집안에 가득 차는 것은 집안 전체의 운기가 대폭 상승하고, 막대한 재물과 이권이 굴러 들어오게 됨을 예고합니다.",
+      "contentEn": "A classic wealth omen. Clear water filling your home signals a massive surge of prosperity, family health, and financial security.",
+      "isAuspicious": true,
+      "keywords": [
+        "맑은 물",
+        "가득 찬",
+        "집안"
+      ]
+    },
+    {
+      "id": "sec-good-2",
+      "title": "맑은 샘물이 땅에서 힘차게 솟구쳐 오르는 꿈",
+      "titleEn": "Clear Spring Water Gushing from the Ground",
+      "content": "기발한 창작 아이디어가 실현되거나, 새로운 비즈니스에서 끊임없는 수익(샘물)이 솟아나게 됨을 뜻합니다. 학업이나 연구 분야에서도 큰 성과를 거둡니다.",
+      "contentEn": "Indicates creative breakthroughs or establishing a stable, continuous stream of passive income. Academic success is highly predicted.",
+      "isAuspicious": true,
+      "keywords": [
+        "샘물",
+        "솟구쳐",
+        "땅에서"
+      ]
+    },
+    {
+      "id": "sec-good-3",
+      "title": "넓고 맑은 바다나 강물을 건너는 꿈",
+      "titleEn": "Crossing a Wide, Calm River or Ocean",
+      "content": "인생의 큰 난관을 극복하고 새로운 단계로 도약함을 뜻합니다. 직장을 옮기거나 이직, 혹은 새로운 해외 진출이 성공적으로 성사될 길몽입니다.",
+      "contentEn": "Represents overcoming major life hurdles. Signals successful career transitions, relocation, or expansion into new ventures.",
+      "isAuspicious": true,
+      "keywords": [
+        "바다 건너는",
+        "강물 건너는",
+        "건너가는"
+      ]
+    },
+    {
+      "id": "sec-good-4",
+      "title": "더러운 물을 버리고 맑은 물로 씻어내는 꿈",
+      "titleEn": "Washing Away Dirty Water with Clean Water",
+      "content": "정화와 회복의 신호입니다. 과거의 병마에서 회복되거나, 오랫동안 괴롭히던 근심 걱정과 악재가 깨끗하게 해결되어 마음의 평화를 되찾습니다.",
+      "contentEn": "Signals spiritual cleansing and recovery. Healing from illness, resolving long-term anxiety, and restoring psychological balance.",
+      "isAuspicious": true,
+      "keywords": [
+        "씻어내는",
+        "정화",
+        "씻는"
+      ]
+    },
+    {
+      "id": "sec-bad-1",
+      "title": "어둡고 더러운 흙탕물에 빠져 허우적대는 꿈",
+      "titleEn": "Drowning in Dark, Muddy Water",
+      "content": "대인관계에서의 사기, 소송, 혹은 건강의 악화를 예고합니다. 심리적으로는 부정적인 감정과 우울감에 사로잡혀 있음을 나타냅니다.",
+      "contentEn": "Warns of deception, lawsuits, or declining health. Psychologically, it indicates being overwhelmed by negative emotions and depression.",
+      "isAuspicious": false,
+      "keywords": [
+        "흙탕물",
+        "빠져",
+        "허우적대"
+      ]
+    },
+    {
+      "id": "sec-bad-2",
+      "title": "집안의 물이 바짝 말라 바닥이 갈라지는 꿈",
+      "titleEn": "Water Running Dry and Ground Cracking",
+      "content": "심각한 재정적 결핍이나 가세의 위축을 나타냅니다. 고정 수입의 단절이나 예상치 못한 지출로 가계가 곤란해질 수 있으니 자산 관리에 힘써야 합니다.",
+      "contentEn": "Represents financial dry-spells. Warns of income loss or unexpected expenses, calling for immediate protective measures.",
+      "isAuspicious": false,
+      "keywords": [
+        "말라",
+        "갈라지는",
+        "가뭄"
+      ]
+    },
+    {
+      "id": "sec-bad-3",
+      "title": "거대한 해일이나 홍수가 몰아쳐 도망치는 꿈",
+      "titleEn": "Fleeing a Giant Tsunami or Flash Flood",
+      "content": "현실의 불가항력적인 거대한 환경 변화나 스트레스에 압도당하고 있음을 뜻합니다. 혼자 해결하려 하기보다 한 걸음 물러나 안정을 취하십시오.",
+      "contentEn": "Indicates being overwhelmed by uncontrollable changes or stress in waking life. Stepping back is highly recommended.",
+      "isAuspicious": false,
+      "keywords": [
+        "해일",
+        "홍수",
+        "도망"
+      ]
+    },
+    {
+      "id": "sec-bad-4",
+      "title": "뜨거운 물이나 끓는 물에 손을 데이는 꿈",
+      "titleEn": "Burning Your Hand with Boiling Water",
+      "content": "충동적인 감정 표현이나 실언으로 인해 구설수에 오르거나 계약상 심각한 손해를 입게 될 것임을 경고하는 꿈입니다.",
+      "contentEn": "Warns against impulsive emotional outbursts or slip-of-the-tongue errors leading to gossip or contractual damage.",
+      "isAuspicious": false,
+      "keywords": [
+        "뜨거운 물",
+        "끓는 물",
+        "데이는"
+      ]
+    }
+  ],
+  "psychology": "지그문트 프로이트는 물을 양수와 연계하여 탄생과 리비도를 나타낸다고 보았습니다. 칼 융은 물을 무의식의 가장 보편적인 상징으로 여겼으며, 물에 빠지는 것은 무의식에 동화되어 자아를 잃어버리는 위험을, 물을 다스리는 것은 무의식과 조화를 이루어 자아가 확장되는 성숙의 과정을 대변한다고 해독했습니다.",
+  "psychologyEn": "Freud linked water to amniotic fluid and rebirth. Jung defined water as the absolute symbol of the unconscious. Drowning represents losing your ego, while managing water shows psychological integration.",
+  "faqs": [
+    {
+      "question": "Q1. 꿈에서 물을 마셨는데 갈증이 전혀 해소되지 않았어요.",
+      "answer": "A1. 현실에서 본인의 욕망이나 열망이 과도하지만 이를 해소할 통로를 찾지 못했음을 뜻합니다. 과도한 집착을 내려놓는 지혜가 필요합니다."
+    },
+    {
+      "question": "Q2. 맑은 물에 발만 담그고 노는 꿈은 무엇인가요?",
+      "answer": "A2. 일시적인 휴식과 영적인 재충전을 의미합니다. 조만간 근심을 털어내고 기분 좋은 행운이 따를 징조입니다."
+    }
+  ],
+  "conclusion": "물은 흐르고 변화하는 우리의 마음과 같습니다. 물이 나를 위협했다면 마음속 스트레스가 한계에 봉착했음을 자각하고, 맑은 물을 보았다면 다가올 영적 번영을 당당히 맞이하시기 바랍니다.",
+  "conclusionEn": "Water mirrors the flow of our mind. If water threatened you, rest and check your stress levels; if clear, embrace your upcoming prosperity."
+}

@@ -1,0 +1,129 @@
+{
+  "id": "snake-dream",
+  "title": "뱀 꿈의 모든 것 - 뱀 꿈 심층분석",
+  "titleEn": "All About Snake Dreams - In-Depth Analysis",
+  "introduction": "뱀은 지혜, 유혹, 재생, 그리고 배신의 강력한 이중적 상징입니다. 뱀에게 물려 피를 흘리는 길조부터 나를 공격하는 뱀 떼의 흉몽까지, 인류 무의식 깊은 곳의 상징을 풀이합니다.",
+  "introductionEn": "Snakes represent wisdom, temptation, rebirth, and betrayal. Explore this primordial archetype, from auspicious snake bites to chaotic swarms.",
+  "mythology": "그리스 신화의 아스클레피오스 지팡이와 동양 신화의 창조신 여와는 뱀(용)의 형상을 띱니다. 뱀은 허물을 벗고 다시 태어나므로 '재생과 영생'을 의미합니다. 동양 해몽에서 흰 뱀(백사)은 고귀한 지혜와 재물의 아이콘입니다. 반면 검고 독이 가득한 뱀은 배신자나 질병을 상징합니다.",
+  "mythologyEn": "Across cultures, snakes represent creation, wisdom, and healing (e.g., Asclepius). Shedding skin reflects rebirth. A white snake is a lucky sign of wealth, while venomous snakes warn of betrayal.",
+  "sections": [
+    {
+      "id": "sec-good-1",
+      "title": "큰 뱀에게 다리나 팔을 세차게 물려 피가 철철 흐르는 꿈",
+      "titleEn": "Being Bitten by a Large Snake and Bleeding",
+      "content": "가장 대표적인 재물 길몽이자 좋은 인연을 만나게 될 징조입니다. 막힌 비즈니스가 뚫리고, 인생의 큰 조력자(배우자 혹은 동업자)를 얻게 됩니다.",
+      "contentEn": "A classic fortune omen. Indicates overcoming financial stagnation and finding an invaluable partner or spouse.",
+      "isAuspicious": true,
+      "keywords": [
+        "뱀에게",
+        "물려",
+        "피가"
+      ]
+    },
+    {
+      "id": "sec-good-2",
+      "title": "고귀한 백사(흰 뱀)가 나를 조용히 따라오거나 품에 안기는 꿈",
+      "titleEn": "A Holy White Snake Hugging You",
+      "content": "순수하고 드높은 명예와 지혜를 얻게 됨을 예고합니다. 학문적 업적, 저서 집필의 대성공, 혹은 학자나 리더가 될 고귀한 아이의 태몽입니다.",
+      "contentEn": "Represents noble honor, wisdom, and academic prestige. Often functions as an auspicious conceiving dream for a future scholar.",
+      "isAuspicious": true,
+      "keywords": [
+        "백사",
+        "품에",
+        "안기는"
+      ]
+    },
+    {
+      "id": "sec-good-3",
+      "title": "뱀이 허물을 벗고 깨끗하고 영롱한 새 피부로 다시 태어나는 꿈",
+      "titleEn": "Snake Shedding Its Skin to Renew",
+      "content": "인생의 큰 전환점, 신분 상승, 오래된 누명의 해소 등을 나타냅니다. 고통스러운 과거를 정리하고 완전히 새로운 삶을 개척하게 될 대길조입니다.",
+      "contentEn": "Represents major personal renewal, status upgrade, or clearance of false accusations. A call to step into a fresh phase.",
+      "isAuspicious": true,
+      "keywords": [
+        "허물",
+        "다시 태어나는",
+        "탈피"
+      ]
+    },
+    {
+      "id": "sec-good-4",
+      "title": "수많은 뱀이 내 방 구석구석에 얌전히 똬리를 틀고 들어차 있는 꿈",
+      "titleEn": "Swarms of Calm Snakes Filling the Room",
+      "content": "재정적 자산이 여러 경로를 통해 불어나고, 소유한 이권이나 부동산의 가치가 폭등할 것임을 암시하는 훌륭한 길조입니다.",
+      "contentEn": "Signals that your financial assets will grow through diverse channels, appreciating in property value.",
+      "isAuspicious": true,
+      "keywords": [
+        "똬리",
+        "가득 찬",
+        "얌전히"
+      ]
+    },
+    {
+      "id": "sec-bad-1",
+      "title": "사나운 독사에게 공격받거나 물려 독이 온몸에 퍼져 고통받는 꿈",
+      "titleEn": "Aggressive Viper Biting and Spreading Venom",
+      "content": "가까운 동업자나 친구에게 사기 배신을 당하거나, 심각한 질병이 찾아와 건강을 해칠 수 있음을 경고하는 강한 경고몽입니다.",
+      "contentEn": "A strong cautionary warning. Points to fraud, betrayal by partners, or sudden physical illness.",
+      "isAuspicious": false,
+      "keywords": [
+        "독사",
+        "독이",
+        "고통받는"
+      ]
+    },
+    {
+      "id": "sec-bad-2",
+      "title": "뱀을 칼로 난도질하거나 토막 내 죽였으나 시체가 징그럽게 꿈틀거리는 꿈",
+      "titleEn": "Chopping a Snake But the Corpse Still Wriggling",
+      "content": "눈앞의 장벽을 해결한 듯 보이지만 잠재적인 불씨와 우환이 여전히 남아있음을 경고합니다. 끝까지 방심하지 말고 확실한 뒤처리를 해야 합니다.",
+      "contentEn": "Warns of unresolved hidden conflicts or lingering hazards after solving a project obstacle. Remain vigilant.",
+      "isAuspicious": false,
+      "keywords": [
+        "난도질",
+        "토막",
+        "꿈틀거리는"
+      ]
+    },
+    {
+      "id": "sec-bad-3",
+      "title": "뱀이 나를 향해 날카롭게 혀를 날름거리며 쫓아와 도망치는 꿈",
+      "titleEn": "Fleeing a Hissing Snake Chasing You",
+      "content": "현실에서 해결하지 못한 대인관계의 트라우마, 두려운 경쟁자, 혹은 회피하고 싶은 진실로부터 쫓기며 불안해하는 내면 상태를 나타냅니다.",
+      "contentEn": "Reflects relationship trauma, intimidating competitors, or harsh realities you are desperately fleeing from.",
+      "isAuspicious": false,
+      "keywords": [
+        "날름거리며",
+        "도망",
+        "쫓아와"
+      ]
+    },
+    {
+      "id": "sec-bad-4",
+      "title": "뱀이 내 신발이나 지갑 속에 숨어 있는 것을 발견하고 놀라는 꿈",
+      "titleEn": "Finding a Snake Hidden in Your Shoe or Wallet",
+      "content": "나의 든든한 사회적 발판(신발)이나 재산(지갑) 내부의 구설수, 배신, 불법적 손실을 조심하라는 경고입니다. 몰래 나를 음해하는 세력이 있을 수 있습니다.",
+      "contentEn": "Alerts you of hidden betrayal or asset leakage inside your shoes (status) or wallet (wealth). A covert rival may exist.",
+      "isAuspicious": false,
+      "keywords": [
+        "신발 속",
+        "지갑 속",
+        "숨어 있는"
+      ]
+    }
+  ],
+  "psychology": "지그문트 프로이트의 분석에서 뱀은 남성 성기(Phallus)와 거대한 성적 에너지를 의미합니다. 융의 분석심리학에서 뱀은 우리의 자아가 대면하기 꺼리는 '그림자(Shadow)'나 인류 공통의 '집단무의식(Collective Unconscious)'의 심오한 원형을 대변하며, 영적인 각성과 에너지의 통합을 상징하기도 합니다.",
+  "psychologyEn": "Freud interpreted the snake as a phallic energy. Jung defined it as the shadow or the collective unconscious, reflecting spiritual awakening and energy integration.",
+  "faqs": [
+    {
+      "question": "Q1. 뱀이 구렁이처럼 너무 거대해서 무서웠지만 물리지는 않은 꿈은요?",
+      "answer": "A1. 거대한 기회나 이권이 내 앞에 다가왔음을 뜻하지만, 스스로 이를 통제하거나 수용할 심리적 그릇이 부족하여 관망하고 있음을 암시합니다."
+    },
+    {
+      "question": "Q2. 뱀이 내 몸을 칭칭 감는 꿈은 무엇인가요?",
+      "answer": "A2. 감기는 느낌이 든든했다면 막강한 후원자나 지위를 얻을 길몽이지만, 숨 막히고 답답했다면 구속, 감금, 계약상의 독소조항에 묶일 경고입니다."
+    }
+  ],
+  "conclusion": "뱀 꿈은 인류의 가장 유구한 지혜와 본능의 속삭임입니다. 뱀이 비추는 상징을 현실의 거울 삼아, 스스로의 욕망과 내면을 더 깊게 들여다보시기 바랍니다.",
+  "conclusionEn": "The snake dream is the whisper of ancient instinct. Face the serpent within to unlock your inner potential and heal."
+}

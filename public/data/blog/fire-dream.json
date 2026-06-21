@@ -1,0 +1,129 @@
+{
+  "id": "fire-dream",
+  "title": "불 꿈의 모든 것 - 불 꿈 심층분석",
+  "titleEn": "All About Fire Dreams - In-Depth Analysis",
+  "introduction": "불은 활활 타오르는 폭발력, 정화, 창조, 그리고 파괴를 아우르는 강력한 힘의 상징입니다. 집이 타는 대길몽부터 온 세상이 불바다가 되는 흉몽까지 이중적인 의미를 지니고 있습니다.",
+  "introductionEn": "Fire represents explosive growth, purification, and destruction. Explore the dual nature of fire dreams, from house fires to destructive forest blazes.",
+  "mythology": "많은 문화권에서 불은 신의 신성한 권능이자 문명의 시작을 의미합니다. 동양 전통 해몽에서 불은 '번창(繁昌)'의 대표적 상징입니다. 불꽃의 크기가 클수록 재물과 사업의 번창을 의미합니다. 단, 불이 다 타버리고 검은 재만 남는 것은 기운의 소멸과 몰락을 나타냅니다.",
+  "mythologyEn": "Fire is the divine spark of civilization. In Eastern tradition, fire indicates prosperity. The larger the flame, the greater the fortune. Leftover black ash warns of decline.",
+  "sections": [
+    {
+      "id": "sec-good-1",
+      "title": "나의 집이 붉은 불길에 휩싸여 활활 타는 꿈",
+      "titleEn": "Your Own House Blazing with Red Flames",
+      "content": "가장 강력한 사업 및 가문 번창의 대길몽입니다. 불길이 거셀수록 사업의 확장, 주택 가격의 상승, 가문의 경사 등이 폭발적으로 일어납니다.",
+      "contentEn": "The ultimate prosperity dream. Huge flames indicate rapid business expansion, asset appreciation, and massive family fortune.",
+      "isAuspicious": true,
+      "keywords": [
+        "집이 타는",
+        "활활",
+        "불길"
+      ]
+    },
+    {
+      "id": "sec-good-2",
+      "title": "내 몸에 불이 붙어 활활 타오르는 꿈",
+      "titleEn": "Your Body Catching Fire and Burning",
+      "content": "사회적인 지위가 급상승하고, 자신의 작품이나 능력이 세상의 주목을 받게 됨을 예고합니다. 신분 상승과 영전, 합격의 강력한 길조입니다.",
+      "contentEn": "Predicts rapid elevation in social status and recognition. Your work or talent will take the center stage of public praise.",
+      "isAuspicious": true,
+      "keywords": [
+        "몸에 불",
+        "타오르는",
+        "신분상승"
+      ]
+    },
+    {
+      "id": "sec-good-3",
+      "title": "화로 나 아궁이에 불을 지피는 꿈",
+      "titleEn": "Lighting a Fire in a Stove or Hearth",
+      "content": "새로운 프로젝트를 기획하거나 기초 투자를 성공적으로 집행함을 뜻합니다. 투자한 분야에서 서서히 큰 이익이 회수될 징조입니다.",
+      "contentEn": "Signals starting a new project or making smart initial investments that will yield major long-term rewards.",
+      "isAuspicious": true,
+      "keywords": [
+        "불을 지피는",
+        "아궁이",
+        "화로"
+      ]
+    },
+    {
+      "id": "sec-good-4",
+      "title": "어두운 밤거리를 촛불이나 횃불을 들고 밝히는 꿈",
+      "titleEn": "Holding a Torch or Candle to Light the Dark",
+      "content": "귀인의 영적인 인도를 받아 난제를 해결함을 뜻합니다. 보이지 않던 앞날의 비전이 명확해지고 어려운 고비를 현명하게 극복합니다.",
+      "contentEn": "Indicates solving hard problems under the guidance of a wise mentor. Your path becomes clear and obstacles resolve.",
+      "isAuspicious": true,
+      "keywords": [
+        "촛불",
+        "횃불",
+        "밝히는"
+      ]
+    },
+    {
+      "id": "sec-bad-1",
+      "title": "불이 꺼지고 시커먼 재만 앙상하게 남은 꿈",
+      "titleEn": "Fire Going Out Leaving Black Ashes",
+      "content": "기운이 쇠하고 재산의 탕진을 경고하는 대표적인 흉몽입니다. 무리한 확장이나 투자의 실패로 인해 원금마저 잃게 될 수 있으니 주의해야 합니다.",
+      "contentEn": "A major warning of financial loss. Your luck is dying down, indicating failed ventures. Protect your core capital immediately.",
+      "isAuspicious": false,
+      "keywords": [
+        "시커먼 재",
+        "불이 꺼진",
+        "앙상한"
+      ]
+    },
+    {
+      "id": "sec-bad-2",
+      "title": "산불이 나서 온 산이 불길에 휩싸여 도망치는 꿈",
+      "titleEn": "Fleeing a Forest Fire Out of Control",
+      "content": "자신의 통제를 벗어난 상황으로 인해 주변 인맥이나 계약이 한순간에 소실되는 상황을 나타냅니다. 감정적인 분노를 참지 못해 화를 자초할 수도 있습니다.",
+      "contentEn": "Represents an uncontrollable loss in business networks. It also warns against uncontrolled anger ruining relations.",
+      "isAuspicious": false,
+      "keywords": [
+        "산불",
+        "도망치는",
+        "불길"
+      ]
+    },
+    {
+      "id": "sec-bad-3",
+      "title": "소방차가 와서 불을 끄거나 강제로 진화하는 꿈",
+      "titleEn": "Fire Engine Putting Out the Flame",
+      "content": "좋은 상승세의 운기가 외부의 방해나 규제로 인해 꺾이는 것을 상징합니다. 굴러 들어오던 재물이 문앞에서 막힐 수 있음을 암시합니다.",
+      "contentEn": "Signals that your rising luck is halted by external intervention or regulations. Financial inflows may stall.",
+      "isAuspicious": false,
+      "keywords": [
+        "소방차",
+        "진화",
+        "불을 끄는"
+      ]
+    },
+    {
+      "id": "sec-bad-4",
+      "title": "불꽃이 사방으로 튀며 나를 공격하는 꿈",
+      "titleEn": "Flames Sparking and Attacking You",
+      "content": "가까운 지인과 말다툼이 생겨 심각한 신뢰 파탄을 겪을 조짐입니다. 불필요한 논쟁과 구설수를 원천 차단하십시오.",
+      "contentEn": "Warns of harsh arguments with friends or close partners. Avoid emotional debates to shield your peace.",
+      "isAuspicious": false,
+      "keywords": [
+        "불꽃",
+        "튀며",
+        "공격"
+      ]
+    }
+  ],
+  "psychology": "정신분석학에서 불은 강렬한 감정의 열정, 성적 에너지, 혹은 통제하기 힘든 '분노(Anger)'를 상징합니다. 불을 다스리는 꿈은 감정 제어 능력이 향상되었음을 나타내고, 불에 데이거나 쫓기는 꿈은 억누를 수 없는 불안감이나 파괴적인 본능이 자아를 위협하고 있음을 말해줍니다.",
+  "psychologyEn": "Psychologically, fire represents intense passions, libido, or untamed rage. Controlling fire shows emotional maturity, while getting burned reveals threat to your conscious ego.",
+  "faqs": [
+    {
+      "question": "Q1. 불이 번지지 않고 특정 방 한구석에서 연기만 매캐하게 나는 꿈은요?",
+      "answer": "A1. 연기만 매캐한 꿈은 내부적인 구설수나 답답한 장벽을 뜻합니다. 진행 중인 일의 효율이 저하되고 오해가 생길 수 있으니 소통에 힘쓰십시오."
+    },
+    {
+      "question": "Q2. 붉은 불길이 아니라 파란 불길이 활활 일어나는 꿈은 무엇인가요?",
+      "answer": "A2. 과학적 통찰이나 영적인 깨달음, 또는 고도로 집중된 에너지를 의미하는 아주 상서로운 꿈입니다. 지식 창출 분야에서 대길합니다."
+    }
+  ],
+  "conclusion": "불은 우리 가슴속에 타오르는 의지이자 생명력입니다. 불이 활활 타오르는 꿈을 꾸셨다면 스스로의 열정을 추진력 삼아 더 과감히 현실에 도전해 보시기 바랍니다.",
+  "conclusionEn": "Fire is the drive burning in our heart. If you saw roaring flames, utilize this passion to boldly challenge your waking life."
+}
