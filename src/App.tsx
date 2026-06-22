@@ -82,6 +82,15 @@ export default function App() {
       setMousePos({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener('mousemove', handleMouseMove);
+
+    // 4. URL 쿼리 스트링 파싱하여 블로그 딥링크 연동 (?post=xxx)
+    const params = new URLSearchParams(window.location.search);
+    const postParam = params.get('post');
+    if (postParam) {
+      setSelectedBlogPostId(postParam);
+      setCurrentView('blog');
+    }
+
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 

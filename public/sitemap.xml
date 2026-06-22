@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Main Portal -->
+  <url>
+    <loc>https://dreamteller.pages.dev/</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- 용 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=dragon-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 호랑이 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=tiger-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 물 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=water-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 불 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=fire-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 뱀 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=snake-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 돈 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=money-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 똥 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=poop-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 돼지 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=pig-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 개 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=dog-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 죽음 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=death-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 이빨 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=teeth-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 떨어지는 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=falling-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 쫓기는 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=chased-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 비행 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=flying-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 머리카락 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=hair-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 아기 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=baby-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 집 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=house-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 귀신 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=ghost-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 피 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=blood-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 신발 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=shoes-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
