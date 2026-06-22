@@ -1,7 +1,7 @@
 {
   "id": "tiger-dream",
-  "title": "호랑이 꿈의 모든 것 - 호랑이 꿈 심층분석",
-  "titleEn": "All About Tiger Dreams - In-Depth Analysis",
+  "title": "호랑이 꿈 심층분석",
+  "titleEn": "Tiger Dream In-Depth Analysis",
   "introduction": "방으로 걸어 들어오는 백호의 상서로운 길조부터 고양이로 변하거나 가문을 이탈하는 불길한 경고까지, 숲의 제왕이 선사하는 내면 에너지를 총정리합니다. 호랑이는 강력한 권력, 명예, 그리고 통제하기 힘든 동물적 충동을 의미합니다. 이 글에서는 호랑이 꿈의 길몽과 흉몽 상황을 명확하게 짚어드려, 현실 세계에서 지혜롭게 대처할 수 있도록 이끌어 드립니다.",
   "introductionEn": "Uncover the spiritual protection, psychological shadow integration, and situational meanings of tiger dreams, categorized into lucky signs and cautionary warnings. The tiger represents power, honor, and untamed instincts. This guide analyzes auspicious and cautionary tiger dreams using mythology and psychoanalysis.",
   "mythology": "한국 민담과 산신 신앙에서 호랑이는 단순한 맹수가 아니라 마을을 지키고 액운을 쫓는 '영적 수호신(산신)'으로 숭배받아 왔습니다. 따라서 꿈에 호랑이가 나타난다는 것은 신성한 수호의 기운이 내 삶을 둘러싸고 있음을 뜻합니다. 하지만 신의 사자인 만큼 그 태도가 적대적이거나 다치는 연출은 자신을 도울 수 있었던 귀인의 마음이 돌아서거나 가문의 명예를 훼손하는 부정적인 징조로 해독되곤 합니다.",
@@ -14,7 +14,12 @@
       "content": "최고의 명예적 대길몽입니다. 가문에 큰 인물이 될 아이를 잉태할 고귀한 태몽이거나, 직장에서의 승진, 권세 획득, 큰 재물이 내 영토(집)로 굴러 들어오게 됨을 예고합니다.",
       "contentEn": "A supreme auspicious dream. It predicts the birth of a noble child (Tae-mong), major promotion at work, or valuable assets flowing into your personal territory.",
       "isAuspicious": true,
-      "keywords": ["백호", "집안", "방으로", "걸어 들어오는"]
+      "keywords": [
+        "백호",
+        "집안",
+        "방으로",
+        "걸어 들어오는"
+      ]
     },
     {
       "id": "sec-good-2",
@@ -23,7 +28,12 @@
       "content": "피가 많이 흐르는 것은 해몽에서 생명력과 재물의 대방출을 뜻합니다. 강력한 권력자나 기관으로부터 대규모 계약, 투자 승인을 받아 막대한 재정적 이익을 거머쥘 길조입니다.",
       "contentEn": "Bleeding represents the flow of life force and wealth. This dream predicts securing a major contract or funding from powerful organizations, leading to financial abundance.",
       "isAuspicious": true,
-      "keywords": ["물려", "피가", "흐르는", "부상"]
+      "keywords": [
+        "물려",
+        "피가",
+        "흐르는",
+        "부상"
+      ]
     },
     {
       "id": "sec-good-3",
@@ -32,7 +42,12 @@
       "content": "자신의 통제력과 권위가 극에 달했음을 뜻합니다. 국가 고시 합격, 단체장 취임 등 한 조직의 우두머리로 올라서서 거침없이 영향력을 발휘하게 됩니다.",
       "contentEn": "Indicates that your self-control and social authority have reached their peak. You will rise to a leadership position and steer your organization to victory.",
       "isAuspicious": true,
-      "keywords": ["등에 올라타는", "질주", "정복", "타는"]
+      "keywords": [
+        "등에 올라타는",
+        "질주",
+        "정복",
+        "타는"
+      ]
     },
     {
       "id": "sec-good-4",
@@ -41,7 +56,12 @@
       "content": "훌륭한 귀인을 만나 우정을 다지거나, 본인이 공들여온 창작품이 결실을 맺는 꿈입니다. 혹은 총명하고 리더십이 뛰어난 아이를 낳게 될 길몽입니다.",
       "contentEn": "Predicts meeting a highly helpful mentor or a loyal friend. It also represents creative works bearing fruit or a conceiving dream for a charismatic child.",
       "isAuspicious": true,
-      "keywords": ["새끼 호랑이", "안거나", "쓰다듬는", "귀여운"]
+      "keywords": [
+        "새끼 호랑이",
+        "안거나",
+        "쓰다듬는",
+        "귀여운"
+      ]
     },
     {
       "id": "sec-bad-1",
@@ -50,7 +70,12 @@
       "content": "감당하기 힘든 현실의 압박감, 업무 과부하, 혹은 권력 있는 상사로부터의 심리적 괴롭힘을 겪고 있음을 나타냅니다. 회피보다는 문제의 실체를 직면해야 할 때입니다.",
       "contentEn": "Reflects immense real-world stress, burn-out, or psychological harassment from a powerful superior. Your mind is warning you to face the problem instead of running away.",
       "isAuspicious": false,
-      "keywords": ["쫓기며", "공포", "도망", "달아나는"]
+      "keywords": [
+        "쫓기며",
+        "공포",
+        "도망",
+        "달아나는"
+      ]
     },
     {
       "id": "sec-bad-2",
@@ -59,7 +84,12 @@
       "content": "일의 규모가 급격히 축소되거나, 강력했던 지원 세력이 힘을 잃어버리는 징조입니다. 용두사미(龍頭蛇尾)가 되지 않도록 계약 조건이나 재정을 꼼꼼히 살피십시오.",
       "contentEn": "Signals that your grand plans will shrink or your powerful backers will lose influence. Watch out for a promising project ending in a disappointing anti-climax.",
       "isAuspicious": false,
-      "keywords": ["고양이로", "변하는", "작아지는", "약해지는"]
+      "keywords": [
+        "고양이로",
+        "변하는",
+        "작아지는",
+        "약해지는"
+      ]
     },
     {
       "id": "sec-bad-3",
@@ -68,7 +98,12 @@
       "content": "나의 통제하에 있던 재산, 직원, 혹은 중요한 권리가 이탈하는 것을 뜻합니다. 동업자와의 결별, 직원의 이직, 혹은 투자 자산의 급격한 가치 하락에 대비해야 합니다.",
       "contentEn": "Means you are losing control over assets, employees, or proprietary rights. Prepare for business break-ups, key employee resignations, or asset depreciation.",
       "isAuspicious": false,
-      "keywords": ["탈출", "도망쳐", "사라진", "도망치는"]
+      "keywords": [
+        "탈출",
+        "도망쳐",
+        "사라진",
+        "도망치는"
+      ]
     },
     {
       "id": "sec-bad-4",
@@ -77,7 +112,12 @@
       "content": "상처 입은 권위 있는 사람이나 세력과의 충돌을 의미합니다. 직장 내 상사와의 심각한 트러블, 관공서와의 소송, 혹은 가문 내 분쟁 등으로 곤욕을 치를 수 있습니다.",
       "contentEn": "Indicates conflicts with powerful figures. You might face lawsuits, workplace disputes, or backlash from parents. It warns you to mend relations and avoid aggressive words.",
       "isAuspicious": false,
-      "keywords": ["다쳐서", "신음", "으르렁", "경고"]
+      "keywords": [
+        "다쳐서",
+        "신음",
+        "으르렁",
+        "경고"
+      ]
     }
   ],
   "psychology": "지그문트 프로이트의 정신분석 모델에 의하면, 호랑이는 억압된 공격성, 생명력 그 자체인 '이드(Id)'를 대변합니다. 칼 융은 호랑이를 만나는 꿈을 의식세계인 자아(Ego)가 그동안 두렵고 어두워서 차마 대면하지 못했던 무의식의 강력한 힘, 즉 '그림자(Shadow)'를 직면하는 사건으로 봅니다. 만약 꿈속의 호랑이와 평화로운 기류가 흘렀다면, 이는 자신의 억압된 야망을 사회적인 페르소나와 성공적으로 통합시켰음을 증명합니다.",
