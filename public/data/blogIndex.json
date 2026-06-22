@@ -218,5 +218,115 @@
     "categoryEn": "Objects & Life",
     "coverImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=60",
     "author": "DreamTeller Editor"
+  },
+  {
+    "id": "ancestor-dream",
+    "title": "조상 꿈 심층분석",
+    "titleEn": "Ancestor Dream In-Depth Analysis",
+    "excerpt": "밝게 미소 짓는 조상님께 선물을 받거나 밥을 차려 대접하는 대길몽부터, 어두운 기운으로 눈물 흘리고 나를 꾸짖는 불안의 경고까지 해독합니다.",
+    "excerptEn": "Interpret blessings from ancestors bringing windfalls, contrasted with crying or angry figures warning of family misfortunes.",
+    "category": "인물과 관계",
+    "categoryEn": "People & Relat",
+    "coverImage": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "cat-dream",
+    "title": "고양이 꿈 심층분석",
+    "titleEn": "Cat Dream In-Depth Analysis",
+    "excerpt": "귀여운 고양이를 품에 안거나 보석을 가져다주는 신비한 길몽부터, 손가락을 물리거나 고양이가 집을 나가는 인간관계와 재물 손실의 경고까지 분석합니다.",
+    "excerptEn": "Explore direct meowing intuition, black cats carrying jewels, and warning signs like cat bites and pets escaping.",
+    "category": "영적 동물",
+    "categoryEn": "Spiritual Animals",
+    "coverImage": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "spider-dream",
+    "title": "거미 꿈 심층분석",
+    "titleEn": "Spider Dream In-Depth Analysis",
+    "excerpt": "집안으로 큰 왕거미가 들어오거나 촘촘한 집을 짓는 재정적 대길몽부터, 거미줄에 몸이 묶여 답답해하고 다리를 물리는 인간관계 속 함정을 살펴봅니다.",
+    "excerptEn": "Unpack giant spiders entering the house representing wealth, contrasted with being trapped in sticky webs indicating toxic relationships.",
+    "category": "영적 동물",
+    "categoryEn": "Spiritual Animals",
+    "coverImage": "https://images.unsplash.com/photo-1524293581917-878a6d017cda?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "clothes-dream",
+    "title": "옷 꿈 심층분석",
+    "titleEn": "Clothes Dream In-Depth Analysis",
+    "excerpt": "깨끗한 새 옷이나 화려한 스포츠 유니폼/관복을 받아 입는 신분 상승부터, 옷이 찢어지거나 벌거벗고 당황하는 사회적 체면 실추의 경고까지 해독합니다.",
+    "excerptEn": "Understand social status shifts, from wearing high-quality new robes to public nudity representing vulnerability and loss of face.",
+    "category": "물건과 일상",
+    "categoryEn": "Objects & Life",
+    "coverImage": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "exam-dream",
+    "title": "시험 꿈 심층분석",
+    "titleEn": "Exam Dream In-Depth Analysis",
+    "excerpt": "시험문제를 술술 풀고 합격하거나 망쳐서 시원하게 우는 역몽부터, 늦어서 지각하고 백지 답안지를 내는 현대인들의 극심한 평가 스트레스를 분석합니다.",
+    "excerptEn": "Analyze performance stress, from solving test papers easily to missing exams or receiving blank papers representing burnout.",
+    "category": "현상과 상태",
+    "categoryEn": "States & Phenom",
+    "coverImage": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "thief-dream",
+    "title": "도둑 꿈 심층분석",
+    "titleEn": "Thief Dream In-Depth Analysis",
+    "excerpt": "도둑을 때려잡거나 낡은 물건을 훔쳐가 고민이 해결되는 길몽부터, 금고의 전 자산을 도둑맞아 투자 사기를 경고하는 흉조의 차이를 명확히 구분합니다.",
+    "excerptEn": "Distinguish catching a thief reflecting problem-solving, from losing all gold and cash warning of fraud or boundary violations.",
+    "category": "인물과 관계",
+    "categoryEn": "People & Relat",
+    "coverImage": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "car-dream",
+    "title": "자동차 꿈 심층분석",
+    "titleEn": "Car Dream In-Depth Analysis",
+    "excerpt": "고속도로를 시원하게 달리거나 명품 차를 새로 사는 지위 상승부터, 브레이크가 안 걸리거나 주차한 차를 도둑맞는 통제력 상실의 경고까지 해석합니다.",
+    "excerptEn": "Decode driving drive, from cruising down highways to brake failures representing loss of control and professional vulnerabilities.",
+    "category": "물건과 일상",
+    "categoryEn": "Objects & Life",
+    "coverImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "fight-dream",
+    "title": "싸움 꿈 심층분석",
+    "titleEn": "Fight Dream In-Depth Analysis",
+    "excerpt": "나를 괴롭히던 상대를 때려눕혀 이기거나 피를 철철 흘리며 협상하는 길몽부터, 맞아서 굴러떨어지고 억울하게 울부짖는 억압된 분노를 해독합니다.",
+    "excerptEn": "Explore conflict resolution, from defeating a tormentor or shaking hands to being beaten indicating career devaluation.",
+    "category": "신체와 행동",
+    "categoryEn": "Body & Actions",
+    "coverImage": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "celebrity-dream",
+    "title": "연예인 꿈 심층분석",
+    "titleEn": "Celebrity Dream In-Depth Analysis",
+    "excerpt": "유명 연예인이 안아주거나 대통령과 밥을 먹는 명예의 수직 상승부터, 거절당하고 무시받는 내면의 결핍과 거절 불안을 심층 진단합니다.",
+    "excerptEn": "Examine self-esteem dynamics, from hugs by celebrities and dining with presidents to rejection reflecting insecurity.",
+    "category": "인물과 관계",
+    "categoryEn": "People & Relat",
+    "coverImage": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "bath-dream",
+    "title": "목욕 꿈 심층분석",
+    "titleEn": "Bath Dream In-Depth Analysis",
+    "excerpt": "맑은 온천에 몸을 담그고 때를 밀어 걱정거리를 씻어내는 정화의 길몽부터, 비누가 없어 못 씻거나 더러운 흙탕물에 몸을 담그는 흉조를 설명합니다.",
+    "excerptEn": "Understand purification, from soaking in clean hot springs clearing problems to dry taps or dirty waters warning of failure.",
+    "category": "신체와 행동",
+    "categoryEn": "Body & Actions",
+    "coverImage": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=600&auto=format&fit=crop&q=60",
+    "author": "DreamTeller Editor"
   }
 ]

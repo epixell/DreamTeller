@@ -125,5 +125,65 @@ export const blogKeywords: KeywordMapping[] = [
     postId: 'shoes-dream',
     postTitleKo: '신발 꿈 심층분석',
     postTitleEn: 'Shoes Dream In-Depth Analysis'
+  },
+  {
+    keywords: ['조상', '할아버지', '할머니', '돌아가신', '부모님', '어머니', '아버지', '외할머니', '외할아버지'],
+    postId: 'ancestor-dream',
+    postTitleKo: '조상 꿈 심층분석',
+    postTitleEn: 'Ancestor Dream In-Depth Analysis'
+  },
+  {
+    keywords: ['고양이', '야옹이', '아기 고양이', '검은 고양이', '삼색이', '길고양이', '묘'],
+    postId: 'cat-dream',
+    postTitleKo: '고양이 꿈 심층분석',
+    postTitleEn: 'Cat Dream In-Depth Analysis'
+  },
+  {
+    keywords: ['거미', '거미줄', '왕거미', '타란튤라', '독거미'],
+    postId: 'spider-dream',
+    postTitleKo: '거미 꿈 심층분석',
+    postTitleEn: 'Spider Dream In-Depth Analysis'
+  },
+  {
+    keywords: ['옷', '수트', '드레스', '의상', '한복', '바지', '상의', '치마', '재킷', '점퍼', '겉옷'],
+    postId: 'clothes-dream',
+    postTitleKo: '옷 꿈 심층분석',
+    postTitleEn: 'Clothes Dream In-Depth Analysis'
+  },
+  {
+    keywords: ['시험', '면접', '테스트', '수능', '자격증', '지각', '불합격', '합격', '시험지', '오답'],
+    postId: 'exam-dream',
+    postTitleKo: '시험 꿈 심층분석',
+    postTitleEn: 'Exam Dream In-Depth Analysis'
+  },
+  {
+    keywords: ['도둑', '강도', '도둑놈', '침입자', '소매치기', '훔쳐', '도난', '털린'],
+    postId: 'thief-dream',
+    postTitleKo: '도둑 꿈 심층분석',
+    postTitleEn: 'Thief Dream In-Depth Analysis'
+  },
+  {
+    keywords: ['자동차', '차', '운전', '교통사고', '접촉사고', '세차', '주차', '택시', '버스', '트럭'],
+    postId: 'car-dream',
+    postTitleKo: '자동차 꿈 심층분석',
+    postTitleEn: 'Car Dream In-Depth Analysis'
+  },
+  {
+    keywords: ['싸움', '말싸움', '때리는', '맞는', '멱살', '갈등', '전쟁', '다툼', '폭행'],
+    postId: 'fight-dream',
+    postTitleKo: '싸움 꿈 심층분석',
+    postTitleEn: 'Fight Dream In-Depth Analysis'
+  },
+  {
+    keywords: ['연예인', '스타', '가수', '배우', '아이돌', '대통령', '유명인', '셀럽'],
+    postId: 'celebrity-dream',
+    postTitleKo: '연예인 꿈 심층분석',
+    postTitleEn: 'Celebrity Dream In-Depth Analysis'
+  },
+  {
+    keywords: ['목욕', '씻는', '샤워', '온천', '때미는', '목욕탕', '대중목욕탕', '비누'],
+    postId: 'bath-dream',
+    postTitleKo: '목욕 꿈 심층분석',
+    postTitleEn: 'Bath Dream In-Depth Analysis'
   }
 ];

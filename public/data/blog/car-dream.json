@@ -1,0 +1,137 @@
+{
+  "id": "car-dream",
+  "title": "자동차 꿈 심층분석",
+  "titleEn": "Car Dream In-Depth Analysis",
+  "introduction": "자동차(Car)는 인생을 헤쳐 나가는 추진력, 통제 능력, 그리고 자신의 인생 행로(Career)를 나타내는 상징물입니다. 자동차를 운전하거나 사고가 나는 꿈은 본인의 제어 상태를 극적으로 보여주는 심리 지표입니다. 이 가이드북에서 자동차 꿈의 상징을 완벽히 해독해 드립니다.",
+  "introductionEn": "Cars in dreams symbolize your drive, capability to control life, and career trajectory. Driving smoothly or crashing represents your current state of control. Let's decode car dreams.",
+  "mythology": "전통 해몽에서 마차나 가마는 인생의 이동 수단이자 명예의 상승을 뜻했습니다. 현대에 이르러 자동차는 본인이 탑승한 '인생의 기차'이자 '사업체' 자체를 의미합니다. 차가 고속도로를 시원하게 질주하는 것은 거침없는 운세의 발현이며, 타이어가 펑크 나거나 브레이크가 작동하지 않는 것은 통제력 상실과 현실의 급작스러운 정지를 나타냅니다.",
+  "mythologyEn": "Historically, carriages represented social advancement. Today, the car is your business or life engine. Cruising down a highway represents smooth career progress, while flat tires or brake failures indicate losing control and sudden halts.",
+  "sections": [
+    {
+      "id": "sec-good-1",
+      "title": "넓고 쾌적한 고속도로를 시원하게 폭주 운전하는 꿈",
+      "titleEn": "Cruising Fast Down a Wide Highway",
+      "content": "사업의 급격한 확장, 막힘없는 직장 내 승진, 혹은 계획한 투자 이득을 막대한 속도로 성취하게 될 운수대통의 길몽입니다.",
+      "contentEn": "A super lucky dream predicting rapid business expansion, career promotions, or investment profits at high speed.",
+      "isAuspicious": true,
+      "keywords": [
+        "고속도로",
+        "질주",
+        "성장",
+        "승진"
+      ]
+    },
+    {
+      "id": "sec-good-2",
+      "title": "화려한 명품 외제 스포츠카를 새로 사거나 선물받는 꿈",
+      "titleEn": "Buying or Receiving a Luxury Sports Car",
+      "content": "사회적 명예가 수직 상승하고 본인의 자존감이 대폭 복원되며, 새로운 강력한 이권이나 권리를 확보하게 됨을 상징합니다.",
+      "contentEn": "Signals that your social honor and self-esteem will rise sharply. You will secure key capital or authority.",
+      "isAuspicious": true,
+      "keywords": [
+        "스포츠카",
+        "새차",
+        "선물",
+        "명예"
+      ]
+    },
+    {
+      "id": "sec-good-3",
+      "title": "터널이나 어두운 빗길 속을 뚫고 안전하게 목적지에 도착하는 꿈",
+      "titleEn": "Arriving Safely Through a Dark Tunnel or Rainstorm",
+      "content": "길었던 고난과 역경, 위기 상황을 무사히 극복하고 안착하여 성공적인 비즈니스 계약을 성사시킬 것임을 암시합니다.",
+      "contentEn": "Signals successfully navigating through long hardships or crises, leading to a secure and profitable contract.",
+      "isAuspicious": true,
+      "keywords": [
+        "어두운 터널",
+        "도착",
+        "극복",
+        "안착"
+      ]
+    },
+    {
+      "id": "sec-good-4",
+      "title": "교통사고로 내 차가 박살 났으나 몸은 긁힌 곳 하나 없이 구출되는 꿈",
+      "titleEn": "Car Destroyed in a Crash but Escaping Unscathed",
+      "content": "전형적인 액땜형 길몽입니다. 기존의 낡은 사업체나 한계에 봉착한 시스템이 청산되고, 더 큰 새로운 부의 파동으로 전환됨을 뜻합니다.",
+      "contentEn": "A classic reverse omen. Old, limiting structures or business methods will collapse, paving the way for a brand-new rise.",
+      "isAuspicious": true,
+      "keywords": [
+        "사고",
+        "박살",
+        "생존",
+        "전환"
+      ]
+    },
+    {
+      "id": "sec-bad-1",
+      "title": "운전 중 갑자기 브레이크가 작동하지 않아 공포를 느끼는 꿈",
+      "titleEn": "Brakes Failing While Driving in Panic",
+      "content": "현재 본인의 자산 지출, 연애 관계, 혹은 직무 한계가 스스로 통제할 수 없는 임계점을 넘어 파국으로 치닫고 있음을 경고합니다.",
+      "contentEn": "Brakes failing warns that your spending, toxic relationship, or job stress is reaching an uncontrollable collapse.",
+      "isAuspicious": false,
+      "keywords": [
+        "브레이크 고장",
+        "통제 상실",
+        "위기",
+        "공포"
+      ]
+    },
+    {
+      "id": "sec-bad-2",
+      "title": "차가 절벽 아래나 더러운 진흙탕 속으로 추락하는 꿈",
+      "titleEn": "Car Plunging into a Muddy Swamp or Cliff",
+      "content": "잘못된 투자 유혹이나 파트너의 꾐에 속아 재산상의 큰 손해를 보거나 대인관계에 깊은 모욕을 겪을 수 있는 징조입니다.",
+      "contentEn": "Warns that falling for malicious investment traps or deceptions will lead to severe loss or social disgrace.",
+      "isAuspicious": false,
+      "keywords": [
+        "추락",
+        "진흙탕",
+        "사기",
+        "손실"
+      ]
+    },
+    {
+      "id": "sec-bad-3",
+      "title": "타이어가 펑크 나거나 가던 중 엔진에서 연기가 피어오르는 꿈",
+      "titleEn": "Flat Tire or Engine Smoking While Driving",
+      "content": "진행 중인 계약이나 결혼식, 큰 거래가 중간 조력자의 배신이나 돌발적인 행정 오류로 인해 급작스럽게 좌초될 수 있습니다.",
+      "contentEn": "Signals sudden disruption, partner withdrawal, or administration errors that stall your project midway.",
+      "isAuspicious": false,
+      "keywords": [
+        "펑크",
+        "엔진 고장",
+        "연기",
+        "좌초"
+      ]
+    },
+    {
+      "id": "sec-bad-4",
+      "title": "주차해 둔 내 차를 도둑맞아 흔적도 없이 사라진 꿈",
+      "titleEn": "Your Parked Car Being Stolen Without a Trace",
+      "content": "직장이나 소속 단체 내에서 자신의 든든한 입지(자격)나 밥그릇(수익원)을 누군가에게 강탈당할 수 있음을 경고합니다.",
+      "contentEn": "Warns of losing your professional credentials, key client, or revenue streams to a competing rival.",
+      "isAuspicious": false,
+      "keywords": [
+        "도난",
+        "주차",
+        "강탈",
+        "지위 상실"
+      ]
+    }
+  ],
+  "psychology": "정신분석학에서 자동차는 자아의 '행동주의적 역량'이자 삶의 주도적 에너지를 상징합니다. 내가 아닌 다른 사람이 운전하는 차에 조수석에 타 있는 것은 인생의 주도권을 남에게 빼앗겨 느끼는 의존성 불안을 은유합니다.",
+  "psychologyEn": "Psychologically, the car is your Ego's vehicle. Being in the passenger seat while someone else drives reflects an underlying anxiety about having lost control over your own career decisions.",
+  "faqs": [
+    {
+      "question": "Q1. 교통사고를 당해 사람을 치어 피 흘리는 무서운 꿈을 꿨어요.",
+      "answer": "A1. 놀랍게도 이는 대길몽에 속합니다. 횡재수와 함께 자신이 추진한 일로 타인을 감동하게 하거나 큰 상업적 결실을 맺을 징조입니다."
+    },
+    {
+      "question": "Q2. 꼬불꼬불한 산길을 위험하게 꼬여 올라가는 꿈은 무엇인가요?",
+      "answer": "A2. 현실에서 진행하는 사업이나 학업이 순탄하지 않고 잦은 잔파도와 장애물이 많지만, 끈기를 가지고 운전해야 정상에 오를 수 있음을 암시합니다."
+    }
+  ],
+  "conclusion": "자동차 꿈은 당신의 삶의 핸들을 쥐고 있는 모습을 반영합니다. 속도를 무리하게 올리기보다는 가끔은 멈추어 타이어와 엔진 상태를 돌보며 나아가는 균형을 잊지 마세요.",
+  "conclusionEn": "A car dream reflects how you hold the steering wheel of life. Do not just focus on speed; check your tires and engine health occasionally for a stable journey."
+}

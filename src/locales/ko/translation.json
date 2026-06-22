@@ -1,5 +1,7 @@
 {
   "newChat": "새 채팅 시작",
+  "privacyPolicy": "개인정보처리방침",
+  "aboutAndContact": "소개 및 문의",
   "historyTitle": "기억의 기록들",
   "noHistory": "기록된 꿈이 없습니다.",
   "clearAll": "기록 전체 삭제",

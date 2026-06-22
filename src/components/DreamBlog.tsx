@@ -51,6 +51,10 @@ export const DreamBlog: React.FC<{
   const [loadingDetail, setLoadingDetail] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('');
   
+  const [postError, setPostError] = useState<boolean>(false);
+  const [selectedCategory, setSelectedCategory] = useState<string>(language === 'en' ? 'All' : '전체');
+  const [searchQuery, setSearchQuery] = useState<string>('');
+  
   const observer = useRef<IntersectionObserver | null>(null);
 
   // 1. Fetch Blog List (Index)
@@ -75,19 +79,21 @@ export const DreamBlog: React.FC<{
   useEffect(() => {
     if (!selectedPostId) {
       setCurrentPost(null);
+      setPostError(false);
       return;
     }
 
     const fetchDetail = async () => {
       try {
         setLoadingDetail(true);
+        setPostError(false);
         const res = await fetch(`/data/blog/${selectedPostId}.json`);
         if (!res.ok) throw new Error(`Failed to load blog post: ${selectedPostId}`);
         const data = await res.json();
         setCurrentPost(data);
       } catch (e) {
         console.error('Error fetching blog detail:', e);
-        setSelectedPostId(null);
+        setPostError(true);
       } finally {
         setLoadingDetail(false);
       }
@@ -130,6 +136,28 @@ export const DreamBlog: React.FC<{
     }
   };
 
+  const getCategoriesList = () => {
+    const list = new Set<string>();
+    posts.forEach(p => {
+      const cat = language === 'en' ? (p.categoryEn || p.category) : p.category;
+      if (cat) list.add(cat);
+    });
+    return [language === 'en' ? 'All' : '전체', ...Array.from(list)];
+  };
+
+  const filteredPosts = posts.filter(post => {
+    const cat = language === 'en' ? (post.categoryEn || post.category) : post.category;
+    const matchesCategory = selectedCategory === (language === 'en' ? 'All' : '전체') || cat === selectedCategory;
+    
+    const title = language === 'en' ? post.titleEn : post.title;
+    const excerpt = language === 'en' ? post.excerptEn : post.excerpt;
+    const matchesSearch = searchQuery.trim() === '' || 
+      title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+      
+    return matchesCategory && matchesSearch;
+  });
+
   const getPostSummary = (id: string) => posts.find(p => p.id === id);
 
   return (
@@ -139,6 +167,20 @@ export const DreamBlog: React.FC<{
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', color: 'var(--color-secondary)' }}>
           <div className="spinner" style={{ width: '40px', height: '40px', border: '3px solid rgba(0, 242, 254, 0.1)', borderTopColor: 'var(--color-secondary)', borderRadius: '50%', animation: 'spin 1s linear infinite', marginBottom: '16px' }} />
           <span>{language === 'en' ? 'Loading post...' : '서고에서 글을 꺼내는 중...'}</span>
+        </div>
+      ) : postError ? (
+        <div className="blog-error-container glass-panel fade-in">
+          <h2 className="blog-error-title font-display text-gradient-purple">
+            404 Not Found
+          </h2>
+          <p className="blog-error-text">
+            {language === 'en' 
+              ? 'The requested dream interpretation post could not be found in the archive.' 
+              : '요청하신 꿈해몽 분석글이 기억의 서고에 존재하지 않거나, 일시적인 로딩 실패가 발생했습니다.'}
+          </p>
+          <button onClick={() => { setSelectedPostId(null); setPostError(false); }} className="glow-btn blog-error-btn">
+            {language === 'en' ? 'Return to List' : '서고 목록으로 돌아가기'}
+          </button>
         </div>
       ) : currentPost ? (
         <div>
@@ -331,14 +373,44 @@ export const DreamBlog: React.FC<{
             </p>
           </div>
 
+          {/* Search Bar & Category tabs */}
+          <div className="blog-controls-container glass-panel">
+            <div className="blog-search-wrapper">
+              <input 
+                type="text"
+                placeholder={language === 'en' ? "Search dream records by title or description..." : "서고의 기록 검색 (예: 뱀, 돈, 죽음...)"}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="blog-search-input"
+              />
+            </div>
+            <div className="blog-category-tabs">
+              {getCategoriesList().map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`blog-category-btn ${selectedCategory === cat ? 'active' : ''}`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
           {loadingList ? (
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '200px', color: 'var(--color-secondary)' }}>
               <div className="spinner" style={{ width: '30px', height: '30px', border: '3px solid rgba(0, 242, 254, 0.1)', borderTopColor: 'var(--color-secondary)', borderRadius: '50%', animation: 'spin 1s linear infinite', marginBottom: '12px' }} />
               <span>{language === 'en' ? 'Loading library index...' : '서고 목록을 불러오는 중...'}</span>
             </div>
+          ) : filteredPosts.length === 0 ? (
+            <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--text-muted)', fontSize: '0.95rem' }} className="glass-panel">
+              {language === 'en' 
+                ? 'No matching dream records found in the archive.' 
+                : '검색어나 카테고리에 일치하는 해몽 기록이 서고에 존재하지 않습니다.'}
+            </div>
           ) : (
             <div className="blog-grid">
-              {posts.map((post) => (
+              {filteredPosts.map((post) => (
                 <div 
                   key={post.id} 
                   onClick={() => setSelectedPostId(post.id)}

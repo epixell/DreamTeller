@@ -1,0 +1,137 @@
+{
+  "id": "clothes-dream",
+  "title": "옷 꿈 심층분석",
+  "titleEn": "Clothes Dream In-Depth Analysis",
+  "introduction": "옷(Clothes)은 사회적 지위, 신분, 자존감, 그리고 자신을 세상에 표현하는 '페르소나(Persona)'의 표상입니다. 옷을 새로 입거나 잃어버리는 꿈은 사회적 신분이나 대인관계의 거대한 전환을 의미합니다. 이 가이드북에서 옷 꿈의 모든 비밀을 해독해 드립니다.",
+  "introductionEn": "Clothes in dreams represent your social status, self-esteem, and the 'Persona' you present to the world. Putting on new clothes or losing them represents major shifts in your career or public standing. Let's decode clothes dreams.",
+  "mythology": "전통적인 복식 문화와 무속 신앙에서 한복이나 관복(유니폼)을 새로 받는 것은 임금이나 하늘로부터 신분을 허가받는 것을 뜻합니다. 새 옷을 깨끗이 다듬어 입는 것은 신분 상승과 관직 등용을 표방하며, 반대로 옷이 찢어지거나 벌거벗는 것은 보호막이 제거되어 큰 망신이나 손재수가 생길 흉조로 봅니다.",
+  "mythologyEn": "In traditional cultures, receiving new robes signals receiving blessings and official authority from the rulers. Wearing clean, dignified clothes symbolizes career promotion and elevation. Conversely, torn clothes or being naked represents loss of protection, leading to public disgrace.",
+  "sections": [
+    {
+      "id": "sec-good-1",
+      "title": "눈부시고 깨끗한 고급 새 옷을 맞춰 입는 꿈",
+      "titleEn": "Wearing Beautiful, High-Quality New Clothes",
+      "content": "직장에서의 승진, 시험 합격, 연애의 성사 등 본인의 사회적 입지와 지위가 대폭 상승할 최고의 길몽입니다.",
+      "contentEn": "A top-tier lucky dream predicting promotion, passing a hard exam, or marital success. Your social status will rise.",
+      "isAuspicious": true,
+      "keywords": [
+        "새옷",
+        "입는",
+        "고급",
+        "합격"
+      ]
+    },
+    {
+      "id": "sec-good-2",
+      "title": "임금의 용포나 관직용 의복(화려한 제복)을 선물받는 꿈",
+      "titleEn": "Receiving a Royal Robe or Official Uniform",
+      "content": "국가나 대기업 등 공인된 단체로부터 훈장, 큰 직책, 혹은 거대한 상업적 이권 계약을 획득하게 됨을 암시합니다.",
+      "contentEn": "Signals acquiring prestigious titles, public medals, or major government contracts that elevate your authority.",
+      "isAuspicious": true,
+      "keywords": [
+        "용포",
+        "제복",
+        "선물",
+        "직책"
+      ]
+    },
+    {
+      "id": "sec-good-3",
+      "title": "더러운 작업복을 벗어 던지고 화려한 외출복으로 갈아입는 꿈",
+      "titleEn": "Changing from Dirty Workwear to Glamorous Clothes",
+      "content": "길었던 정체기와 고난의 터널을 지나, 완전히 새로운 직장이나 부서로 이동하여 빛을 발하게 될 신호입니다.",
+      "contentEn": "Indicates passing through long stagnation and moving to a brand-new career path or company to shine.",
+      "isAuspicious": true,
+      "keywords": [
+        "갈아입는",
+        "벗는",
+        "화려한",
+        "전환"
+      ]
+    },
+    {
+      "id": "sec-good-4",
+      "title": "빨래를 깨끗이 마쳐 뽀송뽀송하게 말린 옷을 개어두는 꿈",
+      "titleEn": "Folding Freshly Washed and Dried Clothes",
+      "content": "얽혀 있던 고민거리나 금전적 고충이 완전히 해결되어 심리적 평온함과 안도감을 되찾게 됨을 상징합니다.",
+      "contentEn": "Represents that entangled financial problems or emotional stress will be completely resolved, bringing peace.",
+      "isAuspicious": true,
+      "keywords": [
+        "빨래",
+        "정리",
+        "평온",
+        "안도"
+      ]
+    },
+    {
+      "id": "sec-bad-1",
+      "title": "입고 있던 옷이 사정없이 찢어지거나 구멍이 뚫리는 꿈",
+      "titleEn": "Your Clothes Being Torn or Full of Holes",
+      "content": "가까운 지인이나 부하 직원의 실수로 본인의 명예가 실추되거나, 예상치 못한 재정적 큰 손실이 발생할 수 있는 징조입니다.",
+      "contentEn": "A cautionary omen indicating that your reputation may be tarnished or unexpected financial deficit may occur.",
+      "isAuspicious": false,
+      "keywords": [
+        "찢어지는",
+        "구멍",
+        "실수",
+        "손해"
+      ]
+    },
+    {
+      "id": "sec-bad-2",
+      "title": "길거리 한복판에서 입을 옷을 잃어버려 벌거벗고 당황하는 꿈",
+      "titleEn": "Losing Your Clothes and Being Naked in Public",
+      "content": "현실에서 극심한 불안감과 외로움을 느끼고 있으며, 본인의 비밀이나 약점이 공개될까 두려워하는 심리적 흉조입니다.",
+      "contentEn": "Reflects deep insecurity and vulnerability. You fear your secrets or weaknesses will be exposed to the public.",
+      "isAuspicious": false,
+      "keywords": [
+        "벌거벗은",
+        "분실",
+        "당황",
+        "불안"
+      ]
+    },
+    {
+      "id": "sec-bad-3",
+      "title": "지저분하고 오물이 가득 묻은 옷을 억지로 입고 있는 꿈",
+      "titleEn": "Forced to Wear Dirty and Muddy Clothes",
+      "content": "하기 싫은 과도한 업무 책임을 떠맡아 영혼이 소진되거나, 대인관계 질투와 시비에 휘말릴 수 있으니 주의하라는 뜻입니다.",
+      "contentEn": "Indicates that you will be forced to shoulder heavy unwanted duties, leading to emotional burnout and conflicts.",
+      "isAuspicious": false,
+      "keywords": [
+        "오물",
+        "더러운",
+        "강요",
+        "스트레스"
+      ]
+    },
+    {
+      "id": "sec-bad-4",
+      "title": "상복(검은 소복)을 입고 통곡하며 서 있는 꿈",
+      "titleEn": "Wearing Mourning Clothes and Wailing",
+      "content": "가까운 주변에 슬픈 일이 생기거나, 본인이 관리하던 중요 계약이 전면 취소되는 아픔을 겪을 수 있으니 대비하라는 신호입니다.",
+      "contentEn": "Warns of cancellation of major business contracts or losing a key relationship. Prepare mentally.",
+      "isAuspicious": false,
+      "keywords": [
+        "상복",
+        "통곡",
+        "상실",
+        "취소"
+      ]
+    }
+  ],
+  "psychology": "칼 융 심리학에서 옷은 세상에 보여지는 우리 자아의 외적 껍데기, 즉 '페르소나(Persona)'입니다. 옷을 새로 입는 꿈은 새로운 사회적 역할에 적응하는 긍정적 징후이며, 벌거벗거나 옷이 찢어져 곤란해하는 꿈은 사회적 보호막을 잃고 초조해하는 내면 상태의 표출입니다.",
+  "psychologyEn": "In Jungian psychology, clothes represent the 'Persona'—the mask we wear in society. Wearing new clothes shows adapting to a new role, while being naked in public reflects anxiety over having your vulnerabilities exposed.",
+  "faqs": [
+    {
+      "question": "Q1. 다른 사람의 옷을 빌려 입는 꿈은 무엇인가요?",
+      "answer": "A1. 현실에서 타인의 도움을 받아 일을 처리하거나, 다른 사람의 명예/지위를 일시적으로 위임받아 성공의 발판을 다지게 됨을 암시합니다."
+    },
+    {
+      "question": "Q2. 붉은색 의상을 화려하게 입고 있는 꿈은 좋은 꿈인가요?",
+      "answer": "A2. 강렬한 에너지와 열정의 상징으로 귀한 신분으로 추앙받거나 큰 인기를 끌 길몽이기도 하나, 감정이 과열되어 구설수에 오를 위험도 내포한 양면의 상징입니다."
+    }
+  ],
+  "conclusion": "옷 꿈은 우리의 사회적 위상과 자존감의 지표입니다. 입고 있는 옷이 낡았거나 찢어졌더라도 절망하지 말고, 현실 속에서 자신감을 가다듬어 새로운 페르소나를 당당히 설계해 보세요.",
+  "conclusionEn": "A clothes dream indicates your social status and self-esteem. Even if the clothes in your dream were torn, regain your inner confidence to rebuild a strong, successful persona."
+}

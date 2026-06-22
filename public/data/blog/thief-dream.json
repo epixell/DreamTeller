@@ -1,0 +1,137 @@
+{
+  "id": "thief-dream",
+  "title": "도둑 꿈 심층분석",
+  "titleEn": "Thief Dream In-Depth Analysis",
+  "introduction": "도둑이 집안에 들어오거나 물건을 훔쳐가는 꿈은 전통 해몽에서 뜻밖의 근심 걱정 해소(역몽)가 되기도 하며, 반대로 현실적인 재물 상실이나 관계의 파국을 경고하기도 합니다. 이 가이드북에서 도둑 꿈의 숨은 진실을 밝혀 드립니다.",
+  "introductionEn": "Dreams of thieves breaking in or stealing things represent shifts in security, wealth, and worry. In traditional dream analysis, a thief taking things can represent the removal of worries (reverse interpretation). Let's decode thief dreams.",
+  "mythology": "전통 무속 신앙에서 집은 나를 보호하는 성벽이며, 도둑은 나를 침범하려는 잡귀나 액운의 형상화입니다. 하지만 도둑이 집안의 낡은 가구나 골치 아픈 물건을 훔쳐 도망가는 것은 집안의 묵은 살풀이와 걱정거리를 대신 가져가 준다는 해소의 의미로 풀이됩니다. 반면 가장 아끼는 귀중품이나 돈을 훔쳐가는 것은 핵심 자산을 잃을 위험을 칭합니다.",
+  "mythologyEn": "Historically, the house is a sanctuary, and a thief is a symbol of malicious energy. However, if a thief steals old, messy furniture, it represents cleansing of bad fortunes. If they steal your most precious jewelry or cash, it warns of losing core assets.",
+  "sections": [
+    {
+      "id": "sec-good-1",
+      "title": "내 집에 들어온 도둑을 몸싸움 끝에 때려잡는 꿈",
+      "titleEn": "Fighting and Catching a Thief in Your House",
+      "content": "가장 골치 아프던 대인관계 시비, 법률 소송, 혹은 만성 채무 관계를 스스로의 힘으로 통쾌하게 해결하게 될 대길몽입니다.",
+      "contentEn": "Signals that you will resolutely solve complex debts, lawsuits, or personal disputes by your own strength.",
+      "isAuspicious": true,
+      "keywords": [
+        "도둑잡는",
+        "싸움",
+        "해결",
+        "승리"
+      ]
+    },
+    {
+      "id": "sec-good-2",
+      "title": "도둑이 집안의 쓰레기나 고물, 낡은 집기를 가져가는 꿈",
+      "titleEn": "Thief Stealing Garbage or Old Junk",
+      "content": "묵은 액운과 고민거리를 도둑이 대신 짊어지고 가버린 형상으로, 조만간 가정이 평안해질 해소의 길몽입니다.",
+      "contentEn": "The thief carries away your accumulated worries. Your family life and business will return to a peaceful state.",
+      "isAuspicious": true,
+      "keywords": [
+        "고물",
+        "쓰레기",
+        "해소",
+        "도주"
+      ]
+    },
+    {
+      "id": "sec-good-3",
+      "title": "도둑이 든 것을 보고 경찰에 신고하여 바로 체포하는 꿈",
+      "titleEn": "Reporting the Thief and Arresting Them Instantly",
+      "content": "시스템과 공적인 지원(귀인, 법률적 보호)의 도움을 받아 안정적으로 위기 요소를 통제하게 될 신호입니다.",
+      "contentEn": "Signals that with the support of legal or institutional shields, you will safely contain potential risks.",
+      "isAuspicious": true,
+      "keywords": [
+        "신고",
+        "경찰",
+        "체포",
+        "안전"
+      ]
+    },
+    {
+      "id": "sec-good-4",
+      "title": "도둑이 훔쳐갔던 물건을 다시 도로 추적하여 찾아오는 꿈",
+      "titleEn": "Tracking Down and Recovering Stolen Items",
+      "content": "잃어버렸던 판권, 특허, 혹은 가출했던 가족이나 헤어졌던 연인과 기적처럼 재결합하여 제자리를 찾게 됨을 상징합니다.",
+      "contentEn": "Signals recovering lost assets, patents, or reuniting with estranged family members or partners.",
+      "isAuspicious": true,
+      "keywords": [
+        "회수",
+        "추적",
+        "복구",
+        "재회"
+      ]
+    },
+    {
+      "id": "sec-bad-1",
+      "title": "도둑이 금고 안의 금괴나 지폐 다발을 전부 훔쳐 달아난 꿈",
+      "titleEn": "Thief Stealing All Cash and Gold from Your Safe",
+      "content": "현실의 투자 실패, 보증 오류, 혹은 사기 계약으로 인해 핵심적인 경제적 자산을 상실할 위험을 경고하는 흉몽입니다.",
+      "contentEn": "A heavy warning of investment failure, fraud, or contract cancellation. Protect your assets vigilantly.",
+      "isAuspicious": false,
+      "keywords": [
+        "금고",
+        "도난",
+        "손실",
+        "사기"
+      ]
+    },
+    {
+      "id": "sec-bad-2",
+      "title": "도둑을 보고 무서워서 소리 지르거나 도망치다 숨는 꿈",
+      "titleEn": "Fleeing and Hiding from a Thief in Fear",
+      "content": "자신의 경계선이 무너지고 있으며, 마주한 문제(부채, 상사의 억압 등)를 회피하려 할 때 겪는 극심한 스트레스의 반영입니다.",
+      "contentEn": "Reflects deep anxiety over boundary violation. You are avoiding pressing problems rather than confronting them.",
+      "isAuspicious": false,
+      "keywords": [
+        "도망",
+        "공포",
+        "회피",
+        "숨는"
+      ]
+    },
+    {
+      "id": "sec-bad-3",
+      "title": "복면에 칼을 든 도둑(강도)이 들어와 나를 협박하는 꿈",
+      "titleEn": "Armed Thief (Robber) Threatening You with a Weapon",
+      "content": "타인이나 외부 환경의 강력한 강압에 의해 내 권리를 억지로 양도하거나, 억울한 계약을 맺어야 할 수 있는 압박의 징조입니다.",
+      "contentEn": "Indicates that you may be forced to yield your rights or sign unfavorable contracts under pressure. Be careful.",
+      "isAuspicious": false,
+      "keywords": [
+        "강도",
+        "협박",
+        "억압",
+        "양도"
+      ]
+    },
+    {
+      "id": "sec-bad-4",
+      "title": "도둑이 벽에 구멍을 뚫고 내 옷장 속 옷을 다 가져가는 꿈",
+      "titleEn": "Thief Boring a Hole and Stealing Your Clothes",
+      "content": "사회적 체면이나 비밀스러운 약점(치부)이 남에게 도용되거나 폭로되어 큰 정신적 망신을 당하게 됨을 예고합니다.",
+      "contentEn": "Warns that your secrets, credentials, or privacy may be compromised, leading to public embarrassment.",
+      "isAuspicious": false,
+      "keywords": [
+        "벽 구멍",
+        "옷장",
+        "비밀",
+        "폭로"
+      ]
+    }
+  ],
+  "psychology": "정신의학적 관점에서 도둑은 내면의 안전감(Security)을 위협하는 불안 요인입니다. 또한 융 심리학에서는 내가 무의식 속에 숨기고 싶었던 '비밀스러운 욕망'이나 '그림자(Shadow)'가 내 이성적 통제를 뚫고 들어오려 할 때 도둑의 모양으로 나타난다고 봅니다.",
+  "psychologyEn": "From a psychiatric viewpoint, a thief represents internal insecurity. In Jungian psychology, it indicates that repressed desires or the 'Shadow' is breaking into your conscious Ego, prompting you to review your inner balance.",
+  "faqs": [
+    {
+      "question": "Q1. 아는 사람이 내 집의 도둑으로 들어온 꿈은 무슨 뜻인가요?",
+      "answer": "A1. 꿈속에 도둑으로 등장한 그 지인(혹은 그와 관련된 인물)과의 사이에 불신감, 경계심, 혹은 재정적 갈등이 있음을 잠재의식이 경고하는 것입니다."
+    },
+    {
+      "question": "Q2. 도둑을 칼로 찔러 내가 죽이는 꿈은 길몽인가요?",
+      "answer": "A2. 예, 매우 강력한 극복의 상징입니다. 자신을 위협하던 가난, 질병, 혹은 경쟁자를 완벽히 제거하고 성공을 움켜쥘 최고의 대길몽입니다."
+    }
+  ],
+  "conclusion": "도둑 꿈은 경계의 보호망을 재점검하라는 무의식의 메시지입니다. 현실 세계에서 자신의 자산과 대인관계의 경계선을 명확히 하고, 당당한 태도로 자신의 영역을 다스려 보세요.",
+  "conclusionEn": "A thief dream calls for a security review. Re-establish your personal and financial boundaries in reality, and guard your values with confidence."
+}

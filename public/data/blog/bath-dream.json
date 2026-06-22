@@ -1,0 +1,137 @@
+{
+  "id": "bath-dream",
+  "title": "목욕 꿈 심층분석",
+  "titleEn": "Bath Dream In-Depth Analysis",
+  "introduction": "목욕을 하거나 물로 몸을 깨끗이 씻는 꿈은 과거의 잘못을 지워내는 정화(Purification)와 고민거리 해결, 그리고 거대한 질적 전환의 표상입니다. 목욕 꿈은 더러운 때가 말끔히 씻겨나갈 때 가장 온전한 길몽으로 성취됩니다. 이 가이드북에서 목욕 꿈을 심도 있게 분석해 드립니다.",
+  "introductionEn": "Bathing or washing your body represents purification, resolving worries, and personal transformation. Cleaning away dirt translates to successful problem-solving. Let's analyze bath dreams.",
+  "mythology": "고대 종교와 세례 의식에서 물로 씻는 목욕은 죄악과 불결함을 지우고 새로 태어나는 성스러운 의식이었습니다. 동양 전통 해몽에서도 깨끗한 온천이나 강물에 몸을 담그는 것은 모든 가문의 고질적인 액운과 우환이 씻겨 내려가며 새로운 기회와 관직을 얻게 될 최고의 상서로움으로 해석됩니다.",
+  "mythologyEn": "In ancient rituals, washing represents spiritual cleansing. In Eastern dream analysis, soaking in a clean hot spring or river signals that all lingering family misfortunes will wash away, inviting luck and jobs.",
+  "sections": [
+    {
+      "id": "sec-good-1",
+      "title": "맑은 온천물에 몸을 담그고 기분 좋게 씻는 꿈",
+      "titleEn": "Soaking and Washing in a Clean Hot Spring",
+      "content": "만성 질환의 치유, 얽혀 있던 소송의 승리, 혹은 미해결된 금융 부채를 청산하고 완벽한 심리적 해방을 이룰 최고의 길몽입니다.",
+      "contentEn": "A major lucky omen indicating recovery from illness, winning lawsuits, or clearing bad debts to feel absolute peace.",
+      "isAuspicious": true,
+      "keywords": [
+        "온천",
+        "맑은 물",
+        "정화",
+        "질환 회복"
+      ]
+    },
+    {
+      "id": "sec-good-2",
+      "title": "때를 밀었는데 더러운 때가 시원하게 우두두 떨어지는 꿈",
+      "titleEn": "Scrubbing Dirt and Feeling Instantly Cleaned",
+      "content": "가장 골치 아프게 억누르던 오해, 구설수, 혹은 누명을 벗어던지고 자신의 정당함을 완벽히 증명하게 됨을 암시합니다.",
+      "contentEn": "Signals clearing your name from false rumors, misunderstandings, or accusations, restoring your good reputation.",
+      "isAuspicious": true,
+      "keywords": [
+        "때밀기",
+        "시원한",
+        "구설수 해결",
+        "해소"
+      ]
+    },
+    {
+      "id": "sec-good-3",
+      "title": "공 대중목욕탕에서 수많은 사람과 함께 씻으며 즐거워하는 꿈",
+      "titleEn": "Bathing with Many People in a Public Bath",
+      "content": "동업자나 협력업체들과의 공동 프로젝트가 순조롭게 화합하여 큰 상업적 성과를 거두고 번창하게 됨을 상징합니다.",
+      "contentEn": "Signals that collaborative projects or partnerships will run smoothly, yielding joint financial success.",
+      "isAuspicious": true,
+      "keywords": [
+        "대중목욕탕",
+        "화합",
+        "공동 작업",
+        "성공"
+      ]
+    },
+    {
+      "id": "sec-good-4",
+      "title": "시원한 물폭포나 소나기를 맞으며 머리부터 샤워하는 꿈",
+      "titleEn": "Showering Under a Waterfall or Heavy Rainshower",
+      "content": "하늘이 내린 정화의 기운을 뜻합니다. 막혔던 아이디어가 폭발적으로 떠오르거나, 사업상 막혔던 자금줄이 개방될 징조입니다.",
+      "contentEn": "Represents cosmic cleansing. Your creative ideas will bloom, and blocked funding resources will open up.",
+      "isAuspicious": true,
+      "keywords": [
+        "샤워",
+        "폭포",
+        "아이디어",
+        "자금개방"
+      ]
+    },
+    {
+      "id": "sec-bad-1",
+      "title": "목욕을 하려는데 비누가 없거나 물이 말라 씻지 못해 안달하는 꿈",
+      "titleEn": "Struggling to Bathe Because There is No Water or Soap",
+      "content": "문제를 해결하고자 하는 의지는 강하나, 현실적 자금이나 수단(비누/물)이 턱없이 부족해 좌절감을 느끼는 징조입니다.",
+      "contentEn": "Though you wish to resolve problems, you lack the cash or means (water/soap), leading to temporary frustration.",
+      "isAuspicious": false,
+      "keywords": [
+        "수단부족",
+        "좌절",
+        "건조한",
+        "준비 미흡"
+      ]
+    },
+    {
+      "id": "sec-bad-2",
+      "title": "더러운 흙탕물이나 썩은 물에 들어가 목욕하는 꿈",
+      "titleEn": "Bathing in Dirty, Muddy, or Rotten Water",
+      "content": "부정한 일에 연루되어 큰 고초를 겪거나, 건강이 오히려 급속도로 악화될 수 있으니 주변 환경을 정돈하라는 경고입니다.",
+      "contentEn": "Warns against getting involved in illegal or shady dealings. It also warns of decline in physical health.",
+      "isAuspicious": false,
+      "keywords": [
+        "흙탕물",
+        "썩은물",
+        "감염",
+        "부정부패"
+      ]
+    },
+    {
+      "id": "sec-bad-3",
+      "title": "목욕 도중 다른 사람에게 발각되어 수치감을 느끼고 도망치는 꿈",
+      "titleEn": "Being Discovered Naked Mid-Bath and Running Away",
+      "content": "본인이 감추고 싶었던 비밀이나 약점이 외부에 폭로되어 대중적인 망신을 당할 수 있는 징조이니 보안을 다지라는 뜻입니다.",
+      "contentEn": "Warns that your hidden secrets or vulnerabilities may be exposed, resulting in public embarrassment.",
+      "isAuspicious": false,
+      "keywords": [
+        "발각",
+        "수치심",
+        "노출",
+        "비밀 폭로"
+      ]
+    },
+    {
+      "id": "sec-bad-4",
+      "title": "목욕탕 물이 갑자기 차갑게 얼어붙거나 시체 같은 이물질이 떠오르는 꿈",
+      "titleEn": "Bathwater Freezing or a Corpse Floating Up",
+      "content": "잘 풀리던 거래나 인간관계가 돌연 동결(중단)되거나, 믿었던 파트너의 이탈로 인해 정신적 충격을 겪을 위험을 경고합니다.",
+      "contentEn": "Warns of sudden freezing (stalling) of business negotiations, or emotional shock from a partner leaving.",
+      "isAuspicious": false,
+      "keywords": [
+        "얼어붙는",
+        "이물질",
+        "중단",
+        "돌발사고"
+      ]
+    }
+  ],
+  "psychology": "심리학에서 목욕은 '의식의 재정비'와 '부정적 자아의 씻어냄'을 뜻합니다. 목욕을 마친 후 날아갈 듯 가벼워지는 것은 자아(Ego)가 오랜 정신적 스트레스와 무의식의 억압(때)을 털어내고 새로운 심리적 밸런스를 구축했음을 의미합니다.",
+  "psychologyEn": "Psychologically, bathing represents the ego purging negative emotions and resetting focus. Feeling refreshed afterward signals that the Ego has shed chronic stress and achieved a healthy psychological balance.",
+  "faqs": [
+    {
+      "question": "Q1. 갓 태어난 아기를 목욕시키는 꿈은 무엇인가요?",
+      "answer": "A1. 아기는 새로운 기획이나 출발을 상징합니다. 아기를 씻겨주는 것은 조만간 새로 시작할 연구나 사업을 정교하게 검토하고 보살피게 됨을 뜻하는 긍정적인 준비의 표상입니다."
+    },
+    {
+      "question": "Q2. 머리만 감는 꿈은 좋은 꿈인가요?",
+      "answer": "A2. 예, 머리는 생각의 중심입니다. 머리를 감는 것은 그동안 꼬여 있던 생각, 아이디어 고갈의 문제가 풀려 신선한 발상을 할 수 있게 됨을 예고합니다."
+    }
+  ],
+  "conclusion": "목욕 꿈은 지친 자아에게 보내는 정화의 초대장입니다. 과거의 얼룩이나 실수가 당신의 발목을 잡더라도, 이를 깨끗이 씻어내고 다시 시작하는 회복탄력성을 발휘해 보세요.",
+  "conclusionEn": "A bath dream is an invitation to purge old burdens. Even if past mistakes weigh you down, wash them away and utilize your recovery resilience to start fresh."
+}

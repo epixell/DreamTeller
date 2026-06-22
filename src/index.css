@@ -845,3 +845,99 @@ p {
 .blog-back-btn:hover {
   transform: translateX(-4px);
 }
+
+/* Blog Search & Category Filter Styles */
+.blog-controls-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  margin-bottom: 8px;
+  border-radius: 16px;
+}
+
+.blog-search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.blog-search-input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-color);
+  border-radius: 30px;
+  padding: 12px 24px;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+  font-family: var(--font-primary);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.blog-search-input:focus {
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 12px hsla(180, 80%, 65%, 0.15);
+}
+
+.blog-category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.blog-category-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.blog-category-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.blog-category-btn.active {
+  background: hsla(180, 80%, 65%, 0.12);
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+  box-shadow: 0 0 10px hsla(180, 80%, 65%, 0.15);
+}
+
+/* Blog Error (404) Layout */
+.blog-error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 32px;
+  border-radius: 20px;
+  margin: 40px auto;
+  max-width: 600px;
+  gap: 16px;
+}
+
+.blog-error-title {
+  font-size: 2.2rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.blog-error-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.blog-error-btn {
+  padding: 10px 28px;
+  font-weight: 600;
+}

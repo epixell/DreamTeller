@@ -1,0 +1,137 @@
+{
+  "id": "exam-dream",
+  "title": "시험 꿈 심층분석",
+  "titleEn": "Exam Dream In-Depth Analysis",
+  "introduction": "시험이나 면접을 보거나 늦는 꿈은 현대인들이 가장 흔하게 경험하는 전형적인 평가 불안과 스트레스의 표상입니다. 시험 꿈은 현실의 상황(합격 여부)을 기계적으로 예측하기보다는, 마주하고 있는 도전 과제와 내적 성숙을 조명합니다. 이 가이드북에서 시험 꿈을 해독해 드립니다.",
+  "introductionEn": "Dreams of taking exams, failing, or being late are classic reflections of performance anxiety and waking life stress. Rather than predicting raw test outcomes, exam dreams evaluate your coping mechanisms. Let's decode them.",
+  "mythology": "과거 시험을 통해 평생의 입신양명을 결정짓던 동양 문화권에서 시험은 일생일대의 '관문'이었습니다. 시험지가 하얗게 비어있거나 지각하는 꿈은 액운을 예고하기도 하나, 실제 도전을 앞두고 심리적 액땜을 하는 과정으로 볼 수 있습니다. 시험 문제를 막힘없이 술술 풀어내는 것은 영적인 명철함과 장애물 극복을 상징합니다.",
+  "mythologyEn": "In historical societies, the imperial examination was a life-defining gateway. Thus, exam dreams represent transitional gates. Empty papers or being late warning of bad preparation, but solving questions smoothly reflects mental clarity and removing roadblocks.",
+  "sections": [
+    {
+      "id": "sec-good-1",
+      "title": "시험 문제를 거침없이 막힘없이 술술 풀고 합격하는 꿈",
+      "titleEn": "Solving Exam Questions Smoothly and Passing",
+      "content": "현실 세계에서 오랫동안 막혔던 거래, 연구, 학업상의 어려운 고비가 시원하게 해결되고 권리를 획득하게 됨을 뜻합니다.",
+      "contentEn": "A positive omen indicating that major problems in your business, studies, or legal affairs will be cleared easily.",
+      "isAuspicious": true,
+      "keywords": [
+        "합격",
+        "해결",
+        "순조로운",
+        "성공"
+      ]
+    },
+    {
+      "id": "sec-good-2",
+      "title": "시험장에 1등으로 도착하여 차분하게 대기하는 꿈",
+      "titleEn": "Arriving First at the Exam Hall and Waiting Calmly",
+      "content": "현실의 프로젝트나 도전에 대한 준비가 완벽하며, 다가올 경쟁에서 압도적인 우위를 점하게 됨을 암시합니다.",
+      "contentEn": "Indicates that you are fully prepared for upcoming trials, promising a solid advantage over your competitors.",
+      "isAuspicious": true,
+      "keywords": [
+        "대기",
+        "차분한",
+        "준비",
+        "자신감"
+      ]
+    },
+    {
+      "id": "sec-good-3",
+      "title": "시험을 망쳐서 낙방하고 시원하게 우는 꿈",
+      "titleEn": "Failing the Exam and Crying Loudly with Relief",
+      "content": "전통 해몽의 역몽(반대 해석)으로, 오히려 현실에서는 큰 시험이나 면접에서 우수한 성적으로 합격하게 될 대길몽입니다.",
+      "contentEn": "A classic reverse dream. Failing and crying in your dream predicts passing the actual test with flying colors.",
+      "isAuspicious": true,
+      "keywords": [
+        "낙방",
+        "울음",
+        "반전",
+        "합격"
+      ]
+    },
+    {
+      "id": "sec-good-4",
+      "title": "시험 감독관에게 칭찬을 받거나 답안지를 제출하는 꿈",
+      "titleEn": "Being Praised by the Exam Proctor",
+      "content": "권위 있는 기관이나 상사로부터 능력을 공인받아 특별 보너스나 승진, 좋은 이직 제안을 획득하게 됨을 상징합니다.",
+      "contentEn": "Represents official validation of your skills by authority figures, promising promotions or lucrative career offers.",
+      "isAuspicious": true,
+      "keywords": [
+        "칭찬",
+        "제출",
+        "승인",
+        "인정"
+      ]
+    },
+    {
+      "id": "sec-bad-1",
+      "title": "시험 시간에 늦어 허둥지둥 뛰어가다 결국 지각하는 꿈",
+      "titleEn": "Being Late for the Exam and Panicking",
+      "content": "인생의 중요한 기회를 놓칠까 극심한 불안감에 시달리고 있으며, 현재 진행하는 일정 관리에 치명적인 오류가 있음을 경고합니다.",
+      "contentEn": "Reflects high anxiety over missing crucial opportunities. It warns of scheduling errors in your current workflow.",
+      "isAuspicious": false,
+      "keywords": [
+        "지각",
+        "Panicking",
+        "도망",
+        "실패"
+      ]
+    },
+    {
+      "id": "sec-bad-2",
+      "title": "시험지를 받았는데 온통 백지이거나 글씨가 보이지 않는 꿈",
+      "titleEn": "Receiving a Blank Exam Paper or Invisible Letters",
+      "content": "현재 본인이 마주한 현실적 압박이 한계를 넘어 머릿속이 하얗게 비워진(Burnout) 심리적 경고 상태입니다.",
+      "contentEn": "Signals emotional burnout. The stress of current tasks is overwhelming your cognitive ability. Take a rest.",
+      "isAuspicious": false,
+      "keywords": [
+        "백지",
+        "보이지 않는",
+        "스트레스",
+        "번아웃"
+      ]
+    },
+    {
+      "id": "sec-bad-3",
+      "title": "시험 도중 필기구를 잃어버리거나 답안지가 찢어지는 꿈",
+      "titleEn": "Losing Stationery or Having the Answer Sheet Torn",
+      "content": "준비되지 않은 상태로 도전을 강요받고 있거나, 예상치 못한 계약 파기 및 협력업체 부도로 고생할 수 있는 징조입니다.",
+      "contentEn": "Warns of sudden contract breach, supplier bankruptcy, or forced decisions without solid preparations.",
+      "isAuspicious": false,
+      "keywords": [
+        "분실",
+        "찢어진",
+        "돌발사고",
+        "오류"
+      ]
+    },
+    {
+      "id": "sec-bad-4",
+      "title": "컨닝(부정행위)을 하다가 현장에서 들통나 퇴장당하는 꿈",
+      "titleEn": "Caught Cheating During the Exam and Expelled",
+      "content": "현실에서 떳떳하지 못한 방법(편법, 도용 등)을 동원해 이득을 얻으려다 파멸할 수 있으니 행보를 정직하게 바로잡으라는 엄중한 신호입니다.",
+      "contentEn": "A strong moral alert warning you against shortcuts or unethical methods, which could lead to severe ruin.",
+      "isAuspicious": false,
+      "keywords": [
+        "부정행위",
+        "들통",
+        "퇴장",
+        "정직"
+      ]
+    }
+  ],
+  "psychology": "시험 꿈은 완벽주의 성향을 가진 사람들에게 주로 관찰됩니다. 심리학적으로 이는 타인의 시선이나 평가에 대한 과도한 압박을 나타내며, 자아(Ego)가 스스로의 능력치에 대해 끊임없이 의심하고 채찍질하고 있음을 보여주는 자가진단형 신호입니다.",
+  "psychologyEn": "Exam dreams are highly prevalent among perfectionists. Psychologically, they reflect anxiety over being judged or evaluated. It is a sign that you are pushing yourself too hard under social expectations.",
+  "faqs": [
+    {
+      "question": "Q1. 이미 졸업했는데 또 학교에서 수능이나 기말고사를 치는 꿈은 왜 꾸나요?",
+      "answer": "A1. 과거에 겪었던 유사한 중압감(취업, 이직, 중대 거래)을 현재 현실 세계에서 다시 마주했을 때, 무의식이 과거의 시험이라는 익숙한 패턴을 소환해 감정을 대처하는 것입니다."
+    },
+    {
+      "question": "Q2. 시험 감독관과 대판 싸우는 꿈은 무슨 뜻인가요?",
+      "answer": "A2. 직장 상사나 관공서, 법률적 규제 등 자신을 억누르는 권위체에 대한 억압된 반발심과 독립하고자 하는 심리적 충동을 드러냅니다."
+    }
+  ],
+  "conclusion": "시험 꿈은 당신이 지금 중요한 도전과 과제를 직면하고 있음을 알리는 무의식의 거울입니다. 점수에 연연하지 말고, 스스로의 기초를 단단히 다지는 충실함에 더 귀를 기울여 보세요.",
+  "conclusionEn": "An exam dream mirrors the major challenges you face. Instead of worrying about target scores, focus on solidifying your basics with peace of mind."
+}

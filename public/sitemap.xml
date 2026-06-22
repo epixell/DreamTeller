@@ -147,4 +147,74 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- 조상 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=ancestor-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 고양이 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=cat-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 거미 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=spider-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 옷 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=clothes-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 시험 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=exam-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 도둑 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=thief-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 자동차 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=car-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 싸움 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=fight-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 연예인 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=celebrity-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- 목욕 꿈 심층분석 -->
+  <url>
+    <loc>https://dreamteller.pages.dev/?post=bath-dream</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
