@@ -121,7 +121,7 @@ export default function App() {
     storageService.saveSettings(updated);
   };
 
-  const handleSelectLanguage = (lang: 'ko' | 'en') => {
+  const handleSelectLanguage = (lang: 'ko' | 'en' | 'ja' | 'zh-TW') => {
     const updated = { ...settings, language: lang };
     setSettings(updated);
     storageService.saveSettings(updated);
@@ -481,12 +481,12 @@ export default function App() {
               <button 
                 onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)} 
                 style={styles.langBtn} 
-                title={settings.language === 'ko' ? "언어 선택 / Select Language" : "Select Language / 언어 선택"}
+                title="Select Language / 언어 선택 / 言語選択 / 選擇語言"
                 className="lang-toggle-btn"
               >
                 <Globe size={16} color="var(--color-secondary)" style={{ marginRight: '6px' }} />
-                <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-main)' }}>
-                  {settings.language === 'ko' ? 'KO' : 'EN'}
+                <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-main)', textTransform: 'uppercase' }}>
+                  {settings.language === 'zh-TW' ? 'ZH' : settings.language.toUpperCase()}
                 </span>
               </button>
 
@@ -511,6 +511,26 @@ export default function App() {
                     }}
                   >
                     🇺🇸 English
+                  </button>
+                  <button 
+                    onClick={() => handleSelectLanguage('ja')} 
+                    style={{
+                      ...styles.dropdownItem,
+                      color: settings.language === 'ja' ? 'var(--color-secondary)' : 'var(--text-main)',
+                      fontWeight: settings.language === 'ja' ? 600 : 400
+                    }}
+                  >
+                    🇯🇵 日本語
+                  </button>
+                  <button 
+                    onClick={() => handleSelectLanguage('zh-TW')} 
+                    style={{
+                      ...styles.dropdownItem,
+                      color: settings.language === 'zh-TW' ? 'var(--color-secondary)' : 'var(--text-main)',
+                      fontWeight: settings.language === 'zh-TW' ? 600 : 400
+                    }}
+                  >
+                    🇹🇼 繁體中文
                   </button>
                 </div>
               )}

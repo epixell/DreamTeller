@@ -44,7 +44,7 @@ export interface DreamRecord {
 export interface AppSettings {
   preferredEngine: 'chrome-nano' | 'qwen-local' | 'mock-demo';
   theme: 'mystic';
-  language: 'ko' | 'en';
+  language: 'ko' | 'en' | 'ja' | 'zh-TW';
 }
 
 
@@ -98,7 +98,13 @@ export const storageService = {
   // --- App Settings ---
   getSettings(): AppSettings {
     const data = localStorage.getItem(SETTINGS_KEY);
-    const autoLang = (typeof navigator !== 'undefined' && navigator.language.startsWith('ko')) ? 'ko' : 'en';
+    let autoLang: 'ko' | 'en' | 'ja' | 'zh-TW' = 'en';
+    if (typeof navigator !== 'undefined') {
+      const userLang = navigator.language.toLowerCase();
+      if (userLang.startsWith('ko')) autoLang = 'ko';
+      else if (userLang.startsWith('ja')) autoLang = 'ja';
+      else if (userLang.startsWith('zh')) autoLang = 'zh-TW';
+    }
     const defaultSettings: AppSettings = {
       preferredEngine: 'chrome-nano',
       theme: 'mystic',

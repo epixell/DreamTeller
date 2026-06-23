@@ -18,7 +18,7 @@ interface GuideModalProps {
   onSelectEngine: (engine: 'chrome-nano' | 'qwen-local' | 'mock-demo') => void;
   chromeSubMode?: 'setup' | 'download';
   onStartChromeDownload?: () => void;
-  language?: 'ko' | 'en';
+  language?: 'ko' | 'en' | 'ja' | 'zh-TW';
 }
 
 export const GuideModal: React.FC<GuideModalProps> = ({

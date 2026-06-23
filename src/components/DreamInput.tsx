@@ -7,7 +7,7 @@ interface DreamInputProps {
   isProcessing: boolean;
   currentEngine: 'chrome-nano' | 'qwen-local' | 'mock-demo';
   onOpenSettings: () => void;
-  language: 'ko' | 'en';
+  language: 'ko' | 'en' | 'ja' | 'zh-TW';
 }
 
 interface StarParticle {

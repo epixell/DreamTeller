@@ -5,7 +5,7 @@ interface InfoModalProps {
   isOpen: boolean;
   onClose: () => void;
   type: 'privacy' | 'about-contact';
-  language: 'ko' | 'en';
+  language: 'ko' | 'en' | 'ja' | 'zh-TW';
 }
 
 export const InfoModal: React.FC<InfoModalProps> = ({ isOpen, onClose, type, language }) => {

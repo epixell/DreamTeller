@@ -18,7 +18,11 @@
         "지폐",
         "줍는",
         "돈뭉치"
-      ]
+      ],
+      "titleJa": "ギルガナの部屋の床からきちんとした新しい紙幣の束を猛烈に拾う夢",
+      "contentJa": "強力な横材であり、富の吉夢です。会社員はボーナスを受けたり、ビジネスマンは大きな取引先を突き抜けて安定した資金を回収することを予告します。",
+      "titleZh": "夢想從街上或地板上撿起一堆新的、僵硬的鈔票。",
+      "contentZh": "這是一筆強大的橫財，也是一個財富的夢想。預示上班族會得到獎金，或商人會因獲得大生意夥伴而獲得穩定的資金。"
     },
     {
       "id": "sec-good-2",
@@ -31,7 +35,11 @@
         "쏟아져",
         "하늘에서",
         "돈벼락"
-      ]
+      ],
+      "titleJa": "空から膨大な量のコインや紙幣が降り注ぐ夢",
+      "contentJa": "利権や名誉が予期せずどこからでも流入することを意味します。本人の創作品や業務成果が社会的に大成功を収め、富を創出します。",
+      "titleZh": "夢見大量的硬幣或紙幣從天而降。",
+      "contentZh": "意思是利益或名譽意外地從四面八方而來。你的創意工作或工作表現會成為巨大的社會成功並創造財富。"
     },
     {
       "id": "sec-good-3",
@@ -44,7 +52,11 @@
         "선물 받는",
         "돈가방",
         "돈주머니"
-      ]
+      ],
+      "titleJa": "貴人や先祖から金色のポケットやお金袋をプレゼントする夢",
+      "contentJa": "強大なスポンサーの登場で資金難を解決したり、相続、遺産などの権益を受け継がれる高貴な兆しです。",
+      "titleZh": "夢見從貴族或祖先那裡收到金袋或錢袋作為禮物",
+      "contentZh": "是貴人的徵兆，財務上的困難會因強大的恩人出現而得到解決，或者你會繼承遺產或遺產等權利和利益。"
     },
     {
       "id": "sec-good-4",
@@ -57,7 +69,11 @@
         "보물상자",
         "발견",
         "가져오는"
-      ]
+      ],
+      "titleJa": "金銀宝がいっぱいの宝箱を見つけて家に持ち込む夢",
+      "contentJa": "生涯の成果を達成したり、家業の繁栄をもたらす大切な契約、特許を取得することになることを暗示します。",
+      "titleZh": "夢見找到裝滿金銀財寶的寶箱並帶回家",
+      "contentZh": "預示著你將取得終生成就或獲得一份有價值的合約或專利，為你的家族企業帶來繁榮。"
     },
     {
       "id": "sec-bad-1",
@@ -70,7 +86,11 @@
         "소매치기",
         "잃어버리는",
         "분실"
-      ]
+      ],
+      "titleJa": "財布を丸ごとスリープするか、お金を失う夢",
+      "contentJa": "私の主導権、自信、あるいは現実的な権利を失う可能性があることを意味します。信じていた人から裏切られますので、資産と人脈を確認してください。",
+      "titleZh": "夢見被扒手或丟失整個錢包。",
+      "contentZh": "這意味著我可能會失去主動性、信心或真正的權利。你可能會被你信任的人背叛，所以要檢查你的資產和人脈。"
     },
     {
       "id": "sec-bad-2",
@@ -83,7 +103,11 @@
         "구걸",
         "돈이 없는",
         "파산"
-      ]
+      ],
+      "titleJa": "乞食にお金を頼んだり持っているお金が一つもなくて慌てる夢",
+      "contentJa": "現在、本人の自尊心が極端に低くなっているか、深刻な経済的欠乏によるストレスに苦しんでいることを反映する心理夢です。",
+      "titleZh": "夢見向乞丐要錢，或是因為沒錢而感到尷尬",
+      "contentZh": "這是一種心理夢，反映了一個人目前的自尊心極低，或者由於嚴重的經濟困難而承受壓力。"
     },
     {
       "id": "sec-bad-3",
@@ -96,7 +120,11 @@
         "찢어진",
         "위조지폐",
         "가짜돈"
-      ]
+      ],
+      "titleJa": "受け取ったお金が破れて書けない、または偽造紙幣であることに気づく夢",
+      "contentJa": "他人の偽の提案や偽りの感言移説に騙され、詐欺被害に遭う胸条です。投資契約条項を慎重に検討する必要があります。",
+      "titleZh": "夢見收到的錢被撕破不能使用，或是假幣。",
+      "contentZh": "預示你會被別人的虛假建議或虛假哄騙所欺騙，成為詐騙對象。應仔細審查投資合約條款。"
     },
     {
       "id": "sec-bad-4",
@@ -109,7 +137,11 @@
         "마이너스",
         "손실",
         "눈물"
-      ]
+      ],
+      "titleJa": "株式や投資額がマイナスになって絶望して涙を流す夢",
+      "contentJa": "無理な投資や余裕のないレバレッジの使用に関する警告です。現実には、資産のポートフォリオをすぐに安全資産中心に整理してください。",
+      "titleZh": "夢見自己因股票或投資金額為負而絕望哭泣。",
+      "contentZh": "This is a warning against excessive investments or the use of leverage that cannot be afforded. In reality, immediately refine your asset portfolio to focus on safe assets."
     }
   ],
   "psychology": "정신분석학에서 돈은 '리비도( libido, 생명적 에너지)'와 자아 가치(Self-worth)를 뜻합니다. 돈을 줍는 것은 내면에 숨겨진 재각성된 에너지를 얻는 행위이며, 돈을 도둑맞는 것은 내면의 자아 가치관이 훼손되거나 현실의 타인에게 정신적 에너지를 탈취당하고 있음을 반영합니다.",
@@ -117,13 +149,35 @@
   "faqs": [
     {
       "question": "Q1. 다른 사람에게 큰돈을 그냥 빌려주는 꿈은 무엇인가요?",
-      "answer": "A1. 타인에게 호의를 베풀 일이 생기거나, 혹은 남을 돕는 과정에서 본인의 영향력이나 대인관계가 더욱 두터워질 좋은 예조입니다."
+      "answer": "A1. 타인에게 호의를 베풀 일이 생기거나, 혹은 남을 돕는 과정에서 본인의 영향력이나 대인관계가 더욱 두터워질 좋은 예조입니다.",
+      "questionEn": "Q1. What does it mean to dream of simply lending a large amount of money to someone else?",
+      "answerEn": "A1. It is a good omen that you will be able to do favors for others, or that your influence and interpersonal relationships will become stronger in the process of helping others.",
+      "questionJa": "Q1.他人に大きなお金を貸す夢は何ですか？",
+      "answerJa": "A1.他人に好意を与えることができたり、あるいは他人を助ける過程で、本人の影響力や対人関係がさらに厚くなる良い予備です。",
+      "questionZh": "Q1. What does it mean to dream of simply lending a large amount of money to someone else?",
+      "answerZh": "A1。预示着你能够为别人做事，或者在帮助别人的过程中你的影响力和人际关系会变得更强。"
     },
     {
       "question": "Q2. 낡은 동전을 여러 개 줍는 꿈은요?",
-      "answer": "A2. 지폐에 비해 동전은 구설수나 자잘한 근심을 상징하는 경우가 많습니다. 특히 낡고 녹슨 동전은 해묵은 걱정이 다시 수면 위로 올라올 수 있음을 뜻합니다."
+      "answer": "A2. 지폐에 비해 동전은 구설수나 자잘한 근심을 상징하는 경우가 많습니다. 특히 낡고 녹슨 동전은 해묵은 걱정이 다시 수면 위로 올라올 수 있음을 뜻합니다.",
+      "questionEn": "Q2. What about the dream of picking up several old coins?",
+      "answerEn": "A2. Compared to banknotes, coins often symbolize gossip or trivial concerns. In particular, old and rusty coins mean that old worries may resurface.",
+      "questionJa": "Q2.古いコインをいくつか拾う夢は？",
+      "answerJa": "A2.紙幣に比べて、コインは口説きや細かい不安を象徴することが多いです。特に古くてさびたコインは、海墨は心配が再び睡眠の上に登ることができることを意味します。",
+      "questionZh": "Q2。 What about the dream of picking up several old coins?",
+      "answerZh": "A2。 Compared to banknotes, coins often symbolize gossip or trivial concerns. In particular, old and rusty coins mean that old worries may resurface."
     }
   ],
   "conclusion": "돈 꿈은 현실의 재정을 점검하는 경종이자, 내적 자존감을 진단하는 거울입니다. 돈에 연연하기보다 스스로의 진정한 가치를 높이는 투자를 단행해 보세요.",
-  "conclusionEn": "Money dreams are mirrors to your inner value. Focus on self-investment to build absolute resilience."
+  "conclusionEn": "Money dreams are mirrors to your inner value. Focus on self-investment to build absolute resilience.",
+  "titleJa": "お金の夢の深い分析",
+  "introductionJa": "お金の夢は単に物質的な豊かさだけでなく、自我の価値、力、機会、そして無意識の欠如を表しています。お金でいっぱいの吉祥からお金を失い、挫折する胸夢まで細かくわかってみます。",
+  "mythologyJa": "貨幣の誕生以前から、富は神の祝福でした。東洋の伝統的な海藻で金銀宝貨や紙幣束を得ることは、実際の富の運の上昇と横材水を暗示します。しかし、引き裂かれたお金や模造貨幣を得ることは、偽の約束や詐欺を警告します。",
+  "psychologyJa": "精神分析では、お金は「リビド（libido、生命エネルギー）」と自己価値（Self-worth）を意味します。お金を拾うことは内面に隠された再覚醒されたエネルギーを得る行為であり、お金を盗むことは内面の自我価値観が毀損されたり、現実の他人に精神的エネルギーを奪取されていることを反映します。",
+  "conclusionJa": "お金の夢は現実の財政をチェックする軽種であり、内的プライドを診断するミラーです。お金に連動するよりも、自分の真の価値を高める投資を断行してみてください。",
+  "titleZh": "深度解析金錢夢",
+  "introductionZh": "金錢夢不僅代表物質財富，也代表自我價值、權力、機會、以及無意識的缺乏。我們詳細地審視了一切，從賺到很多錢的好夢到賠錢和沮喪的壞夢。",
+  "mythologyZh": "甚至在貨幣被創造之前，財富就是上帝的祝福。在傳統的東方夢境解釋中，獲得一捆金、銀或鈔票意味著財富的增加和意外之財。但被騙或假幣警告虛假承諾或詐騙。",
+  "psychologyZh": "在精神分析中，金錢意味著「力比多（生命力）」和自我價值。撿到錢是一種重新喚醒隱藏在內心的能量的行為，而錢被盜則反映了一個人內心的自我價值感受到損害，或者一個人的精神能量在現實中被他人竊取。",
+  "conclusionZh": "金錢夢是檢視你現實生活財務狀況的警鐘，也是診斷你內心自尊的一面鏡子。與其專注於金錢，不如嘗試進行能夠增加您真正價值的投資。"
 }

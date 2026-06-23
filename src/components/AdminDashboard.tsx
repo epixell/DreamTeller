@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 interface AdminDashboardProps {
   onBackToMain: () => void;
-  language: 'ko' | 'en';
+  language: 'ko' | 'en' | 'ja' | 'zh-TW';
 }
 
 export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToMain, language }) => {

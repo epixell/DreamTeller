@@ -8,7 +8,13 @@
     "category": "영적 동물",
     "categoryEn": "Celestial Beasts",
     "coverImage": "/dragon_dream.png",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "龍夢深層分析",
+    "excerptJa": "龍が渦巻き上がる絢爛な縁起と空から墜落する悪い兆候など、霊険な天上の野獣龍夢の渋滞と対処法を詳細に分析します。",
+    "categoryJa": "霊的動物",
+    "titleZh": "深度剖析龍夢",
+    "excerptZh": "詳細剖析龍、神奇天獸的身份及處理方法，如龍騰騰升的吉祥祥瑞、龍從天而降的兇兆等。",
+    "categoryZh": "靈獸"
   },
   {
     "id": "tiger-dream",
@@ -19,7 +25,13 @@
     "category": "행운과 명예",
     "categoryEn": "Spiritual Guides",
     "coverImage": "/tiger_dream.png",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "虎の夢の深層分析",
+    "excerptJa": "部屋に歩いて入る白湖のさわやかな縁起から猫に変わったり家を離脱する不吉な警告まで、森の帝王がプレゼントする内面エネルギーを総まとめます。",
+    "categoryJa": "幸運と名誉",
+    "titleZh": "深入解析老虎夢",
+    "excerptZh": "從白虎走進房間的吉祥徵兆，到變成貓或離開家人的不祥警告，我們總結了森林之主所提供的內在能量。",
+    "categoryZh": "幸運與榮耀"
   },
   {
     "id": "water-dream",
@@ -30,7 +42,13 @@
     "category": "자연과 원소",
     "categoryEn": "Nature & Elements",
     "coverImage": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "水の夢の深層分析",
+    "excerptJa": "澄んだ水が家の中でいっぱいの富の運の大爆発から泥水に陥り、ホウ敵隊は心理的正体まで、生命力と感情の象徴である水の夢を解釈します。",
+    "categoryJa": "自然と元素",
+    "titleZh": "深度剖析水夢",
+    "excerptZh": "我們解讀象徵生命力和情感的水夢，從滿屋子清水的財富大爆發，到渾水中掙扎的心理停滯。",
+    "categoryZh": "自然與元素"
   },
   {
     "id": "fire-dream",
@@ -41,7 +59,13 @@
     "category": "자연과 원소",
     "categoryEn": "Nature & Elements",
     "coverImage": "https://images.unsplash.com/photo-1508873699372-7aeab60b44ab?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "火の夢の深層分析",
+    "excerptJa": "家が活発に燃える繁栄の信号から山火事や炎に包まれる破滅の警告まで、浄化と破壊の強力な二重エネルギーを抱く火の夢を分析します。",
+    "categoryJa": "自然と元素",
+    "titleZh": "深入剖析火夢",
+    "excerptZh": "從房屋燃燒明亮的繁榮徵兆，到森林火災或被火焰吞噬的警告，我們分析了蘊含著強大的淨化和毀滅雙重能量的火夢。",
+    "categoryZh": "自然與五行"
   },
   {
     "id": "snake-dream",
@@ -52,7 +76,13 @@
     "category": "영적 동물",
     "categoryEn": "Spiritual Animals",
     "coverImage": "/snake_dream.png",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "ヘビの夢の深い分析",
+    "excerptJa": "知恵と癒しをもたらすヘビに噛む吉夢から狡猾な裏切りと健康悪化を象徴するヘビの襲撃まで、人類史上最も古いシンボルを解きます。",
+    "categoryJa": "精神動物",
+    "titleZh": "深度解析蛇夢",
+    "excerptZh": "從被蛇咬傷帶來智慧和治癒的好夢，到像徵狡猾背叛和健康不佳的群蛇襲擊，我們解釋了人類歷史上最古老的象徵。",
+    "categoryZh": "靈獸"
   },
   {
     "id": "money-dream",
@@ -63,7 +93,13 @@
     "category": "물건과 일상",
     "categoryEn": "Objects & Life",
     "coverImage": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "お金の夢の深い分析",
+    "excerptJa": "紙幣の束を拾ったり、空からお金が降り注ぐ財物運の流れから財布をスリムになって喪失感に陥る警告まで、お金の夢の象徴的実体を解読します。",
+    "categoryJa": "ものと日常",
+    "titleZh": "深入剖析金錢夢",
+    "excerptZh": "解碼金錢夢的象徵現實，從財富的流動，如撿起一捆鈔票或從天而降的金錢，到錢包被扒手時感到失落的警告。",
+    "categoryZh": "物品與日常生活"
   },
   {
     "id": "poop-dream",
@@ -74,7 +110,13 @@
     "category": "물건과 일상",
     "categoryEn": "Objects & Life",
     "coverImage": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "たわごと夢の深層分析",
+    "excerptJa": "伝統的な横材の代名詞であるたわごとを踏んだり、全身に埋もれた吉夢から汚れて匂いで逃げる恥ずかしい心理的不安の信号まで解読します。",
+    "categoryJa": "ものと日常",
+    "titleZh": "深度解析大便夢",
+    "excerptZh": "我們解讀一切，從傳統不幸的代名詞－踩到大便或弄得渾身都是好夢，到心理焦慮的跡象，如逃跑、因為又髒又臭而感到尷尬等。",
+    "categoryZh": "物體與日常生活"
   },
   {
     "id": "pig-dream",
@@ -85,7 +127,13 @@
     "category": "영적 동물",
     "categoryEn": "Spiritual Animals",
     "coverImage": "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "豚の夢の深い分析",
+    "excerptJa": "家の中で豊かさを追求し、入ってくる福豚の夢から黒い豚に追われるか、豚が逃げて加勢が傾く胸夢まで、多産と繁栄のアイコンを探求します。",
+    "categoryJa": "霊的動物",
+    "titleZh": "深度剖析豬的夢境",
+    "excerptZh": "我們探討了多子多福的象徵，從夢見給家裡帶來豐盛的幸運豬，到被黑豬追趕或豬逃跑賠錢的噩夢。",
+    "categoryZh": "靈性動物"
   },
   {
     "id": "dog-dream",
@@ -96,7 +144,13 @@
     "category": "영적 동물",
     "categoryEn": "Spiritual Animals",
     "coverImage": "https://images.unsplash.com/photo-1543466835-00a7907e9de1?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "犬の夢の深い分析",
+    "excerptJa": "私を守る心強い仲間の白い犬を養子にする夢から、猛烈な黒い犬に刺され、血を流して裏切られた対人関係の警告まで見てください。",
+    "categoryJa": "精神動物",
+    "titleZh": "深度剖析狗夢",
+    "excerptZh": "我們從夢見領養白狗，保護自己的可靠伴侶，到人際警告，被兇猛的黑狗咬傷，流血，被背叛。",
+    "categoryZh": "靈性動物"
   },
   {
     "id": "death-dream",
@@ -107,7 +161,13 @@
     "category": "현상과 상태",
     "categoryEn": "States & Phenom",
     "coverImage": "/grim_reaper.png",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "死の夢の深い分析",
+    "excerptJa": "新しい誕生と巨大な身分の上昇を予告する私の死から死体に触れたり、ボーナスを見て誤熱する夢まで、大転換の象徴を深く解読します。",
+    "categoryJa": "現状と状態",
+    "titleZh": "深度剖析死亡夢",
+    "excerptZh": "從預示著新生和地位大幅提升的我的死亡，到觸摸屍體、看著棺材哭泣的夢，深度解讀大轉變的象徵。",
+    "categoryZh": "現象與條件"
   },
   {
     "id": "teeth-dream",
@@ -118,7 +178,13 @@
     "category": "신체와 행동",
     "categoryEn": "Body & Actions",
     "coverImage": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "歯の夢の深層分析",
+    "excerptJa": "家族の友好や健康の悪化、あるいは所属団体の崩壊を予告する前歯/臼歯落ちる胸夢から腐った歯が抜けて泊まった渋滞が下がる吉夢まで解きます。",
+    "categoryJa": "身体と行動",
+    "titleZh": "深度剖析牙齒夢境",
+    "excerptZh": "解說範圍廣泛，從夢見掉門牙或臼齒的惡夢（預示家庭不幸或健康狀況惡化，或組織崩潰），到好夢夢見掉爛牙、放下舊有的瘀滯。",
+    "categoryZh": "身體與行為"
   },
   {
     "id": "falling-dream",
@@ -129,7 +195,13 @@
     "category": "신체와 행동",
     "categoryEn": "Body & Actions",
     "coverImage": "https://images.unsplash.com/photo-1482862549707-f63cb32c5fd9?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "落ちる夢の深層分析",
+    "excerptJa": "無限の崖から落ちて感じる極度の統制力の喪失と現実のストレスから高い空で気持ちよく下降して優しく着地する吉夢まで解読します。",
+    "categoryJa": "身体と行動",
+    "titleZh": "深度解析墜落夢境",
+    "excerptZh": "解碼一切，從無邊懸崖墜落所感受到的極度失控和現實壓力，到從高空愉快下降並軟著陸的吉祥夢。",
+    "categoryZh": "身體與行為"
   },
   {
     "id": "chased-dream",
@@ -140,7 +212,13 @@
     "category": "신체와 행동",
     "categoryEn": "Body & Actions",
     "coverImage": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "追われる夢の深層分析",
+    "excerptJa": "殺人魔や怪物に絶えず追いかけて息が詰まる圧迫感と回避性向の分析から、私を追撃した存在を勇気よく振り返って倒す大吉夢まで取り上げます。",
+    "categoryJa": "身体と行動",
+    "titleZh": "深度剖析被追趕的夢想",
+    "excerptZh": "內容涵蓋了從被殺手或怪物無休止追趕的窒息壓力和迴避傾向的分析，到勇敢回望並擊敗追趕你的實體的偉大夢想。",
+    "categoryZh": "身體與行為"
   },
   {
     "id": "flying-dream",
@@ -151,7 +229,13 @@
     "category": "신체와 행동",
     "categoryEn": "Body & Actions",
     "coverImage": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "飛行夢の深層分析",
+    "excerptJa": "自分の翼で空を自由に飛び回る自我の拡張と自由の表象から重力に勝つことができず、ねじれ前線にかかって墜落する現実的制約の警告まで解読します。",
+    "categoryJa": "身体と行動",
+    "titleZh": "深入剖析飛翔夢想",
+    "excerptZh": "解碼一切，從自我膨脹和自由的象徵，用自己的翅膀在天空中自由飛翔，到現實約束的警告，如因無法克服重力而絆倒、被鐵絲纏住後墜落等。",
+    "categoryZh": "身體與行為"
   },
   {
     "id": "hair-dream",
@@ -162,7 +246,13 @@
     "category": "신체와 행동",
     "categoryEn": "Body & Actions",
     "coverImage": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "髪の毛の夢の深い分析",
+    "excerptJa": "髪が長くなり、ツヤが流れ、生命力と魅力があふれる大吉夢から円形の脱毛が生じたり、髪の毛が切れて体面をくすぐる警告の信号まで解きます。",
+    "categoryJa": "身体と行動",
+    "titleZh": "深度剖析頭髮夢",
+    "excerptZh": "從大吉大利夢到頭髮變得又長又亮，充滿活力和魅力，到因禿斑或剪髮而丟臉的預兆。",
+    "categoryZh": "身體與行為"
   },
   {
     "id": "baby-dream",
@@ -173,7 +263,13 @@
     "category": "인물과 관계",
     "categoryEn": "People & Relat",
     "coverImage": "/baby_dream.png",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "赤ちゃんの夢の深い分析",
+    "excerptJa": "新しい始まりと純粋な創造的なエネルギーを象徴する赤ちゃんを抱く育てる夢から、老いた病気の赤ちゃんの世話をし、無限の責任感の荷物に押しつぶされる心理的警告まで分析します。",
+    "categoryJa": "人物との関係",
+    "titleZh": "深入剖析嬰兒夢境",
+    "excerptZh": "我們分析了象徵著新的開始和純粹創造力的抱嬰兒的夢，以及照顧年老多病的嬰兒和被無盡的責任負擔所壓垮的心理警示。",
+    "categoryZh": "人物和人際關係"
   },
   {
     "id": "house-dream",
@@ -184,7 +280,13 @@
     "category": "물건과 일상",
     "categoryEn": "Objects & Life",
     "coverImage": "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "家の夢の深層分析",
+    "excerptJa": "新しい宮殿のような大邸宅を買い入れたり引っ越す霊的・物的成就の信号から、私の家が古くなって崩れたり、見知らぬ侵入者が入って脅威を感じる凶夢まで取り上げます。",
+    "categoryJa": "物事と日常",
+    "titleZh": "對房子夢的深入分析",
+    "excerptZh": "它涵蓋了一切，從購買或搬進新的宮殿式豪宅等精神和物質成就的跡象，到因房屋磨損而倒塌或陌生入侵者進入而感到威脅的噩夢。",
+    "categoryZh": "物體和日常生活"
   },
   {
     "id": "ghost-dream",
@@ -195,7 +297,13 @@
     "category": "현상과 상태",
     "categoryEn": "States & Phenom",
     "coverImage": "/ghost_dream.png",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "幽霊の夢の深い分析",
+    "excerptJa": "幽霊に捕らえられ、心のこもった深い未解決のトラウマと無意識の抑圧から知恵の先祖の魂が現れ、進む道を知らせる予知的吉夢まで見てみましょう。",
+    "categoryJa": "現状と状態",
+    "titleZh": "對鬼夢的深入分析",
+    "excerptZh": "我們著眼於被鬼困住的內心深處未解決的創傷和無意識的壓抑，以及明智祖先的靈魂出現並指示前進方向的預言夢。",
+    "categoryZh": "現象與條件"
   },
   {
     "id": "blood-dream",
@@ -206,7 +314,13 @@
     "category": "신체와 행동",
     "categoryEn": "Body & Actions",
     "coverImage": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "血の夢の深い分析",
+    "excerptJa": "私の体から出てくる赤い血が来た大地を濡らす生命力と富の大吉夢から他人の乾いた血が埋まって否定的な感情に包まれる警告まで解読します。",
+    "categoryJa": "身体と行動",
+    "titleZh": "深度剖析血夢",
+    "excerptZh": "解碼一切，從我體內噴出的紅血浸透大地的元氣富貴大運夢，到因他人血乾而陷入負面情緒的警告。",
+    "categoryZh": "身體與行為"
   },
   {
     "id": "shoes-dream",
@@ -217,7 +331,13 @@
     "category": "물건과 일상",
     "categoryEn": "Objects & Life",
     "coverImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "靴の夢の深い分析",
+    "excerptJa": "私の心強い社会的背景と身分を示す高級靴をプレゼントする吉夢から道の真ん中から靴を失って裸足に慌て、迷いは孤立の警告まで解きます。",
+    "categoryJa": "ものと日常",
+    "titleZh": "深入剖析鞋夢",
+    "excerptZh": "從代表自己強大社會背景和地位的奢侈鞋子作為禮物的幸運夢，到在馬路中間丟鞋、赤腳驚慌地四處遊蕩的孤立警示。",
+    "categoryZh": "物品與日常生活"
   },
   {
     "id": "ancestor-dream",
@@ -228,7 +348,13 @@
     "category": "인물과 관계",
     "categoryEn": "People & Relat",
     "coverImage": "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "先祖の夢の深層分析",
+    "excerptJa": "明るく微笑む先祖に贈り物を受けたり、ご飯を食べておもてなしする大吉夢から、暗いオーラで涙を流して私を叱る不安の警告まで解読します。",
+    "categoryJa": "人物との関係",
+    "titleZh": "深入剖析祖先夢",
+    "excerptZh": "解碼一切，從收到禮物或準備飯菜的大吉夢，到笑容燦爛的祖先，到讓你哭泣、用暗能量罵你的焦慮警告。",
+    "categoryZh": "人和人際關係"
   },
   {
     "id": "cat-dream",
@@ -239,7 +365,13 @@
     "category": "영적 동물",
     "categoryEn": "Spiritual Animals",
     "coverImage": "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "猫の夢の深い分析",
+    "excerptJa": "かわいい猫を抱きしめたり、宝石をもたらした不思議な吉祥から、指を倒したり、猫が家を出る人間関係と富の警告まで分析します。",
+    "categoryJa": "精神動物",
+    "titleZh": "深入解析貓的夢境",
+    "excerptZh": "我們分析一切，從神秘的吉祥夢（懷裡抱著一隻可愛的貓或給你帶來珠寶）到警告人際關係和財富損失，例如手指被咬或貓離開家。",
+    "categoryZh": "精神動物"
   },
   {
     "id": "spider-dream",
@@ -250,7 +382,13 @@
     "category": "영적 동물",
     "categoryEn": "Spiritual Animals",
     "coverImage": "https://images.unsplash.com/photo-1524293581917-878a6d017cda?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "クモの夢の深い分析",
+    "excerptJa": "家の中に大きな王のクモが入ったり、細かい家を建てる財政的大吉夢から、クモの巣に身体が縛られて苦しくて足を噛む人間関係の罠を調べます。",
+    "categoryJa": "霊的動物",
+    "titleZh": "深度剖析蜘蛛夢",
+    "excerptZh": "從夢見大蜘蛛進屋、蓋密密麻麻的財運吉夢中，我們可以看到被蜘蛛網纏住、腿被咬而感到沮喪等人際關係中的陷阱。",
+    "categoryZh": "靈性動物"
   },
   {
     "id": "clothes-dream",
@@ -261,7 +399,13 @@
     "category": "물건과 일상",
     "categoryEn": "Objects & Life",
     "coverImage": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "服の夢の深い分析",
+    "excerptJa": "清潔な新しい服や華やかなスポーツ制服/官服を受けて着る身分の上昇から、服が引き裂かれたり、裸で慌てる社会的体面失墜の警告まで解読します。",
+    "categoryJa": "ものと日常",
+    "titleZh": "對衣服夢想的深入分析",
+    "excerptZh": "解碼一切，從通過接受乾淨的新衣服或華麗的運動服/軍官制服來提升地位，到當衣服被撕裂或因赤身裸體而尷尬時失去社交面子的警告。",
+    "categoryZh": "物體和日常生活"
   },
   {
     "id": "exam-dream",
@@ -272,7 +416,13 @@
     "category": "현상과 상태",
     "categoryEn": "States & Phenom",
     "coverImage": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "試験夢の深い分析",
+    "excerptJa": "試験問題を解き、合格したり、台無しにして涼しく泣く逆夢から、遅れて遅刻して白紙解答を出す現代人たちの極度な評価ストレスを分析します。",
+    "categoryJa": "現状と状態",
+    "titleZh": "考試夢深度剖析",
+    "excerptZh": "我們分析現代人的極端評價壓力，從解題、及格或不及格哭的逆夢，到現代人遲到、放棄白答卷的極端評價壓力。",
+    "categoryZh": "現象與條件"
   },
   {
     "id": "thief-dream",
@@ -283,7 +433,13 @@
     "category": "인물과 관계",
     "categoryEn": "People & Relat",
     "coverImage": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "泥棒夢の深層分析",
+    "excerptJa": "泥棒を殴ったり、古い物を盗んだり、悩みが解決される吉夢から、金庫の全資産を盗んで投資詐欺を警告する胸調の違いを明確に区別します。",
+    "categoryJa": "人物との関係",
+    "titleZh": "深入解析小偷的夢",
+    "excerptZh": "我們清楚地區分了透過抓小偷或偷舊物來解決問題的好夢和透過保險箱中的所有資產被盜來警告投資詐欺的兇兆。",
+    "categoryZh": "人和關係"
   },
   {
     "id": "car-dream",
@@ -294,7 +450,13 @@
     "category": "물건과 일상",
     "categoryEn": "Objects & Life",
     "coverImage": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "自動車の夢の深層分析",
+    "excerptJa": "高速道路を涼しく走ったり、高級車を新しく買う地位上昇から、ブレーキがかからなかったり、駐車した車を盗んだ制御力喪失の警告まで解釈します。",
+    "categoryJa": "物事と日常",
+    "titleZh": "對汽車夢想的深入分析",
+    "excerptZh": "我們解釋一切，從在高速公路上平穩駕駛或購買新豪華車等地位提升，到剎車失控或停放的汽車被盜等失控警告。",
+    "categoryZh": "物體和日常生活"
   },
   {
     "id": "fight-dream",
@@ -305,7 +467,13 @@
     "category": "신체와 행동",
     "categoryEn": "Body & Actions",
     "coverImage": "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "戦い夢の深層分析",
+    "excerptJa": "私を苦しめた相手を打ち負かしたり、血を鉄を流して交渉する吉夢から、当たって転がされて悔しく泣く抑圧された怒りを解読します。",
+    "categoryJa": "身体と行動",
+    "titleZh": "深入剖析打架夢",
+    "excerptZh": "從擊敗騷擾我的對手並獲勝或流血談判的好夢中，解讀被打、不公正哭泣所壓抑的憤怒。",
+    "categoryZh": "身體與行為"
   },
   {
     "id": "celebrity-dream",
@@ -316,7 +484,13 @@
     "category": "인물과 관계",
     "categoryEn": "People & Relat",
     "coverImage": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "芸能人の夢の深い分析",
+    "excerptJa": "有名な芸能人が抱きしめたり、大統領とご飯を食べる名誉の垂直上昇から、拒絶され無視される内面の欠乏と拒絶不安を深く診断します。",
+    "categoryJa": "人物との関係",
+    "titleZh": "深度剖析明星夢想",
+    "excerptZh": "從被明星擁抱、與總統吃飯的名氣垂直上升，到被拒絕、被忽視的內心缺失和拒絕焦慮，深度診斷。",
+    "categoryZh": "與人物的關係"
   },
   {
     "id": "bath-dream",
@@ -327,6 +501,12 @@
     "category": "신체와 행동",
     "categoryEn": "Body & Actions",
     "coverImage": "https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=600&auto=format&fit=crop&q=60",
-    "author": "DreamTeller Editor"
+    "author": "DreamTeller Editor",
+    "titleJa": "お風呂の夢深層分析",
+    "excerptJa": "澄んだ温泉に身を浸し、時を押して心配を洗い流す浄化の吉夢から、石鹸が無く洗えない、または汚れた汚れに身を浸す胸潮を説明します。",
+    "categoryJa": "身体と行動",
+    "titleZh": "深度剖析沐浴夢",
+    "excerptZh": "從夢見泡清澈的溫泉、洗去污垢的淨化吉祥夢中，解釋了沒有肥皂而無法洗澡、泡在骯髒的泥水中的不祥之兆。",
+    "categoryZh": "身體與行為"
   }
 ]

@@ -9,7 +9,7 @@ interface DreamReportProps {
   selectedMode: 'traditional' | 'psychological' | 'hybrid';
   onReset: () => void;
   inlineMode?: boolean;
-  language: 'ko' | 'en';
+  language: 'ko' | 'en' | 'ja' | 'zh-TW';
   onNavigateToBlogPost?: (postId: string) => void;
 }
 
