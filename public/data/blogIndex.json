@@ -1,5 +1,38 @@
 [
   {
+    "id": "rain-dream",
+    "title": "비 꿈 해몽: 내리는 비와 폭우가 전하는 감정의 신호",
+    "titleEn": "Rain Dream Meaning: Emotional Signals in Gentle Rain and Storms",
+    "excerpt": "잔잔한 비, 소나기, 폭우, 비를 피하는 장면까지. 비가 등장한 꿈을 감정의 회복과 변화의 관점에서 차분히 살펴봅니다.",
+    "excerptEn": "Explore gentle rain, downpours, shelter, and getting wet as symbols of emotional release, renewal, and change.",
+    "category": "자연과 원소",
+    "categoryEn": "Nature & Elements",
+    "coverImage": "https://images.unsplash.com/photo-1519692933481-e162a57d6721?w=1200&auto=format&fit=crop&q=80",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "ocean-dream",
+    "title": "바다 꿈 해몽: 잔잔한 바다와 거친 파도의 의미",
+    "titleEn": "Ocean Dream Meaning: Calm Seas, High Waves, and the Unknown",
+    "excerpt": "끝없이 펼쳐진 바다, 맑은 물, 높은 파도, 해변의 장면을 통해 현재의 감정과 삶의 변화에 대해 생각해 봅니다.",
+    "excerptEn": "Read calm water, deep blue distance, shorelines, and rough waves as images of emotion, uncertainty, and transition.",
+    "category": "자연과 원소",
+    "categoryEn": "Nature & Elements",
+    "coverImage": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&auto=format&fit=crop&q=80",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "bird-dream",
+    "title": "새 꿈 해몽: 날아오르는 새와 새장 속 새의 상징",
+    "titleEn": "Bird Dream Meaning: Freedom, Messages, and Caged Wings",
+    "excerpt": "창가의 새, 무리 지어 나는 새, 다친 새, 새장 속 새가 나타나는 꿈을 자유와 관계, 소식의 상징으로 해석합니다.",
+    "excerptEn": "Explore birds at a window, flocks, injured birds, and cages as symbols of freedom, connection, news, and restraint.",
+    "category": "동물과 상징",
+    "categoryEn": "Animals & Symbols",
+    "coverImage": "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=1200&auto=format&fit=crop&q=80",
+    "author": "DreamTeller Editor"
+  },
+  {
     "id": "dragon-dream",
     "title": "용 꿈 심층분석",
     "titleEn": "Dragon Dream In-Depth Analysis",

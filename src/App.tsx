@@ -7,7 +7,6 @@ import { AdminDashboard } from './components/AdminDashboard';
 import { SettingsModal } from './components/SettingsModal';
 import { GuideModal } from './components/GuideModal';
 import { DreamBlog } from './components/DreamBlog';
-import { InfoModal } from './components/InfoModal';
 import { aiService } from './services/aiService';
 import { storageService } from './services/storageService';
 import type { AppSettings, ChatSession, ChatMessage } from './services/storageService';
@@ -22,8 +21,6 @@ export default function App() {
   const [selectedBlogPostId, setSelectedBlogPostId] = useState<string | null>(null);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
   const [isGuideOpen, setIsGuideOpen] = useState(false);
-  const [isInfoOpen, setIsInfoOpen] = useState(false);
-  const [infoType, setInfoType] = useState<'privacy' | 'about-contact'>('privacy');
   const [chromeSubMode, setChromeSubMode] = useState<'setup' | 'download'>('setup');
   
   // Interpretation States
@@ -674,13 +671,13 @@ export default function App() {
         <footer style={styles.footer}>
           <p style={styles.footerText}>© 2026 DreamTeller. Client-Side On-Device AI Dream Interpretation. All Rights Reserved.</p>
           <div style={styles.footerLinks}>
-            <button onClick={() => { setInfoType('privacy'); setIsInfoOpen(true); }} style={styles.footerLinkBtn}>
+            <a href="/privacy.html" style={styles.footerLinkBtn}>
               {t('privacyPolicy')}
-            </button>
+            </a>
             <span style={{ color: '#444', fontSize: '0.75rem' }}>|</span>
-            <button onClick={() => { setInfoType('about-contact'); setIsInfoOpen(true); }} style={styles.footerLinkBtn}>
+            <a href="/about.html" style={styles.footerLinkBtn}>
               {t('aboutAndContact')}
-            </button>
+            </a>
             <span style={{ color: '#444', fontSize: '0.75rem' }}>|</span>
             {currentView === 'main' ? (
               <button onClick={() => setCurrentView('admin')} style={styles.footerLinkBtn}>
@@ -718,13 +715,6 @@ export default function App() {
           onSelectEngine={handleSelectEngine}
           chromeSubMode={chromeSubMode}
           onStartChromeDownload={handleStartChromeDownload}
-          language={settings.language}
-        />
-
-        <InfoModal 
-          isOpen={isInfoOpen}
-          onClose={() => setIsInfoOpen(false)}
-          type={infoType}
           language={settings.language}
         />
 

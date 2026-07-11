@@ -151,6 +151,33 @@ export const DreamBlog: React.FC<{
     fetchDetail();
   }, [selectedPostId]);
 
+  // Keep every article shareable and give each loaded article its own title,
+  // description, and canonical URL for visitors and search engines.
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    if (selectedPostId) {
+      url.searchParams.set('post', selectedPostId);
+    } else {
+      url.searchParams.delete('post');
+    }
+    window.history.replaceState({}, '', `${url.pathname}${url.search}${url.hash}`);
+
+    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (canonical) canonical.href = url.toString();
+
+    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
+    if (!currentPost) {
+      document.title = 'DreamTeller | Private Dream Interpretation';
+      if (description) description.content = 'DreamTeller offers private, on-device dream interpretation and an original dream-symbol guide.';
+      return;
+    }
+
+    const title = getBlogVal(currentPost, 'title', language);
+    const introduction = getBlogVal(currentPost, 'introduction', language).replace(/\s+/g, ' ').slice(0, 155);
+    document.title = `${title} | DreamTeller`;
+    if (description) description.content = introduction;
+  }, [selectedPostId, currentPost, language]);
+
   // 3. Set up Intersection Observer to track active header section when detailed post is loaded
   useEffect(() => {
     if (!selectedPostId || !currentPost) return;
