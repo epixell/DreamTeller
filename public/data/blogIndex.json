@@ -1,5 +1,16 @@
 [
   {
+    "id": "star-dream",
+    "title": "별 꿈 해몽: 쏟아지는 별과 별똥별이 전하는 희망의 신호",
+    "titleEn": "Star Dream Meaning: Hope, Direction, and Falling Stars",
+    "excerpt": "밤하늘의 별, 별똥별, 별을 찾는 장면, 빛을 잃은 별이 나타나는 꿈을 희망과 방향, 작은 목표의 관점에서 살펴봅니다.",
+    "excerptEn": "Explore star-filled skies, shooting stars, searching for constellations, and dim stars as images of hope, direction, and small goals.",
+    "category": "하늘과 상징",
+    "categoryEn": "Sky & Symbols",
+    "coverImage": "https://images.unsplash.com/photo-1464802686167-b939a6910659?w=1200&auto=format&fit=crop&q=80",
+    "author": "DreamTeller Editor"
+  },
+  {
     "id": "moon-dream",
     "title": "달 꿈 해몽: 보름달·초승달·가려진 달이 전하는 마음의 변화",
     "titleEn": "Moon Dream Meaning: Full Moons, Crescent Moons, and Hidden Feelings",
