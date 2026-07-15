@@ -1,5 +1,16 @@
 [
   {
+    "id": "flower-dream",
+    "title": "꽃 꿈 해몽: 피어나는 꽃과 시든 꽃이 전하는 마음의 신호",
+    "titleEn": "Flower Dream Meaning: Blooming, Withering, and Giving Flowers",
+    "excerpt": "활짝 핀 꽃, 꽃다발, 시든 꽃, 꽃이 피지 않은 정원을 통해 기대와 관계, 돌봄의 의미를 차분히 살펴봅니다.",
+    "excerptEn": "Explore blooming flowers, bouquets, withered petals, and quiet gardens as images of hope, relationships, care, and change.",
+    "category": "자연과 상징",
+    "categoryEn": "Nature & Symbols",
+    "coverImage": "https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=1200&auto=format&fit=crop&q=80",
+    "author": "DreamTeller Editor"
+  },
+  {
     "id": "star-dream",
     "title": "별 꿈 해몽: 쏟아지는 별과 별똥별이 전하는 희망의 신호",
     "titleEn": "Star Dream Meaning: Hope, Direction, and Falling Stars",
