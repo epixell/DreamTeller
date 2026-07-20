@@ -1,5 +1,38 @@
 [
   {
+    "id": "fish-dream",
+    "title": "물고기 꿈 해몽: 큰 물고기 잡는 꿈·물고기 태몽·죽은 물고기의 의미",
+    "titleEn": "Fish Dream Meaning: Catching Big Fish, Birth Dreams, and Dead Fish",
+    "excerpt": "큰 물고기를 잡는 꿈, 맑은 물속 물고기, 물고기 태몽, 죽은 물고기가 전하는 기회와 감정의 흐름을 살펴봅니다.",
+    "excerptEn": "Explore catching big fish, fish in clear water, birth-dream symbolism, and dead fish as signs of opportunity and emotional flow.",
+    "category": "자연과 재물",
+    "categoryEn": "Nature & Fortune",
+    "coverImage": "https://images.unsplash.com/photo-1524704654690-b56c05c78a00?w=1200&auto=format&fit=crop&q=80",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "lottery-dream",
+    "title": "로또 당첨되는 꿈 해몽: 복권 사는 꿈·번호 보는 꿈·돈 받는 꿈의 의미",
+    "titleEn": "Lottery Dream Meaning: Winning, Buying Tickets, and Seeing Numbers",
+    "excerpt": "로또 당첨되는 꿈, 복권 사는 꿈, 번호가 보이는 꿈, 돈 때문에 생기는 장면을 재물운과 기대 심리의 관점에서 살펴봅니다.",
+    "excerptEn": "Explore winning the lottery, buying tickets, seeing numbers, and money-related scenes as symbols of fortune hopes and expectation.",
+    "category": "재물과 기회",
+    "categoryEn": "Money & Opportunity",
+    "coverImage": "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=1200&auto=format&fit=crop&q=80",
+    "author": "DreamTeller Editor"
+  },
+  {
+    "id": "pregnancy-dream",
+    "title": "임신하는 꿈 해몽: 내가 임신한 꿈·남이 임신한 꿈·태몽의 의미",
+    "titleEn": "Pregnancy Dream Meaning: Being Pregnant, Others Pregnant, and New Possibilities",
+    "excerpt": "내가 임신한 꿈, 남이 임신한 꿈, 태몽처럼 느껴지는 장면을 새로운 시작과 책임, 가능성의 관점에서 차분히 풀이합니다.",
+    "excerptEn": "Explore being pregnant, someone else pregnant, and birth-dream imagery as signs of new beginnings, responsibility, and possibility.",
+    "category": "삶의 변화",
+    "categoryEn": "Life Changes",
+    "coverImage": "https://images.unsplash.com/photo-1492725764893-90b379c2b6e7?w=1200&auto=format&fit=crop&q=80",
+    "author": "DreamTeller Editor"
+  },
+  {
     "id": "marriage-dream",
     "title": "결혼하는 꿈 해몽: 내가 결혼하는 꿈·웨딩드레스·결혼식의 의미",
     "titleEn": "Marriage Dream Meaning: Weddings, Wedding Dresses, and New Beginnings",
